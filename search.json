@@ -1,10 +1,38 @@
 [
   {
-    "objectID": "Themen.html",
-    "href": "Themen.html",
+    "objectID": "reproducible_01.html#warum-das-ganze",
+    "href": "reproducible_01.html#warum-das-ganze",
     "title": "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows",
-    "section": "",
-    "text": "Clean Code, Reproducible Science:\nFortgeschrittene R-Programmierung und Workflows\n\nFortgeschrittenes Programmieren in R\n\nDon’t repeat yourself: Funktionen und Loops\nCode-Stil: Objektnamen, lintr\nSimulationen (simstudy)\nParallelisieren (parallel, future, furrr)\n\n\n\nReproduzierbarkeit mit R, Git und Quarto\n\nProjektstruktur für Studien (eine Studie = ein Projekt)\nReproduzierbare Umgebungen mit renv\nR-Pakete für internen Gebrauch und Open Science\nVersionierung mit Git, Github und Co.\nLiterate Programming mit Quarto"
+    "section": "Warum das Ganze?",
+    "text": "Warum das Ganze?\nIch muss nach Jahren eine Analyse erneut durchführen…\nMein Kollege möchte auf meiner Analyse aufbauend eine neue Studie\nIch möchte meinen Analyse-Code zusammen mit meiner Studie veröffentlichen, sodass ihn andere nutzen können…"
+  },
+  {
+    "objectID": "reproducible_01.html#was-ist-reproduzierbarkeit",
+    "href": "reproducible_01.html#was-ist-reproduzierbarkeit",
+    "title": "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows",
+    "section": "Was ist Reproduzierbarkeit",
+    "text": "Was ist Reproduzierbarkeit\nReproduzierbar ist eine Analyse, wenn\n\nnach Jahren noch ausführbar\nGleiche Ergebnisse\n\nKeine\n\nsie auch\nnach Jahren noch mit den gleichen Ergebnissen\nausführen können."
+  },
+  {
+    "objectID": "reproducible_01.html#wie-erreicht-man-das",
+    "href": "reproducible_01.html#wie-erreicht-man-das",
+    "title": "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows",
+    "section": "Wie erreicht man das?",
+    "text": "Wie erreicht man das?\n\nEinfrieren der\n\nVersionskontrolle"
+  },
+  {
+    "objectID": "reproducible_01.html#welche-möglichkeiten-gibt-es",
+    "href": "reproducible_01.html#welche-möglichkeiten-gibt-es",
+    "title": "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows",
+    "section": "Welche Möglichkeiten gibt es?",
+    "text": "Welche Möglichkeiten gibt es?\n\nVersionskontrolle mit Git\nrenv\nContainer wie Docker, Nix"
+  },
+  {
+    "objectID": "reproducible_01.html#versionskontrolle-mit-git-github-gitlab-etc.",
+    "href": "reproducible_01.html#versionskontrolle-mit-git-github-gitlab-etc.",
+    "title": "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows",
+    "section": "Versionskontrolle mit Git, Github, Gitlab, etc.",
+    "text": "Versionskontrolle mit Git, Github, Gitlab, etc.\nLiteraturhinweis: (Happy Git and GitHub for the useR)[https://happygitwithr.com/]"
   },
   {
     "objectID": "programming_01.html#zu-dem-workshop",
@@ -86,35 +114,35 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "R Workshop für Peergroup Methoden",
+    "title": "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows",
     "section": "",
     "text": "🗓️ 13.05.2026\n⏰ 13:00 - 17:00"
   },
   {
     "objectID": "index.html#inhalt",
     "href": "index.html#inhalt",
-    "title": "R Workshop für Peergroup Methoden",
+    "title": "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows",
     "section": "Inhalt",
     "text": "Inhalt"
   },
   {
     "objectID": "index.html#zeitplan",
     "href": "index.html#zeitplan",
-    "title": "R Workshop für Peergroup Methoden",
+    "title": "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows",
     "section": "Zeitplan",
     "text": "Zeitplan\n\n\n\nUhrzeit\nInhalt\n\n\n\n\n13:00 - 14:30\nProgrammieren und Workflows\n\n\n14:30 - 15:00\nPause\n\n\n15:00 - 17:00\nReproduzierbarkeit"
   },
   {
     "objectID": "index.html#vorraussetzungen",
     "href": "index.html#vorraussetzungen",
-    "title": "R Workshop für Peergroup Methoden",
+    "title": "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows",
     "section": "Vorraussetzungen",
     "text": "Vorraussetzungen\n\nR\nRStudio\nDie folgenden R-Pakete: Können mit diesem Code installiert werden:\n\ninstall.packages(c(\"tidyverse, \"here\"))"
   },
   {
     "objectID": "index.html#über-mich",
     "href": "index.html#über-mich",
-    "title": "R Workshop für Peergroup Methoden",
+    "title": "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows",
     "section": "Über mich",
     "text": "Über mich"
   },
@@ -131,40 +159,5 @@
     "title": "Literaturangaben",
     "section": "",
     "text": "Literatur"
-  },
-  {
-    "objectID": "reproducible_01.html#warum-das-ganze",
-    "href": "reproducible_01.html#warum-das-ganze",
-    "title": "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows",
-    "section": "Warum das Ganze?",
-    "text": "Warum das Ganze?\nIch muss nach Jahren eine Analyse erneut durchführen…\nMein Kollege möchte auf meiner Analyse aufbauend eine neue Studie\nIch möchte meinen Analyse-Code zusammen mit meiner Studie veröffentlichen, sodass ihn andere nutzen können…"
-  },
-  {
-    "objectID": "reproducible_01.html#was-ist-reproduzierbarkeit",
-    "href": "reproducible_01.html#was-ist-reproduzierbarkeit",
-    "title": "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows",
-    "section": "Was ist Reproduzierbarkeit",
-    "text": "Was ist Reproduzierbarkeit\nReproduzierbar ist eine Analyse, wenn\n\n\nnach Jahren noch ausführbar\nGleiche Ergebnisse\n\nKeine\n\n\nsie auch\nnach Jahren noch mit den gleichen Ergebnissen\nausführen können."
-  },
-  {
-    "objectID": "reproducible_01.html#wie-erreicht-man-das",
-    "href": "reproducible_01.html#wie-erreicht-man-das",
-    "title": "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows",
-    "section": "Wie erreicht man das?",
-    "text": "Wie erreicht man das?\n\n\nEinfrieren der\n\nVersionskontrolle"
-  },
-  {
-    "objectID": "reproducible_01.html#welche-möglichkeiten-gibt-es",
-    "href": "reproducible_01.html#welche-möglichkeiten-gibt-es",
-    "title": "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows",
-    "section": "Welche Möglichkeiten gibt es?",
-    "text": "Welche Möglichkeiten gibt es?\n\nVersionskontrolle mit Git\nrenv\nContainer wie Docker, Nix"
-  },
-  {
-    "objectID": "reproducible_01.html#versionskontrolle-mit-git-github-gitlab-etc.",
-    "href": "reproducible_01.html#versionskontrolle-mit-git-github-gitlab-etc.",
-    "title": "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows",
-    "section": "Versionskontrolle mit Git, Github, Gitlab, etc.",
-    "text": "Versionskontrolle mit Git, Github, Gitlab, etc.\nLiteraturhinweis: (Happy Git and GitHub for the useR)[https://happygitwithr.com/]"
   }
 ]
