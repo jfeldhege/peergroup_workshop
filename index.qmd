@@ -1,9 +1,9 @@
 ---
-title: "R Workshop für Peergroup Methoden"
+title: "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows"
 ---
 
-:spiral_calendar: 01.05.2026\
-:alarm_clock: 09:00 - 13:00\
+:spiral_calendar: 13.05.2026\
+:alarm_clock: 13:00 - 17:00\
 
 ## Inhalt
 
@@ -11,9 +11,9 @@ title: "R Workshop für Peergroup Methoden"
 
 | Uhrzeit       | Inhalt             |
 |:--------------|:-------------------|
-| 09:00 - 10:30 | Programmieren 1    |
-| 10:30 - 11:00 | *Pause*            |
-| 11:00 - 12:30 | Reproduzierbarkeit |
+| 13:00 - 14:30 | Programmieren und Workflows    |
+| 14:30 - 15:00 | *Pause*            |
+| 15:00 - 17:00 | Reproduzierbarkeit |
 
 ## Vorraussetzungen
 
