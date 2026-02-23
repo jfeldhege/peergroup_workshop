@@ -1,0 +1,10 @@
+---
+title: "Literaturangaben"
+bibliography: references.bib
+
+---
+
+### Literatur
+
+::: {#refs}
+:::

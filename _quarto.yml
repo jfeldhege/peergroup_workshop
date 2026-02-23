@@ -1,0 +1,31 @@
+project:
+  type: website
+
+execute:
+  echo: true
+  warning: false
+
+website:
+  title: "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - text: Folien  
+        menu:
+        - text: "---"
+        - text: "Programmieren"
+          href: programming_01.qmd
+
+      - href: literatur.qmd
+        text: Literatur
+
+format:
+  html:
+    theme: cosmo
+    from: markdown+emoji
+    css: styles.css
+    toc: true
+
+
+

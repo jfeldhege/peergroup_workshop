@@ -1,0 +1,61 @@
+---
+title: "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows"
+subtitle: "Reproduzierbarkeit"
+author: "Johannes Feldhege"
+format: 
+  revealjs:
+    theme: [simple]
+    footer: <R Workshop für Peergroup Methoden>
+    slide-number: true
+    chalkboard: true
+    code-link: true
+    code-line-numbers: false
+---
+
+## Warum das Ganze?
+
+Ich muss nach Jahren eine Analyse erneut durchführen...
+
+Mein Kollege möchte auf meiner Analyse aufbauend eine neue Studie 
+
+Ich möchte meinen Analyse-Code zusammen mit meiner Studie veröffentlichen, sodass ihn andere nutzen können...
+
+
+## Was ist Reproduzierbarkeit
+
+Reproduzierbar ist eine Analyse, wenn 
+
+
+::: {.incremental}
+- nach Jahren noch ausführbar
+- Gleiche Ergebnisse  
+- Keine 
+:::
+sie auch 
+
+nach Jahren noch 
+mit den gleichen Ergebnissen 
+
+ausführen können.
+
+
+## Wie erreicht man das?
+
+::: {.incremental}
+- Einfrieren der  
+- Versionskontrolle
+:::
+
+## Welche Möglichkeiten gibt es?
+
+- Versionskontrolle mit Git
+- [renv](https://cran.r-project.org/web/packages/renv/index.html)
+- Container wie Docker, Nix
+
+
+## Versionskontrolle mit Git, Github, Gitlab, etc.
+
+Literaturhinweis:
+(Happy Git and GitHub for the useR)[https://happygitwithr.com/]
+
+

@@ -1,0 +1,73 @@
+---
+title: "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows"
+subtitle: "Programmieren"
+author: "Johannes Feldhege"
+format: 
+  revealjs:
+    theme: [simple]
+    footer: <R Workshop für Peergroup Methoden>
+    slide-number: true
+    chalkboard: true
+    code-link: true
+    code-line-numbers: false
+---
+
+## Zu dem Workshop
+
+## Zu meiner Person
+
+-   Psychologie-Studium
+-   Früher bei der Forschungsstelle für Psychotherapie gearbeitet
+-   Seit 2022 als Data Scientist bei Asklepios
+-   
+
+## Zeitplan
+
+## DRY: Don't repeat yourself
+
+## Loops
+
+Wenn man doch etwas wiederholen möchte: Loops
+
+
+
+
+## Naming things
+
+![Book Naming Things](pics/naming_things_book.PNG)
+
+## Namenskonventionen
+
+Zwei der verbreitestenen Konventionen:
+
+-:snake: snake_case
+
+-:camel: camelCase
+
+## Funktionen
+
+## Code Stil mit `lintr`
+
+[lintr](https://lintr.r-lib.org/)
+
+``` r
+#| eval: false
+# Eine Datei
+lintr::lint()
+
+# Ein ganzes Verzeichnis oder ein Rstudio-Projekt
+lintr::lint_dir()
+```
+
+## Über `lintr` hinaus
+
+`lintr` gibt Vorschläge für Änderungen, führt diese aber nicht durch. Diese beiden Tools ändern den Code direkt:
+
+-   [Air](https://posit-dev.github.io/air/)
+-   [styler](https://styler.r-lib.org/)
+
+::: callout-warning
+Vorsicht: Diese Tools verändern Code ohne Vorwarnung!
+:::
+
+## Literatur

@@ -1,0 +1,28 @@
+---
+title: "R Workshop für Peergroup Methoden"
+---
+
+:spiral_calendar: 01.05.2026\
+:alarm_clock: 09:00 - 13:00\
+
+## Inhalt
+
+## Zeitplan
+
+| Uhrzeit       | Inhalt             |
+|:--------------|:-------------------|
+| 09:00 - 10:30 | Programmieren 1    |
+| 10:30 - 11:00 | *Pause*            |
+| 11:00 - 12:30 | Reproduzierbarkeit |
+
+## Vorraussetzungen
+
+-   R
+-   RStudio
+-   Die folgenden R-Pakete: Können mit diesem Code installiert werden:
+
+``` r
+install.packages(c("tidyverse, "here"))
+```
+
+## Über mich
