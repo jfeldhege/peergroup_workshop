@@ -19,10 +19,12 @@ title: "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und 
 
 -   R
 -   RStudio
--   Die folgenden R-Pakete: Können mit diesem Code installiert werden:
+-   Die folgenden R-Pakete werden benötigt: TBD
+
+Diese Pakete können mit diesem Code installiert werden:
 
 ``` r
-install.packages(c("tidyverse, "here"))
+install.packages(c("tidyverse"))
 ```
 
-## Über mich
+
