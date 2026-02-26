@@ -137,21 +137,7 @@
     "href": "index.html#vorraussetzungen",
     "title": "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows",
     "section": "Vorraussetzungen",
-    "text": "Vorraussetzungen\n\nR\nRStudio\nDie folgenden R-Pakete: Können mit diesem Code installiert werden:\n\ninstall.packages(c(\"tidyverse, \"here\"))"
-  },
-  {
-    "objectID": "index.html#über-mich",
-    "href": "index.html#über-mich",
-    "title": "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows",
-    "section": "Über mich",
-    "text": "Über mich"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
+    "text": "Vorraussetzungen\n\nR\nRStudio\nDie folgenden R-Pakete werden benötigt: TBD\n\nDiese Pakete können mit diesem Code installiert werden:\ninstall.packages(c(\"tidyverse\"))"
   },
   {
     "objectID": "literatur.html",
@@ -159,5 +145,12 @@
     "title": "Literaturangaben",
     "section": "",
     "text": "Literatur"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
   }
 ]
