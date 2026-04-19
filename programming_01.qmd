@@ -10,6 +10,7 @@ format:
     chalkboard: true
     code-link: true
     code-line-numbers: false
+engine: knitr
 filters:
   - webr
 ---
