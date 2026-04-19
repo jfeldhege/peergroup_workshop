@@ -1,6 +1,6 @@
 ---
-title: "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows"
-subtitle: "Programmieren"
+title: "Clean Code, Reproducible Science: Advanced R-Programming and Workflows"
+subtitle: "Programming with R"
 author: "Johannes Feldhege"
 format: 
   revealjs:
@@ -10,64 +10,87 @@ format:
     chalkboard: true
     code-link: true
     code-line-numbers: false
+filters:
+  - webr
 ---
 
 ## Zu dem Workshop
 
-## Zu meiner Person
+## About me
 
--   Psychologie-Studium
--   Früher bei der Forschungsstelle für Psychotherapie gearbeitet
--   Seit 2022 als Data Scientist bei Asklepios
+-   M. Sc. in Psychology
+-   Used to work for  Forschungsstelle für Psychotherapie
+-   Data Scientist at Asklepios Science & Research since 2022
 -   
 
-## Zeitplan
+## Timetable 
+
 
 ## DRY: Don't repeat yourself
 
-## Loops
+This is a webR-enabled code cell in a Quarto HTML document.
 
-Wenn man doch etwas wiederholen möchte: Loops
+```{webr-r}
+fit = lm(mpg ~ am, data = mtcars)
 
+summary(fit)
+```
+
+
+## Functions
 
 
 
 ## Naming things
 
-![Book Naming Things](pics/naming_things_book.PNG)
+Naming things is hard - so hard that books are written about it:
 
-## Namenskonventionen
+![Book Naming Things](images/naming_things_book.PNG)
 
-Zwei der verbreitestenen Konventionen:
+## Naming conventions
+
+Two most commonly used conventions:
 
 -:snake: snake_case
 
 -:camel: camelCase
 
-## Funktionen
 
-## Code Stil mit `lintr`
+## Loops
+
+If you have to repeat yourself: loops
+
+
+
+
+
+
+## Styling code
+
+
+
+## Styling code with `lintr`
 
 [lintr](https://lintr.r-lib.org/)
 
 ``` r
 #| eval: false
-# Eine Datei
+# Style one file
 lintr::lint()
 
-# Ein ganzes Verzeichnis oder ein Rstudio-Projekt
+# A whole directory or R project
 lintr::lint_dir()
 ```
 
-## Über `lintr` hinaus
+## Beyond `lintr`
 
-`lintr` gibt Vorschläge für Änderungen, führt diese aber nicht durch. Diese beiden Tools ändern den Code direkt:
+`lintr` gives recommendations but does not change code. These tools can style your code directly:
 
 -   [Air](https://posit-dev.github.io/air/)
 -   [styler](https://styler.r-lib.org/)
 
 ::: callout-warning
-Vorsicht: Diese Tools verändern Code ohne Vorwarnung!
+Caution: these tools change your code without 
 :::
 
 ## Literatur
