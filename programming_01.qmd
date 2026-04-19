@@ -11,34 +11,63 @@ format:
     code-link: true
     code-line-numbers: false
 engine: knitr
+webr: 
+  packages: ['ds4psy', 'dplyr']
 filters:
   - webr
 ---
 
-## Zu dem Workshop
+## About this workshop
+
 
 ## About me
 
 -   M. Sc. in Psychology
--   Used to work for  Forschungsstelle für Psychotherapie
--   Data Scientist at Asklepios Science & Research since 2022
--   
+-   I used to work for Forschungsstelle für Psychotherapie
+-   I currently work as a Data Scientist at Asklepios Science & Research since 2022
+-   I have published one R package on CRAN (https://cran.r-project.org/web/packages/openholidaysR/index.html) and I am working on another one
 
 ## Timetable 
+
+## A dataset for today
+
+ - 24 items of the Authentic Happiness Inventory (AHI) 
+ - 20 items of the Center for Epidemiological Studies Depression (CES-D) scale
+ - measured in 1 to 6 measurement occasions
+
+
+```{webr-r}
+?ds4psy::posPsy_AHI_CESD
+
+pospsy <- ds4psy::posPsy_AHI_CESD
+
+```
 
 
 ## DRY: Don't repeat yourself
 
-This is a webR-enabled code cell in a Quarto HTML document.
+## Repeated application of the same function
+
+CES-D is usually measured on a scale of 0-3, in our dataset it has a scale of 1-4:
 
 ```{webr-r}
-fit = lm(mpg ~ am, data = mtcars)
+range(pospsy$cesd01)
+```
 
-summary(fit)
+To recode it, I could do something like that:
+
+```{webr-r}
+pospsy$cesd01r <- pospsy$cesd01 - 1 
+pospsy$cesd02r <- pospsy$cesd02 - 1 
+pospsy$cesd03r <- pospsy$cesd03 - 1 
+pospsy$cesd04r <- pospsy$cesd04 - 1 
+
 ```
 
 
-## Functions
+## Writing Functions
+
+## Exercise
 
 
 
@@ -56,10 +85,14 @@ Two most commonly used conventions:
 
 -:camel: camelCase
 
+## Examples for bad names
+
 
 ## Loops
 
-If you have to repeat yourself: loops
+If you have to repeat yourself, use a loop
+
+## Excercise
 
 
 
@@ -72,7 +105,8 @@ If you have to repeat yourself: loops
 
 ## Styling code with `lintr`
 
-[lintr](https://lintr.r-lib.org/)
+
+[lintr](https://lintr.r-lib.org/) conducts static code analysis on your R files. 
 
 ``` r
 #| eval: false
@@ -91,7 +125,7 @@ lintr::lint_dir()
 -   [styler](https://styler.r-lib.org/)
 
 ::: callout-warning
-Caution: these tools change your code without 
+Caution: these tools change your code without asking again
 :::
 
 ## Literatur
