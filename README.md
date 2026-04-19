@@ -12,7 +12,7 @@ TBD
 
 | Time      | Content                      |
 |:--------------|:----------------------------|
-| 13:00 - 14:30 | Programming and workflowd |
+| 13:00 - 14:30 | Programming and workflows |
 | 14:30 - 15:00 | *Break*                     |
 | 15:00 - 17:00 | Reproducibility          |
 

@@ -6,22 +6,22 @@ execute:
   warning: false
 
 website:
-  title: "R Workshop für Peergroup Methoden"
+  title: "R Workshop for Methods Peer Group"
 
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - text: Folien  
+      - text: Slides  
         menu:
-        - text: "Programmieren"
+        - text: "Programming"
           href: programming_01.qmd
         - text: "---"
-        - text: "Reproduzierbarkeit"
+        - text: "Reproducibility"
           href: reproducible_01.qmd
 
       - href: literatur.qmd
-        text: Literatur
+        text: References
 
 format:
   html:
