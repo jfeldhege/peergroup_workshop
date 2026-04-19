@@ -469,7 +469,7 @@
   // Document level settings ----
 
   // Determine if we need to install R packages
-  globalThis.qwebrInstallRPackagesList = [''];
+  globalThis.qwebrInstallRPackagesList = ['ds4psy', 'dplyr'];
 
   // Specify possible locations to search for the repository
   globalThis.qwebrPackageRepoURLS = ['https://repo.r-wasm.org/'];
@@ -491,7 +491,7 @@
   };
 
   // Store cell data
-  globalThis.qwebrCellDetails = [{"code":"fit = lm(mpg ~ am, data = mtcars)\n\nsummary(fit)","id":1,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
+  globalThis.qwebrCellDetails = [{"code":"?ds4psy::posPsy_AHI_CESD\n\npospsy <- ds4psy::posPsy_AHI_CESD","id":1,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"range(pospsy$cesd01)","id":2,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-2","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"pospsy$cesd01r <- pospsy$cesd01 - 1 \npospsy$cesd02r <- pospsy$cesd02 - 1 \npospsy$cesd03r <- pospsy$cesd03 - 1 \npospsy$cesd04r <- pospsy$cesd04 - 1 ","id":3,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-3","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
 
   </script><script type="module">
   // Declare startupMessageQWebR globally
@@ -2035,19 +2035,32 @@ Johannes Feldhege
 </div>
 </div>
 
-</section><section id="zu-dem-workshop" class="slide level2"><h2>Zu dem Workshop</h2>
+</section><section id="about-this-workshop" class="slide level2"><h2>About this workshop</h2>
 </section><section id="about-me" class="slide level2"><h2>About me</h2>
 <ul>
 <li>M. Sc. in Psychology</li>
-<li>Used to work for Forschungsstelle für Psychotherapie</li>
-<li>Data Scientist at Asklepios Science &amp; Research since 2022</li>
-<li>
-</li></ul></section><section id="timetable" class="slide level2"><h2>Timetable</h2>
-</section><section id="dry-dont-repeat-yourself" class="slide level2"><h2>DRY: Don’t repeat yourself</h2>
-<p>This is a webR-enabled code cell in a Quarto HTML document.</p>
+<li>I used to work for Forschungsstelle für Psychotherapie</li>
+<li>I currently work as a Data Scientist at Asklepios Science &amp; Research since 2022</li>
+<li>I have published one R package on CRAN (https://cran.r-project.org/web/packages/openholidaysR/index.html) and I am working on another one</li>
+</ul></section><section id="timetable" class="slide level2"><h2>Timetable</h2>
+</section><section id="a-dataset-for-today" class="slide level2"><h2>A dataset for today</h2>
+<ul>
+<li>24 items of the Authentic Happiness Inventory (AHI)</li>
+<li>20 items of the Center for Epidemiological Studies Depression (CES-D) scale</li>
+<li>measured in 1 to 6 measurement occasions</li>
+</ul>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</section><section id="functions" class="slide level2"><h2>Functions</h2>
+</section><section id="dry-dont-repeat-yourself" class="slide level2"><h2>DRY: Don’t repeat yourself</h2>
+</section><section id="repeated-application-of-the-same-function" class="slide level2"><h2>Repeated application of the same function</h2>
+<p>CES-D is usually measured on a scale of 0-3, in our dataset it has a scale of 1-4:</p>
+<div id="qwebr-insertion-location-2"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>To recode it, I could do something like that:</p>
+<div id="qwebr-insertion-location-3"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section><section id="writing-functions" class="slide level2"><h2>Writing Functions</h2>
+</section><section id="exercise" class="slide level2"><h2>Exercise</h2>
 </section><section id="naming-things" class="slide level2"><h2>Naming things</h2>
 <p>Naming things is hard - so hard that books are written about it:</p>
 
@@ -2055,12 +2068,14 @@ Johannes Feldhege
 <p>Two most commonly used conventions:</p>
 <p>-:snake: snake_case</p>
 <p>-:camel: camelCase</p>
+</section><section id="examples-for-bad-names" class="slide level2"><h2>Examples for bad names</h2>
 </section><section id="loops" class="slide level2"><h2>Loops</h2>
-<p>If you have to repeat yourself: loops</p>
+<p>If you have to repeat yourself, use a loop</p>
+</section><section id="excercise" class="slide level2"><h2>Excercise</h2>
 </section><section id="styling-code" class="slide level2"><h2>Styling code</h2>
 </section><section id="styling-code-with-lintr" class="slide level2"><h2>Styling code with <code>lintr</code>
 </h2>
-<p><a href="https://lintr.r-lib.org/">lintr</a></p>
+<p><a href="https://lintr.r-lib.org/">lintr</a> conducts static code analysis on your R files.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#| eval: false</span></span>
 <span><span class="co"># Style one file</span></span>
 <span><span class="fu">lintr</span><span class="fu">::</span><span class="fu">lint</span><span class="op">(</span><span class="op">)</span></span>
@@ -2083,7 +2098,7 @@ Johannes Feldhege
 <p><strong>Warning</strong></p>
 </div>
 <div class="callout-content">
-<p>Caution: these tools change your code without</p>
+<p>Caution: these tools change your code without asking again</p>
 </div>
 </div>
 </div>

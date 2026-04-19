@@ -84,18 +84,18 @@
     "text": "Requirements\n\nCurrent versions of R and RStudio\nThe following R packager are required: TBD\n\nThe packages can be installed using the following code:\ninstall.packages(c(\"tidyverse\"))"
   },
   {
-    "objectID": "programming_01.html#zu-dem-workshop",
-    "href": "programming_01.html#zu-dem-workshop",
+    "objectID": "programming_01.html#about-this-workshop",
+    "href": "programming_01.html#about-this-workshop",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
-    "section": "Zu dem Workshop",
-    "text": "Zu dem Workshop"
+    "section": "About this workshop",
+    "text": "About this workshop"
   },
   {
     "objectID": "programming_01.html#about-me",
     "href": "programming_01.html#about-me",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "About me",
-    "text": "About me\n\nM. Sc. in Psychology\nUsed to work for Forschungsstelle für Psychotherapie\nData Scientist at Asklepios Science & Research since 2022"
+    "text": "About me\n\nM. Sc. in Psychology\nI used to work for Forschungsstelle für Psychotherapie\nI currently work as a Data Scientist at Asklepios Science & Research since 2022\nI have published one R package on CRAN (https://cran.r-project.org/web/packages/openholidaysR/index.html) and I am working on another one"
   },
   {
     "objectID": "programming_01.html#timetable",
@@ -105,18 +105,39 @@
     "text": "Timetable"
   },
   {
+    "objectID": "programming_01.html#a-dataset-for-today",
+    "href": "programming_01.html#a-dataset-for-today",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "A dataset for today",
+    "text": "A dataset for today\n\n24 items of the Authentic Happiness Inventory (AHI)\n20 items of the Center for Epidemiological Studies Depression (CES-D) scale\nmeasured in 1 to 6 measurement occasions\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
     "objectID": "programming_01.html#dry-dont-repeat-yourself",
     "href": "programming_01.html#dry-dont-repeat-yourself",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "DRY: Don’t repeat yourself",
-    "text": "DRY: Don’t repeat yourself\nThis is a webR-enabled code cell in a Quarto HTML document.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "DRY: Don’t repeat yourself"
   },
   {
-    "objectID": "programming_01.html#functions",
-    "href": "programming_01.html#functions",
+    "objectID": "programming_01.html#repeated-application-of-the-same-function",
+    "href": "programming_01.html#repeated-application-of-the-same-function",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
-    "section": "Functions",
-    "text": "Functions"
+    "section": "Repeated application of the same function",
+    "text": "Repeated application of the same function\nCES-D is usually measured on a scale of 0-3, in our dataset it has a scale of 1-4:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTo recode it, I could do something like that:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "programming_01.html#writing-functions",
+    "href": "programming_01.html#writing-functions",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Writing Functions",
+    "text": "Writing Functions"
+  },
+  {
+    "objectID": "programming_01.html#exercise",
+    "href": "programming_01.html#exercise",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Exercise",
+    "text": "Exercise"
   },
   {
     "objectID": "programming_01.html#naming-things",
@@ -133,11 +154,25 @@
     "text": "Naming conventions\nTwo most commonly used conventions:\n-:snake: snake_case\n-:camel: camelCase"
   },
   {
+    "objectID": "programming_01.html#examples-for-bad-names",
+    "href": "programming_01.html#examples-for-bad-names",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Examples for bad names",
+    "text": "Examples for bad names"
+  },
+  {
     "objectID": "programming_01.html#loops",
     "href": "programming_01.html#loops",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Loops",
-    "text": "Loops\nIf you have to repeat yourself: loops"
+    "text": "Loops\nIf you have to repeat yourself, use a loop"
+  },
+  {
+    "objectID": "programming_01.html#excercise",
+    "href": "programming_01.html#excercise",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Excercise",
+    "text": "Excercise"
   },
   {
     "objectID": "programming_01.html#styling-code",
@@ -151,14 +186,14 @@
     "href": "programming_01.html#styling-code-with-lintr",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Styling code with lintr\n",
-    "text": "Styling code with lintr\n\nlintr\n#| eval: false\n# Style one file\nlintr::lint()\n\n# A whole directory or R project\nlintr::lint_dir()"
+    "text": "Styling code with lintr\n\nlintr conducts static code analysis on your R files.\n#| eval: false\n# Style one file\nlintr::lint()\n\n# A whole directory or R project\nlintr::lint_dir()"
   },
   {
     "objectID": "programming_01.html#beyond-lintr",
     "href": "programming_01.html#beyond-lintr",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Beyond lintr\n",
-    "text": "Beyond lintr\n\nlintr gives recommendations but does not change code. These tools can style your code directly:\n\nAir\nstyler\n\n\n\n\n\n\n\nWarning\n\n\nCaution: these tools change your code without"
+    "text": "Beyond lintr\n\nlintr gives recommendations but does not change code. These tools can style your code directly:\n\nAir\nstyler\n\n\n\n\n\n\n\nWarning\n\n\nCaution: these tools change your code without asking again"
   },
   {
     "objectID": "programming_01.html#literatur",
