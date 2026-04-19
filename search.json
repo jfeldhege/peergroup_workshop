@@ -86,77 +86,84 @@
   {
     "objectID": "programming_01.html#zu-dem-workshop",
     "href": "programming_01.html#zu-dem-workshop",
-    "title": "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Zu dem Workshop",
     "text": "Zu dem Workshop"
   },
   {
-    "objectID": "programming_01.html#zu-meiner-person",
-    "href": "programming_01.html#zu-meiner-person",
-    "title": "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows",
-    "section": "Zu meiner Person",
-    "text": "Zu meiner Person\n\nPsychologie-Studium\nFrüher bei der Forschungsstelle für Psychotherapie gearbeitet\nSeit 2022 als Data Scientist bei Asklepios"
+    "objectID": "programming_01.html#about-me",
+    "href": "programming_01.html#about-me",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "About me",
+    "text": "About me\n\nM. Sc. in Psychology\nUsed to work for Forschungsstelle für Psychotherapie\nData Scientist at Asklepios Science & Research since 2022"
   },
   {
-    "objectID": "programming_01.html#zeitplan",
-    "href": "programming_01.html#zeitplan",
-    "title": "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows",
-    "section": "Zeitplan",
-    "text": "Zeitplan"
+    "objectID": "programming_01.html#timetable",
+    "href": "programming_01.html#timetable",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Timetable",
+    "text": "Timetable"
   },
   {
     "objectID": "programming_01.html#dry-dont-repeat-yourself",
     "href": "programming_01.html#dry-dont-repeat-yourself",
-    "title": "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "DRY: Don’t repeat yourself",
-    "text": "DRY: Don’t repeat yourself"
+    "text": "DRY: Don’t repeat yourself\nThis is a webR-enabled code cell in a Quarto HTML document.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
-    "objectID": "programming_01.html#loops",
-    "href": "programming_01.html#loops",
-    "title": "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows",
-    "section": "Loops",
-    "text": "Loops\nWenn man doch etwas wiederholen möchte: Loops"
+    "objectID": "programming_01.html#functions",
+    "href": "programming_01.html#functions",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Functions",
+    "text": "Functions"
   },
   {
     "objectID": "programming_01.html#naming-things",
     "href": "programming_01.html#naming-things",
-    "title": "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Naming things",
-    "text": "Naming things\n\nBook Naming Things"
+    "text": "Naming things\nNaming things is hard - so hard that books are written about it:\n\nBook Naming Things"
   },
   {
-    "objectID": "programming_01.html#namenskonventionen",
-    "href": "programming_01.html#namenskonventionen",
-    "title": "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows",
-    "section": "Namenskonventionen",
-    "text": "Namenskonventionen\nZwei der verbreitestenen Konventionen:\n-:snake: snake_case\n-:camel: camelCase"
+    "objectID": "programming_01.html#naming-conventions",
+    "href": "programming_01.html#naming-conventions",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Naming conventions",
+    "text": "Naming conventions\nTwo most commonly used conventions:\n-:snake: snake_case\n-:camel: camelCase"
   },
   {
-    "objectID": "programming_01.html#funktionen",
-    "href": "programming_01.html#funktionen",
-    "title": "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows",
-    "section": "Funktionen",
-    "text": "Funktionen"
+    "objectID": "programming_01.html#loops",
+    "href": "programming_01.html#loops",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Loops",
+    "text": "Loops\nIf you have to repeat yourself: loops"
   },
   {
-    "objectID": "programming_01.html#code-stil-mit-lintr",
-    "href": "programming_01.html#code-stil-mit-lintr",
-    "title": "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows",
-    "section": "Code Stil mit lintr",
-    "text": "Code Stil mit lintr\nlintr\n#| eval: false\n# Eine Datei\nlintr::lint()\n\n# Ein ganzes Verzeichnis oder ein Rstudio-Projekt\nlintr::lint_dir()"
+    "objectID": "programming_01.html#styling-code",
+    "href": "programming_01.html#styling-code",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Styling code",
+    "text": "Styling code"
   },
   {
-    "objectID": "programming_01.html#über-lintr-hinaus",
-    "href": "programming_01.html#über-lintr-hinaus",
-    "title": "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows",
-    "section": "Über lintr hinaus",
-    "text": "Über lintr hinaus\nlintr gibt Vorschläge für Änderungen, führt diese aber nicht durch. Diese beiden Tools ändern den Code direkt:\n\nAir\nstyler\n\n\n\n\n\n\n\nWarning\n\n\nVorsicht: Diese Tools verändern Code ohne Vorwarnung!"
+    "objectID": "programming_01.html#styling-code-with-lintr",
+    "href": "programming_01.html#styling-code-with-lintr",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Styling code with lintr\n",
+    "text": "Styling code with lintr\n\nlintr\n#| eval: false\n# Style one file\nlintr::lint()\n\n# A whole directory or R project\nlintr::lint_dir()"
+  },
+  {
+    "objectID": "programming_01.html#beyond-lintr",
+    "href": "programming_01.html#beyond-lintr",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Beyond lintr\n",
+    "text": "Beyond lintr\n\nlintr gives recommendations but does not change code. These tools can style your code directly:\n\nAir\nstyler\n\n\n\n\n\n\n\nWarning\n\n\nCaution: these tools change your code without"
   },
   {
     "objectID": "programming_01.html#literatur",
     "href": "programming_01.html#literatur",
-    "title": "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Literatur",
     "text": "Literatur"
   }
