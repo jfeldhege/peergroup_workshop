@@ -105,11 +105,11 @@
     "text": "Timetable"
   },
   {
-    "objectID": "programming_01.html#a-dataset-for-today",
-    "href": "programming_01.html#a-dataset-for-today",
+    "objectID": "programming_01.html#a-dataset-for-todays-workshop",
+    "href": "programming_01.html#a-dataset-for-todays-workshop",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
-    "section": "A dataset for today",
-    "text": "A dataset for today\n\n24 items of the Authentic Happiness Inventory (AHI)\n20 items of the Center for Epidemiological Studies Depression (CES-D) scale\nmeasured in 1 to 6 measurement occasions\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "section": "A dataset for today’s workshop",
+    "text": "A dataset for today’s workshop\n\n24 items of the Authentic Happiness Inventory (AHI)\n20 items of the Center for Epidemiological Studies Depression (CES-D) scale\nmeasured on 1 to 6 measurement occasions\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
     "objectID": "programming_01.html#dry-dont-repeat-yourself",
@@ -123,7 +123,7 @@
     "href": "programming_01.html#repeated-application-of-the-same-function",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Repeated application of the same function",
-    "text": "Repeated application of the same function\nCES-D is usually measured on a scale of 0-3, in our dataset it has a scale of 1-4:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTo recode it, I could do something like that:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Repeated application of the same function\nCES-D is usually measured on a scale of 0-3, in our dataset it has a scale of 1-4:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTo recode it, I could do something like that:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nHowever, this is repetitive and error prone."
   },
   {
     "objectID": "programming_01.html#writing-functions",
@@ -138,6 +138,27 @@
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Exercise",
     "text": "Exercise"
+  },
+  {
+    "objectID": "programming_01.html#loops",
+    "href": "programming_01.html#loops",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Loops",
+    "text": "Loops\nIf you have to repeat yourself, use a loop"
+  },
+  {
+    "objectID": "programming_01.html#excercise",
+    "href": "programming_01.html#excercise",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Excercise",
+    "text": "Excercise"
+  },
+  {
+    "objectID": "programming_01.html#making-code-easier-to-read",
+    "href": "programming_01.html#making-code-easier-to-read",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Making code easier to read",
+    "text": "Making code easier to read\nMaking code easier to read\nThere are two"
   },
   {
     "objectID": "programming_01.html#naming-things",
@@ -158,28 +179,7 @@
     "href": "programming_01.html#examples-for-bad-names",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Examples for bad names",
-    "text": "Examples for bad names"
-  },
-  {
-    "objectID": "programming_01.html#loops",
-    "href": "programming_01.html#loops",
-    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
-    "section": "Loops",
-    "text": "Loops\nIf you have to repeat yourself, use a loop"
-  },
-  {
-    "objectID": "programming_01.html#excercise",
-    "href": "programming_01.html#excercise",
-    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
-    "section": "Excercise",
-    "text": "Excercise"
-  },
-  {
-    "objectID": "programming_01.html#styling-code",
-    "href": "programming_01.html#styling-code",
-    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
-    "section": "Styling code",
-    "text": "Styling code"
+    "text": "Examples for bad names\n#| eval: false"
   },
   {
     "objectID": "programming_01.html#styling-code-with-lintr",
@@ -194,12 +194,5 @@
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Beyond lintr\n",
     "text": "Beyond lintr\n\nlintr gives recommendations but does not change code. These tools can style your code directly:\n\nAir\nstyler\n\n\n\n\n\n\n\nWarning\n\n\nCaution: these tools change your code without asking again"
-  },
-  {
-    "objectID": "programming_01.html#literatur",
-    "href": "programming_01.html#literatur",
-    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
-    "section": "Literatur",
-    "text": "Literatur"
   }
 ]
