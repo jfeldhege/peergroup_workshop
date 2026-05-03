@@ -10,6 +10,7 @@ format:
     chalkboard: true
     code-link: true
     code-line-numbers: false
+    from: markdown+emoji
 engine: knitr
 webr: 
   packages: ['ds4psy', 'dplyr']
@@ -40,7 +41,6 @@ filters:
 ?ds4psy::posPsy_AHI_CESD
 
 pospsy <- ds4psy::posPsy_AHI_CESD
-
 ```
 
 
@@ -61,13 +61,16 @@ pospsy$cesd01r <- pospsy$cesd01 - 1
 pospsy$cesd02r <- pospsy$cesd02 - 1 
 pospsy$cesd03r <- pospsy$cesd03 - 1 
 pospsy$cesd04r <- pospsy$cesd04 - 1 
-
 ```
 
 However, this is repetitive and error prone.
 
 
 ## Writing Functions
+```{webr-r}
+
+```
+
 
 ## Exercise
 
@@ -89,9 +92,13 @@ If you have to repeat yourself, use a loop
 
 ## Making code easier to read
 
-Making code easier to read 
+Easier to read code = easier comprehension
 
 There are two 
+
+- good names
+- consistent code style
+
 
 ## Naming things
 
@@ -99,21 +106,33 @@ Naming things is hard - so hard that books are written about it:
 
 ![Book Naming Things](images/naming_things_book.PNG)
 
+## How to pick good names?
+
+- descriptive
+- prioritize reader's understanding over shortness or machine compatibility
+- follow a standard naming convention
+
 ## Naming conventions
 
 Two most commonly used conventions:
 
--:snake: snake_case
+:snake: snake_case
 
--:camel: camelCase
+:camel: camelCase
 
 ## Examples for bad names
 
-``` r
-#| eval: false
+::: {.incremental}
+`x` 
+:::
 
+## What might be bad about names like these ?
 
-```
+`c`, `df`, `data`
+
+::: {.incremental}
+They are also names of base functions
+:::
 
 
 ## Styling code with `lintr`
@@ -128,6 +147,12 @@ lintr::lint()
 
 # A whole directory or R project
 lintr::lint_dir()
+```
+
+## Styling code with `lintr`
+
+```{webr-r}
+names(lintr::linters_with_defaults())
 ```
 
 ## Beyond `lintr`
