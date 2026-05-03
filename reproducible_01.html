@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.9.37">
 
   <meta name="author" content="Johannes Feldhege">
-  <title>R Workshop for Methods Peer Group – Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows</title>
+  <title>R Workshop for Methods Peer Group – Clean Code, Reproducible Science: Advanced R-Programming and Workflows</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -31,6 +31,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-0427d8d92a431aa6a6430e53ec02a470.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -132,8 +198,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows</h1>
-  <p class="subtitle">Reproduzierbarkeit</p>
+  <h1 class="title">Clean Code, Reproducible Science: Advanced R-Programming and Workflows</h1>
+  <p class="subtitle">Reproducibility</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -144,51 +210,90 @@ Johannes Feldhege
 </div>
 
 </section>
-<section id="warum-das-ganze" class="slide level2">
-<h2>Warum das Ganze?</h2>
-<p>Ich muss nach Jahren eine Analyse erneut durchführen…</p>
-<p>Mein Kollege möchte auf meiner Analyse aufbauend eine neue Studie</p>
-<p>Ich möchte meinen Analyse-Code zusammen mit meiner Studie veröffentlichen, sodass ihn andere nutzen können…</p>
+<section id="why-make-it-reproducible" class="slide level2">
+<h2>Why make it reproducible?</h2>
+<p>I have to rerun an analysis a few years down the line…</p>
+<p>My colleague wants to build on my analysis in a new study…</p>
+<p>I want to publish the code used in my study together with the manuscript so others can use it…</p>
 </section>
-<section id="was-ist-reproduzierbarkeit" class="slide level2">
-<h2>Was ist Reproduzierbarkeit</h2>
-<p>Reproduzierbar ist eine Analyse, wenn</p>
+<section id="what-is-reproducibility" class="slide level2">
+<h2>What is reproducibility?</h2>
+<p>A study is reproducible if it can be</p>
 <ul>
-<li class="fragment">nach Jahren noch ausführbar</li>
-<li class="fragment">Gleiche Ergebnisse<br>
-</li>
-<li class="fragment">Keine</li>
-</ul>
-<p>sie auch</p>
-<p>nach Jahren noch mit den gleichen Ergebnissen</p>
-<p>ausführen können.</p>
-</section>
-<section id="wie-erreicht-man-das" class="slide level2">
-<h2>Wie erreicht man das?</h2>
-<ul>
-<li class="fragment">Einfrieren der<br>
-</li>
-<li class="fragment">Versionskontrolle</li>
+<li class="fragment">conducted again</li>
+<li class="fragment">years later</li>
+<li class="fragment">with the same results.</li>
 </ul>
 </section>
-<section id="welche-möglichkeiten-gibt-es" class="slide level2">
-<h2>Welche Möglichkeiten gibt es?</h2>
+<section id="a-first-step-toward-reproducibility" class="slide level2">
+<h2>A first step toward reproducibility</h2>
+<p>Can I run my analysis tomorrow with the same results as today?</p>
+<p>–&gt; Make restarting R a habit</p>
+<p>Session -&gt; Restart R or Strg + Shift + F10</p>
+
+<img data-src="images/rdata.PNG" class="r-stretch quarto-figure-center"><p class="caption">Workspace Options</p><p>or</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_blank_slate</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<!-- ## How to achieve reproducibility? -->
+<!-- ::: {.incremental} -->
+<!-- - Einfrieren der   -->
+<!-- - Versionskontrolle -->
+<!-- ::: -->
+</section>
+<section id="measures-for-reproducibility" class="slide level2">
+<h2>Measures for reproducibility</h2>
 <ul>
-<li>Versionskontrolle mit Git</li>
+<li>version control using git, Github, Gitlab, etc.</li>
 <li><a href="https://cran.r-project.org/web/packages/renv/index.html">renv</a></li>
-<li>Container wie Docker, Nix</li>
+<li>containerization with Docker or Nix</li>
+<li>publish study analysis and data as an R package</li>
 </ul>
 </section>
-<section id="versionskontrolle-mit-git-github-gitlab-etc." class="slide level2">
-<h2>Versionskontrolle mit Git, Github, Gitlab, etc.</h2>
-<p>Literaturhinweis: (Happy Git and GitHub for the useR)[https://happygitwithr.com/]</p>
+<section id="version-control-using-git-github-gitlab-etc." class="slide level2">
+<h2>Version control using Git, Github, Gitlab, etc.</h2>
+<p>Further reading: (Happy Git and GitHub for the useR)[https://happygitwithr.com/]</p>
+</section>
+<section id="pros-of-study-as-an-r-package" class="slide level2">
+<h2>Pros of “study as an R package”</h2>
+<ul>
+<li class="fragment">Combines functions for analysis and study data</li>
+<li class="fragment">documentation of custom functions, dependencies, contributors</li>
+<li class="fragment">CMD check routine</li>
+<li class="fragment">condense analysis into functions</li>
+</ul>
+</section>
+<section id="cons-of-study-as-an-r-package" class="slide level2">
+<h2>Cons of “study as an R package”</h2>
+<p>If the package is not intended for CRAN submission, superfluous information and files are created:</p>
+<ul>
+<li>metadata exists in different places (github, DESCRIPTION)</li>
+<li>CRAN submission artifacts</li>
+<li>compliance with CMD check requirements</li>
+</ul>
+<p>More info <a href="https://milesmcbain.xyz/posts/an-okay-idea/">here</a></p>
+</section>
+<section id="creating-an-r-package-with-the-usethis-package" class="slide level2">
+<h2>Creating an R Package with the {usethis} package</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_package</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="the-process-of" class="slide level2">
+<h2>The process of</h2>
+</section>
+<section id="r-packages-as-research-compendia" class="slide level2">
+<h2>R packages as research compendia</h2>
+</section>
+<section id="r-packages-for-creating-research-compendia" class="slide level2">
+<h2>R packages for creating research compendia</h2>
+<p>There are a number of R packages that implement research compendia</p>
+<p><a href="https://github.com/benmarwick/rrtools">rrtools</a> <a href="https://github.com/saskiaotto/SCIproj">SCIProj</a> <a href="https://github.com/Pakillo/template">template</a></p>
 
 
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p><r workshop="" für="" peergroup="" methoden=""></r></p>
+<p><ppf methods="" peer="" group=""></ppf></p>
 </div>
 </div></div>
 

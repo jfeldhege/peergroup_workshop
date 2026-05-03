@@ -491,7 +491,7 @@
   };
 
   // Store cell data
-  globalThis.qwebrCellDetails = [{"code":"?ds4psy::posPsy_AHI_CESD\n\npospsy <- ds4psy::posPsy_AHI_CESD","id":1,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"range(pospsy$cesd01)","id":2,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-2","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"pospsy$cesd01r <- pospsy$cesd01 - 1 \npospsy$cesd02r <- pospsy$cesd02 - 1 \npospsy$cesd03r <- pospsy$cesd03 - 1 \npospsy$cesd04r <- pospsy$cesd04 - 1 ","id":3,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-3","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
+  globalThis.qwebrCellDetails = [{"code":"?ds4psy::posPsy_AHI_CESD\n\npospsy <- ds4psy::posPsy_AHI_CESD","id":1,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"range(pospsy$cesd01)","id":2,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-2","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"pospsy$cesd01r <- pospsy$cesd01 - 1 \npospsy$cesd02r <- pospsy$cesd02 - 1 \npospsy$cesd03r <- pospsy$cesd03 - 1 \npospsy$cesd04r <- pospsy$cesd04 - 1 ","id":3,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-3","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"","id":4,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-4","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"names(lintr::linters_with_defaults())","id":5,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-5","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
 
   </script><script type="module">
   // Declare startupMessageQWebR globally
@@ -2061,31 +2061,48 @@ Johannes Feldhege
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>However, this is repetitive and error prone.</p>
 </section><section id="writing-functions" class="slide level2"><h2>Writing Functions</h2>
+<div id="qwebr-insertion-location-4"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section><section id="exercise" class="slide level2"><h2>Exercise</h2>
 </section><section id="loops" class="slide level2"><h2>Loops</h2>
 <p>If you have to repeat yourself, use a loop</p>
 </section><section id="excercise" class="slide level2"><h2>Excercise</h2>
 </section><section id="making-code-easier-to-read" class="slide level2"><h2>Making code easier to read</h2>
-<p>Making code easier to read</p>
+<p>Easier to read code = easier comprehension</p>
 <p>There are two</p>
-</section><section id="naming-things" class="slide level2"><h2>Naming things</h2>
+<ul>
+<li>good names</li>
+<li>consistent code style</li>
+</ul></section><section id="naming-things" class="slide level2"><h2>Naming things</h2>
 <p>Naming things is hard - so hard that books are written about it:</p>
 
-<img data-src="images/naming_things_book.PNG" class="r-stretch quarto-figure-center"><p class="caption">Book Naming Things</p></section><section id="naming-conventions" class="slide level2"><h2>Naming conventions</h2>
+<img data-src="images/naming_things_book.PNG" class="r-stretch quarto-figure-center"><p class="caption">Book Naming Things</p></section><section id="how-to-pick-good-names" class="slide level2"><h2>How to pick good names?</h2>
+<ul>
+<li>descriptive</li>
+<li>prioritize reader’s understanding over shortness or machine compatibility</li>
+<li>follow a standard naming convention</li>
+</ul></section><section id="naming-conventions" class="slide level2"><h2>Naming conventions</h2>
 <p>Two most commonly used conventions:</p>
-<p>-:snake: snake_case</p>
-<p>-:camel: camelCase</p>
+<p><span class="emoji" data-emoji="snake">🐍</span> snake_case</p>
+<p><span class="emoji" data-emoji="camel">🐫</span> camelCase</p>
 </section><section id="examples-for-bad-names" class="slide level2"><h2>Examples for bad names</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#| eval: false</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>x</code></p>
+</section><section id="what-might-be-bad-about-names-like-these" class="slide level2"><h2>What might be bad about names like these ?</h2>
+<p><code>c</code>, <code>df</code>, <code>data</code></p>
+<p>They are also names of base functions</p>
 </section><section id="styling-code-with-lintr" class="slide level2"><h2>Styling code with <code>lintr</code>
 </h2>
 <p><a href="https://lintr.r-lib.org/">lintr</a> conducts static code analysis on your R files.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#| eval: false</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#| eval: false</span></span>
 <span><span class="co"># Style one file</span></span>
 <span><span class="fu">lintr</span><span class="fu">::</span><span class="fu">lint</span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># A whole directory or R project</span></span>
 <span><span class="fu">lintr</span><span class="fu">::</span><span class="fu">lint_dir</span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section><section id="styling-code-with-lintr-1" class="slide level2"><h2>Styling code with <code>lintr</code>
+</h2>
+<div id="qwebr-insertion-location-5"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section><section id="beyond-lintr" class="slide level2"><h2>Beyond <code>lintr</code>
 </h2>
 <p><code>lintr</code> gives recommendations but does not change code. These tools can style your code directly:</p>

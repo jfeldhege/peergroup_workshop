@@ -1,38 +1,80 @@
 [
   {
-    "objectID": "reproducible_01.html#warum-das-ganze",
-    "href": "reproducible_01.html#warum-das-ganze",
-    "title": "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows",
-    "section": "Warum das Ganze?",
-    "text": "Warum das Ganze?\nIch muss nach Jahren eine Analyse erneut durchführen…\nMein Kollege möchte auf meiner Analyse aufbauend eine neue Studie\nIch möchte meinen Analyse-Code zusammen mit meiner Studie veröffentlichen, sodass ihn andere nutzen können…"
+    "objectID": "reproducible_01.html#why-make-it-reproducible",
+    "href": "reproducible_01.html#why-make-it-reproducible",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Why make it reproducible?",
+    "text": "Why make it reproducible?\nI have to rerun an analysis a few years down the line…\nMy colleague wants to build on my analysis in a new study…\nI want to publish the code used in my study together with the manuscript so others can use it…"
   },
   {
-    "objectID": "reproducible_01.html#was-ist-reproduzierbarkeit",
-    "href": "reproducible_01.html#was-ist-reproduzierbarkeit",
-    "title": "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows",
-    "section": "Was ist Reproduzierbarkeit",
-    "text": "Was ist Reproduzierbarkeit\nReproduzierbar ist eine Analyse, wenn\n\nnach Jahren noch ausführbar\nGleiche Ergebnisse\n\nKeine\n\nsie auch\nnach Jahren noch mit den gleichen Ergebnissen\nausführen können."
+    "objectID": "reproducible_01.html#what-is-reproducibility",
+    "href": "reproducible_01.html#what-is-reproducibility",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "What is reproducibility?",
+    "text": "What is reproducibility?\nA study is reproducible if it can be\n\nconducted again\nyears later\nwith the same results."
   },
   {
-    "objectID": "reproducible_01.html#wie-erreicht-man-das",
-    "href": "reproducible_01.html#wie-erreicht-man-das",
-    "title": "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows",
-    "section": "Wie erreicht man das?",
-    "text": "Wie erreicht man das?\n\nEinfrieren der\n\nVersionskontrolle"
+    "objectID": "reproducible_01.html#a-first-step-toward-reproducibility",
+    "href": "reproducible_01.html#a-first-step-toward-reproducibility",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "A first step toward reproducibility",
+    "text": "A first step toward reproducibility\nCan I run my analysis tomorrow with the same results as today?\n–&gt; Make restarting R a habit\nSession -&gt; Restart R or Strg + Shift + F10\n\nWorkspace Optionsor\n#| eval: false\nusethis::use_blank_slate()"
   },
   {
-    "objectID": "reproducible_01.html#welche-möglichkeiten-gibt-es",
-    "href": "reproducible_01.html#welche-möglichkeiten-gibt-es",
-    "title": "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows",
-    "section": "Welche Möglichkeiten gibt es?",
-    "text": "Welche Möglichkeiten gibt es?\n\nVersionskontrolle mit Git\nrenv\nContainer wie Docker, Nix"
+    "objectID": "reproducible_01.html#measures-for-reproducibility",
+    "href": "reproducible_01.html#measures-for-reproducibility",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Measures for reproducibility",
+    "text": "Measures for reproducibility\n\nversion control using git, Github, Gitlab, etc.\nrenv\ncontainerization with Docker or Nix\npublish study analysis and data as an R package"
   },
   {
-    "objectID": "reproducible_01.html#versionskontrolle-mit-git-github-gitlab-etc.",
-    "href": "reproducible_01.html#versionskontrolle-mit-git-github-gitlab-etc.",
-    "title": "Clean Code, Reproducible Science: Fortgeschrittene R-Programmierung und Workflows",
-    "section": "Versionskontrolle mit Git, Github, Gitlab, etc.",
-    "text": "Versionskontrolle mit Git, Github, Gitlab, etc.\nLiteraturhinweis: (Happy Git and GitHub for the useR)[https://happygitwithr.com/]"
+    "objectID": "reproducible_01.html#version-control-using-git-github-gitlab-etc.",
+    "href": "reproducible_01.html#version-control-using-git-github-gitlab-etc.",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Version control using Git, Github, Gitlab, etc.",
+    "text": "Version control using Git, Github, Gitlab, etc.\nFurther reading: (Happy Git and GitHub for the useR)[https://happygitwithr.com/]"
+  },
+  {
+    "objectID": "reproducible_01.html#pros-of-study-as-an-r-package",
+    "href": "reproducible_01.html#pros-of-study-as-an-r-package",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Pros of “study as an R package”",
+    "text": "Pros of “study as an R package”\n\nCombines functions for analysis and study data\ndocumentation of custom functions, dependencies, contributors\nCMD check routine\ncondense analysis into functions"
+  },
+  {
+    "objectID": "reproducible_01.html#cons-of-study-as-an-r-package",
+    "href": "reproducible_01.html#cons-of-study-as-an-r-package",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Cons of “study as an R package”",
+    "text": "Cons of “study as an R package”\nIf the package is not intended for CRAN submission, superfluous information and files are created:\n\nmetadata exists in different places (github, DESCRIPTION)\nCRAN submission artifacts\ncompliance with CMD check requirements\n\nMore info here"
+  },
+  {
+    "objectID": "reproducible_01.html#creating-an-r-package-with-the-usethis-package",
+    "href": "reproducible_01.html#creating-an-r-package-with-the-usethis-package",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Creating an R Package with the {usethis} package",
+    "text": "Creating an R Package with the {usethis} package\n#| eval: false\nusethis::create_package()"
+  },
+  {
+    "objectID": "reproducible_01.html#the-process-of",
+    "href": "reproducible_01.html#the-process-of",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "The process of",
+    "text": "The process of"
+  },
+  {
+    "objectID": "reproducible_01.html#r-packages-as-research-compendia",
+    "href": "reproducible_01.html#r-packages-as-research-compendia",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "R packages as research compendia",
+    "text": "R packages as research compendia"
+  },
+  {
+    "objectID": "reproducible_01.html#r-packages-for-creating-research-compendia",
+    "href": "reproducible_01.html#r-packages-for-creating-research-compendia",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "R packages for creating research compendia",
+    "text": "R packages for creating research compendia\nThere are a number of R packages that implement research compendia\nrrtools SCIProj template"
   },
   {
     "objectID": "LICENSE.html",
@@ -130,7 +172,7 @@
     "href": "programming_01.html#writing-functions",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Writing Functions",
-    "text": "Writing Functions"
+    "text": "Writing Functions\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
     "objectID": "programming_01.html#exercise",
@@ -158,7 +200,7 @@
     "href": "programming_01.html#making-code-easier-to-read",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Making code easier to read",
-    "text": "Making code easier to read\nMaking code easier to read\nThere are two"
+    "text": "Making code easier to read\nEasier to read code = easier comprehension\nThere are two\n\ngood names\nconsistent code style"
   },
   {
     "objectID": "programming_01.html#naming-things",
@@ -168,18 +210,32 @@
     "text": "Naming things\nNaming things is hard - so hard that books are written about it:\n\nBook Naming Things"
   },
   {
+    "objectID": "programming_01.html#how-to-pick-good-names",
+    "href": "programming_01.html#how-to-pick-good-names",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "How to pick good names?",
+    "text": "How to pick good names?\n\ndescriptive\nprioritize reader’s understanding over shortness or machine compatibility\nfollow a standard naming convention"
+  },
+  {
     "objectID": "programming_01.html#naming-conventions",
     "href": "programming_01.html#naming-conventions",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Naming conventions",
-    "text": "Naming conventions\nTwo most commonly used conventions:\n-:snake: snake_case\n-:camel: camelCase"
+    "text": "Naming conventions\nTwo most commonly used conventions:\n🐍 snake_case\n🐫 camelCase"
   },
   {
     "objectID": "programming_01.html#examples-for-bad-names",
     "href": "programming_01.html#examples-for-bad-names",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Examples for bad names",
-    "text": "Examples for bad names\n#| eval: false"
+    "text": "Examples for bad names\nx"
+  },
+  {
+    "objectID": "programming_01.html#what-might-be-bad-about-names-like-these",
+    "href": "programming_01.html#what-might-be-bad-about-names-like-these",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "What might be bad about names like these ?",
+    "text": "What might be bad about names like these ?\nc, df, data\nThey are also names of base functions"
   },
   {
     "objectID": "programming_01.html#styling-code-with-lintr",
@@ -187,6 +243,13 @@
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Styling code with lintr\n",
     "text": "Styling code with lintr\n\nlintr conducts static code analysis on your R files.\n#| eval: false\n# Style one file\nlintr::lint()\n\n# A whole directory or R project\nlintr::lint_dir()"
+  },
+  {
+    "objectID": "programming_01.html#styling-code-with-lintr-1",
+    "href": "programming_01.html#styling-code-with-lintr-1",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Styling code with lintr\n",
+    "text": "Styling code with lintr\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
     "objectID": "programming_01.html#beyond-lintr",
