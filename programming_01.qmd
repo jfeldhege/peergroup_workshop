@@ -5,7 +5,7 @@ author: "Johannes Feldhege"
 format: 
   revealjs:
     theme: [simple]
-    footer: <R Workshop für Peergroup Methoden>
+    footer: <PPF Methods Peer Group>
     slide-number: true
     chalkboard: true
     code-link: true
@@ -29,11 +29,11 @@ filters:
 
 ## Timetable 
 
-## A dataset for today
+## A dataset for today's workshop
 
  - 24 items of the Authentic Happiness Inventory (AHI) 
  - 20 items of the Center for Epidemiological Studies Depression (CES-D) scale
- - measured in 1 to 6 measurement occasions
+ - measured on 1 to 6 measurement occasions
 
 
 ```{webr-r}
@@ -64,12 +64,34 @@ pospsy$cesd04r <- pospsy$cesd04 - 1
 
 ```
 
+However, this is repetitive and error prone.
+
 
 ## Writing Functions
 
 ## Exercise
 
 
+
+
+
+
+## Loops
+
+If you have to repeat yourself, use a loop
+
+## Excercise
+
+
+
+
+
+
+## Making code easier to read
+
+Making code easier to read 
+
+There are two 
 
 ## Naming things
 
@@ -87,20 +109,11 @@ Two most commonly used conventions:
 
 ## Examples for bad names
 
-
-## Loops
-
-If you have to repeat yourself, use a loop
-
-## Excercise
+``` r
+#| eval: false
 
 
-
-
-
-
-## Styling code
-
+```
 
 
 ## Styling code with `lintr`
@@ -128,4 +141,4 @@ lintr::lint_dir()
 Caution: these tools change your code without asking again
 :::
 
-## Literatur
+
