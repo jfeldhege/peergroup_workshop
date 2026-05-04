@@ -225,21 +225,25 @@ Johannes Feldhege
 <li class="fragment">with the same results.</li>
 </ul>
 </section>
-<section id="a-first-step-toward-reproducibility" class="slide level2">
-<h2>A first step toward reproducibility</h2>
+<section id="a-first-step-toward-reproducibility-a-fresh-start" class="slide level2">
+<h2>A first step toward reproducibility: a fresh start</h2>
 <p>Can I run my analysis tomorrow with the same results as today?</p>
-<p>–&gt; Make restarting R a habit</p>
+<p>–&gt; For a fresh start: make restarting R a habit</p>
 <p>Session -&gt; Restart R or Strg + Shift + F10</p>
-
-<img data-src="images/rdata.PNG" class="r-stretch quarto-figure-center"><p class="caption">Workspace Options</p><p>or</p>
+<p>or</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
 <span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_blank_slate</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="never-let-rstudio-save-anything" class="slide level2">
+<h2>Never let Rstudio save anything!</h2>
+<p>Do not rely on <code>.RData</code> to bail you out. Either save interim datasets to files or write your script in a way that lets you start from scratch everytime.</p>
+
 <!-- ## How to achieve reproducibility? -->
 <!-- ::: {.incremental} -->
 <!-- - Einfrieren der   -->
 <!-- - Versionskontrolle -->
 <!-- ::: -->
-</section>
+<img data-src="images/rdata.PNG" class="r-stretch quarto-figure-center"><p class="caption">Workspace Options</p></section>
 <section id="measures-for-reproducibility" class="slide level2">
 <h2>Measures for reproducibility</h2>
 <ul>
@@ -285,23 +289,42 @@ Johannes Feldhege
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
 <span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_package</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
+<section id="useful-functions-when-working-on-a-package" class="slide level2">
+<h2>Useful functions when working on a package</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Col1</th>
+<th>Col2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Document</td>
+<td>devtools::document()</td>
+</tr>
+<tr class="even">
+<td>Load all functions</td>
+<td>devtools::load_all()</td>
+</tr>
+<tr class="odd">
+<td>CMD Check</td>
+<td>devtools::check()</td>
+</tr>
+<tr class="even">
+<td>Build package locally</td>
+<td>devtools::build()</td>
+</tr>
+<tr class="odd">
+<td>Declare dependencies</td>
+<td>usethis::use_package(“PACKAGE_NAME”)</td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="the-process-of-working-on-a-package" class="slide level2">
 <h2>The process of working on a package</h2>
 <div class="cell" data-layout-align="default">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode dot code-with-copy"><code class="sourceCode dot"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a><span class="kw">digraph</span> <span class="va">g1</span> <span class="ot">{</span></span>
-<span id="cb3-2"><a aria-hidden="true" tabindex="-1"></a><span class="va">layout</span><span class="ot">=</span><span class="st">"circo"</span><span class="ot">;</span></span>
-<span id="cb3-3"><a aria-hidden="true" tabindex="-1"></a><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="va">rectangle</span><span class="ot">];</span></span>
-<span id="cb3-4"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a aria-hidden="true" tabindex="-1"></a><span class="va">A</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"CMD check"</span><span class="ot">]</span></span>
-<span id="cb3-6"><a aria-hidden="true" tabindex="-1"></a><span class="va">B</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"Build package"</span><span class="ot">]</span><span class="co"> </span></span>
-<span id="cb3-7"><a aria-hidden="true" tabindex="-1"></a><span class="va">C</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"Write function"</span><span class="ot">]</span><span class="co">  </span></span>
-<span id="cb3-8"><a aria-hidden="true" tabindex="-1"></a><span class="va">D</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"Document function"</span><span class="ot">]</span></span>
-<span id="cb3-9"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a aria-hidden="true" tabindex="-1"></a><span class="va">A</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">B</span><span class="co"> </span><span class="ot">;</span></span>
-<span id="cb3-11"><a aria-hidden="true" tabindex="-1"></a><span class="va">B</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">C</span><span class="co"> </span><span class="ot">;</span></span>
-<span id="cb3-12"><a aria-hidden="true" tabindex="-1"></a><span class="va">C</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">D</span><span class="co"> </span><span class="ot">;</span></span>
-<span id="cb3-13"><a aria-hidden="true" tabindex="-1"></a><span class="va">D</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">A</span><span class="co"> </span><span class="ot">;</span></span>
-<span id="cb3-14"><a aria-hidden="true" tabindex="-1"></a><span class="ot">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <p></p><figure class=""><p></p>
@@ -366,18 +389,28 @@ Johannes Feldhege
 </div>
 </div>
 </section>
+<section id="exercise" class="slide level2">
+<h2>Exercise</h2>
+<p>I have prepared a small script with the</p>
+</section>
 <section id="r-packages-as-research-compendia" class="slide level2">
 <h2>R packages as research compendia</h2>
-<p>The idea of research compendia combines a number of the previously discussed features:</p>
+<p>The idea of a research compendium combines a number of the previously discussed features:</p>
 <ul>
 <li>the R package structure</li>
-<li></li>
+<li>literate programming with Quarto or Rmarkdown</li>
+<li>version control</li>
+<li>(optionally) the use of Docker or Binder</li>
 </ul>
 </section>
 <section id="r-packages-for-creating-research-compendia" class="slide level2">
 <h2>R packages for creating research compendia</h2>
-<p>There are a number of R packages that implement research compendia</p>
-<p><a href="https://github.com/benmarwick/rrtools">rrtools</a> <a href="https://github.com/saskiaotto/SCIproj">SCIProj</a> <a href="https://github.com/Pakillo/template">template</a></p>
+<p>There are a number of R packages that implement research compendia:</p>
+<ul>
+<li>rrtools: <a href="https://github.com/benmarwick/rrtools"></a></li>
+<li>SCIProj: <a href="https://github.com/saskiaotto/SCIproj"></a></li>
+<li>template: <a href="https://github.com/Pakillo/template"></a></li>
+</ul>
 
 
 </section>
