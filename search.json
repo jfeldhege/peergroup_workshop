@@ -93,9 +93,16 @@
   {
     "objectID": "literatur.html",
     "href": "literatur.html",
-    "title": "Literaturangaben",
+    "title": "References",
     "section": "",
-    "text": "Literatur"
+    "text": "Hester, Jim, Florent Angly, Michael Chirico, et al. 2025. “Static Code Analysis for r.” Journal of Open Source Software 10 (108): 7240. https://doi.org/10.21105/joss.07240.\n\n\nHester, Jim, Florent Angly, Russ Hyde, et al. 2025. Lintr: A Linter for r Code. https://lintr.r-lib.org.\n\n\nMüller, Kirill. 2025. Here: A Simpler Way to Find Your Files. https://here.r-lib.org/.\n\n\nMüller, Kirill, Lorenz Walthert, and Indrajeet Patil. 2025. Styler: Non-Invasive Pretty Printing of r Code. https://github.com/r-lib/styler."
+  },
+  {
+    "objectID": "literatur.html#references",
+    "href": "literatur.html#references",
+    "title": "References",
+    "section": "",
+    "text": "Hester, Jim, Florent Angly, Michael Chirico, et al. 2025. “Static Code Analysis for r.” Journal of Open Source Software 10 (108): 7240. https://doi.org/10.21105/joss.07240.\n\n\nHester, Jim, Florent Angly, Russ Hyde, et al. 2025. Lintr: A Linter for r Code. https://lintr.r-lib.org.\n\n\nMüller, Kirill. 2025. Here: A Simpler Way to Find Your Files. https://here.r-lib.org/.\n\n\nMüller, Kirill, Lorenz Walthert, and Indrajeet Patil. 2025. Styler: Non-Invasive Pretty Printing of r Code. https://github.com/r-lib/styler."
   },
   {
     "objectID": "index.html",
