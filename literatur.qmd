@@ -1,10 +1,11 @@
 ---
-title: "Literaturangaben"
+title: "References"
 bibliography: references.bib
-
+nocite: |
+  @*
 ---
 
-### Literatur
+## References
 
 ::: {#refs}
 :::
