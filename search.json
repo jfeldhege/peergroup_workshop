@@ -25,7 +25,7 @@
     "href": "reproducible_01.html#measures-for-reproducibility",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Measures for reproducibility",
-    "text": "Measures for reproducibility\n\nversion control using git, Github, Gitlab, etc.\nrenv\ncontainerization with Docker or Nix\npublish study analysis and data as an R package"
+    "text": "Measures for reproducibility\n\nversion control using git, Github, Gitlab, etc.\nrenv\nliterate programming using Quarto\npublish study analysis and data as an R package\ncontainerization with Docker or Nix"
   },
   {
     "objectID": "reproducible_01.html#version-control-using-git-github-gitlab-etc.",
@@ -33,6 +33,20 @@
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Version control using Git, Github, Gitlab, etc.",
     "text": "Version control using Git, Github, Gitlab, etc.\nFurther reading: (Happy Git and GitHub for the useR)[https://happygitwithr.com/]"
+  },
+  {
+    "objectID": "reproducible_01.html#literate-programming-using-quarto",
+    "href": "reproducible_01.html#literate-programming-using-quarto",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Literate programming using Quarto",
+    "text": "Literate programming using Quarto"
+  },
+  {
+    "objectID": "reproducible_01.html#publishing-quarto-documents",
+    "href": "reproducible_01.html#publishing-quarto-documents",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Publishing Quarto documents",
+    "text": "Publishing Quarto documents"
   },
   {
     "objectID": "reproducible_01.html#pros-of-study-as-an-r-package",
@@ -53,21 +67,21 @@
     "href": "reproducible_01.html#creating-an-r-package-with-the-usethis-package",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Creating an R Package with the {usethis} package",
-    "text": "Creating an R Package with the {usethis} package\n#| eval: false\nusethis::create_package()"
+    "text": "Creating an R Package with the {usethis} package\nOne easy step to get started:\n#| eval: false\nusethis::create_package()"
   },
   {
-    "objectID": "reproducible_01.html#the-process-of",
-    "href": "reproducible_01.html#the-process-of",
+    "objectID": "reproducible_01.html#the-process-of-working-on-a-package",
+    "href": "reproducible_01.html#the-process-of-working-on-a-package",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
-    "section": "The process of",
-    "text": "The process of"
+    "section": "The process of working on a package",
+    "text": "The process of working on a package\n\ndigraph g1 {\nlayout=\"circo\";\nnode [shape = rectangle];\n\nA [label = \"CMD check\"]\nB [label = \"Build package\"] \nC [label = \"Write function\"]  \nD [label = \"Document function\"]\n\nA -&gt; B ;\nB -&gt; C ;\nC -&gt; D ;\nD -&gt; A ;\n}\n\n\n\n\n\n\ng1\n\n\n\nA\n\nCMD check\n\n\n\nB\n\nBuild package\n\n\n\nA-&gt;B\n\n\n\n\n\nC\n\nWrite function\n\n\n\nB-&gt;C\n\n\n\n\n\nD\n\nDocument function\n\n\n\nC-&gt;D\n\n\n\n\n\nD-&gt;A"
   },
   {
     "objectID": "reproducible_01.html#r-packages-as-research-compendia",
     "href": "reproducible_01.html#r-packages-as-research-compendia",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "R packages as research compendia",
-    "text": "R packages as research compendia"
+    "text": "R packages as research compendia\nThe idea of research compendia combines a number of the previously discussed features:\n\nthe R package structure"
   },
   {
     "objectID": "reproducible_01.html#r-packages-for-creating-research-compendia",

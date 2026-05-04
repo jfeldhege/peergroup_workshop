@@ -245,13 +245,20 @@ Johannes Feldhege
 <ul>
 <li>version control using git, Github, Gitlab, etc.</li>
 <li><a href="https://cran.r-project.org/web/packages/renv/index.html">renv</a></li>
-<li>containerization with Docker or Nix</li>
+<li>literate programming using Quarto</li>
 <li>publish study analysis and data as an R package</li>
+<li>containerization with Docker or Nix</li>
 </ul>
 </section>
 <section id="version-control-using-git-github-gitlab-etc." class="slide level2">
 <h2>Version control using Git, Github, Gitlab, etc.</h2>
 <p>Further reading: (Happy Git and GitHub for the useR)[https://happygitwithr.com/]</p>
+</section>
+<section id="literate-programming-using-quarto" class="slide level2">
+<h2>Literate programming using Quarto</h2>
+</section>
+<section id="publishing-quarto-documents" class="slide level2">
+<h2>Publishing Quarto documents</h2>
 </section>
 <section id="pros-of-study-as-an-r-package" class="slide level2">
 <h2>Pros of “study as an R package”</h2>
@@ -274,14 +281,98 @@ Johannes Feldhege
 </section>
 <section id="creating-an-r-package-with-the-usethis-package" class="slide level2">
 <h2>Creating an R Package with the {usethis} package</h2>
+<p>One easy step to get started:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
 <span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_package</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="the-process-of" class="slide level2">
-<h2>The process of</h2>
+<section id="the-process-of-working-on-a-package" class="slide level2">
+<h2>The process of working on a package</h2>
+<div class="cell" data-layout-align="default">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode dot code-with-copy"><code class="sourceCode dot"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a><span class="kw">digraph</span> <span class="va">g1</span> <span class="ot">{</span></span>
+<span id="cb3-2"><a aria-hidden="true" tabindex="-1"></a><span class="va">layout</span><span class="ot">=</span><span class="st">"circo"</span><span class="ot">;</span></span>
+<span id="cb3-3"><a aria-hidden="true" tabindex="-1"></a><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="va">rectangle</span><span class="ot">];</span></span>
+<span id="cb3-4"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a aria-hidden="true" tabindex="-1"></a><span class="va">A</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"CMD check"</span><span class="ot">]</span></span>
+<span id="cb3-6"><a aria-hidden="true" tabindex="-1"></a><span class="va">B</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"Build package"</span><span class="ot">]</span><span class="co"> </span></span>
+<span id="cb3-7"><a aria-hidden="true" tabindex="-1"></a><span class="va">C</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"Write function"</span><span class="ot">]</span><span class="co">  </span></span>
+<span id="cb3-8"><a aria-hidden="true" tabindex="-1"></a><span class="va">D</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">"Document function"</span><span class="ot">]</span></span>
+<span id="cb3-9"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a aria-hidden="true" tabindex="-1"></a><span class="va">A</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">B</span><span class="co"> </span><span class="ot">;</span></span>
+<span id="cb3-11"><a aria-hidden="true" tabindex="-1"></a><span class="va">B</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">C</span><span class="co"> </span><span class="ot">;</span></span>
+<span id="cb3-12"><a aria-hidden="true" tabindex="-1"></a><span class="va">C</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">D</span><span class="co"> </span><span class="ot">;</span></span>
+<span id="cb3-13"><a aria-hidden="true" tabindex="-1"></a><span class="va">D</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">A</span><span class="co"> </span><span class="ot">;</span></span>
+<span id="cb3-14"><a aria-hidden="true" tabindex="-1"></a><span class="ot">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="960" height="480" viewbox="0.00 0.00 368.63 294.16" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 290.16)">
+<title>g1</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-290.16 364.63,-290.16 364.63,4 -4,4"></polygon>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<polygon fill="none" stroke="black" points="215.35,-36 131.28,-36 131.28,0 215.35,0 215.35,-36"></polygon>
+<text text-anchor="middle" x="173.31" y="-13.8" font-family="Times,serif" font-size="14.00">CMD check</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<polygon fill="none" stroke="black" points="96.71,-161.08 -0.24,-161.08 -0.24,-125.08 96.71,-125.08 96.71,-161.08"></polygon>
+<text text-anchor="middle" x="48.24" y="-138.88" font-family="Times,serif" font-size="14.00">Build package</text>
+</g>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A-&gt;B</title>
+<path fill="none" stroke="black" d="M155.13,-36.19C133.64,-57.68 97.75,-93.57 73.55,-117.76"></path>
+<polygon fill="black" stroke="black" points="71.04,-115.32 66.45,-124.87 75.99,-120.27 71.04,-115.32"></polygon>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<polygon fill="none" stroke="black" points="222.34,-286.16 124.29,-286.16 124.29,-250.16 222.34,-250.16 222.34,-286.16"></polygon>
+<text text-anchor="middle" x="173.31" y="-263.96" font-family="Times,serif" font-size="14.00">Write function</text>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>B-&gt;C</title>
+<path fill="none" stroke="black" d="M66.42,-161.27C87.91,-182.76 123.8,-218.64 148,-242.84"></path>
+<polygon fill="black" stroke="black" points="145.56,-245.35 155.11,-249.95 150.51,-240.4 145.56,-245.35"></polygon>
+</g>
+<!-- D -->
+<g id="node4" class="node">
+<title>D</title>
+<polygon fill="none" stroke="black" points="360.87,-161.08 235.92,-161.08 235.92,-125.08 360.87,-125.08 360.87,-161.08"></polygon>
+<text text-anchor="middle" x="298.39" y="-138.88" font-family="Times,serif" font-size="14.00">Document function</text>
+</g>
+<!-- C&#45;&gt;D -->
+<g id="edge3" class="edge">
+<title>C-&gt;D</title>
+<path fill="none" stroke="black" d="M191.5,-249.97C212.99,-228.48 248.88,-192.59 273.08,-168.39"></path>
+<polygon fill="black" stroke="black" points="275.59,-170.83 280.18,-161.29 270.64,-165.88 275.59,-170.83"></polygon>
+</g>
+<!-- D&#45;&gt;A -->
+<g id="edge4" class="edge">
+<title>D-&gt;A</title>
+<path fill="none" stroke="black" d="M280.21,-124.89C258.71,-103.4 222.83,-67.51 198.63,-43.32"></path>
+<polygon fill="black" stroke="black" points="201.07,-40.81 191.52,-36.21 196.12,-45.76 201.07,-40.81"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </section>
 <section id="r-packages-as-research-compendia" class="slide level2">
 <h2>R packages as research compendia</h2>
+<p>The idea of research compendia combines a number of the previously discussed features:</p>
+<ul>
+<li>the R package structure</li>
+<li></li>
+</ul>
 </section>
 <section id="r-packages-for-creating-research-compendia" class="slide level2">
 <h2>R packages for creating research compendia</h2>
