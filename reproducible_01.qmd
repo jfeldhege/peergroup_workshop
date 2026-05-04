@@ -32,15 +32,13 @@ A study is reproducible if it can be
 - with the same results.
 :::
 
-## A first step toward reproducibility
+## A first step toward reproducibility: a fresh start
 
 Can I run my analysis tomorrow with the same results as today?
 
---\> Make restarting R a habit
+--\> For a fresh start: make restarting R a habit
 
 Session -\> Restart R or Strg + Shift + F10
-
-![Workspace Options](images/rdata.PNG)
 
 or
 
@@ -48,6 +46,12 @@ or
 #| eval: false
 usethis::use_blank_slate()
 ```
+
+## Never let Rstudio save anything!
+
+Do not rely on `.RData` to bail you out. Either save interim datasets to files or write your script in a way that lets you start from scratch everytime.
+
+![Workspace Options](images/rdata.PNG)
 
 <!-- ## How to achieve reproducibility? -->
 
@@ -74,8 +78,6 @@ Further reading: (Happy Git and GitHub for the useR)\[https://happygitwithr.com/
 ## Literate programming using Quarto
 
 ## Publishing Quarto documents
-
-
 
 ## Pros of "study as an R package"
 
@@ -105,9 +107,20 @@ One easy step to get started:
 usethis::create_package()
 ```
 
+## Useful functions when working on a package
+
+| Col1                  | Col2                                 |
+|-----------------------|--------------------------------------|
+| Document              | devtools::document()                 |
+| Load all functions    | devtools::load_all()                 |
+| CMD Check             | devtools::check()                    |
+| Build package locally | devtools::build()                    |
+| Declare dependencies  | usethis::use_package("PACKAGE_NAME") |
+
 ## The process of working on a package
 
 ```{dot}
+//| echo: false
 digraph g1 {
 layout="circo";
 node [shape = rectangle];
@@ -124,16 +137,23 @@ D -> A ;
 }
 ```
 
+## Exercise
+
+I have prepared a small script with the
 
 ## R packages as research compendia
 
-The idea of research compendia combines a number of the previously discussed features:
+The idea of a research compendium combines a number of the previously discussed features:
 
 - the R package structure
-- 
+- literate programming with Quarto or Rmarkdown
+- version control
+- (optionally) the use of Docker or Binder
 
 ## R packages for creating research compendia
 
-There are a number of R packages that implement research compendia
+There are a number of R packages that implement research compendia:
 
-[rrtools](https://github.com/benmarwick/rrtools) [SCIProj](https://github.com/saskiaotto/SCIproj) [template](https://github.com/Pakillo/template)
+- rrtools: [ ](https://github.com/benmarwick/rrtools)
+- SCIProj: [ ](https://github.com/saskiaotto/SCIproj)
+- template: [ ](https://github.com/Pakillo/template)
