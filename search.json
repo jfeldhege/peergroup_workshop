@@ -221,7 +221,7 @@
     "href": "programming_01.html#making-code-easier-to-read",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Making code easier to read",
-    "text": "Making code easier to read\nEasier to read code = easier comprehension\nThere are two\n\ngood names\nconsistent code style"
+    "text": "Making code easier to read\nEasier to read code = easier comprehension\nThere are two measures you can take to improve your code quality\n\ngood names\nconsistent code style"
   },
   {
     "objectID": "programming_01.html#naming-things",
