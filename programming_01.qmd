@@ -20,29 +20,26 @@ filters:
 
 ## About this workshop
 
-
 ## About me
 
--   M. Sc. in Psychology
--   I used to work for Forschungsstelle für Psychotherapie
--   I currently work as a Data Scientist at Asklepios Science & Research since 2022
--   I have published one R package on CRAN (https://cran.r-project.org/web/packages/openholidaysR/index.html) and I am working on another one
+- M. Sc. in Psychology
+- I used to work for Forschungsstelle für Psychotherapie
+- I currently work as a Data Scientist at Asklepios Science & Research since 2022
+- I have published one R package on CRAN (https://cran.r-project.org/web/packages/openholidaysR/index.html) and I am working on another one
 
-## Timetable 
+## Timetable
 
 ## A dataset for today's workshop
 
- - 24 items of the Authentic Happiness Inventory (AHI) 
- - 20 items of the Center for Epidemiological Studies Depression (CES-D) scale
- - measured on 1 to 6 measurement occasions
-
+- 24 items of the Authentic Happiness Inventory (AHI)
+- 20 items of the Center for Epidemiological Studies Depression (CES-D) scale
+- measured on 1 to 6 measurement occasions
 
 ```{webr-r}
 ?ds4psy::posPsy_AHI_CESD
 
 pospsy <- ds4psy::posPsy_AHI_CESD
 ```
-
 
 ## DRY: Don't repeat yourself
 
@@ -65,19 +62,16 @@ pospsy$cesd04r <- pospsy$cesd04 - 1
 
 However, this is repetitive and error prone.
 
-
 ## Writing Functions
+
 ```{webr-r}
 
+recode_cesd <- function(cesd_var) {
+  cesd_var - 1
+}
 ```
 
-
 ## Exercise
-
-
-
-
-
 
 ## Loops
 
@@ -85,20 +79,14 @@ If you have to repeat yourself, use a loop
 
 ## Excercise
 
-
-
-
-
-
 ## Making code easier to read
 
 Easier to read code = easier comprehension
 
-There are two 
+There are two measures you can take to improve your code quality
 
 - good names
 - consistent code style
-
 
 ## Naming things
 
@@ -122,23 +110,21 @@ Two most commonly used conventions:
 
 ## Examples for bad names
 
-::: {.incremental}
-`x` 
+::: incremental
+`x`
 :::
 
 ## What might be bad about names like these ?
 
 `c`, `df`, `data`
 
-::: {.incremental}
+::: incremental
 They are also names of base functions
 :::
 
-
 ## Styling code with `lintr`
 
-
-[lintr](https://lintr.r-lib.org/) conducts static code analysis on your R files. 
+[lintr](https://lintr.r-lib.org/) conducts static code analysis on your R files.
 
 ``` r
 #| eval: false
@@ -159,11 +145,9 @@ names(lintr::linters_with_defaults())
 
 `lintr` gives recommendations but does not change code. These tools can style your code directly:
 
--   [Air](https://posit-dev.github.io/air/)
--   [styler](https://styler.r-lib.org/)
+- [Air](https://posit-dev.github.io/air/)
+- [styler](https://styler.r-lib.org/)
 
 ::: callout-warning
 Caution: these tools change your code without asking again
 :::
-
-
