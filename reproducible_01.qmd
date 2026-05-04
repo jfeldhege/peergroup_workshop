@@ -14,78 +14,77 @@ format:
 
 ## Why make it reproducible?
 
-::: {.incremental}
+::: incremental
 I have to rerun an analysis a few years down the line...
 
-My  colleague wants to build on my analysis in a new study...
+My colleague wants to build on my analysis in a new study...
 
 I want to publish the code used in my study together with the manuscript so others can use it...
 :::
 
 ## What is reproducibility?
 
-A study is reproducible if it can be 
+A study is reproducible if it can be
 
-::: {.incremental}
+::: incremental
 - conducted again
 - years later
 - with the same results.
 :::
 
-
-## A first step toward reproducibility 
+## A first step toward reproducibility
 
 Can I run my analysis tomorrow with the same results as today?
 
---> Make restarting R a habit
+--\> Make restarting R a habit
 
-Session -> Restart R or Strg + Shift + F10
+Session -\> Restart R or Strg + Shift + F10
 
 ![Workspace Options](images/rdata.PNG)
 
-or 
+or
+
 ``` r
 #| eval: false
 usethis::use_blank_slate()
 ```
 
-
 <!-- ## How to achieve reproducibility? -->
 
 <!-- ::: {.incremental} -->
+
 <!-- - Einfrieren der   -->
+
 <!-- - Versionskontrolle -->
+
 <!-- ::: -->
 
 ## Measures for reproducibility
 
 - version control using git, Github, Gitlab, etc.
 - [renv](https://cran.r-project.org/web/packages/renv/index.html)
-- containerization with Docker or Nix
+- literate programming using Quarto
 - publish study analysis and data as an R package
-
+- containerization with Docker or Nix
 
 ## Version control using Git, Github, Gitlab, etc.
 
-Further reading:
-(Happy Git and GitHub for the useR)[https://happygitwithr.com/]
+Further reading: (Happy Git and GitHub for the useR)\[https://happygitwithr.com/\]
 
+## Literate programming using Quarto
 
-
+## Publishing Quarto documents
 
 
 
 ## Pros of "study as an R package"
 
-::: {.incremental}
+::: incremental
 - Combines functions for analysis and study data
 - documentation of custom functions, dependencies, contributors
 - CMD check routine
 - condense analysis into functions
 :::
-
-
-
 
 ## Cons of "study as an R package"
 
@@ -99,21 +98,42 @@ More info [here](https://milesmcbain.xyz/posts/an-okay-idea/)
 
 ## Creating an R Package with the {usethis} package
 
+One easy step to get started:
+
 ``` r
 #| eval: false
 usethis::create_package()
 ```
 
-## The process of 
+## The process of working on a package
+
+```{dot}
+digraph g1 {
+layout="circo";
+node [shape = rectangle];
+
+A [label = "CMD check"]
+B [label = "Build package"] 
+C [label = "Write function"]  
+D [label = "Document function"]
+
+A -> B ;
+B -> C ;
+C -> D ;
+D -> A ;
+}
+```
+
 
 ## R packages as research compendia
 
+The idea of research compendia combines a number of the previously discussed features:
 
+- the R package structure
+- 
 
-## R packages for creating research compendia 
+## R packages for creating research compendia
 
 There are a number of R packages that implement research compendia
 
-[rrtools](https://github.com/benmarwick/rrtools)
-[SCIProj](https://github.com/saskiaotto/SCIproj)
-[template](https://github.com/Pakillo/template)
+[rrtools](https://github.com/benmarwick/rrtools) [SCIProj](https://github.com/saskiaotto/SCIproj) [template](https://github.com/Pakillo/template)
