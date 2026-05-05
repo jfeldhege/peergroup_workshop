@@ -19,6 +19,12 @@ website:
         - text: "---"
         - text: "Reproducibility"
           href: reproducible_01.qmd
+      - text: Scripts
+        menu:
+        - text: Examples
+          href: "script_examples.R"
+        - text: R Packages
+          href: "script_package.R"
 
       - href: literatur.qmd
         text: References
