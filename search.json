@@ -182,6 +182,27 @@
     "text": "Timetable"
   },
   {
+    "objectID": "programming_01.html#results-from-the-pre-workshop-survey",
+    "href": "programming_01.html#results-from-the-pre-workshop-survey",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Results from the pre-workshop survey",
+    "text": "Results from the pre-workshop survey\n\nsurvey image 2"
+  },
+  {
+    "objectID": "programming_01.html#results-from-the-pre-workshop-survey-1",
+    "href": "programming_01.html#results-from-the-pre-workshop-survey-1",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Results from the pre-workshop survey",
+    "text": "Results from the pre-workshop survey\n\nsurvey image 2"
+  },
+  {
+    "objectID": "programming_01.html#results-from-the-pre-workshop-survey-2",
+    "href": "programming_01.html#results-from-the-pre-workshop-survey-2",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Results from the pre-workshop survey",
+    "text": "Results from the pre-workshop survey\n\nsurvey image 3"
+  },
+  {
     "objectID": "programming_01.html#a-dataset-for-todays-workshop",
     "href": "programming_01.html#a-dataset-for-todays-workshop",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
@@ -235,7 +256,7 @@
     "href": "programming_01.html#making-code-easier-to-read",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Making code easier to read",
-    "text": "Making code easier to read\nEasier to read code = easier comprehension\nThere are two measures you can take to improve your code quality\n\ngood names\nconsistent code style"
+    "text": "Making code easier to read\nEasier to read code = easier comprehension\nThere are two measures you can take to improve your code quality:\n\ngood names\nconsistent code style"
   },
   {
     "objectID": "programming_01.html#naming-things",
@@ -249,7 +270,7 @@
     "href": "programming_01.html#how-to-pick-good-names",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "How to pick good names?",
-    "text": "How to pick good names?\n\ndescriptive\nprioritize reader’s understanding over shortness or machine compatibility\nfollow a standard naming convention"
+    "text": "How to pick good names?\n\ndescriptive and concise\nprioritize reader’s understanding over shortness or machine compatibility\nfollow a standard naming convention"
   },
   {
     "objectID": "programming_01.html#naming-conventions",
@@ -263,21 +284,21 @@
     "href": "programming_01.html#examples-for-bad-names",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Examples for bad names",
-    "text": "Examples for bad names\nx"
+    "text": "Examples for bad names\n\nx\nnew_data\nnewnewdata\nlrmf\nlogistic_regression_model_fit_result"
   },
   {
-    "objectID": "programming_01.html#what-might-be-bad-about-names-like-these",
-    "href": "programming_01.html#what-might-be-bad-about-names-like-these",
+    "objectID": "programming_01.html#names-for-functions",
+    "href": "programming_01.html#names-for-functions",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
-    "section": "What might be bad about names like these ?",
-    "text": "What might be bad about names like these ?\nc, df, data\nThey are also names of base functions"
+    "section": "Names for functions",
+    "text": "Names for functions\nThe convention for functions in thetidyverse, a collection of related packages, is to start a function name with a verb:\ndo() `do_thing()\n#| eval: false\n\n#Good \nadd_value()`\n\n#Bad \nvalue_add()\nMore here"
   },
   {
     "objectID": "programming_01.html#styling-code-with-lintr",
     "href": "programming_01.html#styling-code-with-lintr",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Styling code with lintr\n",
-    "text": "Styling code with lintr\n\nlintr conducts static code analysis on your R files.\n#| eval: false\n# Style one file\nlintr::lint()\n\n# A whole directory or R project\nlintr::lint_dir()"
+    "text": "Styling code with lintr\n\nlintr conducts static code analysis on your R files.\n#| eval: false\n# Style one file\nlintr::lint(path = \"path/to/file\")\n\n# A whole directory or R project\nlintr::lint_dir(path = \"path/to/project\")"
   },
   {
     "objectID": "programming_01.html#styling-code-with-lintr-1",
