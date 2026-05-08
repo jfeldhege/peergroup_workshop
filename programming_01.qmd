@@ -29,6 +29,20 @@ filters:
 
 ## Timetable
 
+## Results from the pre-workshop survey
+
+![survey image 2](survey1.PNG)
+
+## Results from the pre-workshop survey
+
+![survey image 2](survey2.PNG)
+
+
+## Results from the pre-workshop survey
+
+![survey image 3](survey3.PNG)
+
+
 ## A dataset for today's workshop
 
 - 24 items of the Authentic Happiness Inventory (AHI)
@@ -69,6 +83,10 @@ However, this is repetitive and error prone.
 recode_cesd <- function(cesd_var) {
   cesd_var - 1
 }
+
+pospsy$cesd01r <- recode_cesd(pospsy$cesd01)
+range(pospsy$cesd01r)
+
 ```
 
 ## Exercise
@@ -77,16 +95,18 @@ recode_cesd <- function(cesd_var) {
 
 If you have to repeat yourself, use a loop
 
+
 ## Excercise
 
 ## Making code easier to read
 
 Easier to read code = easier comprehension
 
-There are two measures you can take to improve your code quality
+There are two measures you can take to improve your code quality:
 
 - good names
 - consistent code style
+- 
 
 ## Naming things
 
@@ -96,7 +116,7 @@ Naming things is hard - so hard that books are written about it:
 
 ## How to pick good names?
 
-- descriptive
+- descriptive and concise
 - prioritize reader's understanding over shortness or machine compatibility
 - follow a standard naming convention
 
@@ -111,16 +131,39 @@ Two most commonly used conventions:
 ## Examples for bad names
 
 ::: incremental
-`x`
+- `x`
+- `new_data`
+- `newnewdata`
+- `lrmf`
+- `logistic_regression_model_fit_result`
 :::
 
-## What might be bad about names like these ?
 
-`c`, `df`, `data`
+## Names for functions
 
-::: incremental
-They are also names of base functions
-:::
+The convention for functions in thetidyverse, a collection of related packages, is to start a function name with a verb:
+
+`do()`
+`do_thing()
+
+``` r
+#| eval: false
+
+#Good 
+add_value()`
+
+#Bad 
+value_add()
+
+```
+
+More [here](https://style.tidyverse.org/functions.html)
+
+
+
+
+
+
 
 ## Styling code with `lintr`
 
@@ -129,10 +172,10 @@ They are also names of base functions
 ``` r
 #| eval: false
 # Style one file
-lintr::lint()
+lintr::lint(path = "path/to/file")
 
 # A whole directory or R project
-lintr::lint_dir()
+lintr::lint_dir(path = "path/to/project")
 ```
 
 ## Styling code with `lintr`
@@ -151,3 +194,6 @@ names(lintr::linters_with_defaults())
 ::: callout-warning
 Caution: these tools change your code without asking again
 :::
+
+
+
