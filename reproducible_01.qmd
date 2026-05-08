@@ -32,13 +32,29 @@ A study is reproducible if it can be
 - with the same results.
 :::
 
+## The replication crisis
+
+Reproducibility =/= Replication
+
+However, open methods and data are essential aspects for both.
+
+Openly shared methods and data become valuable when we are given the same tools to work with as the authors. 
+
+
 ## A first step toward reproducibility: a fresh start
 
-Can I run my analysis tomorrow with the same results as today?
+Can I run my analysis tomorrow with the same results as today? Have I included all steps 
 
 --\> For a fresh start: make restarting R a habit
 
 Session -\> Restart R or Strg + Shift + F10
+
+
+## Never let Rstudio save anything!
+
+Do not rely on `.RData` to bail you out. Either save interim datasets to files or write your script in a way that lets you start from scratch everytime.
+
+![Workspace Options](images/rdata.PNG)
 
 or
 
@@ -46,12 +62,6 @@ or
 #| eval: false
 usethis::use_blank_slate()
 ```
-
-## Never let Rstudio save anything!
-
-Do not rely on `.RData` to bail you out. Either save interim datasets to files or write your script in a way that lets you start from scratch everytime.
-
-![Workspace Options](images/rdata.PNG)
 
 <!-- ## How to achieve reproducibility? -->
 
@@ -63,17 +73,29 @@ Do not rely on `.RData` to bail you out. Either save interim datasets to files o
 
 <!-- ::: -->
 
+
+## But it works on my machine!
+
+Having your own 
+
+You need to be able to share your setup with others so they can apply it on their machine. 
+--> What is meant by setup:
+
+- Specific R packages and their version
+- R version
+- operating system
+- system dependencies
+
+
 ## Measures for reproducibility
 
-- version control using git, Github, Gitlab, etc.
 - [renv](https://cran.r-project.org/web/packages/renv/index.html)
-- literate programming using Quarto
+- literate programming using [Quarto](https://quarto.org/)
 - publish study analysis and data as an R package
+
+Outlook:
+- version control using git, Github, Gitlab, etc.
 - containerization with Docker or Nix
-
-## Version control using Git, Github, Gitlab, etc.
-
-Further reading: (Happy Git and GitHub for the useR)\[https://happygitwithr.com/\]
 
 ## Literate programming using Quarto
 
@@ -104,18 +126,8 @@ One easy step to get started:
 
 ``` r
 #| eval: false
-usethis::create_package()
+usethis::create_package("/path/to/the/package")
 ```
-
-## Useful functions when working on a package
-
-| Col1                  | Col2                                 |
-|-----------------------|--------------------------------------|
-| Document              | devtools::document()                 |
-| Load all functions    | devtools::load_all()                 |
-| CMD Check             | devtools::check()                    |
-| Build package locally | devtools::build()                    |
-| Declare dependencies  | usethis::use_package("PACKAGE_NAME") |
 
 ## The process of working on a package
 
@@ -129,17 +141,37 @@ A [label = "CMD check"]
 B [label = "Build package"] 
 C [label = "Write function"]  
 D [label = "Document function"]
+E [label = "Test function"]
 
 A -> B ;
 B -> C ;
 C -> D ;
-D -> A ;
+D -> E ;
+E -> A ;
 }
 ```
 
+## Useful functions when working on a package
+
+| Col1                  | Col2                     |
+|-----------------------|--------------------------|
+| Document function     | `devtools::document()`   |
+| Load all functions    | `devtools::load_all()`   |
+| CMD Check             | `devtools::check()`      |
+| Build package locally | `devtools::build()`      |
+| Declare dependencies  | `usethis::use_package()` |
+
 ## Exercise
 
-I have prepared a small script with the
+I have prepared a small script with these functions that you can download here [script_package.R](%22https://www.johannesfeldhege.de/peergroup_workshop/script_package.R%22)
+
+I want you to
+
+
+## Version control using Git, Github, Gitlab, etc.
+
+Further reading: (Happy Git and GitHub for the useR)\[https://happygitwithr.com/\]
+
 
 ## R packages as research compendia
 
@@ -148,12 +180,12 @@ The idea of a research compendium combines a number of the previously discussed 
 - the R package structure
 - literate programming with Quarto or Rmarkdown
 - version control
-- (optionally) the use of Docker or Binder
+- (optionally) the use of Docker and/or Binder
 
 ## R packages for creating research compendia
 
 There are a number of R packages that implement research compendia:
 
-- rrtools: [ ](https://github.com/benmarwick/rrtools)
-- SCIProj: [ ](https://github.com/saskiaotto/SCIproj)
-- template: [ ](https://github.com/Pakillo/template)
+- rrtools: <https://github.com/benmarwick/rrtools>
+- SCIProj: <https://github.com/saskiaotto/SCIproj>
+- template: <https://github.com/Pakillo/template>
