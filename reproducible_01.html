@@ -225,38 +225,50 @@ Johannes Feldhege
 <li class="fragment">with the same results.</li>
 </ul>
 </section>
+<section id="the-replication-crisis" class="slide level2">
+<h2>The replication crisis</h2>
+<p>Reproducibility =/= Replication</p>
+<p>However, open methods and data are essential aspects for both.</p>
+<p>Openly shared methods and data become valuable when we are given the same tools to work with as the authors.</p>
+</section>
 <section id="a-first-step-toward-reproducibility-a-fresh-start" class="slide level2">
 <h2>A first step toward reproducibility: a fresh start</h2>
-<p>Can I run my analysis tomorrow with the same results as today?</p>
+<p>Can I run my analysis tomorrow with the same results as today? Have I included all steps</p>
 <p>–&gt; For a fresh start: make restarting R a habit</p>
 <p>Session -&gt; Restart R or Strg + Shift + F10</p>
-<p>or</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_blank_slate</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="never-let-rstudio-save-anything" class="slide level2">
 <h2>Never let Rstudio save anything!</h2>
 <p>Do not rely on <code>.RData</code> to bail you out. Either save interim datasets to files or write your script in a way that lets you start from scratch everytime.</p>
 
+<img data-src="images/rdata.PNG" class="r-stretch quarto-figure-center"><p class="caption">Workspace Options</p><p>or</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_blank_slate</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <!-- ## How to achieve reproducibility? -->
 <!-- ::: {.incremental} -->
 <!-- - Einfrieren der   -->
 <!-- - Versionskontrolle -->
 <!-- ::: -->
-<img data-src="images/rdata.PNG" class="r-stretch quarto-figure-center"><p class="caption">Workspace Options</p></section>
+</section>
+<section id="but-it-works-on-my-machine" class="slide level2">
+<h2>But it works on my machine!</h2>
+<p>Having your own</p>
+<p>You need to be able to share your setup with others so they can apply it on their machine. –&gt; What is meant by setup:</p>
+<ul>
+<li>Specific R packages and their version</li>
+<li>R version</li>
+<li>operating system</li>
+<li>system dependencies</li>
+</ul>
+</section>
 <section id="measures-for-reproducibility" class="slide level2">
 <h2>Measures for reproducibility</h2>
 <ul>
-<li>version control using git, Github, Gitlab, etc.</li>
 <li><a href="https://cran.r-project.org/web/packages/renv/index.html">renv</a></li>
-<li>literate programming using Quarto</li>
+<li>literate programming using <a href="https://quarto.org/">Quarto</a></li>
 <li>publish study analysis and data as an R package</li>
-<li>containerization with Docker or Nix</li>
 </ul>
-</section>
-<section id="version-control-using-git-github-gitlab-etc." class="slide level2">
-<h2>Version control using Git, Github, Gitlab, etc.</h2>
-<p>Further reading: (Happy Git and GitHub for the useR)[https://happygitwithr.com/]</p>
+<p>Outlook: - version control using git, Github, Gitlab, etc. - containerization with Docker or Nix</p>
 </section>
 <section id="literate-programming-using-quarto" class="slide level2">
 <h2>Literate programming using Quarto</h2>
@@ -287,7 +299,86 @@ Johannes Feldhege
 <h2>Creating an R Package with the {usethis} package</h2>
 <p>One easy step to get started:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_package</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_package</span>(<span class="st">"/path/to/the/package"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="the-process-of-working-on-a-package" class="slide level2">
+<h2>The process of working on a package</h2>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="960" height="480" viewbox="0.00 0.00 384.98 341.39" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 337.39)">
+<title>g1</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-337.39 380.98,-337.39 380.98,4 -4,4"></polygon>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<polygon fill="none" stroke="black" points="265.85,-36 181.78,-36 181.78,0 265.85,0 265.85,-36"></polygon>
+<text text-anchor="middle" x="223.81" y="-13.8" font-family="Times,serif" font-size="14.00">CMD check</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<polygon fill="none" stroke="black" points="97.49,-92.8 0.54,-92.8 0.54,-56.8 97.49,-56.8 97.49,-92.8"></polygon>
+<text text-anchor="middle" x="49.01" y="-70.6" font-family="Times,serif" font-size="14.00">Build package</text>
+</g>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A-&gt;B</title>
+<path fill="none" stroke="black" d="M181.5,-31.75C159.21,-38.99 131.53,-47.98 107.25,-55.88"></path>
+<polygon fill="black" stroke="black" points="105.85,-52.65 97.43,-59.07 108.02,-59.3 105.85,-52.65"></polygon>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<polygon fill="none" stroke="black" points="98.04,-276.59 -0.01,-276.59 -0.01,-240.59 98.04,-240.59 98.04,-276.59"></polygon>
+<text text-anchor="middle" x="49.01" y="-254.39" font-family="Times,serif" font-size="14.00">Write function</text>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>B-&gt;C</title>
+<path fill="none" stroke="black" d="M49.01,-93.09C49.01,-125.16 49.01,-191.72 49.01,-229.94"></path>
+<polygon fill="black" stroke="black" points="45.51,-230.37 49.01,-240.37 52.51,-230.37 45.51,-230.37"></polygon>
+</g>
+<!-- D -->
+<g id="node4" class="node">
+<title>D</title>
+<polygon fill="none" stroke="black" points="286.29,-333.39 161.34,-333.39 161.34,-297.39 286.29,-297.39 286.29,-333.39"></polygon>
+<text text-anchor="middle" x="223.81" y="-311.19" font-family="Times,serif" font-size="14.00">Document function</text>
+</g>
+<!-- C&#45;&gt;D -->
+<g id="edge3" class="edge">
+<title>C-&gt;D</title>
+<path fill="none" stroke="black" d="M98.17,-274.57C116.91,-280.66 138.58,-287.7 158.59,-294.2"></path>
+<polygon fill="black" stroke="black" points="157.67,-297.58 168.26,-297.34 159.83,-290.92 157.67,-297.58"></polygon>
+</g>
+<!-- E -->
+<g id="node5" class="node">
+<title>E</title>
+<polygon fill="none" stroke="black" points="377.11,-184.7 286.59,-184.7 286.59,-148.7 377.11,-148.7 377.11,-184.7"></polygon>
+<text text-anchor="middle" x="331.85" y="-162.5" font-family="Times,serif" font-size="14.00">Test function</text>
+</g>
+<!-- D&#45;&gt;E -->
+<g id="edge4" class="edge">
+<title>D-&gt;E</title>
+<path fill="none" stroke="black" d="M237.06,-297.16C255.93,-271.18 290.68,-223.36 312.45,-193.39"></path>
+<polygon fill="black" stroke="black" points="315.45,-195.23 318.49,-185.08 309.78,-191.11 315.45,-195.23"></polygon>
+</g>
+<!-- E&#45;&gt;A -->
+<g id="edge5" class="edge">
+<title>E-&gt;A</title>
+<path fill="none" stroke="black" d="M318.6,-148.46C299.73,-122.49 264.99,-74.67 243.21,-44.7"></path>
+<polygon fill="black" stroke="black" points="245.88,-42.42 237.17,-36.38 240.22,-46.53 245.88,-42.42"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </section>
 <section id="useful-functions-when-working-on-a-package" class="slide level2">
 <h2>Useful functions when working on a package</h2>
@@ -300,98 +391,36 @@ Johannes Feldhege
 </thead>
 <tbody>
 <tr class="odd">
-<td>Document</td>
-<td>devtools::document()</td>
+<td>Document function</td>
+<td><code>devtools::document()</code></td>
 </tr>
 <tr class="even">
 <td>Load all functions</td>
-<td>devtools::load_all()</td>
+<td><code>devtools::load_all()</code></td>
 </tr>
 <tr class="odd">
 <td>CMD Check</td>
-<td>devtools::check()</td>
+<td><code>devtools::check()</code></td>
 </tr>
 <tr class="even">
 <td>Build package locally</td>
-<td>devtools::build()</td>
+<td><code>devtools::build()</code></td>
 </tr>
 <tr class="odd">
 <td>Declare dependencies</td>
-<td>usethis::use_package(“PACKAGE_NAME”)</td>
+<td><code>usethis::use_package()</code></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="the-process-of-working-on-a-package" class="slide level2">
-<h2>The process of working on a package</h2>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<svg width="960" height="480" viewbox="0.00 0.00 368.63 294.16" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 290.16)">
-<title>g1</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-290.16 364.63,-290.16 364.63,4 -4,4"></polygon>
-<!-- A -->
-<g id="node1" class="node">
-<title>A</title>
-<polygon fill="none" stroke="black" points="215.35,-36 131.28,-36 131.28,0 215.35,0 215.35,-36"></polygon>
-<text text-anchor="middle" x="173.31" y="-13.8" font-family="Times,serif" font-size="14.00">CMD check</text>
-</g>
-<!-- B -->
-<g id="node2" class="node">
-<title>B</title>
-<polygon fill="none" stroke="black" points="96.71,-161.08 -0.24,-161.08 -0.24,-125.08 96.71,-125.08 96.71,-161.08"></polygon>
-<text text-anchor="middle" x="48.24" y="-138.88" font-family="Times,serif" font-size="14.00">Build package</text>
-</g>
-<!-- A&#45;&gt;B -->
-<g id="edge1" class="edge">
-<title>A-&gt;B</title>
-<path fill="none" stroke="black" d="M155.13,-36.19C133.64,-57.68 97.75,-93.57 73.55,-117.76"></path>
-<polygon fill="black" stroke="black" points="71.04,-115.32 66.45,-124.87 75.99,-120.27 71.04,-115.32"></polygon>
-</g>
-<!-- C -->
-<g id="node3" class="node">
-<title>C</title>
-<polygon fill="none" stroke="black" points="222.34,-286.16 124.29,-286.16 124.29,-250.16 222.34,-250.16 222.34,-286.16"></polygon>
-<text text-anchor="middle" x="173.31" y="-263.96" font-family="Times,serif" font-size="14.00">Write function</text>
-</g>
-<!-- B&#45;&gt;C -->
-<g id="edge2" class="edge">
-<title>B-&gt;C</title>
-<path fill="none" stroke="black" d="M66.42,-161.27C87.91,-182.76 123.8,-218.64 148,-242.84"></path>
-<polygon fill="black" stroke="black" points="145.56,-245.35 155.11,-249.95 150.51,-240.4 145.56,-245.35"></polygon>
-</g>
-<!-- D -->
-<g id="node4" class="node">
-<title>D</title>
-<polygon fill="none" stroke="black" points="360.87,-161.08 235.92,-161.08 235.92,-125.08 360.87,-125.08 360.87,-161.08"></polygon>
-<text text-anchor="middle" x="298.39" y="-138.88" font-family="Times,serif" font-size="14.00">Document function</text>
-</g>
-<!-- C&#45;&gt;D -->
-<g id="edge3" class="edge">
-<title>C-&gt;D</title>
-<path fill="none" stroke="black" d="M191.5,-249.97C212.99,-228.48 248.88,-192.59 273.08,-168.39"></path>
-<polygon fill="black" stroke="black" points="275.59,-170.83 280.18,-161.29 270.64,-165.88 275.59,-170.83"></polygon>
-</g>
-<!-- D&#45;&gt;A -->
-<g id="edge4" class="edge">
-<title>D-&gt;A</title>
-<path fill="none" stroke="black" d="M280.21,-124.89C258.71,-103.4 222.83,-67.51 198.63,-43.32"></path>
-<polygon fill="black" stroke="black" points="201.07,-40.81 191.52,-36.21 196.12,-45.76 201.07,-40.81"></polygon>
-</g>
-</g>
-</svg>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</section>
 <section id="exercise" class="slide level2">
 <h2>Exercise</h2>
-<p>I have prepared a small script with the</p>
+<p>I have prepared a small script with these functions that you can download here <a href="&quot;https://www.johannesfeldhege.de/peergroup_workshop/script_package.R&quot;">script_package.R</a></p>
+<p>I want you to</p>
+</section>
+<section id="version-control-using-git-github-gitlab-etc." class="slide level2">
+<h2>Version control using Git, Github, Gitlab, etc.</h2>
+<p>Further reading: (Happy Git and GitHub for the useR)[https://happygitwithr.com/]</p>
 </section>
 <section id="r-packages-as-research-compendia" class="slide level2">
 <h2>R packages as research compendia</h2>
@@ -400,16 +429,16 @@ Johannes Feldhege
 <li>the R package structure</li>
 <li>literate programming with Quarto or Rmarkdown</li>
 <li>version control</li>
-<li>(optionally) the use of Docker or Binder</li>
+<li>(optionally) the use of Docker and/or Binder</li>
 </ul>
 </section>
 <section id="r-packages-for-creating-research-compendia" class="slide level2">
 <h2>R packages for creating research compendia</h2>
 <p>There are a number of R packages that implement research compendia:</p>
 <ul>
-<li>rrtools: <a href="https://github.com/benmarwick/rrtools"></a></li>
-<li>SCIProj: <a href="https://github.com/saskiaotto/SCIproj"></a></li>
-<li>template: <a href="https://github.com/Pakillo/template"></a></li>
+<li>rrtools: <a href="https://github.com/benmarwick/rrtools" class="uri">https://github.com/benmarwick/rrtools</a></li>
+<li>SCIProj: <a href="https://github.com/saskiaotto/SCIproj" class="uri">https://github.com/saskiaotto/SCIproj</a></li>
+<li>template: <a href="https://github.com/Pakillo/template" class="uri">https://github.com/Pakillo/template</a></li>
 </ul>
 
 
