@@ -21,11 +21,11 @@
     "text": "The replication crisis\nReproducibility =/= Replication\nHowever, open methods and data are essential aspects for both.\nOpenly shared methods and data become valuable when we are given the same tools to work with as the authors."
   },
   {
-    "objectID": "slides_02.html#a-first-step-toward-reproducibility-a-fresh-start",
-    "href": "slides_02.html#a-first-step-toward-reproducibility-a-fresh-start",
+    "objectID": "slides_02.html#a-fresh-start",
+    "href": "slides_02.html#a-fresh-start",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
-    "section": "A first step toward reproducibility: a fresh start",
-    "text": "A first step toward reproducibility: a fresh start\nCan I run my analysis tomorrow with the same results as today? Have I included all steps\n For a fresh start: make restarting R a habit\nSession  Restart  or Strg + Shift + F10"
+    "section": "A fresh start",
+    "text": "A fresh start\nCan I run my analysis tomorrow with the same results as today? Have I included all steps\n For a fresh start: make restarting R during script writing a habit\nSession  Restart \nor\nStrg + Shift + F10"
   },
   {
     "objectID": "slides_02.html#never-let-rstudio-save-anything",
@@ -84,18 +84,32 @@
     "text": "Measures for reproducibility\n\nReproducible environments with renv\n\nliterate programming using Quarto\n\npublish study analysis and data as an R package\n\nOutlook for further functionalities:\n\nversion control using git, Github, Gitlab, etc.\ncontainerization with Docker or Nix"
   },
   {
+    "objectID": "slides_02.html#literate-programming",
+    "href": "slides_02.html#literate-programming",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Literate programming",
+    "text": "Literate programming\n\nLiterate programming is a methodology that combines a programming language with a documentation language, thereby making programs more robust, more portable, more easily maintained, and arguably more fun to write than programs that are written only in a high-level language. The main idea is to treat a program as a piece of literature, addressed to human beings rather than to a computer.\n\nDonald E. Knuth, https://www-cs-faculty.stanford.edu/~knuth/lp.html\nRMarkdown is a combination of the programming language  and the documentation language . It allows users to combine R code with markdown-formatted text.\nRmarkdown documents are fully reproducible as the R code contained within is executed when the document is rendered."
+  },
+  {
     "objectID": "slides_02.html#literate-programming-using-quarto-1",
     "href": "slides_02.html#literate-programming-using-quarto-1",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Literate programming using Quarto",
-    "text": "Literate programming using Quarto"
+    "text": "Literate programming using Quarto\nQuarto is the successor of Rmarkdown which allows users to include code from multiple programming languages and rendering to more output formats.\nQuarto is included in recent versions of RStudio. To check whether it is installed and works, you can run quarto check in a Terminal window."
+  },
+  {
+    "objectID": "slides_02.html#creating-a-quarto-document",
+    "href": "slides_02.html#creating-a-quarto-document",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Creating a Quarto document",
+    "text": "Creating a Quarto document\nFile  New file  Quarto Document…"
   },
   {
     "objectID": "slides_02.html#publishing-quarto-documents",
     "href": "slides_02.html#publishing-quarto-documents",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Publishing Quarto documents",
-    "text": "Publishing Quarto documents"
+    "text": "Publishing Quarto documents\nCollaboration with other scientists (including future you!), who are interested in both your conclusions, and how you reached them (i.e. the code).\n\nAs a modern-day lab notebook that contains"
   },
   {
     "objectID": "slides_02.html#creating-an-r-package-with-the-usethis-package",
