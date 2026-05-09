@@ -493,7 +493,7 @@
   };
 
   // Store cell data
-  globalThis.qwebrCellDetails = [{"code":"?ds4psy::posPsy_AHI_CESD\n\npospsy <- ds4psy::posPsy_AHI_CESD","id":1,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"range(pospsy$cesd01)","id":2,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-2","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"pospsy$cesd01r <- pospsy$cesd01 - 1 \npospsy$cesd02r <- pospsy$cesd02 - 1 \npospsy$cesd03r <- pospsy$cesd03 - 1 \npospsy$cesd04r <- pospsy$cesd04 - 1 ","id":3,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-3","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"recode_cesd <- function(cesd_var) {\n  cesd_var - 1\n}\n\npospsy$cesd01r <- recode_cesd(pospsy$cesd01)\nrange(pospsy$cesd01r)","id":4,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-4","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"names(lintr::linters_with_defaults())","id":5,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-5","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
+  globalThis.qwebrCellDetails = [{"code":"?ds4psy::posPsy_AHI_CESD\n\npospsy <- ds4psy::posPsy_AHI_CESD","id":1,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"names(lintr::linters_with_defaults())","id":2,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-2","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
 
   </script><script type="module">
   // Declare startupMessageQWebR globally
@@ -2040,43 +2040,64 @@ Johannes Feldhege
 </section><section><section id="about-this-workshop" class="title-slide slide level1 center"><h1>About this workshop</h1>
 
 </section><section id="housekeeping" class="slide level2"><h2>Housekeeping</h2>
-<p>All materials for the workshop (slides, scripts, references) can be found on this website: <a href="http://www.johannesfeldhege.de/peergroup_workshop/" class="uri">http://www.johannesfeldhege.de/peergroup_workshop/</a></p>
+<p>All materials for the workshop (slides, scripts, references) can be found on this website:</p>
+<p><a href="http://www.johannesfeldhege.de/peergroup_workshop/" class="uri">http://www.johannesfeldhege.de/peergroup_workshop/</a></p>
 <p>It is hosted on Github and has a permissive license so you can use them however you want.</p>
-</section><section id="timetable" class="slide level2"><h2>Timetable</h2>
+</section><section id="requirements" class="slide level2"><h2>Requirements</h2>
+<p>To get the most out of this workshop, it is recommended:</p>
+<ol type="1">
+<li class="fragment"><p>Install recent versions of <i class="fa-brands fa-r-project" aria-label="r-project"></i> and RStudio</p></li>
+<li class="fragment"><p>Install the following packages: <code>ds4psy</code>, <code>dplyr</code>, <code>lintr.</code>They can be installed using the following code:</p></li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#| eval: false</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"tidyverse"</span>, <span class="st">"ds4psy"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="3" type="1">
+<li class="fragment">Create a new RStudio project for use in the workshop.</li>
+</ol></section><section id="timetable" class="slide level2"><h2>Timetable</h2>
 </section><section id="about-me" class="slide level2"><h2>About me</h2>
 <ul>
 <li class="fragment">M. Sc. in Psychology</li>
 <li class="fragment">I used to work for Forschungsstelle für Psychotherapie</li>
 <li class="fragment">I currently work as a Data Scientist at Asklepios Science &amp; Research since 2022</li>
-<li class="fragment">I have published an R package on CRAN, <a href="https://cran.r-project.org/web/packages/openholidaysR/index.html">openholidaysR</a> and I am currently working on a second one</li>
+<li class="fragment">I have published an R package on CRAN, <a href="https://cran.r-project.org/web/packages/openholidaysR/index.html"><code>openholidaysR</code></a> and I am currently working on a second one</li>
 </ul></section><section id="results-from-the-pre-workshop-survey" class="slide level2"><h2>Results from the pre-workshop survey</h2>
 
 <img data-src="images/survey1.PNG" class="r-stretch quarto-figure-center"><p class="caption">Experience with R</p></section><section id="results-from-the-pre-workshop-survey-1" class="slide level2"><h2>Results from the pre-workshop survey</h2>
 
-<img data-src="images/survey2.PNG" class="r-stretch quarto-figure-center"><p class="caption">survey image 2</p></section><section id="results-from-the-pre-workshop-survey-2" class="slide level2"><h2>Results from the pre-workshop survey</h2>
+<img data-src="images/survey2.PNG" class="r-stretch quarto-figure-center"><p class="caption">Experience with reproducibility tools</p></section><section id="results-from-the-pre-workshop-survey-2" class="slide level2"><h2>Results from the pre-workshop survey</h2>
 
-<img data-src="images/survey3.PNG" class="r-stretch quarto-figure-center"><p class="caption">survey image 3</p></section><section id="a-dataset-for-todays-workshop" class="slide level2"><h2>A dataset for today’s workshop</h2>
+<img data-src="images/survey3.PNG" class="r-stretch quarto-figure-center"><p class="caption">Comments</p></section><section id="a-dataset-for-todays-workshop" class="slide level2"><h2>A dataset for today’s workshop</h2>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <!-- - 24 items of the Authentic Happiness Inventory (AHI) -->
 <!-- - 20 items of the Center for Epidemiological Studies Depression (CES-D) scale -->
 <!-- - measured on 1 to 6 measurement occasions -->
-</section><section id="dry-dont-repeat-yourself" class="slide level2"><h2>DRY: Don’t repeat yourself</h2>
-</section><section id="repeated-application-of-the-same-function" class="slide level2"><h2>Repeated application of the same function</h2>
-<p>CES-D is usually measured on a scale of 0-3, in our dataset it has a scale of 1-4:</p>
-<div id="qwebr-insertion-location-2"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>To recode it, I could do something like that:</p>
-<div id="qwebr-insertion-location-3"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>However, this is repetitive and error prone.</p>
-</section><section id="writing-functions" class="slide level2"><h2>Writing Functions</h2>
-<div id="qwebr-insertion-location-4"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</section><section id="exercise" class="slide level2"><h2>Exercise</h2>
-</section><section id="loops" class="slide level2"><h2>Loops</h2>
-<p>If you have to repeat yourself, use a loop</p>
-</section><section id="excercise" class="slide level2"><h2>Excercise</h2>
+<!-- ## DRY: Don't repeat yourself -->
+<!-- ## Repeated application of the same function -->
+<!-- CES-D is usually measured on a scale of 0-3, in our dataset it has a scale of 1-4: -->
+<!-- ```{webr-r} -->
+<!-- range(pospsy$cesd01) -->
+<!-- ``` -->
+<!-- To recode it, I could do something like that: -->
+<!-- ```{webr-r} -->
+<!-- pospsy$cesd01r <- pospsy$cesd01 - 1  -->
+<!-- pospsy$cesd02r <- pospsy$cesd02 - 1  -->
+<!-- pospsy$cesd03r <- pospsy$cesd03 - 1  -->
+<!-- pospsy$cesd04r <- pospsy$cesd04 - 1  -->
+<!-- ``` -->
+<!-- However, this is repetitive and error prone. -->
+<!-- ## Writing Functions -->
+<!-- ```{webr-r} -->
+<!-- recode_cesd <- function(cesd_var) { -->
+<!--   cesd_var - 1 -->
+<!-- } -->
+<!-- pospsy$cesd01r <- recode_cesd(pospsy$cesd01) -->
+<!-- range(pospsy$cesd01r) -->
+<!-- ``` -->
+<!-- ## Exercise -->
+<!-- ## Loops -->
+<!-- If you have to repeat yourself, use a loop -->
+<!-- ## Excercise -->
 </section></section><section><section id="making-code-easier-to-read" class="title-slide slide level1 center"><h1>Making code easier to read</h1>
 
 </section><section id="making-code-easier-to-read-1" class="slide level2"><h2>Making code easier to read</h2>
@@ -2092,20 +2113,27 @@ Johannes Feldhege
 <p>Naming things is hard - so hard that books are written about it:</p>
 
 <img data-src="images/naming_things_book.PNG" class="r-stretch"></section><section id="how-to-pick-good-names" class="slide level2"><h2>How to pick good names?</h2>
-<p>A good name should be - descriptive and concise - prioritize reader’s understanding over shortness or machine compatibility - follow a standard naming convention</p>
-</section><section id="naming-conventions" class="slide level2"><h2>Naming conventions</h2>
+<p>A good name should be</p>
+<ul>
+<li class="fragment">descriptive and concise</li>
+<li class="fragment">prioritize reader’s understanding over shortness or machine compatibility</li>
+<li class="fragment">follow a standard naming convention</li>
+</ul></section><section id="naming-conventions" class="slide level2"><h2>Naming conventions</h2>
 <p>Some commonly used conventions:</p>
-<p>base</p>
+<p>base <i class="fa-brands fa-r-project" aria-label="r-project"></i></p>
 <p><span class="emoji" data-emoji="snake">🐍</span> snake_case</p>
 <p><span class="emoji" data-emoji="camel">🐫</span> camelCase</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#| eval: false</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#| eval: false</span></span>
 <span></span>
+<span><span class="co"># base R</span></span>
+<span><span class="fu">add.value</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">reg.results</span></span>
 <span></span>
-<span><span class="co">#:snake:</span></span>
+<span><span class="co"># :snake:</span></span>
 <span><span class="fu">add_value</span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">reg_results</span></span>
 <span></span>
-<span><span class="co">#:camel:</span></span>
+<span><span class="co"># :camel:</span></span>
 <span><span class="fu">addValue</span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">regResults</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section><section id="examples-for-bad-names" class="slide level2"><h2>Examples for bad names</h2>
@@ -2119,7 +2147,7 @@ Johannes Feldhege
 <p>The convention for functions in the tidyverse, a collection of related packages, is to start a function name with a verb:</p>
 <p><code>do()</code></p>
 <p><code>do_thing()</code></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#| eval: false</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#| eval: false</span></span>
 <span></span>
 <span><span class="co">#Good </span></span>
 <span><span class="fu">add_value</span><span class="op">(</span><span class="op">)</span></span>
@@ -2132,9 +2160,9 @@ Johannes Feldhege
 
 </section><section id="styling-code-with-lintr" class="slide level2"><h2>Styling code with <code>lintr</code>
 </h2>
-<p><a href="https://lintr.r-lib.org/">lintr</a> conducts static code analysis on your R files.</p>
+<p><a href="https://lintr.r-lib.org/">lintr</a> is a package for static code analysis on your R files.</p>
 <p>Basic usage:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#| eval: false</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#| eval: false</span></span>
 <span><span class="co"># Style one file</span></span>
 <span><span class="fu">lintr</span><span class="fu">::</span><span class="fu">lint</span><span class="op">(</span>path <span class="op">=</span> <span class="st">"path/to/file"</span><span class="op">)</span></span>
 <span></span>
@@ -2142,22 +2170,18 @@ Johannes Feldhege
 <span><span class="fu">lintr</span><span class="fu">::</span><span class="fu">lint_dir</span><span class="op">(</span>path <span class="op">=</span> <span class="st">"path/to/project"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section><section id="styling-code-with-lintr-1" class="slide level2"><h2>Styling code with <code>lintr</code>
 </h2>
-<div class="columns">
-<div class="column" style="width:30%;">
 <p><code>lintr</code> comes with defaults.</p>
-<p>These can be deactivated, or you can define your own set.</p>
-<p>You can also add your own linters.</p>
-</div><div class="column" style="width:60%;">
-<div id="qwebr-insertion-location-5"></div>
+<div id="qwebr-insertion-location-2"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div></div>
+<p>These can be modified, deactivated, or you can define your own set.</p>
+<p>You can also add your own linters.</p>
 </section><section id="beyond-lintr" class="slide level2"><h2>Beyond <code>lintr</code>
 </h2>
 <p><code>lintr</code> gives recommendations but does not change code.</p>
 <p>These tools can style your code by changing the code when executed:</p>
 <ul>
-<li class="fragment"><a href="https://posit-dev.github.io/air/">Air</a></li>
-<li class="fragment"><a href="https://styler.r-lib.org/">styler</a></li>
+<li><a href="https://posit-dev.github.io/air/">Air</a></li>
+<li><a href="https://styler.r-lib.org/">styler</a></li>
 </ul>
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
@@ -2179,14 +2203,15 @@ Johannes Feldhege
 <p>A helpful comment explains the why, not the what or how.</p>
 </blockquote>
 <p>In</p>
-<p>More info <a href="https://blog.r-hub.io/2023/01/26/code-comments-self-explaining-code/">here</a> and <a href="https://style.tidyverse.org/">here</a> {.smaller}</p>
+<p>More info <a href="https://blog.r-hub.io/2023/01/26/code-comments-self-explaining-code/">here</a> and <a href="https://style.tidyverse.org/">here</a></p>
 </section><section id="too-many-comments" class="slide level2"><h2>Too many comments</h2>
-<p>If you find yourself commenting a lot, there might be better alternatives. These are places where detailed comments on what and your code is doing for what reason are encouraged:</p>
+<p>If you find yourself commenting a lot, there might be better alternatives.</p>
+<p>These are places where detailed comments on what and your code is doing for what reason are encouraged:</p>
 <ul>
-<li class="fragment">convert your script to a {{&lt; fa-brands fa-markdown &gt;}} document such as Rmarkdown or Quarto</li>
+<li class="fragment">convert your script to a {{&lt; fa-brands markdown &gt;}} document such as Rmarkdown or Quarto</li>
 <li class="fragment">incorporate your code into functions in a package and document them with roxygen2</li>
 </ul>
-<p>Both aspects will be covered in</p>
+<p>Both aspects will be covered in the second part of the workshop.</p>
 
 
 </section></section>

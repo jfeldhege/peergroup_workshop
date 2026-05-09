@@ -207,7 +207,14 @@
     "href": "programming_01.html#housekeeping",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Housekeeping",
-    "text": "Housekeeping\nAll materials for the workshop (slides, scripts, references) can be found on this website: http://www.johannesfeldhege.de/peergroup_workshop/\nIt is hosted on Github and has a permissive license so you can use them however you want."
+    "text": "Housekeeping\nAll materials for the workshop (slides, scripts, references) can be found on this website:\nhttp://www.johannesfeldhege.de/peergroup_workshop/\nIt is hosted on Github and has a permissive license so you can use them however you want."
+  },
+  {
+    "objectID": "programming_01.html#requirements",
+    "href": "programming_01.html#requirements",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Requirements",
+    "text": "Requirements\nTo get the most out of this workshop, it is recommended:\n\nInstall recent versions of  and RStudio\nInstall the following packages: ds4psy, dplyr, lintr.They can be installed using the following code:\n\n#| eval: false\ninstall.packages(c(\"tidyverse\", \"ds4psy\"))\n\nCreate a new RStudio project for use in the workshop."
   },
   {
     "objectID": "programming_01.html#timetable",
@@ -235,14 +242,14 @@
     "href": "programming_01.html#results-from-the-pre-workshop-survey-1",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Results from the pre-workshop survey",
-    "text": "Results from the pre-workshop survey\n\nsurvey image 2"
+    "text": "Results from the pre-workshop survey\n\nExperience with reproducibility tools"
   },
   {
     "objectID": "programming_01.html#results-from-the-pre-workshop-survey-2",
     "href": "programming_01.html#results-from-the-pre-workshop-survey-2",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Results from the pre-workshop survey",
-    "text": "Results from the pre-workshop survey\n\nsurvey image 3"
+    "text": "Results from the pre-workshop survey\n\nComments"
   },
   {
     "objectID": "programming_01.html#a-dataset-for-todays-workshop",
@@ -250,48 +257,6 @@
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "A dataset for today’s workshop",
     "text": "A dataset for today’s workshop\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
-  },
-  {
-    "objectID": "programming_01.html#dry-dont-repeat-yourself",
-    "href": "programming_01.html#dry-dont-repeat-yourself",
-    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
-    "section": "DRY: Don’t repeat yourself",
-    "text": "DRY: Don’t repeat yourself"
-  },
-  {
-    "objectID": "programming_01.html#repeated-application-of-the-same-function",
-    "href": "programming_01.html#repeated-application-of-the-same-function",
-    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
-    "section": "Repeated application of the same function",
-    "text": "Repeated application of the same function\nCES-D is usually measured on a scale of 0-3, in our dataset it has a scale of 1-4:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTo recode it, I could do something like that:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nHowever, this is repetitive and error prone."
-  },
-  {
-    "objectID": "programming_01.html#writing-functions",
-    "href": "programming_01.html#writing-functions",
-    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
-    "section": "Writing Functions",
-    "text": "Writing Functions\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
-  },
-  {
-    "objectID": "programming_01.html#exercise",
-    "href": "programming_01.html#exercise",
-    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
-    "section": "Exercise",
-    "text": "Exercise"
-  },
-  {
-    "objectID": "programming_01.html#loops",
-    "href": "programming_01.html#loops",
-    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
-    "section": "Loops",
-    "text": "Loops\nIf you have to repeat yourself, use a loop"
-  },
-  {
-    "objectID": "programming_01.html#excercise",
-    "href": "programming_01.html#excercise",
-    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
-    "section": "Excercise",
-    "text": "Excercise"
   },
   {
     "objectID": "programming_01.html#making-code-easier-to-read-1",
@@ -312,14 +277,14 @@
     "href": "programming_01.html#how-to-pick-good-names",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "How to pick good names?",
-    "text": "How to pick good names?\nA good name should be - descriptive and concise - prioritize reader’s understanding over shortness or machine compatibility - follow a standard naming convention"
+    "text": "How to pick good names?\nA good name should be\n\ndescriptive and concise\nprioritize reader’s understanding over shortness or machine compatibility\nfollow a standard naming convention"
   },
   {
     "objectID": "programming_01.html#naming-conventions",
     "href": "programming_01.html#naming-conventions",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Naming conventions",
-    "text": "Naming conventions\nSome commonly used conventions:\nbase\n🐍 snake_case\n🐫 camelCase\n#| eval: false\n\n\n#:snake:\nadd_value()\nreg_results\n\n#:camel:\naddValue()\nregResults"
+    "text": "Naming conventions\nSome commonly used conventions:\nbase \n🐍 snake_case\n🐫 camelCase\n#| eval: false\n\n# base R\nadd.value()\nreg.results\n\n# :snake:\nadd_value()\nreg_results\n\n# :camel:\naddValue()\nregResults"
   },
   {
     "objectID": "programming_01.html#examples-for-bad-names",
@@ -340,14 +305,14 @@
     "href": "programming_01.html#styling-code-with-lintr",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Styling code with lintr\n",
-    "text": "Styling code with lintr\n\nlintr conducts static code analysis on your R files.\nBasic usage:\n#| eval: false\n# Style one file\nlintr::lint(path = \"path/to/file\")\n\n# A whole directory or R project\nlintr::lint_dir(path = \"path/to/project\")"
+    "text": "Styling code with lintr\n\nlintr is a package for static code analysis on your R files.\nBasic usage:\n#| eval: false\n# Style one file\nlintr::lint(path = \"path/to/file\")\n\n# A whole directory or R project\nlintr::lint_dir(path = \"path/to/project\")"
   },
   {
     "objectID": "programming_01.html#styling-code-with-lintr-1",
     "href": "programming_01.html#styling-code-with-lintr-1",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Styling code with lintr\n",
-    "text": "Styling code with lintr\n\n\n\nlintr comes with defaults.\nThese can be deactivated, or you can define your own set.\nYou can also add your own linters.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Styling code with lintr\n\nlintr comes with defaults.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThese can be modified, deactivated, or you can define your own set.\nYou can also add your own linters."
   },
   {
     "objectID": "programming_01.html#beyond-lintr",
@@ -361,13 +326,13 @@
     "href": "programming_01.html#writing-helpful-comments",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Writing helpful comments",
-    "text": "Writing helpful comments\n\nA helpful comment explains the why, not the what or how.\n\nIn\nMore info here and here {.smaller}"
+    "text": "Writing helpful comments\n\nA helpful comment explains the why, not the what or how.\n\nIn\nMore info here and here"
   },
   {
     "objectID": "programming_01.html#too-many-comments",
     "href": "programming_01.html#too-many-comments",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Too many comments",
-    "text": "Too many comments\nIf you find yourself commenting a lot, there might be better alternatives. These are places where detailed comments on what and your code is doing for what reason are encouraged:\n\nconvert your script to a {{&lt; fa-brands fa-markdown &gt;}} document such as Rmarkdown or Quarto\nincorporate your code into functions in a package and document them with roxygen2\n\nBoth aspects will be covered in"
+    "text": "Too many comments\nIf you find yourself commenting a lot, there might be better alternatives.\nThese are places where detailed comments on what and your code is doing for what reason are encouraged:\n\nconvert your script to a {{&lt; fa-brands markdown &gt;}} document such as Rmarkdown or Quarto\nincorporate your code into functions in a package and document them with roxygen2\n\nBoth aspects will be covered in the second part of the workshop."
   }
 ]
