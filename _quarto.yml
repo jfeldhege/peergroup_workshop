@@ -25,9 +25,11 @@ website:
       - text: Scripts
         menu:
         - text: Examples
-          href: "script_examples.R"
-        - text: R Packages
-          href: "script_package.R"
+          href: "/examples/script_examples.R"
+        - text: Example Script package development
+          href: "/examples/script_package.R"
+        - text: Quarto Example
+          href: "examples/quarto_example.qmd"
 
       - href: literatur.qmd
         text: References
