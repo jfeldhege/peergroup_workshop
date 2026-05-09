@@ -14,11 +14,11 @@ website:
         text: Home
       - text: Slides  
         menu:
-        - text: "Programming"
-          href: programming_01.qmd
+        - text: "Part 1"
+          href: slides_01.qmd
         - text: "---"
-        - text: "Reproducibility"
-          href: reproducible_01.qmd
+        - text: "Part 2"
+          href: slides_02.qmd
       - text: Scripts
         menu:
         - text: Examples

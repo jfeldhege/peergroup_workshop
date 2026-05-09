@@ -132,15 +132,35 @@ pospsy <- ds4psy::posPsy_AHI_CESD
 
 <!-- ## Excercise -->
 
+
+# Simulations
+
+## Synthetic data
+
+Open science 
+
+However, often it is not possible to share raw study datasets bcause they contain
+personally identifiable information or are highly sensitive.
+
+In this case, **synthetic datasets** can be generated and used in place of the real data.
+
+
+## The `simstudy` package
+
+
+
+
 # Making code easier to read
 
 ## Making code easier to read
 
-Easier to read code = easier comprehension
+> Code is written once but read many times.
 
-There are three measures you can take to improve your code quality:
+Therefore, we should try to improve readibility of our code.
 
-- good names
+Three measures you can take towards this goal:
+
+- meaningful names
 - consistent code style
 - helpful comments
 
@@ -153,6 +173,8 @@ Naming things is hard - so hard that books are written about it:
 ![](images/naming_things_book.PNG)
 
 ## How to pick good names?
+
+
 
 A good name should be
 
@@ -177,11 +199,11 @@ base {{< fa brands r-project >}}
 add.value()
 reg.results
 
-# :snake:
+# snake_case
 add_value()
 reg_results
 
-# :camel:
+# camelCase
 addValue()
 regResults
 ```
@@ -196,11 +218,9 @@ regResults
 
 ## Names for functions
 
-The convention for functions in the tidyverse, a collection of related packages, is to start a function name with a verb:
+The convention for functions in the tidyverse, a collection of related packages, is to start a function name with a verb, so `do()` or `do_thing()`. 
 
-`do()`
-
-`do_thing()`
+Examples:
 
 ``` r
 #| eval: false
@@ -275,7 +295,11 @@ If you find yourself commenting a lot, there might be better alternatives.
 
 These are places where detailed comments on what and your code is doing for what reason are encouraged:
 
-- convert your script to a {{< fa-brands markdown >}} document such as Rmarkdown or Quarto
+::: nonincremental
+- convert your script to a {{< fa brands markdown >}} document such as Rmarkdown or Quarto
 - incorporate your code into functions in a package and document them with roxygen2
+:::
 
 Both aspects will be covered in the second part of the workshop.
+
+

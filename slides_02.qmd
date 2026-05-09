@@ -47,9 +47,9 @@ Openly shared methods and data become valuable when we are given the same tools 
 
 Can I run my analysis tomorrow with the same results as today? Have I included all steps
 
---\> For a fresh start: make restarting R a habit
+{{< fa circle-right >}} For a fresh start: make restarting R a habit
 
-Session -\> Restart {{< fa brands r-project >}} or Strg + Shift + F10
+Session {{< fa circle-right >}} Restart {{< fa brands r-project >}} or Strg + Shift + F10
 
 ## Never let Rstudio save anything!
 
@@ -58,17 +58,20 @@ Do not rely on `.RData` to bail you out. Either save interim datasets to files o
 Two options:
 
 ::::: columns
-::: {.column width="50%"}
-![Workspace Options](images/rdata.PNG)
+::: {.column width="60%"}
+Change it in the RStudio options:
+![](images/rdata.PNG)
 :::
 
-::: {.column width="60%"}
-:::
+::: {.column width="40%"}
+Use a function from the `usethis` package:
 
 ``` r
 #| eval: false
 usethis::use_blank_slate()
 ```
+:::
+
 :::::
 
 <!-- ## How to achieve reproducibility? -->
@@ -81,6 +84,8 @@ usethis::use_blank_slate()
 
 <!-- ::: -->
 
+# Freezing package versions
+
 ## But it works on my machine!
 
 Sharing your code and data is one step in the right direction.
@@ -89,13 +94,12 @@ To guarantee that others can apply them on their machine, you need to be able to
 
 {{< fa circle-right >}} What is meant by computational environment:
 
-::: {.fragment .highlight-red}
 - Specific {{< fa brands r-project >}} packages and their version
-:::
 
-- {{< fa brands r-project >}} version
-- operating system ({{< fa-brands windows >}}, {{< fa-brands apple >}}, {{< fa-brands linux >}})
-- system dependencies
+
+- [{{< fa brands r-project >}} version]{.fragment .strike}
+- [operating system ( {{< fa brands windows >}}, {{< fa brands apple >}}, {{< fa brands linux >}}) ]{.fragment .strike}
+- [system dependencies]{.fragment .strike}
 
 ## The `renv` package
 
@@ -103,18 +107,18 @@ To guarantee that others can apply them on their machine, you need to be able to
 
 This way, your project becomes **portable** and **reproducible** as you can use it on another computer or share it with a colleague.
 
-The project will not be affected by changing functions and functionality or breaking changes in packages across versions. 
+The project will not be affected by **changing functionality** or **breaking changes** in packages across versions. 
 
 ## Libraries
 
 A library is the place where packages are installed.
 
 :::: {.columns}
+
+::: {.column width="30%"}
 A library is the place where packages are installed. To check where your library is located, use `.libPaths()`. 
 
 In a regular setup, all projects write to the same library. Therefore, packages can become out of sync with the projects that they have been used in.   
-
-::: {.column width="30%"}
 
 :::
 
@@ -147,17 +151,13 @@ digraph G {
 
 ::::
 
-
-
-
-
 ## Initialise `renv` in an existing project
 
  ![Console output after renv::init()](images/renv_init.PNG)
 
 ## Project files created by `renv`
 
-The following project files are created by 
+The following project files are created by `renv::init()`
 ```         
 .
 ├── .Rprofile          # Project-specific profile, activates renv 
@@ -171,13 +171,16 @@ The following project files are created by
 └── renv.lock          # the lockfile, containing package metadata
 ```
 
+
 ## Workflow with `renv`
 
 Reproducibility can be achieved with the functions `renv::snapshot()` & `renv::restore()`
 
 :::::: columns
+
 ::: {.column width="45%"}
-You
+**You**
+
 ::: nonincremental
 - Initialize `renv` in the project with **`renv::init()`**
 - Install new packages with `renv::install()`**
@@ -191,32 +194,44 @@ You
 :::
 
 ::: {.column width="45%"}
-Other person/computer
+**Other person/computer**
+
 ::: nonincremental
-- **Restore project library from a lockfile w/ `renv::restore()`**
+- **Restore project library from a lockfile with `renv::restore()`**
 - Install new packages with **`renv::install()`** 
 - Update the lockfile with **`renv::snapshot()`**
 :::
 
 :::
+
 ::::::
+
+
 
 ## Measures for reproducibility
 
+::: nonincremental
 - Reproducible environments with [renv](https://cran.r-project.org/web/packages/renv/index.html)
 - literate programming using [Quarto](https://quarto.org/)
 - publish study analysis and data as an R package
+:::
 
-Outlook: 
 
+Outlook for further functionalities: 
+
+::: nonincremental
 - version control using git, Github, Gitlab, etc. 
 - containerization with Docker or Nix
+:::
+
 
 # Literate programming using Quarto
 
 ## Literate programming using Quarto
 
 ## Publishing Quarto documents
+
+
 
 # Writing R packages
 
