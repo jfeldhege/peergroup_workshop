@@ -1,6 +1,6 @@
 ---
 title: "Clean Code, Reproducible Science: Advanced R-Programming and Workflows"
-subtitle: "Programming with R"
+subtitle: "Programming with {{< fa brands r-project >}}"
 author: "Johannes Feldhege"
 format: 
   revealjs:
@@ -10,6 +10,7 @@ format:
     chalkboard: true
     code-link: true
     code-line-numbers: false
+    incremental: true  
     from: markdown+emoji
 engine: knitr
 webr: 
@@ -25,22 +26,23 @@ filters:
 - M. Sc. in Psychology
 - I used to work for Forschungsstelle für Psychotherapie
 - I currently work as a Data Scientist at Asklepios Science & Research since 2022
-- I have published one R package on CRAN (https://cran.r-project.org/web/packages/openholidaysR/index.html) and I am working on another one
+- I have published an R package on CRAN, [openholidaysR](https://cran.r-project.org/web/packages/openholidaysR/index.html) and I am currently working on a second one
 
 ## Timetable
 
 ## Results from the pre-workshop survey
 
-![survey image 2](survey1.PNG)
+![survey image 2](images/survey1.PNG)
 
 ## Results from the pre-workshop survey
 
-![survey image 2](survey2.PNG)
+![survey image 2](images/survey2.PNG)
 
 
 ## Results from the pre-workshop survey
 
-![survey image 3](survey3.PNG)
+![survey image 3](images/survey3.PNG)
+
 
 
 ## A dataset for today's workshop
@@ -98,15 +100,19 @@ If you have to repeat yourself, use a loop
 
 ## Excercise
 
+# Making code easier to read
+
 ## Making code easier to read
 
 Easier to read code = easier comprehension
 
-There are two measures you can take to improve your code quality:
+There are three measures you can take to improve your code quality:
 
 - good names
 - consistent code style
-- 
+- helpful comments
+
+# Naming things
 
 ## Naming things
 
@@ -130,18 +136,16 @@ Two most commonly used conventions:
 
 ## Examples for bad names
 
-::: incremental
 - `x`
 - `new_data`
 - `newnewdata`
 - `lrmf`
 - `logistic_regression_model_fit_result`
-:::
 
 
 ## Names for functions
 
-The convention for functions in thetidyverse, a collection of related packages, is to start a function name with a verb:
+The convention for functions in the tidyverse, a collection of related packages, is to start a function name with a verb:
 
 `do()`
 `do_thing()
@@ -154,15 +158,13 @@ add_value()`
 
 #Bad 
 value_add()
+value()
 
 ```
 
 More [here](https://style.tidyverse.org/functions.html)
 
-
-
-
-
+# Styling code
 
 
 ## Styling code with `lintr`
@@ -195,5 +197,15 @@ names(lintr::linters_with_defaults())
 Caution: these tools change your code without asking again
 :::
 
+# Writing comments
 
+## Writing helpful comments
+
+A helpful comment explains the why, not the what or how.
+
+In 
+
+If you find yourself commenting a lot, there are
+
+More info [here](https://blog.r-hub.io/2023/01/26/code-comments-self-explaining-code/) and [here]()
 
