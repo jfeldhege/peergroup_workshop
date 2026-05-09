@@ -1,185 +1,164 @@
 [
   {
-    "objectID": "reproducible_01.html#why-make-it-reproducible",
-    "href": "reproducible_01.html#why-make-it-reproducible",
+    "objectID": "slides_02.html#why-make-it-reproducible",
+    "href": "slides_02.html#why-make-it-reproducible",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Why make it reproducible?",
     "text": "Why make it reproducible?\n\nI have to rerun an analysis a few years down the line…\nMy colleague wants to build on my analysis in a new study…\nI want to publish the code used in my study together with the manuscript so others can use it…"
   },
   {
-    "objectID": "reproducible_01.html#what-is-reproducibility",
-    "href": "reproducible_01.html#what-is-reproducibility",
+    "objectID": "slides_02.html#what-is-reproducibility",
+    "href": "slides_02.html#what-is-reproducibility",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "What is reproducibility?",
     "text": "What is reproducibility?\nA study is reproducible if it can be\n\nconducted again\nyears later\nwith the same results."
   },
   {
-    "objectID": "reproducible_01.html#the-replication-crisis",
-    "href": "reproducible_01.html#the-replication-crisis",
+    "objectID": "slides_02.html#the-replication-crisis",
+    "href": "slides_02.html#the-replication-crisis",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "The replication crisis",
     "text": "The replication crisis\nReproducibility =/= Replication\nHowever, open methods and data are essential aspects for both.\nOpenly shared methods and data become valuable when we are given the same tools to work with as the authors."
   },
   {
-    "objectID": "reproducible_01.html#a-first-step-toward-reproducibility-a-fresh-start",
-    "href": "reproducible_01.html#a-first-step-toward-reproducibility-a-fresh-start",
+    "objectID": "slides_02.html#a-first-step-toward-reproducibility-a-fresh-start",
+    "href": "slides_02.html#a-first-step-toward-reproducibility-a-fresh-start",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "A first step toward reproducibility: a fresh start",
-    "text": "A first step toward reproducibility: a fresh start\nCan I run my analysis tomorrow with the same results as today? Have I included all steps\n–&gt; For a fresh start: make restarting R a habit\nSession -&gt; Restart  or Strg + Shift + F10"
+    "text": "A first step toward reproducibility: a fresh start\nCan I run my analysis tomorrow with the same results as today? Have I included all steps\n For a fresh start: make restarting R a habit\nSession  Restart  or Strg + Shift + F10"
   },
   {
-    "objectID": "reproducible_01.html#never-let-rstudio-save-anything",
-    "href": "reproducible_01.html#never-let-rstudio-save-anything",
+    "objectID": "slides_02.html#never-let-rstudio-save-anything",
+    "href": "slides_02.html#never-let-rstudio-save-anything",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Never let Rstudio save anything!",
-    "text": "Never let Rstudio save anything!\nDo not rely on .RData to bail you out. Either save interim datasets to files or write your script in a way that lets you start from scratch every time.\nTwo options:\n\n\n\n\nWorkspace Options\n\n\n\n#| eval: false\nusethis::use_blank_slate()"
+    "text": "Never let Rstudio save anything!\nDo not rely on .RData to bail you out. Either save interim datasets to files or write your script in a way that lets you start from scratch every time.\nTwo options:\n\n\nChange it in the RStudio options: \n\nUse a function from the usethis package:\n#| eval: false\nusethis::use_blank_slate()"
   },
   {
-    "objectID": "reproducible_01.html#but-it-works-on-my-machine",
-    "href": "reproducible_01.html#but-it-works-on-my-machine",
+    "objectID": "slides_02.html#but-it-works-on-my-machine",
+    "href": "slides_02.html#but-it-works-on-my-machine",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "But it works on my machine!",
-    "text": "But it works on my machine!\nSharing your code and data is one step in the right direction.\nTo guarantee that others can apply them on their machine, you need to be able to share your computational environment.\n What is meant by computational environment:\n\n\nSpecific  packages and their version\n\n\n\n\n version\noperating system ({{&lt; fa-brands windows &gt;}}, {{&lt; fa-brands apple &gt;}}, {{&lt; fa-brands linux &gt;}})\nsystem dependencies"
+    "text": "But it works on my machine!\nSharing your code and data is one step in the right direction.\nTo guarantee that others can apply them on their machine, you need to be able to share your computational environment.\n What is meant by computational environment:\n\nSpecific  packages and their version\n version\noperating system ( , , )\nsystem dependencies"
   },
   {
-    "objectID": "reproducible_01.html#the-renv-package",
-    "href": "reproducible_01.html#the-renv-package",
+    "objectID": "slides_02.html#the-renv-package",
+    "href": "slides_02.html#the-renv-package",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "The renv package",
-    "text": "The renv package\nrenv is an R package that freezes and records the packages in your project in a project-specific library.\nThis way, your project becomes portable and reproducible as you can use it on another computer or share it with a colleague.\nThe project will not be affected by changing functions and functionality or breaking changes in packages across versions."
+    "text": "The renv package\nrenv is an R package that freezes and records the packages in your project in a project-specific library.\nThis way, your project becomes portable and reproducible as you can use it on another computer or share it with a colleague.\nThe project will not be affected by changing functionality or breaking changes in packages across versions."
   },
   {
-    "objectID": "reproducible_01.html#libraries",
-    "href": "reproducible_01.html#libraries",
+    "objectID": "slides_02.html#libraries",
+    "href": "slides_02.html#libraries",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Libraries",
-    "text": "Libraries\nA library is the place where packages are installed.\n\nA library is the place where packages are installed. To check where your library is located, use .libPaths().\nIn a regular setup, all projects write to the same library. Therefore, packages can become out of sync with the projects that they have been used in.\n\n\n\nUsing renv\n\n\n\n\n\nG\nA\nProject 1D\nProject library 1A-&gt;D\nB\nProject 2E\nProject library 2B-&gt;E\nC\nProject 3F\nProject library 3C-&gt;F\nG\nGlobal package cacheD-&gt;G\nE-&gt;G\nF-&gt;G"
+    "text": "Libraries\nA library is the place where packages are installed.\n\n\nA library is the place where packages are installed. To check where your library is located, use .libPaths().\nIn a regular setup, all projects write to the same library. Therefore, packages can become out of sync with the projects that they have been used in.\n\nUsing renv\n\n\n\n\n\nG\nA\nProject 1D\nProject library 1A-&gt;D\nB\nProject 2E\nProject library 2B-&gt;E\nC\nProject 3F\nProject library 3C-&gt;F\nG\nGlobal package cacheD-&gt;G\nE-&gt;G\nF-&gt;G"
   },
   {
-    "objectID": "reproducible_01.html#initialise-renv-in-an-existing-project",
-    "href": "reproducible_01.html#initialise-renv-in-an-existing-project",
+    "objectID": "slides_02.html#initialise-renv-in-an-existing-project",
+    "href": "slides_02.html#initialise-renv-in-an-existing-project",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Initialise renv in an existing project",
     "text": "Initialise renv in an existing project\n\nConsole output after renv::init()"
   },
   {
-    "objectID": "reproducible_01.html#project-files-created-by-renv",
-    "href": "reproducible_01.html#project-files-created-by-renv",
+    "objectID": "slides_02.html#project-files-created-by-renv",
+    "href": "slides_02.html#project-files-created-by-renv",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Project files created by renv\n",
-    "text": "Project files created by renv\n\nThe following project files are created by\n.\n├── .Rprofile          # Project-specific profile, activates renv \n│\n├── renv/\n│   ├── .gitignore     # Specify which files should be ignored by git\n│   ├── activate.R     # R script to launch renv\n│   ├── library/       # Project library\n│   └── settings.dcf   # renv settings\n│\n└── renv.lock          # the lockfile, containing package metadata"
+    "text": "Project files created by renv\n\nThe following project files are created by renv::init()\n.\n├── .Rprofile          # Project-specific profile, activates renv \n│\n├── renv/\n│   ├── .gitignore     # Specify which files should be ignored by git\n│   ├── activate.R     # R script to launch renv\n│   ├── library/       # Project library\n│   └── settings.dcf   # renv settings\n│\n└── renv.lock          # the lockfile, containing package metadata"
   },
   {
-    "objectID": "reproducible_01.html#workflow-with-renv",
-    "href": "reproducible_01.html#workflow-with-renv",
+    "objectID": "slides_02.html#workflow-with-renv",
+    "href": "slides_02.html#workflow-with-renv",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Workflow with renv\n",
-    "text": "Workflow with renv\n\nReproducibility can be achieved with the functions renv::snapshot() & renv::restore()\n\n\nYou ::: nonincremental - Initialize renv in the project with renv::init() - Install new packages with renv::install() - Update the lockfile with renv::snapshot()** - Share project with others, across computers\n\n\n\nOther person/computer ::: nonincremental - Restore project library from a lockfile w/ renv::restore() - Install new packages with renv::install() - Update the lockfile with renv::snapshot()\n::: ::::::"
+    "text": "Workflow with renv\n\nReproducibility can be achieved with the functions renv::snapshot() & renv::restore()\n\n\nYou\n\nInitialize renv in the project with renv::init()\n\nInstall new packages with renv::install()**\nUpdate the lockfile with renv::snapshot()\nShare project with others, across computers\n\n\n\n\nOther person/computer\n\nRestore project library from a lockfile with renv::restore()\nInstall new packages with renv::install()\n\nUpdate the lockfile with renv::snapshot()"
   },
   {
-    "objectID": "reproducible_01.html#measures-for-reproducibility",
-    "href": "reproducible_01.html#measures-for-reproducibility",
+    "objectID": "slides_02.html#measures-for-reproducibility",
+    "href": "slides_02.html#measures-for-reproducibility",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Measures for reproducibility",
-    "text": "Measures for reproducibility\n\nReproducible environments with renv\n\nliterate programming using Quarto\n\npublish study analysis and data as an R package\n\nOutlook:\n\nversion control using git, Github, Gitlab, etc.\ncontainerization with Docker or Nix"
+    "text": "Measures for reproducibility\n\nReproducible environments with renv\n\nliterate programming using Quarto\n\npublish study analysis and data as an R package\n\nOutlook for further functionalities:\n\nversion control using git, Github, Gitlab, etc.\ncontainerization with Docker or Nix"
   },
   {
-    "objectID": "reproducible_01.html#literate-programming-using-quarto-1",
-    "href": "reproducible_01.html#literate-programming-using-quarto-1",
+    "objectID": "slides_02.html#literate-programming-using-quarto-1",
+    "href": "slides_02.html#literate-programming-using-quarto-1",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Literate programming using Quarto",
     "text": "Literate programming using Quarto"
   },
   {
-    "objectID": "reproducible_01.html#publishing-quarto-documents",
-    "href": "reproducible_01.html#publishing-quarto-documents",
+    "objectID": "slides_02.html#publishing-quarto-documents",
+    "href": "slides_02.html#publishing-quarto-documents",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Publishing Quarto documents",
     "text": "Publishing Quarto documents"
   },
   {
-    "objectID": "reproducible_01.html#creating-an-r-package-with-the-usethis-package",
-    "href": "reproducible_01.html#creating-an-r-package-with-the-usethis-package",
+    "objectID": "slides_02.html#creating-an-r-package-with-the-usethis-package",
+    "href": "slides_02.html#creating-an-r-package-with-the-usethis-package",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Creating an R Package with the {usethis} package",
     "text": "Creating an R Package with the {usethis} package\nOne easy step to get started:\n#| eval: false\nusethis::create_package(\"/path/to/the/package\")"
   },
   {
-    "objectID": "reproducible_01.html#the-process-of-working-on-a-package",
-    "href": "reproducible_01.html#the-process-of-working-on-a-package",
+    "objectID": "slides_02.html#the-process-of-working-on-a-package",
+    "href": "slides_02.html#the-process-of-working-on-a-package",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "The process of working on a package",
     "text": "The process of working on a package\n\n\n\n\n\ng1\nA\nCMD checkB\nBuild packageA-&gt;B\nC\nWrite functionB-&gt;C\nD\nDocument functionC-&gt;D\nE\nTest functionD-&gt;E\nE-&gt;A"
   },
   {
-    "objectID": "reproducible_01.html#useful-functions-for-package-development",
-    "href": "reproducible_01.html#useful-functions-for-package-development",
+    "objectID": "slides_02.html#useful-functions-for-package-development",
+    "href": "slides_02.html#useful-functions-for-package-development",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Useful functions for package development",
     "text": "Useful functions for package development\n\nTable: Useful functions for packaged\n\nCol1\nCol2\n\n\n\nDocument function\ndevtools::document()\n\n\nLoad all functions\ndevtools::load_all()\n\n\nCMD Check\ndevtools::check()\n\n\nBuild package locally\ndevtools::build()\n\n\nDeclare dependencies\nusethis::use_package()"
   },
   {
-    "objectID": "reproducible_01.html#exercise",
-    "href": "reproducible_01.html#exercise",
+    "objectID": "slides_02.html#exercise",
+    "href": "slides_02.html#exercise",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Exercise",
     "text": "Exercise\nI have prepared a small script with these functions that you can download here script_package.R\nI want you to"
   },
   {
-    "objectID": "reproducible_01.html#pros-of-study-as-an-r-package",
-    "href": "reproducible_01.html#pros-of-study-as-an-r-package",
+    "objectID": "slides_02.html#pros-of-study-as-an-r-package",
+    "href": "slides_02.html#pros-of-study-as-an-r-package",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Pros of “study as an R package”",
     "text": "Pros of “study as an R package”\n\nCombines functions for analysis and study data\ndocumentation of custom functions, dependencies, contributors\nCMD check routine\ncondense analysis into functions"
   },
   {
-    "objectID": "reproducible_01.html#cons-of-study-as-an-r-package",
-    "href": "reproducible_01.html#cons-of-study-as-an-r-package",
+    "objectID": "slides_02.html#cons-of-study-as-an-r-package",
+    "href": "slides_02.html#cons-of-study-as-an-r-package",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Cons of “study as an R package”",
     "text": "Cons of “study as an R package”\nIf the package is not intended for CRAN submission, superfluous information and files are created:\n\nmetadata exists in different places (github, DESCRIPTION)\nCRAN submission artifacts\ncompliance with CMD check requirements\n\nMore info here"
   },
   {
-    "objectID": "reproducible_01.html#version-control-using-git-github-gitlab-etc.",
-    "href": "reproducible_01.html#version-control-using-git-github-gitlab-etc.",
+    "objectID": "slides_02.html#version-control-using-git-github-gitlab-etc.",
+    "href": "slides_02.html#version-control-using-git-github-gitlab-etc.",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Version control using Git, Github, Gitlab, etc.",
     "text": "Version control using Git, Github, Gitlab, etc.\nFurther reading: (Happy Git and GitHub for the useR)[https://happygitwithr.com/]"
   },
   {
-    "objectID": "reproducible_01.html#r-packages-as-research-compendia",
-    "href": "reproducible_01.html#r-packages-as-research-compendia",
+    "objectID": "slides_02.html#r-packages-as-research-compendia",
+    "href": "slides_02.html#r-packages-as-research-compendia",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "R packages as research compendia",
     "text": "R packages as research compendia\nThe idea of a research compendium combines a number of the previously discussed features:\n\nthe R package structure\nliterate programming with Quarto or Rmarkdown\nversion control\n(optionally) the use of Docker and/or Binder"
   },
   {
-    "objectID": "reproducible_01.html#r-packages-for-creating-research-compendia",
-    "href": "reproducible_01.html#r-packages-for-creating-research-compendia",
+    "objectID": "slides_02.html#r-packages-for-creating-research-compendia",
+    "href": "slides_02.html#r-packages-for-creating-research-compendia",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "R packages for creating research compendia",
     "text": "R packages for creating research compendia\nThere are a number of R packages that implement research compendia:\n\nrrtools: https://github.com/benmarwick/rrtools\n\nSCIProj: https://github.com/saskiaotto/SCIproj\n\ntemplate: https://github.com/Pakillo/template"
-  },
-  {
-    "objectID": "LICENSE.html",
-    "href": "LICENSE.html",
-    "title": "R Workshop for Methods Peer Group",
-    "section": "",
-    "text": "Attribution-ShareAlike 4.0 International\n=======================================================================\nCreative Commons Corporation (“Creative Commons”) is not a law firm and does not provide legal services or legal advice. Distribution of Creative Commons public licenses does not create a lawyer-client or other relationship. Creative Commons makes its licenses and related information available on an “as-is” basis. Creative Commons gives no warranties regarding its licenses, any material licensed under their terms and conditions, or any related information. Creative Commons disclaims all liability for damages resulting from their use to the fullest extent possible.\nUsing Creative Commons Public Licenses\nCreative Commons public licenses provide a standard set of terms and conditions that creators and other rights holders may use to share original works of authorship and other material subject to copyright and certain other rights specified in the public license below. The following considerations are for informational purposes only, are not exhaustive, and do not form part of our licenses.\n Considerations for licensors: Our public licenses are\n intended for use by those authorized to give the public\n permission to use material in ways otherwise restricted by\n copyright and certain other rights. Our licenses are\n irrevocable. Licensors should read and understand the terms\n and conditions of the license they choose before applying it.\n Licensors should also secure all rights necessary before\n applying our licenses so that the public can reuse the\n material as expected. Licensors should clearly mark any\n material not subject to the license. This includes other CC-\n licensed material, or material used under an exception or\n limitation to copyright. More considerations for licensors:\n wiki.creativecommons.org/Considerations_for_licensors\n\n Considerations for the public: By using one of our public\n licenses, a licensor grants the public permission to use the\n licensed material under specified terms and conditions. If\n the licensor's permission is not necessary for any reason--for\n example, because of any applicable exception or limitation to\n copyright--then that use is not regulated by the license. Our\n licenses grant only permissions under copyright and certain\n other rights that a licensor has authority to grant. Use of\n the licensed material may still be restricted for other\n reasons, including because others have copyright or other\n rights in the material. A licensor may make special requests,\n such as asking that all changes be marked or described.\n Although not required by our licenses, you are encouraged to\n respect those requests where reasonable. More considerations\n for the public:\n wiki.creativecommons.org/Considerations_for_licensees\n=======================================================================\nCreative Commons Attribution-ShareAlike 4.0 International Public License\nBy exercising the Licensed Rights (defined below), You accept and agree to be bound by the terms and conditions of this Creative Commons Attribution-ShareAlike 4.0 International Public License (“Public License”). To the extent this Public License may be interpreted as a contract, You are granted the Licensed Rights in consideration of Your acceptance of these terms and conditions, and the Licensor grants You such rights in consideration of benefits the Licensor receives from making the Licensed Material available under these terms and conditions.\nSection 1 – Definitions.\n\nAdapted Material means material subject to Copyright and Similar Rights that is derived from or based upon the Licensed Material and in which the Licensed Material is translated, altered, arranged, transformed, or otherwise modified in a manner requiring permission under the Copyright and Similar Rights held by the Licensor. For purposes of this Public License, where the Licensed Material is a musical work, performance, or sound recording, Adapted Material is always produced where the Licensed Material is synched in timed relation with a moving image.\nAdapter’s License means the license You apply to Your Copyright and Similar Rights in Your contributions to Adapted Material in accordance with the terms and conditions of this Public License.\nBY-SA Compatible License means a license listed at creativecommons.org/compatiblelicenses, approved by Creative Commons as essentially the equivalent of this Public License.\nCopyright and Similar Rights means copyright and/or similar rights closely related to copyright including, without limitation, performance, broadcast, sound recording, and Sui Generis Database Rights, without regard to how the rights are labeled or categorized. For purposes of this Public License, the rights specified in Section 2(b)(1)-(2) are not Copyright and Similar Rights.\nEffective Technological Measures means those measures that, in the absence of proper authority, may not be circumvented under laws fulfilling obligations under Article 11 of the WIPO Copyright Treaty adopted on December 20, 1996, and/or similar international agreements.\nExceptions and Limitations means fair use, fair dealing, and/or any other exception or limitation to Copyright and Similar Rights that applies to Your use of the Licensed Material.\nLicense Elements means the license attributes listed in the name of a Creative Commons Public License. The License Elements of this Public License are Attribution and ShareAlike.\nLicensed Material means the artistic or literary work, database, or other material to which the Licensor applied this Public License.\nLicensed Rights means the rights granted to You subject to the terms and conditions of this Public License, which are limited to all Copyright and Similar Rights that apply to Your use of the Licensed Material and that the Licensor has authority to license.\nLicensor means the individual(s) or entity(ies) granting rights under this Public License.\nShare means to provide material to the public by any means or process that requires permission under the Licensed Rights, such as reproduction, public display, public performance, distribution, dissemination, communication, or importation, and to make material available to the public including in ways that members of the public may access the material from a place and at a time individually chosen by them.\nSui Generis Database Rights means rights other than copyright resulting from Directive 96/9/EC of the European Parliament and of the Council of 11 March 1996 on the legal protection of databases, as amended and/or succeeded, as well as other essentially equivalent rights anywhere in the world.\nYou means the individual or entity exercising the Licensed Rights under this Public License. Your has a corresponding meaning.\n\nSection 2 – Scope.\n\nLicense grant.\n\nSubject to the terms and conditions of this Public License, the Licensor hereby grants You a worldwide, royalty-free, non-sublicensable, non-exclusive, irrevocable license to exercise the Licensed Rights in the Licensed Material to:\n\nreproduce and Share the Licensed Material, in whole or in part; and\nproduce, reproduce, and Share Adapted Material.\n\nExceptions and Limitations. For the avoidance of doubt, where Exceptions and Limitations apply to Your use, this Public License does not apply, and You do not need to comply with its terms and conditions.\nTerm. The term of this Public License is specified in Section 6(a).\nMedia and formats; technical modifications allowed. The Licensor authorizes You to exercise the Licensed Rights in all media and formats whether now known or hereafter created, and to make technical modifications necessary to do so. The Licensor waives and/or agrees not to assert any right or authority to forbid You from making technical modifications necessary to exercise the Licensed Rights, including technical modifications necessary to circumvent Effective Technological Measures. For purposes of this Public License, simply making modifications authorized by this Section 2(a)\n\nnever produces Adapted Material.\n\nDownstream recipients.\n\nOffer from the Licensor – Licensed Material. Every recipient of the Licensed Material automatically receives an offer from the Licensor to exercise the Licensed Rights under the terms and conditions of this Public License.\nAdditional offer from the Licensor – Adapted Material. Every recipient of Adapted Material from You automatically receives an offer from the Licensor to exercise the Licensed Rights in the Adapted Material under the conditions of the Adapter’s License You apply.\nNo downstream restrictions. You may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, the Licensed Material if doing so restricts exercise of the Licensed Rights by any recipient of the Licensed Material.\n\nNo endorsement. Nothing in this Public License constitutes or may be construed as permission to assert or imply that You are, or that Your use of the Licensed Material is, connected with, or sponsored, endorsed, or granted official status by, the Licensor or others designated to receive attribution as provided in Section 3(a)(1)(A)(i).\n\nOther rights.\n\nMoral rights, such as the right of integrity, are not licensed under this Public License, nor are publicity, privacy, and/or other similar personality rights; however, to the extent possible, the Licensor waives and/or agrees not to assert any such rights held by the Licensor to the limited extent necessary to allow You to exercise the Licensed Rights, but not otherwise.\nPatent and trademark rights are not licensed under this Public License.\nTo the extent possible, the Licensor waives any right to collect royalties from You for the exercise of the Licensed Rights, whether directly or through a collecting society under any voluntary or waivable statutory or compulsory licensing scheme. In all other cases the Licensor expressly reserves any right to collect such royalties.\n\n\nSection 3 – License Conditions.\nYour exercise of the Licensed Rights is expressly made subject to the following conditions.\n\nAttribution.\n\nIf You Share the Licensed Material (including in modified form), You must:\n\nretain the following if it is supplied by the Licensor with the Licensed Material:\n\nidentification of the creator(s) of the Licensed Material and any others designated to receive attribution, in any reasonable manner requested by the Licensor (including by pseudonym if designated);\na copyright notice;\na notice that refers to this Public License;\na notice that refers to the disclaimer of warranties;\na URI or hyperlink to the Licensed Material to the extent reasonably practicable;\n\nindicate if You modified the Licensed Material and retain an indication of any previous modifications; and\nindicate the Licensed Material is licensed under this Public License, and include the text of, or the URI or hyperlink to, this Public License.\n\nYou may satisfy the conditions in Section 3(a)(1) in any reasonable manner based on the medium, means, and context in which You Share the Licensed Material. For example, it may be reasonable to satisfy the conditions by providing a URI or hyperlink to a resource that includes the required information.\nIf requested by the Licensor, You must remove any of the information required by Section 3(a)(1)(A) to the extent reasonably practicable.\n\nShareAlike.\nIn addition to the conditions in Section 3(a), if You Share Adapted Material You produce, the following conditions also apply.\n\nThe Adapter’s License You apply must be a Creative Commons license with the same License Elements, this version or later, or a BY-SA Compatible License.\nYou must include the text of, or the URI or hyperlink to, the Adapter’s License You apply. You may satisfy this condition in any reasonable manner based on the medium, means, and context in which You Share Adapted Material.\nYou may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, Adapted Material that restrict exercise of the rights granted under the Adapter’s License You apply.\n\n\nSection 4 – Sui Generis Database Rights.\nWhere the Licensed Rights include Sui Generis Database Rights that apply to Your use of the Licensed Material:\n\nfor the avoidance of doubt, Section 2(a)(1) grants You the right to extract, reuse, reproduce, and Share all or a substantial portion of the contents of the database;\nif You include all or a substantial portion of the database contents in a database in which You have Sui Generis Database Rights, then the database in which You have Sui Generis Database Rights (but not its individual contents) is Adapted Material, including for purposes of Section 3(b); and\nYou must comply with the conditions in Section 3(a) if You Share all or a substantial portion of the contents of the database.\n\nFor the avoidance of doubt, this Section 4 supplements and does not replace Your obligations under this Public License where the Licensed Rights include other Copyright and Similar Rights.\nSection 5 – Disclaimer of Warranties and Limitation of Liability.\n\nUNLESS OTHERWISE SEPARATELY UNDERTAKEN BY THE LICENSOR, TO THE EXTENT POSSIBLE, THE LICENSOR OFFERS THE LICENSED MATERIAL AS-IS AND AS-AVAILABLE, AND MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND CONCERNING THE LICENSED MATERIAL, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHER. THIS INCLUDES, WITHOUT LIMITATION, WARRANTIES OF TITLE, MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, ABSENCE OF LATENT OR OTHER DEFECTS, ACCURACY, OR THE PRESENCE OR ABSENCE OF ERRORS, WHETHER OR NOT KNOWN OR DISCOVERABLE. WHERE DISCLAIMERS OF WARRANTIES ARE NOT ALLOWED IN FULL OR IN PART, THIS DISCLAIMER MAY NOT APPLY TO YOU.\nTO THE EXTENT POSSIBLE, IN NO EVENT WILL THE LICENSOR BE LIABLE TO YOU ON ANY LEGAL THEORY (INCLUDING, WITHOUT LIMITATION, NEGLIGENCE) OR OTHERWISE FOR ANY DIRECT, SPECIAL, INDIRECT, INCIDENTAL, CONSEQUENTIAL, PUNITIVE, EXEMPLARY, OR OTHER LOSSES, COSTS, EXPENSES, OR DAMAGES ARISING OUT OF THIS PUBLIC LICENSE OR USE OF THE LICENSED MATERIAL, EVEN IF THE LICENSOR HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH LOSSES, COSTS, EXPENSES, OR DAMAGES. WHERE A LIMITATION OF LIABILITY IS NOT ALLOWED IN FULL OR IN PART, THIS LIMITATION MAY NOT APPLY TO YOU.\nThe disclaimer of warranties and limitation of liability provided above shall be interpreted in a manner that, to the extent possible, most closely approximates an absolute disclaimer and waiver of all liability.\n\nSection 6 – Term and Termination.\n\nThis Public License applies for the term of the Copyright and Similar Rights licensed here. However, if You fail to comply with this Public License, then Your rights under this Public License terminate automatically.\nWhere Your right to use the Licensed Material has terminated under Section 6(a), it reinstates:\n\nautomatically as of the date the violation is cured, provided it is cured within 30 days of Your discovery of the violation; or\nupon express reinstatement by the Licensor.\n\nFor the avoidance of doubt, this Section 6(b) does not affect any right the Licensor may have to seek remedies for Your violations of this Public License.\nFor the avoidance of doubt, the Licensor may also offer the Licensed Material under separate terms or conditions or stop distributing the Licensed Material at any time; however, doing so will not terminate this Public License.\nSections 1, 5, 6, 7, and 8 survive termination of this Public License.\n\nSection 7 – Other Terms and Conditions.\n\nThe Licensor shall not be bound by any additional or different terms or conditions communicated by You unless expressly agreed.\nAny arrangements, understandings, or agreements regarding the Licensed Material not stated herein are separate from and independent of the terms and conditions of this Public License.\n\nSection 8 – Interpretation.\n\nFor the avoidance of doubt, this Public License does not, and shall not be interpreted to, reduce, limit, restrict, or impose conditions on any use of the Licensed Material that could lawfully be made without permission under this Public License.\nTo the extent possible, if any provision of this Public License is deemed unenforceable, it shall be automatically reformed to the minimum extent necessary to make it enforceable. If the provision cannot be reformed, it shall be severed from this Public License without affecting the enforceability of the remaining terms and conditions.\nNo term or condition of this Public License will be waived and no failure to comply consented to unless expressly agreed to by the Licensor.\nNothing in this Public License constitutes or may be interpreted as a limitation upon, or waiver of, any privileges and immunities that apply to the Licensor or You, including from the legal processes of any jurisdiction or authority.\n\n=======================================================================\nCreative Commons is not a party to its public licenses. Notwithstanding, Creative Commons may elect to apply one of its public licenses to material it publishes and in those instances will be considered the “Licensor.” The text of the Creative Commons public licenses is dedicated to the public domain under the CC0 Public Domain Dedication. Except for the limited purpose of indicating that material is shared under a Creative Commons public license or as otherwise permitted by the Creative Commons policies published at creativecommons.org/policies, Creative Commons does not authorize the use of the trademark “Creative Commons” or any other trademark or logo of Creative Commons without its prior written consent including, without limitation, in connection with any unauthorized modifications to any of its public licenses or any other arrangements, understandings, or agreements concerning use of licensed material. For the avoidance of doubt, this paragraph does not form part of the public licenses.\nCreative Commons may be contacted at creativecommons.org."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
-  },
-  {
-    "objectID": "literatur.html",
-    "href": "literatur.html",
-    "title": "References",
-    "section": "",
-    "text": "Hester, Jim, Florent Angly, Michael Chirico, et al. 2025. “Static Code Analysis for r.” Journal of Open Source Software 10 (108): 7240. https://doi.org/10.21105/joss.07240.\n\n\nHester, Jim, Florent Angly, Russ Hyde, et al. 2025. Lintr: A Linter for r Code. https://lintr.r-lib.org.\n\n\nMarwick, Ben, Carl Boettiger, and Lincoln Mullen. 2018. “Packaging Data Analytical Work Reproducibly Using r (and Friends).” The American Statistician 72 (1): 80–88. https://doi.org/10.1080/00031305.2017.1375986.\n\n\nMüller, Kirill. 2025. Here: A Simpler Way to Find Your Files. https://here.r-lib.org/.\n\n\nMüller, Kirill, Lorenz Walthert, and Indrajeet Patil. 2025. Styler: Non-Invasive Pretty Printing of r Code. https://github.com/r-lib/styler.\n\n\nSalmon, Maelle. 2023. Why Comment Your Code as Little (and as Well) as Possible - R-Hub Blog. Https://blog.r-hub.io/2023/01/26/code-comments-self-explaining-code/.\n\n\nteam, The tidyverse. Tidyverse Style Guide — Style.tidyverse.org. Https://style.tidyverse.org/.\n\n\nWickham, Hadley, and Jenny Bryan. 2023. R Packages. 2nd ed. O’Reilly Media."
   },
   {
     "objectID": "index.html",
@@ -210,136 +189,171 @@
     "text": "Requirements\n\nCurrent versions of R and RStudio\nThe following R packager are required: TBD\n\nThe packages can be installed using the following code:\ninstall.packages(c(\"tidyverse\"))"
   },
   {
-    "objectID": "programming_01.html#housekeeping",
-    "href": "programming_01.html#housekeeping",
+    "objectID": "slides_01.html#housekeeping",
+    "href": "slides_01.html#housekeeping",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Housekeeping",
     "text": "Housekeeping\nAll materials for the workshop (slides, scripts, references) can be found on this website:\nhttp://www.johannesfeldhege.de/peergroup_workshop/\nIt is hosted on Github and has a permissive license so you can use them however you want."
   },
   {
-    "objectID": "programming_01.html#requirements",
-    "href": "programming_01.html#requirements",
+    "objectID": "slides_01.html#requirements",
+    "href": "slides_01.html#requirements",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Requirements",
     "text": "Requirements\nTo get the most out of this workshop, it is recommended:\n\nInstall recent versions of  and RStudio\nInstall the following packages: ds4psy, dplyr, lintr.They can be installed using the following code:\n\n#| eval: false\ninstall.packages(c(\"tidyverse\", \"ds4psy\"))\n\nCreate a new RStudio project for use in the workshop."
   },
   {
-    "objectID": "programming_01.html#timetable",
-    "href": "programming_01.html#timetable",
+    "objectID": "slides_01.html#timetable",
+    "href": "slides_01.html#timetable",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Timetable",
     "text": "Timetable"
   },
   {
-    "objectID": "programming_01.html#about-me",
-    "href": "programming_01.html#about-me",
+    "objectID": "slides_01.html#about-me",
+    "href": "slides_01.html#about-me",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "About me",
     "text": "About me\n\nM. Sc. in Psychology\nI used to work for Forschungsstelle für Psychotherapie\nI currently work as a Data Scientist at Asklepios Science & Research since 2022\nI have published an R package on CRAN, openholidaysR and I am currently working on a second one"
   },
   {
-    "objectID": "programming_01.html#results-from-the-pre-workshop-survey",
-    "href": "programming_01.html#results-from-the-pre-workshop-survey",
+    "objectID": "slides_01.html#results-from-the-pre-workshop-survey",
+    "href": "slides_01.html#results-from-the-pre-workshop-survey",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Results from the pre-workshop survey",
     "text": "Results from the pre-workshop survey\n\nExperience with R"
   },
   {
-    "objectID": "programming_01.html#results-from-the-pre-workshop-survey-1",
-    "href": "programming_01.html#results-from-the-pre-workshop-survey-1",
+    "objectID": "slides_01.html#results-from-the-pre-workshop-survey-1",
+    "href": "slides_01.html#results-from-the-pre-workshop-survey-1",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Results from the pre-workshop survey",
     "text": "Results from the pre-workshop survey\n\nExperience with reproducibility tools"
   },
   {
-    "objectID": "programming_01.html#results-from-the-pre-workshop-survey-2",
-    "href": "programming_01.html#results-from-the-pre-workshop-survey-2",
+    "objectID": "slides_01.html#results-from-the-pre-workshop-survey-2",
+    "href": "slides_01.html#results-from-the-pre-workshop-survey-2",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Results from the pre-workshop survey",
     "text": "Results from the pre-workshop survey\n\nComments"
   },
   {
-    "objectID": "programming_01.html#a-dataset-for-todays-workshop",
-    "href": "programming_01.html#a-dataset-for-todays-workshop",
+    "objectID": "slides_01.html#a-dataset-for-todays-workshop",
+    "href": "slides_01.html#a-dataset-for-todays-workshop",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "A dataset for today’s workshop",
     "text": "A dataset for today’s workshop\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
-    "objectID": "programming_01.html#making-code-easier-to-read-1",
-    "href": "programming_01.html#making-code-easier-to-read-1",
+    "objectID": "slides_01.html#synthetic-data",
+    "href": "slides_01.html#synthetic-data",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
-    "section": "Making code easier to read",
-    "text": "Making code easier to read\nEasier to read code = easier comprehension\nThere are three measures you can take to improve your code quality:\n\ngood names\nconsistent code style\nhelpful comments"
+    "section": "Synthetic data",
+    "text": "Synthetic data\nOpen science\nHowever, often it is not possible to share raw study datasets bcause they contain personally identifiable information or are highly sensitive.\nIn this case, synthetic datasets can be generated and used in place of the real data."
   },
   {
-    "objectID": "programming_01.html#naming-things-1",
-    "href": "programming_01.html#naming-things-1",
+    "objectID": "slides_01.html#the-simstudy-package",
+    "href": "slides_01.html#the-simstudy-package",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "The simstudy package",
+    "text": "The simstudy package"
+  },
+  {
+    "objectID": "slides_01.html#making-code-easier-to-read-1",
+    "href": "slides_01.html#making-code-easier-to-read-1",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Making code easier to read",
+    "text": "Making code easier to read\n\nCode is written once but read many times.\n\nTherefore, we should try to improve readibility of our code.\nThree measures you can take towards this goal:\n\nmeaningful names\nconsistent code style\nhelpful comments"
+  },
+  {
+    "objectID": "slides_01.html#naming-things-1",
+    "href": "slides_01.html#naming-things-1",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Naming things",
     "text": "Naming things\nNaming things is hard - so hard that books are written about it:"
   },
   {
-    "objectID": "programming_01.html#how-to-pick-good-names",
-    "href": "programming_01.html#how-to-pick-good-names",
+    "objectID": "slides_01.html#how-to-pick-good-names",
+    "href": "slides_01.html#how-to-pick-good-names",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "How to pick good names?",
     "text": "How to pick good names?\nA good name should be\n\ndescriptive and concise\nprioritize reader’s understanding over shortness or machine compatibility\nfollow a standard naming convention"
   },
   {
-    "objectID": "programming_01.html#naming-conventions",
-    "href": "programming_01.html#naming-conventions",
+    "objectID": "slides_01.html#naming-conventions",
+    "href": "slides_01.html#naming-conventions",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Naming conventions",
-    "text": "Naming conventions\nSome commonly used conventions:\nbase \n🐍 snake_case\n🐫 camelCase\n#| eval: false\n\n# base R\nadd.value()\nreg.results\n\n# :snake:\nadd_value()\nreg_results\n\n# :camel:\naddValue()\nregResults"
+    "text": "Naming conventions\nSome commonly used conventions:\nbase \n🐍 snake_case\n🐫 camelCase\n#| eval: false\n\n# base R\nadd.value()\nreg.results\n\n# snake_case\nadd_value()\nreg_results\n\n# camelCase\naddValue()\nregResults"
   },
   {
-    "objectID": "programming_01.html#examples-for-bad-names",
-    "href": "programming_01.html#examples-for-bad-names",
+    "objectID": "slides_01.html#examples-for-bad-names",
+    "href": "slides_01.html#examples-for-bad-names",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Examples for bad names",
     "text": "Examples for bad names\n\nx\nnew_data\nnewnewdata\nlrmf\nlogistic_regression_model_fit_result"
   },
   {
-    "objectID": "programming_01.html#names-for-functions",
-    "href": "programming_01.html#names-for-functions",
+    "objectID": "slides_01.html#names-for-functions",
+    "href": "slides_01.html#names-for-functions",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Names for functions",
-    "text": "Names for functions\nThe convention for functions in the tidyverse, a collection of related packages, is to start a function name with a verb:\ndo()\ndo_thing()\n#| eval: false\n\n#Good \nadd_value()\n\n#Bad \nvalue_add()\nvalue()\nMore style guidelines here"
+    "text": "Names for functions\nThe convention for functions in the tidyverse, a collection of related packages, is to start a function name with a verb, so do() or do_thing().\nExamples:\n#| eval: false\n\n#Good \nadd_value()\n\n#Bad \nvalue_add()\nvalue()\nMore style guidelines here"
   },
   {
-    "objectID": "programming_01.html#styling-code-with-lintr",
-    "href": "programming_01.html#styling-code-with-lintr",
+    "objectID": "slides_01.html#styling-code-with-lintr",
+    "href": "slides_01.html#styling-code-with-lintr",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Styling code with lintr\n",
     "text": "Styling code with lintr\n\nlintr is a package for static code analysis on your R files.\nBasic usage:\n#| eval: false\n# Style one file\nlintr::lint(path = \"path/to/file\")\n\n# A whole directory or R project\nlintr::lint_dir(path = \"path/to/project\")"
   },
   {
-    "objectID": "programming_01.html#styling-code-with-lintr-1",
-    "href": "programming_01.html#styling-code-with-lintr-1",
+    "objectID": "slides_01.html#styling-code-with-lintr-1",
+    "href": "slides_01.html#styling-code-with-lintr-1",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Styling code with lintr\n",
     "text": "Styling code with lintr\n\nlintr comes with defaults.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThese can be modified, deactivated, or you can define your own set.\nYou can also add your own linters."
   },
   {
-    "objectID": "programming_01.html#beyond-lintr",
-    "href": "programming_01.html#beyond-lintr",
+    "objectID": "slides_01.html#beyond-lintr",
+    "href": "slides_01.html#beyond-lintr",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Beyond lintr\n",
     "text": "Beyond lintr\n\nlintr gives recommendations but does not change code.\nThese tools can style your code by changing the code when executed:\n\nAir\nstyler\n\n\n\n\n\n\n\nWarning\n\n\nCaution: these tools change your code without asking!"
   },
   {
-    "objectID": "programming_01.html#writing-helpful-comments",
-    "href": "programming_01.html#writing-helpful-comments",
+    "objectID": "slides_01.html#writing-helpful-comments",
+    "href": "slides_01.html#writing-helpful-comments",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Writing helpful comments",
     "text": "Writing helpful comments\n\nA helpful comment explains the why, not the what or how.\n\nIn\nMore info here and here"
   },
   {
-    "objectID": "programming_01.html#too-many-comments",
-    "href": "programming_01.html#too-many-comments",
+    "objectID": "slides_01.html#too-many-comments",
+    "href": "slides_01.html#too-many-comments",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Too many comments",
-    "text": "Too many comments\nIf you find yourself commenting a lot, there might be better alternatives.\nThese are places where detailed comments on what and your code is doing for what reason are encouraged:\n\nconvert your script to a {{&lt; fa-brands markdown &gt;}} document such as Rmarkdown or Quarto\nincorporate your code into functions in a package and document them with roxygen2\n\nBoth aspects will be covered in the second part of the workshop."
+    "text": "Too many comments\nIf you find yourself commenting a lot, there might be better alternatives.\nThese are places where detailed comments on what and your code is doing for what reason are encouraged:\n\nconvert your script to a  document such as Rmarkdown or Quarto\nincorporate your code into functions in a package and document them with roxygen2\n\nBoth aspects will be covered in the second part of the workshop."
+  },
+  {
+    "objectID": "literatur.html",
+    "href": "literatur.html",
+    "title": "References",
+    "section": "",
+    "text": "Hester, Jim, Florent Angly, Michael Chirico, et al. 2025. “Static Code Analysis for r.” Journal of Open Source Software 10 (108): 7240. https://doi.org/10.21105/joss.07240.\n\n\nHester, Jim, Florent Angly, Russ Hyde, et al. 2025. Lintr: A Linter for r Code. https://lintr.r-lib.org.\n\n\nMarwick, Ben, Carl Boettiger, and Lincoln Mullen. 2018. “Packaging Data Analytical Work Reproducibly Using r (and Friends).” The American Statistician 72 (1): 80–88. https://doi.org/10.1080/00031305.2017.1375986.\n\n\nMüller, Kirill. 2025. Here: A Simpler Way to Find Your Files. https://here.r-lib.org/.\n\n\nMüller, Kirill, Lorenz Walthert, and Indrajeet Patil. 2025. Styler: Non-Invasive Pretty Printing of r Code. https://github.com/r-lib/styler.\n\n\nSalmon, Maelle. 2023. Why Comment Your Code as Little (and as Well) as Possible - R-Hub Blog. Https://blog.r-hub.io/2023/01/26/code-comments-self-explaining-code/.\n\n\nteam, The tidyverse. Tidyverse Style Guide — Style.tidyverse.org. Https://style.tidyverse.org/.\n\n\nWickham, Hadley, and Jenny Bryan. 2023. R Packages. 2nd ed. O’Reilly Media."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "LICENSE.html",
+    "href": "LICENSE.html",
+    "title": "R Workshop for Methods Peer Group",
+    "section": "",
+    "text": "Attribution-ShareAlike 4.0 International\n=======================================================================\nCreative Commons Corporation (“Creative Commons”) is not a law firm and does not provide legal services or legal advice. Distribution of Creative Commons public licenses does not create a lawyer-client or other relationship. Creative Commons makes its licenses and related information available on an “as-is” basis. Creative Commons gives no warranties regarding its licenses, any material licensed under their terms and conditions, or any related information. Creative Commons disclaims all liability for damages resulting from their use to the fullest extent possible.\nUsing Creative Commons Public Licenses\nCreative Commons public licenses provide a standard set of terms and conditions that creators and other rights holders may use to share original works of authorship and other material subject to copyright and certain other rights specified in the public license below. The following considerations are for informational purposes only, are not exhaustive, and do not form part of our licenses.\n Considerations for licensors: Our public licenses are\n intended for use by those authorized to give the public\n permission to use material in ways otherwise restricted by\n copyright and certain other rights. Our licenses are\n irrevocable. Licensors should read and understand the terms\n and conditions of the license they choose before applying it.\n Licensors should also secure all rights necessary before\n applying our licenses so that the public can reuse the\n material as expected. Licensors should clearly mark any\n material not subject to the license. This includes other CC-\n licensed material, or material used under an exception or\n limitation to copyright. More considerations for licensors:\n wiki.creativecommons.org/Considerations_for_licensors\n\n Considerations for the public: By using one of our public\n licenses, a licensor grants the public permission to use the\n licensed material under specified terms and conditions. If\n the licensor's permission is not necessary for any reason--for\n example, because of any applicable exception or limitation to\n copyright--then that use is not regulated by the license. Our\n licenses grant only permissions under copyright and certain\n other rights that a licensor has authority to grant. Use of\n the licensed material may still be restricted for other\n reasons, including because others have copyright or other\n rights in the material. A licensor may make special requests,\n such as asking that all changes be marked or described.\n Although not required by our licenses, you are encouraged to\n respect those requests where reasonable. More considerations\n for the public:\n wiki.creativecommons.org/Considerations_for_licensees\n=======================================================================\nCreative Commons Attribution-ShareAlike 4.0 International Public License\nBy exercising the Licensed Rights (defined below), You accept and agree to be bound by the terms and conditions of this Creative Commons Attribution-ShareAlike 4.0 International Public License (“Public License”). To the extent this Public License may be interpreted as a contract, You are granted the Licensed Rights in consideration of Your acceptance of these terms and conditions, and the Licensor grants You such rights in consideration of benefits the Licensor receives from making the Licensed Material available under these terms and conditions.\nSection 1 – Definitions.\n\nAdapted Material means material subject to Copyright and Similar Rights that is derived from or based upon the Licensed Material and in which the Licensed Material is translated, altered, arranged, transformed, or otherwise modified in a manner requiring permission under the Copyright and Similar Rights held by the Licensor. For purposes of this Public License, where the Licensed Material is a musical work, performance, or sound recording, Adapted Material is always produced where the Licensed Material is synched in timed relation with a moving image.\nAdapter’s License means the license You apply to Your Copyright and Similar Rights in Your contributions to Adapted Material in accordance with the terms and conditions of this Public License.\nBY-SA Compatible License means a license listed at creativecommons.org/compatiblelicenses, approved by Creative Commons as essentially the equivalent of this Public License.\nCopyright and Similar Rights means copyright and/or similar rights closely related to copyright including, without limitation, performance, broadcast, sound recording, and Sui Generis Database Rights, without regard to how the rights are labeled or categorized. For purposes of this Public License, the rights specified in Section 2(b)(1)-(2) are not Copyright and Similar Rights.\nEffective Technological Measures means those measures that, in the absence of proper authority, may not be circumvented under laws fulfilling obligations under Article 11 of the WIPO Copyright Treaty adopted on December 20, 1996, and/or similar international agreements.\nExceptions and Limitations means fair use, fair dealing, and/or any other exception or limitation to Copyright and Similar Rights that applies to Your use of the Licensed Material.\nLicense Elements means the license attributes listed in the name of a Creative Commons Public License. The License Elements of this Public License are Attribution and ShareAlike.\nLicensed Material means the artistic or literary work, database, or other material to which the Licensor applied this Public License.\nLicensed Rights means the rights granted to You subject to the terms and conditions of this Public License, which are limited to all Copyright and Similar Rights that apply to Your use of the Licensed Material and that the Licensor has authority to license.\nLicensor means the individual(s) or entity(ies) granting rights under this Public License.\nShare means to provide material to the public by any means or process that requires permission under the Licensed Rights, such as reproduction, public display, public performance, distribution, dissemination, communication, or importation, and to make material available to the public including in ways that members of the public may access the material from a place and at a time individually chosen by them.\nSui Generis Database Rights means rights other than copyright resulting from Directive 96/9/EC of the European Parliament and of the Council of 11 March 1996 on the legal protection of databases, as amended and/or succeeded, as well as other essentially equivalent rights anywhere in the world.\nYou means the individual or entity exercising the Licensed Rights under this Public License. Your has a corresponding meaning.\n\nSection 2 – Scope.\n\nLicense grant.\n\nSubject to the terms and conditions of this Public License, the Licensor hereby grants You a worldwide, royalty-free, non-sublicensable, non-exclusive, irrevocable license to exercise the Licensed Rights in the Licensed Material to:\n\nreproduce and Share the Licensed Material, in whole or in part; and\nproduce, reproduce, and Share Adapted Material.\n\nExceptions and Limitations. For the avoidance of doubt, where Exceptions and Limitations apply to Your use, this Public License does not apply, and You do not need to comply with its terms and conditions.\nTerm. The term of this Public License is specified in Section 6(a).\nMedia and formats; technical modifications allowed. The Licensor authorizes You to exercise the Licensed Rights in all media and formats whether now known or hereafter created, and to make technical modifications necessary to do so. The Licensor waives and/or agrees not to assert any right or authority to forbid You from making technical modifications necessary to exercise the Licensed Rights, including technical modifications necessary to circumvent Effective Technological Measures. For purposes of this Public License, simply making modifications authorized by this Section 2(a)\n\nnever produces Adapted Material.\n\nDownstream recipients.\n\nOffer from the Licensor – Licensed Material. Every recipient of the Licensed Material automatically receives an offer from the Licensor to exercise the Licensed Rights under the terms and conditions of this Public License.\nAdditional offer from the Licensor – Adapted Material. Every recipient of Adapted Material from You automatically receives an offer from the Licensor to exercise the Licensed Rights in the Adapted Material under the conditions of the Adapter’s License You apply.\nNo downstream restrictions. You may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, the Licensed Material if doing so restricts exercise of the Licensed Rights by any recipient of the Licensed Material.\n\nNo endorsement. Nothing in this Public License constitutes or may be construed as permission to assert or imply that You are, or that Your use of the Licensed Material is, connected with, or sponsored, endorsed, or granted official status by, the Licensor or others designated to receive attribution as provided in Section 3(a)(1)(A)(i).\n\nOther rights.\n\nMoral rights, such as the right of integrity, are not licensed under this Public License, nor are publicity, privacy, and/or other similar personality rights; however, to the extent possible, the Licensor waives and/or agrees not to assert any such rights held by the Licensor to the limited extent necessary to allow You to exercise the Licensed Rights, but not otherwise.\nPatent and trademark rights are not licensed under this Public License.\nTo the extent possible, the Licensor waives any right to collect royalties from You for the exercise of the Licensed Rights, whether directly or through a collecting society under any voluntary or waivable statutory or compulsory licensing scheme. In all other cases the Licensor expressly reserves any right to collect such royalties.\n\n\nSection 3 – License Conditions.\nYour exercise of the Licensed Rights is expressly made subject to the following conditions.\n\nAttribution.\n\nIf You Share the Licensed Material (including in modified form), You must:\n\nretain the following if it is supplied by the Licensor with the Licensed Material:\n\nidentification of the creator(s) of the Licensed Material and any others designated to receive attribution, in any reasonable manner requested by the Licensor (including by pseudonym if designated);\na copyright notice;\na notice that refers to this Public License;\na notice that refers to the disclaimer of warranties;\na URI or hyperlink to the Licensed Material to the extent reasonably practicable;\n\nindicate if You modified the Licensed Material and retain an indication of any previous modifications; and\nindicate the Licensed Material is licensed under this Public License, and include the text of, or the URI or hyperlink to, this Public License.\n\nYou may satisfy the conditions in Section 3(a)(1) in any reasonable manner based on the medium, means, and context in which You Share the Licensed Material. For example, it may be reasonable to satisfy the conditions by providing a URI or hyperlink to a resource that includes the required information.\nIf requested by the Licensor, You must remove any of the information required by Section 3(a)(1)(A) to the extent reasonably practicable.\n\nShareAlike.\nIn addition to the conditions in Section 3(a), if You Share Adapted Material You produce, the following conditions also apply.\n\nThe Adapter’s License You apply must be a Creative Commons license with the same License Elements, this version or later, or a BY-SA Compatible License.\nYou must include the text of, or the URI or hyperlink to, the Adapter’s License You apply. You may satisfy this condition in any reasonable manner based on the medium, means, and context in which You Share Adapted Material.\nYou may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures to, Adapted Material that restrict exercise of the rights granted under the Adapter’s License You apply.\n\n\nSection 4 – Sui Generis Database Rights.\nWhere the Licensed Rights include Sui Generis Database Rights that apply to Your use of the Licensed Material:\n\nfor the avoidance of doubt, Section 2(a)(1) grants You the right to extract, reuse, reproduce, and Share all or a substantial portion of the contents of the database;\nif You include all or a substantial portion of the database contents in a database in which You have Sui Generis Database Rights, then the database in which You have Sui Generis Database Rights (but not its individual contents) is Adapted Material, including for purposes of Section 3(b); and\nYou must comply with the conditions in Section 3(a) if You Share all or a substantial portion of the contents of the database.\n\nFor the avoidance of doubt, this Section 4 supplements and does not replace Your obligations under this Public License where the Licensed Rights include other Copyright and Similar Rights.\nSection 5 – Disclaimer of Warranties and Limitation of Liability.\n\nUNLESS OTHERWISE SEPARATELY UNDERTAKEN BY THE LICENSOR, TO THE EXTENT POSSIBLE, THE LICENSOR OFFERS THE LICENSED MATERIAL AS-IS AND AS-AVAILABLE, AND MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND CONCERNING THE LICENSED MATERIAL, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHER. THIS INCLUDES, WITHOUT LIMITATION, WARRANTIES OF TITLE, MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, ABSENCE OF LATENT OR OTHER DEFECTS, ACCURACY, OR THE PRESENCE OR ABSENCE OF ERRORS, WHETHER OR NOT KNOWN OR DISCOVERABLE. WHERE DISCLAIMERS OF WARRANTIES ARE NOT ALLOWED IN FULL OR IN PART, THIS DISCLAIMER MAY NOT APPLY TO YOU.\nTO THE EXTENT POSSIBLE, IN NO EVENT WILL THE LICENSOR BE LIABLE TO YOU ON ANY LEGAL THEORY (INCLUDING, WITHOUT LIMITATION, NEGLIGENCE) OR OTHERWISE FOR ANY DIRECT, SPECIAL, INDIRECT, INCIDENTAL, CONSEQUENTIAL, PUNITIVE, EXEMPLARY, OR OTHER LOSSES, COSTS, EXPENSES, OR DAMAGES ARISING OUT OF THIS PUBLIC LICENSE OR USE OF THE LICENSED MATERIAL, EVEN IF THE LICENSOR HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH LOSSES, COSTS, EXPENSES, OR DAMAGES. WHERE A LIMITATION OF LIABILITY IS NOT ALLOWED IN FULL OR IN PART, THIS LIMITATION MAY NOT APPLY TO YOU.\nThe disclaimer of warranties and limitation of liability provided above shall be interpreted in a manner that, to the extent possible, most closely approximates an absolute disclaimer and waiver of all liability.\n\nSection 6 – Term and Termination.\n\nThis Public License applies for the term of the Copyright and Similar Rights licensed here. However, if You fail to comply with this Public License, then Your rights under this Public License terminate automatically.\nWhere Your right to use the Licensed Material has terminated under Section 6(a), it reinstates:\n\nautomatically as of the date the violation is cured, provided it is cured within 30 days of Your discovery of the violation; or\nupon express reinstatement by the Licensor.\n\nFor the avoidance of doubt, this Section 6(b) does not affect any right the Licensor may have to seek remedies for Your violations of this Public License.\nFor the avoidance of doubt, the Licensor may also offer the Licensed Material under separate terms or conditions or stop distributing the Licensed Material at any time; however, doing so will not terminate this Public License.\nSections 1, 5, 6, 7, and 8 survive termination of this Public License.\n\nSection 7 – Other Terms and Conditions.\n\nThe Licensor shall not be bound by any additional or different terms or conditions communicated by You unless expressly agreed.\nAny arrangements, understandings, or agreements regarding the Licensed Material not stated herein are separate from and independent of the terms and conditions of this Public License.\n\nSection 8 – Interpretation.\n\nFor the avoidance of doubt, this Public License does not, and shall not be interpreted to, reduce, limit, restrict, or impose conditions on any use of the Licensed Material that could lawfully be made without permission under this Public License.\nTo the extent possible, if any provision of this Public License is deemed unenforceable, it shall be automatically reformed to the minimum extent necessary to make it enforceable. If the provision cannot be reformed, it shall be severed from this Public License without affecting the enforceability of the remaining terms and conditions.\nNo term or condition of this Public License will be waived and no failure to comply consented to unless expressly agreed to by the Licensor.\nNothing in this Public License constitutes or may be interpreted as a limitation upon, or waiver of, any privileges and immunities that apply to the Licensor or You, including from the legal processes of any jurisdiction or authority.\n\n=======================================================================\nCreative Commons is not a party to its public licenses. Notwithstanding, Creative Commons may elect to apply one of its public licenses to material it publishes and in those instances will be considered the “Licensor.” The text of the Creative Commons public licenses is dedicated to the public domain under the CC0 Public Domain Dedication. Except for the limited purpose of indicating that material is shared under a Creative Commons public license or as otherwise permitted by the Creative Commons policies published at creativecommons.org/policies, Creative Commons does not authorize the use of the trademark “Creative Commons” or any other trademark or logo of Creative Commons without its prior written consent including, without limitation, in connection with any unauthorized modifications to any of its public licenses or any other arrangements, understandings, or agreements concerning use of licensed material. For the avoidance of doubt, this paragraph does not form part of the public licenses.\nCreative Commons may be contacted at creativecommons.org."
   }
 ]

@@ -2098,13 +2098,23 @@ Johannes Feldhege
 <!-- ## Loops -->
 <!-- If you have to repeat yourself, use a loop -->
 <!-- ## Excercise -->
+</section></section><section><section id="simulations" class="title-slide slide level1 center"><h1>Simulations</h1>
+
+</section><section id="synthetic-data" class="slide level2"><h2>Synthetic data</h2>
+<p>Open science</p>
+<p>However, often it is not possible to share raw study datasets bcause they contain personally identifiable information or are highly sensitive.</p>
+<p>In this case, <strong>synthetic datasets</strong> can be generated and used in place of the real data.</p>
+</section><section id="the-simstudy-package" class="slide level2"><h2>The <code>simstudy</code> package</h2>
 </section></section><section><section id="making-code-easier-to-read" class="title-slide slide level1 center"><h1>Making code easier to read</h1>
 
 </section><section id="making-code-easier-to-read-1" class="slide level2"><h2>Making code easier to read</h2>
-<p>Easier to read code = easier comprehension</p>
-<p>There are three measures you can take to improve your code quality:</p>
+<blockquote>
+<p>Code is written once but read many times.</p>
+</blockquote>
+<p>Therefore, we should try to improve readibility of our code.</p>
+<p>Three measures you can take towards this goal:</p>
 <ul>
-<li class="fragment">good names</li>
+<li class="fragment">meaningful names</li>
 <li class="fragment">consistent code style</li>
 <li class="fragment">helpful comments</li>
 </ul></section></section><section><section id="naming-things" class="title-slide slide level1 center"><h1>Naming things</h1>
@@ -2129,11 +2139,11 @@ Johannes Feldhege
 <span><span class="fu">add.value</span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">reg.results</span></span>
 <span></span>
-<span><span class="co"># :snake:</span></span>
+<span><span class="co"># snake_case</span></span>
 <span><span class="fu">add_value</span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">reg_results</span></span>
 <span></span>
-<span><span class="co"># :camel:</span></span>
+<span><span class="co"># camelCase</span></span>
 <span><span class="fu">addValue</span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">regResults</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section><section id="examples-for-bad-names" class="slide level2"><h2>Examples for bad names</h2>
@@ -2144,9 +2154,8 @@ Johannes Feldhege
 <li class="fragment"><code>lrmf</code></li>
 <li class="fragment"><code>logistic_regression_model_fit_result</code></li>
 </ul></section><section id="names-for-functions" class="slide level2"><h2>Names for functions</h2>
-<p>The convention for functions in the tidyverse, a collection of related packages, is to start a function name with a verb:</p>
-<p><code>do()</code></p>
-<p><code>do_thing()</code></p>
+<p>The convention for functions in the tidyverse, a collection of related packages, is to start a function name with a verb, so <code>do()</code> or <code>do_thing()</code>.</p>
+<p>Examples:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#| eval: false</span></span>
 <span></span>
 <span><span class="co">#Good </span></span>
@@ -2208,8 +2217,8 @@ Johannes Feldhege
 <p>If you find yourself commenting a lot, there might be better alternatives.</p>
 <p>These are places where detailed comments on what and your code is doing for what reason are encouraged:</p>
 <ul>
-<li class="fragment">convert your script to a {{&lt; fa-brands markdown &gt;}} document such as Rmarkdown or Quarto</li>
-<li class="fragment">incorporate your code into functions in a package and document them with roxygen2</li>
+<li>convert your script to a <i class="fa-brands fa-markdown" aria-label="markdown"></i> document such as Rmarkdown or Quarto</li>
+<li>incorporate your code into functions in a package and document them with roxygen2</li>
 </ul>
 <p>Both aspects will be covered in the second part of the workshop.</p>
 
