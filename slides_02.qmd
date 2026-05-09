@@ -260,6 +260,38 @@ File {{< fa circle-right >}} New file {{< fa circle-right >}} Quarto Document...
 
 ![](imaquarto_doc.PNG)
 
+## Rendering a document
+
+To turn a Quarto document into its output, it needs to be rendered.
+
+This can be down using RStudio buttons:
+
+![](imaquarto_doc.PNG)
+
+or in the terminal:
+
+``` bash
+quarto render my_quarto_file.qmd
+```
+
+or with the `quarto` `R` package:
+
+``` bash
+quarto::render("my_quarto_file.qmd")
+```
+
+
+## Exercise
+
+I have created an example Quarto document [here](https://github.com/jfeldhege/peergroup_workshop/blob/main/examples/quarto_example.qmd)
+
+::: nonincremental
+- play around with markdown formatting
+- change the computations
+- create a new plot or table
+- render the document
+:::
+
 
 ## Publishing Quarto documents
 
@@ -268,6 +300,17 @@ File {{< fa circle-right >}} New file {{< fa circle-right >}} Quarto Document...
     Collaboration with other scientists (including future you!), who are interested in both your conclusions, and how you reached them (i.e. the code).
 
     As a modern-day lab notebook that contains 
+
+## Quarto manuscripts
+
+Quarto 1.4 introduced an output format for scientific writing: **Quarto manuscripts**.
+
+It is published as a website that can link to other formats such as word or pdf. 
+
+In the background, multiple Quarto files can be used to write the manuscript and conduct the analysis. 
+
+A live example can be seen [here](https://quarto-ext.github.io/manuscript-template-jupyter/)
+
 
 
 
