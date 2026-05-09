@@ -1,6 +1,6 @@
 ---
 title: "Clean Code, Reproducible Science: Advanced R-Programming and Workflows"
-subtitle: "Reproducibility"
+subtitle: "Part 2"
 author: "Johannes Feldhege"
 format: 
   revealjs:
@@ -43,13 +43,22 @@ However, open methods and data are essential aspects for both.
 
 Openly shared methods and data become valuable when we are given the same tools to work with as the authors.
 
-## A first step toward reproducibility: a fresh start
+# First steps toward reproducibility
 
-Can I run my analysis tomorrow with the same results as today? Have I included all steps
 
-{{< fa circle-right >}} For a fresh start: make restarting R a habit
 
-Session {{< fa circle-right >}} Restart {{< fa brands r-project >}} or Strg + Shift + F10
+## A fresh start
+
+Can I run my analysis tomorrow with the same results as today? Have I included all steps 
+
+{{< fa circle-right >}} For a fresh start: make restarting R during script writing a habit
+
+Session {{< fa circle-right >}} Restart {{< fa brands r-project >}} 
+
+or 
+
+Strg + Shift + F10
+
 
 ## Never let Rstudio save anything!
 
@@ -225,11 +234,40 @@ Outlook for further functionalities:
 :::
 
 
+
+
 # Literate programming using Quarto
+
+## Literate programming
+
+> Literate programming is a methodology that combines a programming language with a documentation language, thereby making programs more robust, more portable, more easily maintained, and arguably more fun to write than programs that are written only in a high-level language. The main idea is to treat a program as a piece of literature, addressed to human beings rather than to a computer. 
+
+Donald E. Knuth, <https://www-cs-faculty.stanford.edu/~knuth/lp.html>
+
+RMarkdown is a combination of the programming language {{< fa brands r-project >}}  and the documentation language {{< fa brands markdown >}}. It allows users to combine R code with markdown-formatted text. 
+
+Rmarkdown documents are fully reproducible as the R code contained within is executed when the document is rendered. 
 
 ## Literate programming using Quarto
 
+Quarto is the successor of Rmarkdown which allows users to include code from multiple programming languages and rendering to more output formats.
+
+Quarto is included in recent versions of RStudio. To check whether it is installed and works, you can run `quarto check` in a Terminal window. 
+
+## Creating a Quarto document
+
+File {{< fa circle-right >}} New file {{< fa circle-right >}} Quarto Document...
+
+![](imaquarto_doc.PNG)
+
+
 ## Publishing Quarto documents
+
+
+
+    Collaboration with other scientists (including future you!), who are interested in both your conclusions, and how you reached them (i.e. the code).
+
+    As a modern-day lab notebook that contains 
 
 
 
