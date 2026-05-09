@@ -32,49 +32,56 @@
     "href": "reproducible_01.html#never-let-rstudio-save-anything",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Never let Rstudio save anything!",
-    "text": "Never let Rstudio save anything!\nDo not rely on .RData to bail you out. Either save interim datasets to files or write your script in a way that lets you start from scratch everytime.\n\nWorkspace Optionsor\n#| eval: false\nusethis::use_blank_slate()"
+    "text": "Never let Rstudio save anything!\nDo not rely on .RData to bail you out. Either save interim datasets to files or write your script in a way that lets you start from scratch every time.\nTwo options:\n\n\n\n\nWorkspace Options\n\n\n\n#| eval: false\nusethis::use_blank_slate()"
   },
   {
     "objectID": "reproducible_01.html#but-it-works-on-my-machine",
     "href": "reproducible_01.html#but-it-works-on-my-machine",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "But it works on my machine!",
-    "text": "But it works on my machine!\nSharing your code and data is one step in the right direction.\nTo guarantee that others can apply them on their machine, you need to be able to share your computational environment.\n What is meant by computational environment: ::: {.fragment .highlight-red} - Specific  packages and their version ::: -  version - operating system ({{&lt; fa-brands fa-windows &gt;}}, {{&lt; fa-brands fa-apple &gt;}}, {{&lt; fa-brands fa-linux &gt;}}) - system dependencies"
+    "text": "But it works on my machine!\nSharing your code and data is one step in the right direction.\nTo guarantee that others can apply them on their machine, you need to be able to share your computational environment.\n What is meant by computational environment:\n\n\nSpecific  packages and their version\n\n\n\n\n version\noperating system ({{&lt; fa-brands windows &gt;}}, {{&lt; fa-brands apple &gt;}}, {{&lt; fa-brands linux &gt;}})\nsystem dependencies"
   },
   {
     "objectID": "reproducible_01.html#the-renv-package",
     "href": "reproducible_01.html#the-renv-package",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "The renv package",
-    "text": "The renv package\nrenv is an R package that freezes and records the packages in your project in a project-specific library. This way, your project becomes portable and reproducible as you can use it on another computer or share it with a colleague."
+    "text": "The renv package\nrenv is an R package that freezes and records the packages in your project in a project-specific library.\nThis way, your project becomes portable and reproducible as you can use it on another computer or share it with a colleague.\nThe project will not be affected by changing functions and functionality or breaking changes in packages across versions."
   },
   {
-    "objectID": "reproducible_01.html#renvinit",
-    "href": "reproducible_01.html#renvinit",
+    "objectID": "reproducible_01.html#libraries",
+    "href": "reproducible_01.html#libraries",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
-    "section": "renv::init()",
-    "text": "renv::init()"
+    "section": "Libraries",
+    "text": "Libraries\nA library is the place where packages are installed.\n\nA library is the place where packages are installed. To check where your library is located, use .libPaths().\nIn a regular setup, all projects write to the same library. Therefore, packages can become out of sync with the projects that they have been used in.\n\n\n\nUsing renv\n\n\n\n\n\nG\nA\nProject 1D\nProject library 1A-&gt;D\nB\nProject 2E\nProject library 2B-&gt;E\nC\nProject 3F\nProject library 3C-&gt;F\nG\nGlobal package cacheD-&gt;G\nE-&gt;G\nF-&gt;G"
+  },
+  {
+    "objectID": "reproducible_01.html#initialise-renv-in-an-existing-project",
+    "href": "reproducible_01.html#initialise-renv-in-an-existing-project",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Initialise renv in an existing project",
+    "text": "Initialise renv in an existing project\n\nConsole output after renv::init()"
   },
   {
     "objectID": "reproducible_01.html#project-files-created-by-renv",
     "href": "reproducible_01.html#project-files-created-by-renv",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Project files created by renv\n",
-    "text": "Project files created by renv\n\n.\n├── .Rprofile          # Project-specific profile, opens `renv` when project is opened\n│\n├── renv/\n│   ├── .gitignore     # Specify which files should be ignored by git\n│   ├── activate.R     # R script to launch renv\n│   ├── library/       # Project library\n│   └── settings.dcf   # `renv` settings\n│\n└── renv.lock          # the lockfile, containing package metadata"
+    "text": "Project files created by renv\n\nThe following project files are created by\n.\n├── .Rprofile          # Project-specific profile, activates renv \n│\n├── renv/\n│   ├── .gitignore     # Specify which files should be ignored by git\n│   ├── activate.R     # R script to launch renv\n│   ├── library/       # Project library\n│   └── settings.dcf   # renv settings\n│\n└── renv.lock          # the lockfile, containing package metadata"
   },
   {
-    "objectID": "reproducible_01.html#renvsnapshot-renvrestore",
-    "href": "reproducible_01.html#renvsnapshot-renvrestore",
+    "objectID": "reproducible_01.html#workflow-with-renv",
+    "href": "reproducible_01.html#workflow-with-renv",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
-    "section": "\nrenv::snapshot() & renv::restore()\n",
-    "text": "renv::snapshot() & renv::restore()\n\nReproducibility is provided\n\n\n\nInitialize renv in the project with renv::init()\n\nInstall new packages with renv::install()\n\nUpdate the lockfile with renv::snapshot()\nShare project with others, across computers\n\n\n\n\nOther person/computer\n\nRestore project library from a lockfile w/ renv::restore()\n[ Use new packages in code ]\n[ Install new packages w/ renv::install() ]\nUpdate the lockfile w/ renv::snapshot()"
+    "section": "Workflow with renv\n",
+    "text": "Workflow with renv\n\nReproducibility can be achieved with the functions renv::snapshot() & renv::restore()\n\n\nYou ::: nonincremental - Initialize renv in the project with renv::init() - Install new packages with renv::install() - Update the lockfile with renv::snapshot()** - Share project with others, across computers\n\n\n\nOther person/computer ::: nonincremental - Restore project library from a lockfile w/ renv::restore() - Install new packages with renv::install() - Update the lockfile with renv::snapshot()\n::: ::::::"
   },
   {
     "objectID": "reproducible_01.html#measures-for-reproducibility",
     "href": "reproducible_01.html#measures-for-reproducibility",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Measures for reproducibility",
-    "text": "Measures for reproducibility\n\nReproducible environments with Rrenv\n\nliterate programming using Quarto\n\npublish study analysis and data as an R package\n\nOutlook: - version control using git, Github, Gitlab, etc. - containerization with Docker or Nix"
+    "text": "Measures for reproducibility\n\nReproducible environments with renv\n\nliterate programming using Quarto\n\npublish study analysis and data as an R package\n\nOutlook:\n\nversion control using git, Github, Gitlab, etc.\ncontainerization with Docker or Nix"
   },
   {
     "objectID": "reproducible_01.html#literate-programming-using-quarto-1",
