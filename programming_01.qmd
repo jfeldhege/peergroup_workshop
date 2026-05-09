@@ -24,22 +24,35 @@ filters:
 
 ## Housekeeping
 
-All materials for the workshop (slides, scripts, references) can be found on this website: <http://www.johannesfeldhege.de/peergroup_workshop/>
+All materials for the workshop (slides, scripts, references) can be found on this website:
 
-It is hosted on Github and has a permissive license so you can use them however you want. 
+<http://www.johannesfeldhege.de/peergroup_workshop/>
 
+It is hosted on Github and has a permissive license so you can use them however you want.
+
+## Requirements
+
+To get the most out of this workshop, it is recommended:
+
+1.  Install recent versions of {{< fa brands r-project >}} and RStudio
+
+2.  Install the following packages: `ds4psy`, `dplyr`, `lintr.`They can be installed using the following code:
+
+``` r
+#| eval: false
+install.packages(c("tidyverse", "ds4psy"))
+```
+
+3.  Create a new RStudio project for use in the workshop. 
 
 ## Timetable
-
 
 ## About me
 
 - M. Sc. in Psychology
 - I used to work for Forschungsstelle für Psychotherapie
 - I currently work as a Data Scientist at Asklepios Science & Research since 2022
-- I have published an R package on CRAN, [openholidaysR](https://cran.r-project.org/web/packages/openholidaysR/index.html) and I am currently working on a second one
-
-
+- I have published an R package on CRAN, [`openholidaysR`](https://cran.r-project.org/web/packages/openholidaysR/index.html) and I am currently working on a second one
 
 ## Results from the pre-workshop survey
 
@@ -47,14 +60,11 @@ It is hosted on Github and has a permissive license so you can use them however 
 
 ## Results from the pre-workshop survey
 
-![survey image 2](images/survey2.PNG)
-
+![Experience with reproducibility tools](images/survey2.PNG)
 
 ## Results from the pre-workshop survey
 
-![survey image 3](images/survey3.PNG)
-
-
+![Comments](images/survey3.PNG)
 
 ## A dataset for today's workshop
 
@@ -65,52 +75,62 @@ pospsy <- ds4psy::posPsy_AHI_CESD
 ```
 
 <!-- - 24 items of the Authentic Happiness Inventory (AHI) -->
+
 <!-- - 20 items of the Center for Epidemiological Studies Depression (CES-D) scale -->
+
 <!-- - measured on 1 to 6 measurement occasions -->
 
+<!-- ## DRY: Don't repeat yourself -->
 
-## DRY: Don't repeat yourself
+<!-- ## Repeated application of the same function -->
 
-## Repeated application of the same function
+<!-- CES-D is usually measured on a scale of 0-3, in our dataset it has a scale of 1-4: -->
 
-CES-D is usually measured on a scale of 0-3, in our dataset it has a scale of 1-4:
+<!-- ```{webr-r} -->
 
-```{webr-r}
-range(pospsy$cesd01)
-```
+<!-- range(pospsy$cesd01) -->
 
-To recode it, I could do something like that:
+<!-- ``` -->
 
-```{webr-r}
-pospsy$cesd01r <- pospsy$cesd01 - 1 
-pospsy$cesd02r <- pospsy$cesd02 - 1 
-pospsy$cesd03r <- pospsy$cesd03 - 1 
-pospsy$cesd04r <- pospsy$cesd04 - 1 
-```
+<!-- To recode it, I could do something like that: -->
 
-However, this is repetitive and error prone.
+<!-- ```{webr-r} -->
 
-## Writing Functions
+<!-- pospsy$cesd01r <- pospsy$cesd01 - 1  -->
 
-```{webr-r}
+<!-- pospsy$cesd02r <- pospsy$cesd02 - 1  -->
 
-recode_cesd <- function(cesd_var) {
-  cesd_var - 1
-}
+<!-- pospsy$cesd03r <- pospsy$cesd03 - 1  -->
 
-pospsy$cesd01r <- recode_cesd(pospsy$cesd01)
-range(pospsy$cesd01r)
+<!-- pospsy$cesd04r <- pospsy$cesd04 - 1  -->
 
-```
+<!-- ``` -->
 
-## Exercise
+<!-- However, this is repetitive and error prone. -->
 
-## Loops
+<!-- ## Writing Functions -->
 
-If you have to repeat yourself, use a loop
+<!-- ```{webr-r} -->
 
+<!-- recode_cesd <- function(cesd_var) { -->
 
-## Excercise
+<!--   cesd_var - 1 -->
+
+<!-- } -->
+
+<!-- pospsy$cesd01r <- recode_cesd(pospsy$cesd01) -->
+
+<!-- range(pospsy$cesd01r) -->
+
+<!-- ``` -->
+
+<!-- ## Exercise -->
+
+<!-- ## Loops -->
+
+<!-- If you have to repeat yourself, use a loop -->
+
+<!-- ## Excercise -->
 
 # Making code easier to read
 
@@ -135,6 +155,7 @@ Naming things is hard - so hard that books are written about it:
 ## How to pick good names?
 
 A good name should be
+
 - descriptive and concise
 - prioritize reader's understanding over shortness or machine compatibility
 - follow a standard naming convention
@@ -143,7 +164,7 @@ A good name should be
 
 Some commonly used conventions:
 
-base 
+base {{< fa brands r-project >}}
 
 :snake: snake_case
 
@@ -152,16 +173,18 @@ base
 ``` r
 #| eval: false
 
+# base R
+add.value()
+reg.results
 
-#:snake:
+# :snake:
 add_value()
 reg_results
 
-#:camel:
+# :camel:
 addValue()
 regResults
 ```
-
 
 ## Examples for bad names
 
@@ -170,7 +193,6 @@ regResults
 - `newnewdata`
 - `lrmf`
 - `logistic_regression_model_fit_result`
-
 
 ## Names for functions
 
@@ -189,17 +211,15 @@ add_value()
 #Bad 
 value_add()
 value()
-
 ```
 
 More style guidelines [here](https://style.tidyverse.org/functions.html)
 
 # Styling code
 
-
 ## Styling code with `lintr`
 
-[lintr](https://lintr.r-lib.org/) conducts static code analysis on your R files.
+[lintr](https://lintr.r-lib.org/) is a package for static code analysis on your R files.
 
 Basic usage:
 
@@ -214,37 +234,26 @@ lintr::lint_dir(path = "path/to/project")
 
 ## Styling code with `lintr`
 
+`lintr` comes with defaults.
 
-
-:::: {.columns}
-
-::: {.column width="30%"}
-`lintr` comes with defaults. 
-
-These can be deactivated,  or you can define your own set.
-
-You can also add your own linters. 
-:::
-
-::: {.column width="60%"}
 ```{webr-r}
 names(lintr::linters_with_defaults())
 ```
-:::
 
-::::
+These can be modified, deactivated, or you can define your own set.
 
-
+You can also add your own linters.
 
 ## Beyond `lintr`
 
-`lintr` gives recommendations but does not change code. 
+`lintr` gives recommendations but does not change code.
 
 These tools can style your code by changing the code when executed:
 
-
+::: nonincremental
 - [Air](https://posit-dev.github.io/air/)
 - [styler](https://styler.r-lib.org/)
+:::
 
 ::: callout-warning
 Caution: these tools change your code without asking!
@@ -254,19 +263,19 @@ Caution: these tools change your code without asking!
 
 ## Writing helpful comments
 
->A helpful comment explains the why, not the what or how.
+> A helpful comment explains the why, not the what or how.
 
-In 
+In
 
-
-More info [here](https://blog.r-hub.io/2023/01/26/code-comments-self-explaining-code/) and [here](https://style.tidyverse.org/)  {.smaller}
+More info [here](https://blog.r-hub.io/2023/01/26/code-comments-self-explaining-code/) and [here](https://style.tidyverse.org/)
 
 ## Too many comments
 
+If you find yourself commenting a lot, there might be better alternatives.
 
-If you find yourself commenting a lot, there might be better alternatives. These are places where detailed comments on what and your code is doing for what reason are encouraged:
+These are places where detailed comments on what and your code is doing for what reason are encouraged:
 
-- convert your script to a {{< fa-brands fa-markdown >}} document such as Rmarkdown or Quarto
+- convert your script to a {{< fa-brands markdown >}} document such as Rmarkdown or Quarto
 - incorporate your code into functions in a package and document them with roxygen2
 
-Both aspects will be covered in 
+Both aspects will be covered in the second part of the workshop.
