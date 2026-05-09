@@ -1,0 +1,94 @@
+---
+title: "Quarto Example Document"
+format: html
+---
+
+## The YAML header
+
+The text at the top between --- is called the YAML header. It gives instructions, such as the output format, to Quarto when rendering the document.
+
+## Markdown formatting
+
+`#` are used to create headers. The number of `#` determines the header level.
+
+You can create bullet lists with \-. This list shows some text formatting options:
+
+- **bold text**,
+
+- *italic text,*
+
+- `text formatted as code`
+
+## Code chunks
+
+Programming code can be included in Rmarkdown documents in two ways:
+
+- as inline code `r paste("mean mpg = ", mean(mtcars$mpg))`
+
+- as code chunks, delimited by ``` followed by the programming language in curly brackets. 
+
+This is a code chunk to load relevant packages.
+
+
+
+
+```{r}
+#| label: load-packages}
+#| include: false
+
+library(tidyverse)
+library(ds4psy)
+library(knitr)
+```
+
+Code chunks have options that can be specified at the beginning with `#|`. `include: false` means that this code chunk will not be shown in the output. Some other options that can be specified as `true` or `false`:
+
+| option    | Description                    |
+|-----------|--------------------------------|
+| `echo`    |  include source code in output |
+| `eval`    |  evaluate code chunk           |
+| `warning` | include warnings in output     |
+| `error`   | include error in output        |
+
+## Tables
+
+A table caption can be specified with `tbl-cap`
+
+```{r}
+#| tbl-cap: Mean CESD total across measurement occasions
+
+# Long version of positive psychology datset
+popsy <- ds4psy::posPsy_long
+
+cesd_by_occasion <- popsy |> 
+  summarise(mean_cesd = mean(cesdTotal), 
+            sd_cesd = sd(cesdTotal),
+            .by = occasion)
+
+kable(cesd_by_occasion)
+
+```
+
+
+## Plots and figures
+
+Plots and figures can be included in Quarto documents. By default, they will be rendered covering the whole width of the column. Some chunk options are:
+
+| option    | Description                    |
+|-----------|--------------------------------|
+| `fig-cap`    |  Figure caption             |
+| `fig-width`  |  figure width               |
+| `fig-height` | figure height               |
+
+
+The plot below shows the CESD total across measurement occasions:
+
+```{r}
+#| label: plot
+#| fig-cap: CESD total across measurement occasions 
+#| warning: false
+#| echo: true
+
+boxplot(popsy$cesdTotal ~ popsy$occasion, horizontal = TRUE)
+
+```
