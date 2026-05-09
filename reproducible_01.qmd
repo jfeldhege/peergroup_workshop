@@ -53,16 +53,23 @@ Session -\> Restart {{< fa brands r-project >}} or Strg + Shift + F10
 
 ## Never let Rstudio save anything!
 
-Do not rely on `.RData` to bail you out. Either save interim datasets to files or write your script in a way that lets you start from scratch everytime.
+Do not rely on `.RData` to bail you out. Either save interim datasets to files or write your script in a way that lets you start from scratch every time.
 
+Two options:
+
+::::: columns
+::: {.column width="50%"}
 ![Workspace Options](images/rdata.PNG)
+:::
 
-or
+::: {.column width="60%"}
+:::
 
 ``` r
 #| eval: false
 usethis::use_blank_slate()
 ```
+:::::
 
 <!-- ## How to achieve reproducibility? -->
 
@@ -80,69 +87,130 @@ Sharing your code and data is one step in the right direction.
 
 To guarantee that others can apply them on their machine, you need to be able to share your **computational environment**.
 
-{{< fa circle-right >}} What is meant by computational environment: ::: {.fragment .highlight-red} - Specific {{< fa brands r-project >}} packages and their version ::: - {{< fa brands r-project >}} version - operating system ({{< fa-brands fa-windows >}}, {{< fa-brands fa-apple >}}, {{< fa-brands fa-linux >}}) - system dependencies
+{{< fa circle-right >}} What is meant by computational environment:
+
+::: {.fragment .highlight-red}
+- Specific {{< fa brands r-project >}} packages and their version
+:::
+
+- {{< fa brands r-project >}} version
+- operating system ({{< fa-brands windows >}}, {{< fa-brands apple >}}, {{< fa-brands linux >}})
+- system dependencies
 
 ## The `renv` package
 
-`renv` is an R package that **freezes and records** the packages in your project in a project-specific library. This way, your project becomes **portable** and **reproducible** as you can use it on another computer or share it with a colleague. 
+`renv` is an R package that **freezes and records** the packages in your project in a project-specific library.
 
-## `renv::init()`
+This way, your project becomes **portable** and **reproducible** as you can use it on another computer or share it with a colleague.
 
-## ![Console output after `renv::init()`](images/renv_init.PNG)
+The project will not be affected by changing functions and functionality or breaking changes in packages across versions. 
 
-## Project files created by `renv`
+## Libraries
 
-```         
-.
-├── .Rprofile          # Project-specific profile, opens `renv` when project is opened
-│
-├── renv/
-│   ├── .gitignore     # Specify which files should be ignored by git
-│   ├── activate.R     # R script to launch renv
-│   ├── library/       # Project library
-│   └── settings.dcf   # `renv` settings
-│
-└── renv.lock          # the lockfile, containing package metadata
-```
-
-## `renv::snapshot()` & `renv::restore()`
-
-Reproducibility is provided 
+A library is the place where packages are installed.
 
 :::: {.columns}
+A library is the place where packages are installed. To check where your library is located, use `.libPaths()`. 
 
-::: {.column width="45%"}
+In a regular setup, all projects write to the same library. Therefore, packages can become out of sync with the projects that they have been used in.   
 
-- Initialize `renv` in the project with **`renv::init()`**
-- Install new packages with **`renv::install()`**
-- **Update the lockfile with `renv::snapshot()`**
-- Share project with others, across computers
+::: {.column width="30%"}
 
 :::
 
-::: {.column width=10%}
-:::
+::: {.column width="60%"}
+Using `renv`
+```{dot}
+//| echo: false
+digraph G {
 
-::: {.column width="45%"}
-Other person/computer
+    node [shape = folder];
+    
+    A [label = "Project 1"]
+    B [label = "Project 2"]
+    C [label = "Project 3"]
+    D [label = "Project\n library 1"]
+    E [label = "Project\n library 2"]
+    F [label = "Project\n library 3"]
+    G [label = "Global\n package\n cache"]
 
-- **Restore project library from a lockfile w/ `renv::restore()`**
-- \[ Use new packages in code \]
-- \[ Install new packages w/ **`renv::install()`** \]
-- ~~Update the lockfile w/ **`renv::snapshot()`**~~
+  A -> D;
+  B -> E;
+  C -> F;
+  D -> G;
+  E -> G;
+  F -> G;
 
+}
+```
 :::
 
 ::::
 
 
+
+
+
+## Initialise `renv` in an existing project
+
+ ![Console output after renv::init()](images/renv_init.PNG)
+
+## Project files created by `renv`
+
+The following project files are created by 
+```         
+.
+├── .Rprofile          # Project-specific profile, activates renv 
+│
+├── renv/
+│   ├── .gitignore     # Specify which files should be ignored by git
+│   ├── activate.R     # R script to launch renv
+│   ├── library/       # Project library
+│   └── settings.dcf   # renv settings
+│
+└── renv.lock          # the lockfile, containing package metadata
+```
+
+## Workflow with `renv`
+
+Reproducibility can be achieved with the functions `renv::snapshot()` & `renv::restore()`
+
+:::::: columns
+::: {.column width="45%"}
+You
+::: nonincremental
+- Initialize `renv` in the project with **`renv::init()`**
+- Install new packages with `renv::install()`**
+- **Update the lockfile with `renv::snapshot()`**
+- Share project with others, across computers
+:::
+
+:::
+
+::: {.column width="10%"}
+:::
+
+::: {.column width="45%"}
+Other person/computer
+::: nonincremental
+- **Restore project library from a lockfile w/ `renv::restore()`**
+- Install new packages with **`renv::install()`** 
+- Update the lockfile with **`renv::snapshot()`**
+:::
+
+:::
+::::::
+
 ## Measures for reproducibility
 
-- Reproducible environments with R[renv](https://cran.r-project.org/web/packages/renv/index.html)
+- Reproducible environments with [renv](https://cran.r-project.org/web/packages/renv/index.html)
 - literate programming using [Quarto](https://quarto.org/)
 - publish study analysis and data as an R package
 
-Outlook: - version control using git, Github, Gitlab, etc. - containerization with Docker or Nix
+Outlook: 
+
+- version control using git, Github, Gitlab, etc. 
+- containerization with Docker or Nix
 
 # Literate programming using Quarto
 
