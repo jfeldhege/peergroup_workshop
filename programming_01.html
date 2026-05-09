@@ -6,7 +6,9 @@
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.37">
 <meta name="author" content="Johannes Feldhege">
@@ -2025,7 +2027,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center"><h1 class="title">Clean Code, Reproducible Science: Advanced R-Programming and Workflows</h1>
-  <p class="subtitle">Programming with R</p>
+  <p class="subtitle">Programming with <i class="fa-brands fa-r-project" aria-label="r-project"></i></p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -2038,22 +2040,22 @@ Johannes Feldhege
 </section><section id="about-this-workshop" class="slide level2"><h2>About this workshop</h2>
 </section><section id="about-me" class="slide level2"><h2>About me</h2>
 <ul>
-<li>M. Sc. in Psychology</li>
-<li>I used to work for Forschungsstelle für Psychotherapie</li>
-<li>I currently work as a Data Scientist at Asklepios Science &amp; Research since 2022</li>
-<li>I have published one R package on CRAN (https://cran.r-project.org/web/packages/openholidaysR/index.html) and I am working on another one</li>
+<li class="fragment">M. Sc. in Psychology</li>
+<li class="fragment">I used to work for Forschungsstelle für Psychotherapie</li>
+<li class="fragment">I currently work as a Data Scientist at Asklepios Science &amp; Research since 2022</li>
+<li class="fragment">I have published an R package on CRAN, <a href="https://cran.r-project.org/web/packages/openholidaysR/index.html">openholidaysR</a> and I am currently working on a second one</li>
 </ul></section><section id="timetable" class="slide level2"><h2>Timetable</h2>
 </section><section id="results-from-the-pre-workshop-survey" class="slide level2"><h2>Results from the pre-workshop survey</h2>
 
-<img data-src="survey1.PNG" class="r-stretch quarto-figure-center"><p class="caption">survey image 2</p></section><section id="results-from-the-pre-workshop-survey-1" class="slide level2"><h2>Results from the pre-workshop survey</h2>
+<img data-src="images/survey1.PNG" class="r-stretch quarto-figure-center"><p class="caption">survey image 2</p></section><section id="results-from-the-pre-workshop-survey-1" class="slide level2"><h2>Results from the pre-workshop survey</h2>
 
-<img data-src="survey2.PNG" class="r-stretch quarto-figure-center"><p class="caption">survey image 2</p></section><section id="results-from-the-pre-workshop-survey-2" class="slide level2"><h2>Results from the pre-workshop survey</h2>
+<img data-src="images/survey2.PNG" class="r-stretch quarto-figure-center"><p class="caption">survey image 2</p></section><section id="results-from-the-pre-workshop-survey-2" class="slide level2"><h2>Results from the pre-workshop survey</h2>
 
-<img data-src="survey3.PNG" class="r-stretch quarto-figure-center"><p class="caption">survey image 3</p></section><section id="a-dataset-for-todays-workshop" class="slide level2"><h2>A dataset for today’s workshop</h2>
+<img data-src="images/survey3.PNG" class="r-stretch quarto-figure-center"><p class="caption">survey image 3</p></section><section id="a-dataset-for-todays-workshop" class="slide level2"><h2>A dataset for today’s workshop</h2>
 <ul>
-<li>24 items of the Authentic Happiness Inventory (AHI)</li>
-<li>20 items of the Center for Epidemiological Studies Depression (CES-D) scale</li>
-<li>measured on 1 to 6 measurement occasions</li>
+<li class="fragment">24 items of the Authentic Happiness Inventory (AHI)</li>
+<li class="fragment">20 items of the Center for Epidemiological Studies Depression (CES-D) scale</li>
+<li class="fragment">measured on 1 to 6 measurement occasions</li>
 </ul>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
@@ -2073,21 +2075,25 @@ Johannes Feldhege
 </section><section id="loops" class="slide level2"><h2>Loops</h2>
 <p>If you have to repeat yourself, use a loop</p>
 </section><section id="excercise" class="slide level2"><h2>Excercise</h2>
-</section><section id="making-code-easier-to-read" class="slide level2"><h2>Making code easier to read</h2>
+</section><section><section id="making-code-easier-to-read" class="title-slide slide level1 center"><h1>Making code easier to read</h1>
+
+</section><section id="making-code-easier-to-read-1" class="slide level2"><h2>Making code easier to read</h2>
 <p>Easier to read code = easier comprehension</p>
-<p>There are two measures you can take to improve your code quality:</p>
+<p>There are three measures you can take to improve your code quality:</p>
 <ul>
-<li>good names</li>
-<li>consistent code style</li>
-<li>
-</li></ul></section><section id="naming-things" class="slide level2"><h2>Naming things</h2>
+<li class="fragment">good names</li>
+<li class="fragment">consistent code style</li>
+<li class="fragment">helpful comments</li>
+</ul></section></section><section><section id="naming-things" class="title-slide slide level1 center"><h1>Naming things</h1>
+
+</section><section id="naming-things-1" class="slide level2"><h2>Naming things</h2>
 <p>Naming things is hard - so hard that books are written about it:</p>
 
 <img data-src="images/naming_things_book.PNG" class="r-stretch quarto-figure-center"><p class="caption">Book Naming Things</p></section><section id="how-to-pick-good-names" class="slide level2"><h2>How to pick good names?</h2>
 <ul>
-<li>descriptive and concise</li>
-<li>prioritize reader’s understanding over shortness or machine compatibility</li>
-<li>follow a standard naming convention</li>
+<li class="fragment">descriptive and concise</li>
+<li class="fragment">prioritize reader’s understanding over shortness or machine compatibility</li>
+<li class="fragment">follow a standard naming convention</li>
 </ul></section><section id="naming-conventions" class="slide level2"><h2>Naming conventions</h2>
 <p>Two most commonly used conventions:</p>
 <p><span class="emoji" data-emoji="snake">🐍</span> snake_case</p>
@@ -2100,7 +2106,7 @@ Johannes Feldhege
 <li class="fragment"><code>lrmf</code></li>
 <li class="fragment"><code>logistic_regression_model_fit_result</code></li>
 </ul></section><section id="names-for-functions" class="slide level2"><h2>Names for functions</h2>
-<p>The convention for functions in thetidyverse, a collection of related packages, is to start a function name with a verb:</p>
+<p>The convention for functions in the tidyverse, a collection of related packages, is to start a function name with a verb:</p>
 <p><code>do()</code> `do_thing()</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
 <span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a></span>
@@ -2108,8 +2114,11 @@ Johannes Feldhege
 <span id="cb1-4"><a aria-hidden="true" tabindex="-1"></a><span class="fu">add_value</span>()<span class="st">`</span></span>
 <span id="cb1-5"><a aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a aria-hidden="true" tabindex="-1"></a><span class="at">#Bad </span></span>
-<span id="cb1-7"><a aria-hidden="true" tabindex="-1"></a><span class="at">value_add()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-7"><a aria-hidden="true" tabindex="-1"></a><span class="at">value_add()</span></span>
+<span id="cb1-8"><a aria-hidden="true" tabindex="-1"></a><span class="at">value()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>More <a href="https://style.tidyverse.org/functions.html">here</a></p>
+</section></section><section><section id="styling-code" class="title-slide slide level1 center"><h1>Styling code</h1>
+
 </section><section id="styling-code-with-lintr" class="slide level2"><h2>Styling code with <code>lintr</code>
 </h2>
 <p><a href="https://lintr.r-lib.org/">lintr</a> conducts static code analysis on your R files.</p>
@@ -2127,8 +2136,8 @@ Johannes Feldhege
 </h2>
 <p><code>lintr</code> gives recommendations but does not change code. These tools can style your code directly:</p>
 <ul>
-<li><a href="https://posit-dev.github.io/air/">Air</a></li>
-<li><a href="https://styler.r-lib.org/">styler</a></li>
+<li class="fragment"><a href="https://posit-dev.github.io/air/">Air</a></li>
+<li class="fragment"><a href="https://styler.r-lib.org/">styler</a></li>
 </ul>
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
@@ -2143,9 +2152,16 @@ Johannes Feldhege
 </div>
 </div>
 </div>
+</section></section><section><section id="writing-comments" class="title-slide slide level1 center"><h1>Writing comments</h1>
+
+</section><section id="writing-helpful-comments" class="slide level2"><h2>Writing helpful comments</h2>
+<p>A helpful comment explains the why, not the what or how.</p>
+<p>In</p>
+<p>If you find yourself commenting a lot, there are</p>
+<p>More info <a href="https://blog.r-hub.io/2023/01/26/code-comments-self-explaining-code/">here</a> and <a href="">here</a></p>
 
 
-</section>
+</section></section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

@@ -186,7 +186,7 @@
     "href": "programming_01.html#about-me",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "About me",
-    "text": "About me\n\nM. Sc. in Psychology\nI used to work for Forschungsstelle für Psychotherapie\nI currently work as a Data Scientist at Asklepios Science & Research since 2022\nI have published one R package on CRAN (https://cran.r-project.org/web/packages/openholidaysR/index.html) and I am working on another one"
+    "text": "About me\n\nM. Sc. in Psychology\nI used to work for Forschungsstelle für Psychotherapie\nI currently work as a Data Scientist at Asklepios Science & Research since 2022\nI have published an R package on CRAN, openholidaysR and I am currently working on a second one"
   },
   {
     "objectID": "programming_01.html#timetable",
@@ -266,15 +266,15 @@
     "text": "Excercise"
   },
   {
-    "objectID": "programming_01.html#making-code-easier-to-read",
-    "href": "programming_01.html#making-code-easier-to-read",
+    "objectID": "programming_01.html#making-code-easier-to-read-1",
+    "href": "programming_01.html#making-code-easier-to-read-1",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Making code easier to read",
-    "text": "Making code easier to read\nEasier to read code = easier comprehension\nThere are two measures you can take to improve your code quality:\n\ngood names\nconsistent code style"
+    "text": "Making code easier to read\nEasier to read code = easier comprehension\nThere are three measures you can take to improve your code quality:\n\ngood names\nconsistent code style\nhelpful comments"
   },
   {
-    "objectID": "programming_01.html#naming-things",
-    "href": "programming_01.html#naming-things",
+    "objectID": "programming_01.html#naming-things-1",
+    "href": "programming_01.html#naming-things-1",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Naming things",
     "text": "Naming things\nNaming things is hard - so hard that books are written about it:\n\nBook Naming Things"
@@ -305,7 +305,7 @@
     "href": "programming_01.html#names-for-functions",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Names for functions",
-    "text": "Names for functions\nThe convention for functions in thetidyverse, a collection of related packages, is to start a function name with a verb:\ndo() `do_thing()\n#| eval: false\n\n#Good \nadd_value()`\n\n#Bad \nvalue_add()\nMore here"
+    "text": "Names for functions\nThe convention for functions in the tidyverse, a collection of related packages, is to start a function name with a verb:\ndo() `do_thing()\n#| eval: false\n\n#Good \nadd_value()`\n\n#Bad \nvalue_add()\nvalue()\nMore here"
   },
   {
     "objectID": "programming_01.html#styling-code-with-lintr",
@@ -327,5 +327,12 @@
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Beyond lintr\n",
     "text": "Beyond lintr\n\nlintr gives recommendations but does not change code. These tools can style your code directly:\n\nAir\nstyler\n\n\n\n\n\n\n\nWarning\n\n\nCaution: these tools change your code without asking again"
+  },
+  {
+    "objectID": "programming_01.html#writing-helpful-comments",
+    "href": "programming_01.html#writing-helpful-comments",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Writing helpful comments",
+    "text": "Writing helpful comments\nA helpful comment explains the why, not the what or how.\nIn\nIf you find yourself commenting a lot, there are\nMore info here and here"
   }
 ]
