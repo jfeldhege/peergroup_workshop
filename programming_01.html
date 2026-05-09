@@ -471,7 +471,7 @@
   // Document level settings ----
 
   // Determine if we need to install R packages
-  globalThis.qwebrInstallRPackagesList = ['ds4psy', 'dplyr'];
+  globalThis.qwebrInstallRPackagesList = ['ds4psy', 'dplyr', 'lintr'];
 
   // Specify possible locations to search for the repository
   globalThis.qwebrPackageRepoURLS = ['https://repo.r-wasm.org/'];
@@ -2037,28 +2037,30 @@ Johannes Feldhege
 </div>
 </div>
 
-</section><section id="about-this-workshop" class="slide level2"><h2>About this workshop</h2>
+</section><section><section id="about-this-workshop" class="title-slide slide level1 center"><h1>About this workshop</h1>
+
+</section><section id="housekeeping" class="slide level2"><h2>Housekeeping</h2>
+<p>All materials for the workshop (slides, scripts, references) can be found on this website: <a href="http://www.johannesfeldhege.de/peergroup_workshop/" class="uri">http://www.johannesfeldhege.de/peergroup_workshop/</a></p>
+<p>It is hosted on Github and has a permissive license so you can use them however you want.</p>
+</section><section id="timetable" class="slide level2"><h2>Timetable</h2>
 </section><section id="about-me" class="slide level2"><h2>About me</h2>
 <ul>
 <li class="fragment">M. Sc. in Psychology</li>
 <li class="fragment">I used to work for Forschungsstelle für Psychotherapie</li>
 <li class="fragment">I currently work as a Data Scientist at Asklepios Science &amp; Research since 2022</li>
 <li class="fragment">I have published an R package on CRAN, <a href="https://cran.r-project.org/web/packages/openholidaysR/index.html">openholidaysR</a> and I am currently working on a second one</li>
-</ul></section><section id="timetable" class="slide level2"><h2>Timetable</h2>
-</section><section id="results-from-the-pre-workshop-survey" class="slide level2"><h2>Results from the pre-workshop survey</h2>
+</ul></section><section id="results-from-the-pre-workshop-survey" class="slide level2"><h2>Results from the pre-workshop survey</h2>
 
-<img data-src="images/survey1.PNG" class="r-stretch quarto-figure-center"><p class="caption">survey image 2</p></section><section id="results-from-the-pre-workshop-survey-1" class="slide level2"><h2>Results from the pre-workshop survey</h2>
+<img data-src="images/survey1.PNG" class="r-stretch quarto-figure-center"><p class="caption">Experience with R</p></section><section id="results-from-the-pre-workshop-survey-1" class="slide level2"><h2>Results from the pre-workshop survey</h2>
 
 <img data-src="images/survey2.PNG" class="r-stretch quarto-figure-center"><p class="caption">survey image 2</p></section><section id="results-from-the-pre-workshop-survey-2" class="slide level2"><h2>Results from the pre-workshop survey</h2>
 
 <img data-src="images/survey3.PNG" class="r-stretch quarto-figure-center"><p class="caption">survey image 3</p></section><section id="a-dataset-for-todays-workshop" class="slide level2"><h2>A dataset for today’s workshop</h2>
-<ul>
-<li class="fragment">24 items of the Authentic Happiness Inventory (AHI)</li>
-<li class="fragment">20 items of the Center for Epidemiological Studies Depression (CES-D) scale</li>
-<li class="fragment">measured on 1 to 6 measurement occasions</li>
-</ul>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<!-- - 24 items of the Authentic Happiness Inventory (AHI) -->
+<!-- - 20 items of the Center for Epidemiological Studies Depression (CES-D) scale -->
+<!-- - measured on 1 to 6 measurement occasions -->
 </section><section id="dry-dont-repeat-yourself" class="slide level2"><h2>DRY: Don’t repeat yourself</h2>
 </section><section id="repeated-application-of-the-same-function" class="slide level2"><h2>Repeated application of the same function</h2>
 <p>CES-D is usually measured on a scale of 0-3, in our dataset it has a scale of 1-4:</p>
@@ -2075,7 +2077,7 @@ Johannes Feldhege
 </section><section id="loops" class="slide level2"><h2>Loops</h2>
 <p>If you have to repeat yourself, use a loop</p>
 </section><section id="excercise" class="slide level2"><h2>Excercise</h2>
-</section><section><section id="making-code-easier-to-read" class="title-slide slide level1 center"><h1>Making code easier to read</h1>
+</section></section><section><section id="making-code-easier-to-read" class="title-slide slide level1 center"><h1>Making code easier to read</h1>
 
 </section><section id="making-code-easier-to-read-1" class="slide level2"><h2>Making code easier to read</h2>
 <p>Easier to read code = easier comprehension</p>
@@ -2089,15 +2091,23 @@ Johannes Feldhege
 </section><section id="naming-things-1" class="slide level2"><h2>Naming things</h2>
 <p>Naming things is hard - so hard that books are written about it:</p>
 
-<img data-src="images/naming_things_book.PNG" class="r-stretch quarto-figure-center"><p class="caption">Book Naming Things</p></section><section id="how-to-pick-good-names" class="slide level2"><h2>How to pick good names?</h2>
-<ul>
-<li class="fragment">descriptive and concise</li>
-<li class="fragment">prioritize reader’s understanding over shortness or machine compatibility</li>
-<li class="fragment">follow a standard naming convention</li>
-</ul></section><section id="naming-conventions" class="slide level2"><h2>Naming conventions</h2>
-<p>Two most commonly used conventions:</p>
+<img data-src="images/naming_things_book.PNG" class="r-stretch"></section><section id="how-to-pick-good-names" class="slide level2"><h2>How to pick good names?</h2>
+<p>A good name should be - descriptive and concise - prioritize reader’s understanding over shortness or machine compatibility - follow a standard naming convention</p>
+</section><section id="naming-conventions" class="slide level2"><h2>Naming conventions</h2>
+<p>Some commonly used conventions:</p>
+<p>base</p>
 <p><span class="emoji" data-emoji="snake">🐍</span> snake_case</p>
 <p><span class="emoji" data-emoji="camel">🐫</span> camelCase</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#| eval: false</span></span>
+<span></span>
+<span></span>
+<span><span class="co">#:snake:</span></span>
+<span><span class="fu">add_value</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">reg_results</span></span>
+<span></span>
+<span><span class="co">#:camel:</span></span>
+<span><span class="fu">addValue</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">regResults</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section><section id="examples-for-bad-names" class="slide level2"><h2>Examples for bad names</h2>
 <ul>
 <li class="fragment"><code>x</code></li>
@@ -2107,22 +2117,24 @@ Johannes Feldhege
 <li class="fragment"><code>logistic_regression_model_fit_result</code></li>
 </ul></section><section id="names-for-functions" class="slide level2"><h2>Names for functions</h2>
 <p>The convention for functions in the tidyverse, a collection of related packages, is to start a function name with a verb:</p>
-<p><code>do()</code> `do_thing()</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a><span class="co">#Good </span></span>
-<span id="cb1-4"><a aria-hidden="true" tabindex="-1"></a><span class="fu">add_value</span>()<span class="st">`</span></span>
-<span id="cb1-5"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a aria-hidden="true" tabindex="-1"></a><span class="at">#Bad </span></span>
-<span id="cb1-7"><a aria-hidden="true" tabindex="-1"></a><span class="at">value_add()</span></span>
-<span id="cb1-8"><a aria-hidden="true" tabindex="-1"></a><span class="at">value()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>More <a href="https://style.tidyverse.org/functions.html">here</a></p>
+<p><code>do()</code></p>
+<p><code>do_thing()</code></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#| eval: false</span></span>
+<span></span>
+<span><span class="co">#Good </span></span>
+<span><span class="fu">add_value</span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#Bad </span></span>
+<span><span class="fu">value_add</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">value</span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>More style guidelines <a href="https://style.tidyverse.org/functions.html">here</a></p>
 </section></section><section><section id="styling-code" class="title-slide slide level1 center"><h1>Styling code</h1>
 
 </section><section id="styling-code-with-lintr" class="slide level2"><h2>Styling code with <code>lintr</code>
 </h2>
 <p><a href="https://lintr.r-lib.org/">lintr</a> conducts static code analysis on your R files.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#| eval: false</span></span>
+<p>Basic usage:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#| eval: false</span></span>
 <span><span class="co"># Style one file</span></span>
 <span><span class="fu">lintr</span><span class="fu">::</span><span class="fu">lint</span><span class="op">(</span>path <span class="op">=</span> <span class="st">"path/to/file"</span><span class="op">)</span></span>
 <span></span>
@@ -2130,11 +2142,19 @@ Johannes Feldhege
 <span><span class="fu">lintr</span><span class="fu">::</span><span class="fu">lint_dir</span><span class="op">(</span>path <span class="op">=</span> <span class="st">"path/to/project"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section><section id="styling-code-with-lintr-1" class="slide level2"><h2>Styling code with <code>lintr</code>
 </h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p><code>lintr</code> comes with defaults.</p>
+<p>These can be deactivated, or you can define your own set.</p>
+<p>You can also add your own linters.</p>
+</div><div class="column" style="width:60%;">
 <div id="qwebr-insertion-location-5"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</div></div>
 </section><section id="beyond-lintr" class="slide level2"><h2>Beyond <code>lintr</code>
 </h2>
-<p><code>lintr</code> gives recommendations but does not change code. These tools can style your code directly:</p>
+<p><code>lintr</code> gives recommendations but does not change code.</p>
+<p>These tools can style your code by changing the code when executed:</p>
 <ul>
 <li class="fragment"><a href="https://posit-dev.github.io/air/">Air</a></li>
 <li class="fragment"><a href="https://styler.r-lib.org/">styler</a></li>
@@ -2148,17 +2168,25 @@ Johannes Feldhege
 <p><strong>Warning</strong></p>
 </div>
 <div class="callout-content">
-<p>Caution: these tools change your code without asking again</p>
+<p>Caution: these tools change your code without asking!</p>
 </div>
 </div>
 </div>
 </section></section><section><section id="writing-comments" class="title-slide slide level1 center"><h1>Writing comments</h1>
 
 </section><section id="writing-helpful-comments" class="slide level2"><h2>Writing helpful comments</h2>
+<blockquote>
 <p>A helpful comment explains the why, not the what or how.</p>
+</blockquote>
 <p>In</p>
-<p>If you find yourself commenting a lot, there are</p>
-<p>More info <a href="https://blog.r-hub.io/2023/01/26/code-comments-self-explaining-code/">here</a> and <a href="">here</a></p>
+<p>More info <a href="https://blog.r-hub.io/2023/01/26/code-comments-self-explaining-code/">here</a> and <a href="https://style.tidyverse.org/">here</a> {.smaller}</p>
+</section><section id="too-many-comments" class="slide level2"><h2>Too many comments</h2>
+<p>If you find yourself commenting a lot, there might be better alternatives. These are places where detailed comments on what and your code is doing for what reason are encouraged:</p>
+<ul>
+<li class="fragment">convert your script to a {{&lt; fa-brands fa-markdown &gt;}} document such as Rmarkdown or Quarto</li>
+<li class="fragment">incorporate your code into functions in a package and document them with roxygen2</li>
+</ul>
+<p>Both aspects will be covered in</p>
 
 
 </section></section>
@@ -2175,7 +2203,7 @@ Johannes Feldhege
       // https://revealjs.com/config/
       Reveal.initialize({
 'controlsAuto': true,
-'previewLinksAuto': false,
+'previewLinksAuto': true,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,

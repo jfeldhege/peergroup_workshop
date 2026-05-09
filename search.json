@@ -144,7 +144,7 @@
     "href": "literatur.html",
     "title": "References",
     "section": "",
-    "text": "Hester, Jim, Florent Angly, Michael Chirico, et al. 2025. “Static Code Analysis for r.” Journal of Open Source Software 10 (108): 7240. https://doi.org/10.21105/joss.07240.\n\n\nHester, Jim, Florent Angly, Russ Hyde, et al. 2025. Lintr: A Linter for r Code. https://lintr.r-lib.org.\n\n\nMarwick, Ben, Carl Boettiger, and Lincoln Mullen. 2018. “Packaging Data Analytical Work Reproducibly Using r (and Friends).” The American Statistician 72 (1): 80–88. https://doi.org/10.1080/00031305.2017.1375986.\n\n\nMüller, Kirill. 2025. Here: A Simpler Way to Find Your Files. https://here.r-lib.org/.\n\n\nMüller, Kirill, Lorenz Walthert, and Indrajeet Patil. 2025. Styler: Non-Invasive Pretty Printing of r Code. https://github.com/r-lib/styler.\n\n\nteam, The tidyverse. Tidyverse Style Guide — Style.tidyverse.org. Https://style.tidyverse.org/.\n\n\nWickham, Hadley, and Jenny Bryan. 2023. R Packages. 2nd ed. O’Reilly Media."
+    "text": "Hester, Jim, Florent Angly, Michael Chirico, et al. 2025. “Static Code Analysis for r.” Journal of Open Source Software 10 (108): 7240. https://doi.org/10.21105/joss.07240.\n\n\nHester, Jim, Florent Angly, Russ Hyde, et al. 2025. Lintr: A Linter for r Code. https://lintr.r-lib.org.\n\n\nMarwick, Ben, Carl Boettiger, and Lincoln Mullen. 2018. “Packaging Data Analytical Work Reproducibly Using r (and Friends).” The American Statistician 72 (1): 80–88. https://doi.org/10.1080/00031305.2017.1375986.\n\n\nMüller, Kirill. 2025. Here: A Simpler Way to Find Your Files. https://here.r-lib.org/.\n\n\nMüller, Kirill, Lorenz Walthert, and Indrajeet Patil. 2025. Styler: Non-Invasive Pretty Printing of r Code. https://github.com/r-lib/styler.\n\n\nSalmon, Maelle. 2023. Why Comment Your Code as Little (and as Well) as Possible - R-Hub Blog. Https://blog.r-hub.io/2023/01/26/code-comments-self-explaining-code/.\n\n\nteam, The tidyverse. Tidyverse Style Guide — Style.tidyverse.org. Https://style.tidyverse.org/.\n\n\nWickham, Hadley, and Jenny Bryan. 2023. R Packages. 2nd ed. O’Reilly Media."
   },
   {
     "objectID": "index.html",
@@ -175,18 +175,11 @@
     "text": "Requirements\n\nCurrent versions of R and RStudio\nThe following R packager are required: TBD\n\nThe packages can be installed using the following code:\ninstall.packages(c(\"tidyverse\"))"
   },
   {
-    "objectID": "programming_01.html#about-this-workshop",
-    "href": "programming_01.html#about-this-workshop",
+    "objectID": "programming_01.html#housekeeping",
+    "href": "programming_01.html#housekeeping",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
-    "section": "About this workshop",
-    "text": "About this workshop"
-  },
-  {
-    "objectID": "programming_01.html#about-me",
-    "href": "programming_01.html#about-me",
-    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
-    "section": "About me",
-    "text": "About me\n\nM. Sc. in Psychology\nI used to work for Forschungsstelle für Psychotherapie\nI currently work as a Data Scientist at Asklepios Science & Research since 2022\nI have published an R package on CRAN, openholidaysR and I am currently working on a second one"
+    "section": "Housekeeping",
+    "text": "Housekeeping\nAll materials for the workshop (slides, scripts, references) can be found on this website: http://www.johannesfeldhege.de/peergroup_workshop/\nIt is hosted on Github and has a permissive license so you can use them however you want."
   },
   {
     "objectID": "programming_01.html#timetable",
@@ -196,11 +189,18 @@
     "text": "Timetable"
   },
   {
+    "objectID": "programming_01.html#about-me",
+    "href": "programming_01.html#about-me",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "About me",
+    "text": "About me\n\nM. Sc. in Psychology\nI used to work for Forschungsstelle für Psychotherapie\nI currently work as a Data Scientist at Asklepios Science & Research since 2022\nI have published an R package on CRAN, openholidaysR and I am currently working on a second one"
+  },
+  {
     "objectID": "programming_01.html#results-from-the-pre-workshop-survey",
     "href": "programming_01.html#results-from-the-pre-workshop-survey",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Results from the pre-workshop survey",
-    "text": "Results from the pre-workshop survey\n\nsurvey image 2"
+    "text": "Results from the pre-workshop survey\n\nExperience with R"
   },
   {
     "objectID": "programming_01.html#results-from-the-pre-workshop-survey-1",
@@ -221,7 +221,7 @@
     "href": "programming_01.html#a-dataset-for-todays-workshop",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "A dataset for today’s workshop",
-    "text": "A dataset for today’s workshop\n\n24 items of the Authentic Happiness Inventory (AHI)\n20 items of the Center for Epidemiological Studies Depression (CES-D) scale\nmeasured on 1 to 6 measurement occasions\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "A dataset for today’s workshop\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
     "objectID": "programming_01.html#dry-dont-repeat-yourself",
@@ -277,21 +277,21 @@
     "href": "programming_01.html#naming-things-1",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Naming things",
-    "text": "Naming things\nNaming things is hard - so hard that books are written about it:\n\nBook Naming Things"
+    "text": "Naming things\nNaming things is hard - so hard that books are written about it:"
   },
   {
     "objectID": "programming_01.html#how-to-pick-good-names",
     "href": "programming_01.html#how-to-pick-good-names",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "How to pick good names?",
-    "text": "How to pick good names?\n\ndescriptive and concise\nprioritize reader’s understanding over shortness or machine compatibility\nfollow a standard naming convention"
+    "text": "How to pick good names?\nA good name should be - descriptive and concise - prioritize reader’s understanding over shortness or machine compatibility - follow a standard naming convention"
   },
   {
     "objectID": "programming_01.html#naming-conventions",
     "href": "programming_01.html#naming-conventions",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Naming conventions",
-    "text": "Naming conventions\nTwo most commonly used conventions:\n🐍 snake_case\n🐫 camelCase"
+    "text": "Naming conventions\nSome commonly used conventions:\nbase\n🐍 snake_case\n🐫 camelCase\n#| eval: false\n\n\n#:snake:\nadd_value()\nreg_results\n\n#:camel:\naddValue()\nregResults"
   },
   {
     "objectID": "programming_01.html#examples-for-bad-names",
@@ -305,34 +305,41 @@
     "href": "programming_01.html#names-for-functions",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Names for functions",
-    "text": "Names for functions\nThe convention for functions in the tidyverse, a collection of related packages, is to start a function name with a verb:\ndo() `do_thing()\n#| eval: false\n\n#Good \nadd_value()`\n\n#Bad \nvalue_add()\nvalue()\nMore here"
+    "text": "Names for functions\nThe convention for functions in the tidyverse, a collection of related packages, is to start a function name with a verb:\ndo()\ndo_thing()\n#| eval: false\n\n#Good \nadd_value()\n\n#Bad \nvalue_add()\nvalue()\nMore style guidelines here"
   },
   {
     "objectID": "programming_01.html#styling-code-with-lintr",
     "href": "programming_01.html#styling-code-with-lintr",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Styling code with lintr\n",
-    "text": "Styling code with lintr\n\nlintr conducts static code analysis on your R files.\n#| eval: false\n# Style one file\nlintr::lint(path = \"path/to/file\")\n\n# A whole directory or R project\nlintr::lint_dir(path = \"path/to/project\")"
+    "text": "Styling code with lintr\n\nlintr conducts static code analysis on your R files.\nBasic usage:\n#| eval: false\n# Style one file\nlintr::lint(path = \"path/to/file\")\n\n# A whole directory or R project\nlintr::lint_dir(path = \"path/to/project\")"
   },
   {
     "objectID": "programming_01.html#styling-code-with-lintr-1",
     "href": "programming_01.html#styling-code-with-lintr-1",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Styling code with lintr\n",
-    "text": "Styling code with lintr\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+    "text": "Styling code with lintr\n\n\n\nlintr comes with defaults.\nThese can be deactivated, or you can define your own set.\nYou can also add your own linters.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
     "objectID": "programming_01.html#beyond-lintr",
     "href": "programming_01.html#beyond-lintr",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Beyond lintr\n",
-    "text": "Beyond lintr\n\nlintr gives recommendations but does not change code. These tools can style your code directly:\n\nAir\nstyler\n\n\n\n\n\n\n\nWarning\n\n\nCaution: these tools change your code without asking again"
+    "text": "Beyond lintr\n\nlintr gives recommendations but does not change code.\nThese tools can style your code by changing the code when executed:\n\nAir\nstyler\n\n\n\n\n\n\n\nWarning\n\n\nCaution: these tools change your code without asking!"
   },
   {
     "objectID": "programming_01.html#writing-helpful-comments",
     "href": "programming_01.html#writing-helpful-comments",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Writing helpful comments",
-    "text": "Writing helpful comments\nA helpful comment explains the why, not the what or how.\nIn\nIf you find yourself commenting a lot, there are\nMore info here and here"
+    "text": "Writing helpful comments\n\nA helpful comment explains the why, not the what or how.\n\nIn\nMore info here and here {.smaller}"
+  },
+  {
+    "objectID": "programming_01.html#too-many-comments",
+    "href": "programming_01.html#too-many-comments",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Too many comments",
+    "text": "Too many comments\nIf you find yourself commenting a lot, there might be better alternatives. These are places where detailed comments on what and your code is doing for what reason are encouraged:\n\nconvert your script to a {{&lt; fa-brands fa-markdown &gt;}} document such as Rmarkdown or Quarto\nincorporate your code into functions in a package and document them with roxygen2\n\nBoth aspects will be covered in"
   }
 ]
