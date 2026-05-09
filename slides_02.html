@@ -365,15 +365,35 @@ Johannes Feldhege
 </section><section id="creating-a-quarto-document" class="slide level2"><h2>Creating a Quarto document</h2>
 <p>File <i class="fa-solid fa-circle-right" aria-label="circle-right"></i> New file <i class="fa-solid fa-circle-right" aria-label="circle-right"></i> Quarto Document…</p>
 
-<img data-src="imaquarto_doc.PNG" class="r-stretch"></section><section id="publishing-quarto-documents" class="slide level2"><h2>Publishing Quarto documents</h2>
+<img data-src="imaquarto_doc.PNG" class="r-stretch"></section><section id="rendering-a-document" class="slide level2"><h2>Rendering a document</h2>
+<p>To turn a Quarto document into its output, it needs to be rendered.</p>
+<p>This can be down using RStudio buttons:</p>
+
+<img data-src="imaquarto_doc.PNG" class="r-stretch"><p>or in the terminal:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render my_quarto_file.qmd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>or with the <code>quarto</code> <code>R</code> package:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a><span class="ex">quarto::render</span><span class="er">(</span><span class="st">"my_quarto_file.qmd"</span><span class="kw">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section><section id="exercise" class="slide level2"><h2>Exercise</h2>
+<p>I have created an example Quarto document <a href="https://github.com/jfeldhege/peergroup_workshop/blob/main/examples/quarto_example.qmd">here</a></p>
+<ul>
+<li>play around with markdown formatting</li>
+<li>change the computations</li>
+<li>create a new plot or table</li>
+<li>render the document</li>
+</ul></section><section id="publishing-quarto-documents" class="slide level2"><h2>Publishing Quarto documents</h2>
 <pre><code>Collaboration with other scientists (including future you!), who are interested in both your conclusions, and how you reached them (i.e. the code).
 
 As a modern-day lab notebook that contains </code></pre>
+</section><section id="quarto-manuscripts" class="slide level2"><h2>Quarto manuscripts</h2>
+<p>Quarto 1.4 introduced an output format for scientific writing: <strong>Quarto manuscripts</strong>.</p>
+<p>It is published as a website that can link to other formats such as word or pdf.</p>
+<p>In the background, multiple Quarto files can be used to write the manuscript and conduct the analysis.</p>
+<p>A live example can be seen <a href="https://quarto-ext.github.io/manuscript-template-jupyter/">here</a></p>
 </section></section><section><section id="writing-r-packages" class="title-slide slide level1 center"><h1>Writing R packages</h1>
 
 </section><section id="creating-an-r-package-with-the-usethis-package" class="slide level2"><h2>Creating an R Package with the {usethis} package</h2>
 <p>One easy step to get started:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#| eval: false</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#| eval: false</span></span>
 <span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">create_package</span><span class="op">(</span><span class="st">"/path/to/the/package"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section><section id="the-process-of-working-on-a-package" class="slide level2"><h2>The process of working on a package</h2>
 <div class="cell" data-layout-align="default">
@@ -427,7 +447,7 @@ As a modern-day lab notebook that contains </code></pre>
 <td><code>usethis::use_package()</code></td>
 </tr>
 </tbody>
-</table></section><section id="exercise" class="slide level2"><h2>Exercise</h2>
+</table></section><section id="exercise-1" class="slide level2"><h2>Exercise</h2>
 <p>I have prepared a small script with these functions that you can download here <a href="&quot;https://www.johannesfeldhege.de/peergroup_workshop/script_package.R&quot;">script_package.R</a></p>
 <p>I want you to</p>
 </section><section id="pros-of-study-as-an-r-package" class="slide level2"><h2>Pros of “study as an R package”</h2>

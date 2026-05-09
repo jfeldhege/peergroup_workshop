@@ -105,11 +105,32 @@
     "text": "Creating a Quarto document\nFile  New file  Quarto Document…"
   },
   {
+    "objectID": "slides_02.html#rendering-a-document",
+    "href": "slides_02.html#rendering-a-document",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Rendering a document",
+    "text": "Rendering a document\nTo turn a Quarto document into its output, it needs to be rendered.\nThis can be down using RStudio buttons:\n\nor in the terminal:\nquarto render my_quarto_file.qmd\nor with the quarto R package:\nquarto::render(\"my_quarto_file.qmd\")"
+  },
+  {
+    "objectID": "slides_02.html#exercise",
+    "href": "slides_02.html#exercise",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Exercise",
+    "text": "Exercise\nI have created an example Quarto document here\n\nplay around with markdown formatting\nchange the computations\ncreate a new plot or table\nrender the document"
+  },
+  {
     "objectID": "slides_02.html#publishing-quarto-documents",
     "href": "slides_02.html#publishing-quarto-documents",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Publishing Quarto documents",
     "text": "Publishing Quarto documents\nCollaboration with other scientists (including future you!), who are interested in both your conclusions, and how you reached them (i.e. the code).\n\nAs a modern-day lab notebook that contains"
+  },
+  {
+    "objectID": "slides_02.html#quarto-manuscripts",
+    "href": "slides_02.html#quarto-manuscripts",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Quarto manuscripts",
+    "text": "Quarto manuscripts\nQuarto 1.4 introduced an output format for scientific writing: Quarto manuscripts.\nIt is published as a website that can link to other formats such as word or pdf.\nIn the background, multiple Quarto files can be used to write the manuscript and conduct the analysis.\nA live example can be seen here"
   },
   {
     "objectID": "slides_02.html#creating-an-r-package-with-the-usethis-package",
@@ -133,8 +154,8 @@
     "text": "Useful functions for package development\n\nTable: Useful functions for packaged\n\nCol1\nCol2\n\n\n\nDocument function\ndevtools::document()\n\n\nLoad all functions\ndevtools::load_all()\n\n\nCMD Check\ndevtools::check()\n\n\nBuild package locally\ndevtools::build()\n\n\nDeclare dependencies\nusethis::use_package()"
   },
   {
-    "objectID": "slides_02.html#exercise",
-    "href": "slides_02.html#exercise",
+    "objectID": "slides_02.html#exercise-1",
+    "href": "slides_02.html#exercise-1",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Exercise",
     "text": "Exercise\nI have prepared a small script with these functions that you can download here script_package.R\nI want you to"
