@@ -6,17 +6,19 @@
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.37">
-
-  <meta name="author" content="Johannes Feldhege">
-  <title>R Workshop for Methods Peer Group – Clean Code, Reproducible Science: Advanced R-Programming and Workflows</title>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="site_libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="site_libs/revealjs/dist/reveal.css">
-  <style>
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+<meta name="author" content="Johannes Feldhege">
+<title>R Workshop for Methods Peer Group – Clean Code, Reproducible Science: Advanced R-Programming and Workflows</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<link rel="stylesheet" href="site_libs/revealjs/dist/reset.css">
+<link rel="stylesheet" href="site_libs/revealjs/dist/reveal.css">
+<style>
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
@@ -98,14 +100,14 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-0427d8d92a431aa6a6430e53ec02a470.css">
-  <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-  <link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
-  <style type="text/css">
+<link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-0427d8d92a431aa6a6430e53ec02a470.css">
+<link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+<link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+<link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+<link href="site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+<link href="site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+<link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+<style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
       overflow: auto;
@@ -197,8 +199,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Clean Code, Reproducible Science: Advanced R-Programming and Workflows</h1>
+<section id="title-slide" class="quarto-title-block center"><h1 class="title">Clean Code, Reproducible Science: Advanced R-Programming and Workflows</h1>
   <p class="subtitle">Reproducibility</p>
 
 <div class="quarto-title-authors">
@@ -209,186 +210,130 @@ Johannes Feldhege
 </div>
 </div>
 
-</section>
-<section id="why-make-it-reproducible" class="slide level2">
-<h2>Why make it reproducible?</h2>
-<p>I have to rerun an analysis a few years down the line…</p>
-<p>My colleague wants to build on my analysis in a new study…</p>
-<p>I want to publish the code used in my study together with the manuscript so others can use it…</p>
-</section>
-<section id="what-is-reproducibility" class="slide level2">
-<h2>What is reproducibility?</h2>
+</section><section id="why-make-it-reproducible" class="slide level2"><h2>Why make it reproducible?</h2>
+<ul>
+<li class="fragment"><p>I have to rerun an analysis a few years down the line…</p></li>
+<li class="fragment"><p>My colleague wants to build on my analysis in a new study…</p></li>
+<li class="fragment"><p>I want to publish the code used in my study together with the manuscript so others can use it…</p></li>
+</ul></section><section id="what-is-reproducibility" class="slide level2"><h2>What is reproducibility?</h2>
 <p>A study is reproducible if it can be</p>
 <ul>
 <li class="fragment">conducted again</li>
 <li class="fragment">years later</li>
 <li class="fragment">with the same results.</li>
-</ul>
-</section>
-<section id="the-replication-crisis" class="slide level2">
-<h2>The replication crisis</h2>
+</ul></section><section id="the-replication-crisis" class="slide level2"><h2>The replication crisis</h2>
 <p>Reproducibility =/= Replication</p>
 <p>However, open methods and data are essential aspects for both.</p>
 <p>Openly shared methods and data become valuable when we are given the same tools to work with as the authors.</p>
-</section>
-<section id="a-first-step-toward-reproducibility-a-fresh-start" class="slide level2">
-<h2>A first step toward reproducibility: a fresh start</h2>
+</section><section id="a-first-step-toward-reproducibility-a-fresh-start" class="slide level2"><h2>A first step toward reproducibility: a fresh start</h2>
 <p>Can I run my analysis tomorrow with the same results as today? Have I included all steps</p>
 <p>–&gt; For a fresh start: make restarting R a habit</p>
-<p>Session -&gt; Restart R or Strg + Shift + F10</p>
-</section>
-<section id="never-let-rstudio-save-anything" class="slide level2">
-<h2>Never let Rstudio save anything!</h2>
+<p>Session -&gt; Restart <i class="fa-brands fa-r-project" aria-label="r-project"></i> or Strg + Shift + F10</p>
+</section><section id="never-let-rstudio-save-anything" class="slide level2"><h2>Never let Rstudio save anything!</h2>
 <p>Do not rely on <code>.RData</code> to bail you out. Either save interim datasets to files or write your script in a way that lets you start from scratch everytime.</p>
 
 <img data-src="images/rdata.PNG" class="r-stretch quarto-figure-center"><p class="caption">Workspace Options</p><p>or</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_blank_slate</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#| eval: false</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_blank_slate</span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <!-- ## How to achieve reproducibility? -->
 <!-- ::: {.incremental} -->
 <!-- - Einfrieren der   -->
 <!-- - Versionskontrolle -->
 <!-- ::: -->
-</section>
-<section id="but-it-works-on-my-machine" class="slide level2">
-<h2>But it works on my machine!</h2>
-<p>Having your own</p>
-<p>You need to be able to share your setup with others so they can apply it on their machine. –&gt; What is meant by setup:</p>
+</section><section id="but-it-works-on-my-machine" class="slide level2"><h2>But it works on my machine!</h2>
+<p>Sharing your code and data is one step in the right direction.</p>
+<p>To guarantee that others can apply them on their machine, you need to be able to share your <strong>computational environment</strong>.</p>
+<p><i class="fa-solid fa-circle-right" aria-label="circle-right"></i> What is meant by computational environment: ::: {.fragment .highlight-red} - Specific <i class="fa-brands fa-r-project" aria-label="r-project"></i> packages and their version ::: - <i class="fa-brands fa-r-project" aria-label="r-project"></i> version - operating system ({{&lt; fa-brands fa-windows &gt;}}, {{&lt; fa-brands fa-apple &gt;}}, {{&lt; fa-brands fa-linux &gt;}}) - system dependencies</p>
+</section><section id="the-renv-package" class="slide level2"><h2>The <code>renv</code> package</h2>
+<p><code>renv</code> is an R package that <strong>freezes and records</strong> the packages in your project in a project-specific library. This way, your project becomes <strong>portable</strong> and <strong>reproducible</strong> as you can use it on another computer or share it with a colleague.</p>
+</section><section id="renvinit" class="slide level2"><h2><code>renv::init()</code></h2>
+</section><section id="console-output-after-renvinit" class="slide level2"><h2><img data-src="images/renv_init.PNG" alt="Console output after renv::init()"></h2>
+</section><section id="project-files-created-by-renv" class="slide level2"><h2>Project files created by <code>renv</code>
+</h2>
+<pre><code>.
+├── .Rprofile          # Project-specific profile, opens `renv` when project is opened
+│
+├── renv/
+│   ├── .gitignore     # Specify which files should be ignored by git
+│   ├── activate.R     # R script to launch renv
+│   ├── library/       # Project library
+│   └── settings.dcf   # `renv` settings
+│
+└── renv.lock          # the lockfile, containing package metadata</code></pre>
+</section><section id="renvsnapshot-renvrestore" class="slide level2"><h2>
+<code>renv::snapshot()</code> &amp; <code>renv::restore()</code>
+</h2>
+<p>Reproducibility is provided</p>
+<div class="columns">
+<div class="column" style="width:45%;">
 <ul>
-<li>Specific R packages and their version</li>
-<li>R version</li>
-<li>operating system</li>
-<li>system dependencies</li>
+<li class="fragment">Initialize <code>renv</code> in the project with <strong><code>renv::init()</code></strong>
+</li>
+<li class="fragment">Install new packages with <strong><code>renv::install()</code></strong>
+</li>
+<li class="fragment"><strong>Update the lockfile with <code>renv::snapshot()</code></strong></li>
+<li class="fragment">Share project with others, across computers</li>
 </ul>
-</section>
-<section id="measures-for-reproducibility" class="slide level2">
-<h2>Measures for reproducibility</h2>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<p>Other person/computer</p>
 <ul>
-<li><a href="https://cran.r-project.org/web/packages/renv/index.html">renv</a></li>
-<li>literate programming using <a href="https://quarto.org/">Quarto</a></li>
-<li>publish study analysis and data as an R package</li>
+<li class="fragment"><strong>Restore project library from a lockfile w/ <code>renv::restore()</code></strong></li>
+<li class="fragment">[ Use new packages in code ]</li>
+<li class="fragment">[ Install new packages w/ <strong><code>renv::install()</code></strong> ]</li>
+<li class="fragment"><del>Update the lockfile w/ <strong><code>renv::snapshot()</code></strong></del></li>
+</ul>
+</div></div>
+</section><section id="measures-for-reproducibility" class="slide level2"><h2>Measures for reproducibility</h2>
+<ul>
+<li class="fragment">Reproducible environments with R<a href="https://cran.r-project.org/web/packages/renv/index.html">renv</a>
+</li>
+<li class="fragment">literate programming using <a href="https://quarto.org/">Quarto</a>
+</li>
+<li class="fragment">publish study analysis and data as an R package</li>
 </ul>
 <p>Outlook: - version control using git, Github, Gitlab, etc. - containerization with Docker or Nix</p>
-</section>
-<section id="literate-programming-using-quarto" class="slide level2">
-<h2>Literate programming using Quarto</h2>
-</section>
-<section id="publishing-quarto-documents" class="slide level2">
-<h2>Publishing Quarto documents</h2>
-</section>
-<section id="pros-of-study-as-an-r-package" class="slide level2">
-<h2>Pros of “study as an R package”</h2>
-<ul>
-<li class="fragment">Combines functions for analysis and study data</li>
-<li class="fragment">documentation of custom functions, dependencies, contributors</li>
-<li class="fragment">CMD check routine</li>
-<li class="fragment">condense analysis into functions</li>
-</ul>
-</section>
-<section id="cons-of-study-as-an-r-package" class="slide level2">
-<h2>Cons of “study as an R package”</h2>
-<p>If the package is not intended for CRAN submission, superfluous information and files are created:</p>
-<ul>
-<li>metadata exists in different places (github, DESCRIPTION)</li>
-<li>CRAN submission artifacts</li>
-<li>compliance with CMD check requirements</li>
-</ul>
-<p>More info <a href="https://milesmcbain.xyz/posts/an-okay-idea/">here</a></p>
-</section>
-<section id="creating-an-r-package-with-the-usethis-package" class="slide level2">
-<h2>Creating an R Package with the {usethis} package</h2>
+</section><section><section id="literate-programming-using-quarto" class="title-slide slide level1 center"><h1>Literate programming using Quarto</h1>
+
+</section><section id="literate-programming-using-quarto-1" class="slide level2"><h2>Literate programming using Quarto</h2>
+</section><section id="publishing-quarto-documents" class="slide level2"><h2>Publishing Quarto documents</h2>
+</section></section><section><section id="writing-r-packages" class="title-slide slide level1 center"><h1>Writing R packages</h1>
+
+</section><section id="creating-an-r-package-with-the-usethis-package" class="slide level2"><h2>Creating an R Package with the {usethis} package</h2>
 <p>One easy step to get started:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_package</span>(<span class="st">"/path/to/the/package"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="the-process-of-working-on-a-package" class="slide level2">
-<h2>The process of working on a package</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#| eval: false</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">create_package</span><span class="op">(</span><span class="st">"/path/to/the/package"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section><section id="the-process-of-working-on-a-package" class="slide level2"><h2>The process of working on a package</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
-<p></p><figure class=""><p></p>
+<p></p><figure class=""></figure><p></p>
 <div>
-<svg width="960" height="480" viewbox="0.00 0.00 384.98 341.39" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 337.39)">
-<title>g1</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-337.39 380.98,-337.39 380.98,4 -4,4"></polygon>
-<!-- A -->
-<g id="node1" class="node">
-<title>A</title>
-<polygon fill="none" stroke="black" points="265.85,-36 181.78,-36 181.78,0 265.85,0 265.85,-36"></polygon>
-<text text-anchor="middle" x="223.81" y="-13.8" font-family="Times,serif" font-size="14.00">CMD check</text>
-</g>
-<!-- B -->
-<g id="node2" class="node">
-<title>B</title>
-<polygon fill="none" stroke="black" points="97.49,-92.8 0.54,-92.8 0.54,-56.8 97.49,-56.8 97.49,-92.8"></polygon>
-<text text-anchor="middle" x="49.01" y="-70.6" font-family="Times,serif" font-size="14.00">Build package</text>
-</g>
-<!-- A&#45;&gt;B -->
-<g id="edge1" class="edge">
-<title>A-&gt;B</title>
-<path fill="none" stroke="black" d="M181.5,-31.75C159.21,-38.99 131.53,-47.98 107.25,-55.88"></path>
-<polygon fill="black" stroke="black" points="105.85,-52.65 97.43,-59.07 108.02,-59.3 105.85,-52.65"></polygon>
-</g>
-<!-- C -->
-<g id="node3" class="node">
-<title>C</title>
-<polygon fill="none" stroke="black" points="98.04,-276.59 -0.01,-276.59 -0.01,-240.59 98.04,-240.59 98.04,-276.59"></polygon>
-<text text-anchor="middle" x="49.01" y="-254.39" font-family="Times,serif" font-size="14.00">Write function</text>
-</g>
-<!-- B&#45;&gt;C -->
-<g id="edge2" class="edge">
-<title>B-&gt;C</title>
-<path fill="none" stroke="black" d="M49.01,-93.09C49.01,-125.16 49.01,-191.72 49.01,-229.94"></path>
-<polygon fill="black" stroke="black" points="45.51,-230.37 49.01,-240.37 52.51,-230.37 45.51,-230.37"></polygon>
-</g>
-<!-- D -->
-<g id="node4" class="node">
-<title>D</title>
-<polygon fill="none" stroke="black" points="286.29,-333.39 161.34,-333.39 161.34,-297.39 286.29,-297.39 286.29,-333.39"></polygon>
-<text text-anchor="middle" x="223.81" y="-311.19" font-family="Times,serif" font-size="14.00">Document function</text>
-</g>
-<!-- C&#45;&gt;D -->
-<g id="edge3" class="edge">
-<title>C-&gt;D</title>
-<path fill="none" stroke="black" d="M98.17,-274.57C116.91,-280.66 138.58,-287.7 158.59,-294.2"></path>
-<polygon fill="black" stroke="black" points="157.67,-297.58 168.26,-297.34 159.83,-290.92 157.67,-297.58"></polygon>
-</g>
-<!-- E -->
-<g id="node5" class="node">
-<title>E</title>
-<polygon fill="none" stroke="black" points="377.11,-184.7 286.59,-184.7 286.59,-148.7 377.11,-148.7 377.11,-184.7"></polygon>
-<text text-anchor="middle" x="331.85" y="-162.5" font-family="Times,serif" font-size="14.00">Test function</text>
-</g>
-<!-- D&#45;&gt;E -->
-<g id="edge4" class="edge">
-<title>D-&gt;E</title>
-<path fill="none" stroke="black" d="M237.06,-297.16C255.93,-271.18 290.68,-223.36 312.45,-193.39"></path>
-<polygon fill="black" stroke="black" points="315.45,-195.23 318.49,-185.08 309.78,-191.11 315.45,-195.23"></polygon>
-</g>
-<!-- E&#45;&gt;A -->
-<g id="edge5" class="edge">
-<title>E-&gt;A</title>
-<path fill="none" stroke="black" d="M318.6,-148.46C299.73,-122.49 264.99,-74.67 243.21,-44.7"></path>
-<polygon fill="black" stroke="black" points="245.88,-42.42 237.17,-36.38 240.22,-46.53 245.88,-42.42"></polygon>
-</g>
-</g>
-</svg>
+<svg width="960" height="480" viewbox="0.00 0.00 384.98 341.39" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 337.39)"><title>g1</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-337.39 380.98,-337.39 380.98,4 -4,4"></polygon><!-- A --><g id="node1" class="node"><title>A</title>
+<polygon fill="none" stroke="black" points="265.85,-36 181.78,-36 181.78,0 265.85,0 265.85,-36"></polygon><text text-anchor="middle" x="223.81" y="-13.8" font-family="Times,serif" font-size="14.00">CMD check</text></g><!-- B --><g id="node2" class="node"><title>B</title>
+<polygon fill="none" stroke="black" points="97.49,-92.8 0.54,-92.8 0.54,-56.8 97.49,-56.8 97.49,-92.8"></polygon><text text-anchor="middle" x="49.01" y="-70.6" font-family="Times,serif" font-size="14.00">Build package</text></g><!-- A&#45;&gt;B --><g id="edge1" class="edge"><title>A-&gt;B</title>
+<path fill="none" stroke="black" d="M181.5,-31.75C159.21,-38.99 131.53,-47.98 107.25,-55.88"></path><polygon fill="black" stroke="black" points="105.85,-52.65 97.43,-59.07 108.02,-59.3 105.85,-52.65"></polygon></g><!-- C --><g id="node3" class="node"><title>C</title>
+<polygon fill="none" stroke="black" points="98.04,-276.59 -0.01,-276.59 -0.01,-240.59 98.04,-240.59 98.04,-276.59"></polygon><text text-anchor="middle" x="49.01" y="-254.39" font-family="Times,serif" font-size="14.00">Write function</text></g><!-- B&#45;&gt;C --><g id="edge2" class="edge"><title>B-&gt;C</title>
+<path fill="none" stroke="black" d="M49.01,-93.09C49.01,-125.16 49.01,-191.72 49.01,-229.94"></path><polygon fill="black" stroke="black" points="45.51,-230.37 49.01,-240.37 52.51,-230.37 45.51,-230.37"></polygon></g><!-- D --><g id="node4" class="node"><title>D</title>
+<polygon fill="none" stroke="black" points="286.29,-333.39 161.34,-333.39 161.34,-297.39 286.29,-297.39 286.29,-333.39"></polygon><text text-anchor="middle" x="223.81" y="-311.19" font-family="Times,serif" font-size="14.00">Document function</text></g><!-- C&#45;&gt;D --><g id="edge3" class="edge"><title>C-&gt;D</title>
+<path fill="none" stroke="black" d="M98.17,-274.57C116.91,-280.66 138.58,-287.7 158.59,-294.2"></path><polygon fill="black" stroke="black" points="157.67,-297.58 168.26,-297.34 159.83,-290.92 157.67,-297.58"></polygon></g><!-- E --><g id="node5" class="node"><title>E</title>
+<polygon fill="none" stroke="black" points="377.11,-184.7 286.59,-184.7 286.59,-148.7 377.11,-148.7 377.11,-184.7"></polygon><text text-anchor="middle" x="331.85" y="-162.5" font-family="Times,serif" font-size="14.00">Test function</text></g><!-- D&#45;&gt;E --><g id="edge4" class="edge"><title>D-&gt;E</title>
+<path fill="none" stroke="black" d="M237.06,-297.16C255.93,-271.18 290.68,-223.36 312.45,-193.39"></path><polygon fill="black" stroke="black" points="315.45,-195.23 318.49,-185.08 309.78,-191.11 315.45,-195.23"></polygon></g><!-- E&#45;&gt;A --><g id="edge5" class="edge"><title>E-&gt;A</title>
+<path fill="none" stroke="black" d="M318.6,-148.46C299.73,-122.49 264.99,-74.67 243.21,-44.7"></path><polygon fill="black" stroke="black" points="245.88,-42.42 237.17,-36.38 240.22,-46.53 245.88,-42.42"></polygon></g></g></svg>
 </div>
-<p></p></figure><p></p>
+<p></p>
 </div>
 </div>
 </div>
-</section>
-<section id="useful-functions-when-working-on-a-package" class="slide level2">
-<h2>Useful functions when working on a package</h2>
+</section><section id="useful-functions-for-package-development" class="slide level2"><h2>Useful functions for package development</h2>
 <table class="caption-top">
-<thead>
-<tr class="header">
+<caption>Table: Useful functions for packaged</caption>
+<thead><tr class="header">
 <th>Col1</th>
 <th>Col2</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td>Document function</td>
@@ -411,63 +356,55 @@ Johannes Feldhege
 <td><code>usethis::use_package()</code></td>
 </tr>
 </tbody>
-</table>
-</section>
-<section id="exercise" class="slide level2">
-<h2>Exercise</h2>
+</table></section><section id="exercise" class="slide level2"><h2>Exercise</h2>
 <p>I have prepared a small script with these functions that you can download here <a href="&quot;https://www.johannesfeldhege.de/peergroup_workshop/script_package.R&quot;">script_package.R</a></p>
 <p>I want you to</p>
-</section>
-<section id="version-control-using-git-github-gitlab-etc." class="slide level2">
-<h2>Version control using Git, Github, Gitlab, etc.</h2>
+</section><section id="pros-of-study-as-an-r-package" class="slide level2"><h2>Pros of “study as an R package”</h2>
+<ul>
+<li class="fragment">Combines functions for analysis and study data</li>
+<li class="fragment">documentation of custom functions, dependencies, contributors</li>
+<li class="fragment">CMD check routine</li>
+<li class="fragment">condense analysis into functions</li>
+</ul></section><section id="cons-of-study-as-an-r-package" class="slide level2"><h2>Cons of “study as an R package”</h2>
+<p>If the package is not intended for CRAN submission, superfluous information and files are created:</p>
+<ul>
+<li class="fragment">metadata exists in different places (github, DESCRIPTION)</li>
+<li class="fragment">CRAN submission artifacts</li>
+<li class="fragment">compliance with CMD check requirements</li>
+</ul>
+<p>More info <a href="https://milesmcbain.xyz/posts/an-okay-idea/">here</a></p>
+</section></section><section><section id="outlook" class="title-slide slide level1 center"><h1>Outlook</h1>
+
+</section><section id="version-control-using-git-github-gitlab-etc." class="slide level2"><h2>Version control using Git, Github, Gitlab, etc.</h2>
 <p>Further reading: (Happy Git and GitHub for the useR)[https://happygitwithr.com/]</p>
-</section>
-<section id="r-packages-as-research-compendia" class="slide level2">
-<h2>R packages as research compendia</h2>
+</section><section id="r-packages-as-research-compendia" class="slide level2"><h2>R packages as research compendia</h2>
 <p>The idea of a research compendium combines a number of the previously discussed features:</p>
 <ul>
-<li>the R package structure</li>
-<li>literate programming with Quarto or Rmarkdown</li>
-<li>version control</li>
-<li>(optionally) the use of Docker and/or Binder</li>
-</ul>
-</section>
-<section id="r-packages-for-creating-research-compendia" class="slide level2">
-<h2>R packages for creating research compendia</h2>
+<li class="fragment">the R package structure</li>
+<li class="fragment">literate programming with Quarto or Rmarkdown</li>
+<li class="fragment">version control</li>
+<li class="fragment">(optionally) the use of Docker and/or Binder</li>
+</ul></section><section id="r-packages-for-creating-research-compendia" class="slide level2"><h2>R packages for creating research compendia</h2>
 <p>There are a number of R packages that implement research compendia:</p>
 <ul>
-<li>rrtools: <a href="https://github.com/benmarwick/rrtools" class="uri">https://github.com/benmarwick/rrtools</a></li>
-<li>SCIProj: <a href="https://github.com/saskiaotto/SCIproj" class="uri">https://github.com/saskiaotto/SCIproj</a></li>
-<li>template: <a href="https://github.com/Pakillo/template" class="uri">https://github.com/Pakillo/template</a></li>
+<li>rrtools: <a href="https://github.com/benmarwick/rrtools" class="uri">https://github.com/benmarwick/rrtools</a>
+</li>
+<li>SCIProj: <a href="https://github.com/saskiaotto/SCIproj" class="uri">https://github.com/saskiaotto/SCIproj</a>
+</li>
+<li>template: <a href="https://github.com/Pakillo/template" class="uri">https://github.com/Pakillo/template</a>
+</li>
 </ul>
 
 
-</section>
-    </div>
+</section></section>
+</div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
 <p><ppf methods="" peer="" group=""></ppf></p>
 </div>
 </div></div>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="site_libs/revealjs/dist/reveal.js"></script>
-  <!-- reveal.js plugins -->
-  <script src="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
-  <script src="site_libs/revealjs/plugin/quarto-support/support.js"></script>
-  
-
-  <script src="site_libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="site_libs/revealjs/plugin/search/search.js"></script>
-  <script src="site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="site_libs/revealjs/plugin/math/math.js"></script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
-
-  <script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="site_libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="site_libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script><script src="site_libs/revealjs/plugin/quarto-support/support.js"></script><script src="site_libs/revealjs/plugin/notes/notes.js"></script><script src="site_libs/revealjs/plugin/search/search.js"></script><script src="site_libs/revealjs/plugin/zoom/zoom.js"></script><script src="site_libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
 
       // Full list of configuration options available at:
       // https://revealjs.com/config/
@@ -659,8 +596,42 @@ Johannes Feldhege
           RevealZoom
         ]
       });
-    </script>
-    <script id="quarto-html-after-body" type="application/javascript">
+    </script><script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script><script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
         tabsets.forEach(function(tabset) {
@@ -828,6 +799,6 @@ Johannes Feldhege
         }
       });
       </script>
-    
+
 
 </body></html>
