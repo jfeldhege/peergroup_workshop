@@ -12,14 +12,26 @@ format:
     code-line-numbers: false
     incremental: true  
     from: markdown+emoji
+    preview-links: auto
+    slide-number: true
 engine: knitr
 webr: 
-  packages: ['ds4psy', 'dplyr']
+  packages: ['ds4psy', 'dplyr', 'lintr']
 filters:
   - webr
 ---
 
-## About this workshop
+# About this workshop
+
+## Housekeeping
+
+All materials for the workshop (slides, scripts, references) can be found on this website: <http://www.johannesfeldhege.de/peergroup_workshop/>
+
+It is hosted on Github and has a permissive license so you can use them however you want. 
+
+
+## Timetable
+
 
 ## About me
 
@@ -28,11 +40,11 @@ filters:
 - I currently work as a Data Scientist at Asklepios Science & Research since 2022
 - I have published an R package on CRAN, [openholidaysR](https://cran.r-project.org/web/packages/openholidaysR/index.html) and I am currently working on a second one
 
-## Timetable
+
 
 ## Results from the pre-workshop survey
 
-![survey image 2](images/survey1.PNG)
+![Experience with R](images/survey1.PNG)
 
 ## Results from the pre-workshop survey
 
@@ -47,15 +59,16 @@ filters:
 
 ## A dataset for today's workshop
 
-- 24 items of the Authentic Happiness Inventory (AHI)
-- 20 items of the Center for Epidemiological Studies Depression (CES-D) scale
-- measured on 1 to 6 measurement occasions
-
 ```{webr-r}
 ?ds4psy::posPsy_AHI_CESD
 
 pospsy <- ds4psy::posPsy_AHI_CESD
 ```
+
+<!-- - 24 items of the Authentic Happiness Inventory (AHI) -->
+<!-- - 20 items of the Center for Epidemiological Studies Depression (CES-D) scale -->
+<!-- - measured on 1 to 6 measurement occasions -->
+
 
 ## DRY: Don't repeat yourself
 
@@ -118,21 +131,38 @@ There are three measures you can take to improve your code quality:
 
 Naming things is hard - so hard that books are written about it:
 
-![Book Naming Things](images/naming_things_book.PNG)
+![](images/naming_things_book.PNG)
 
 ## How to pick good names?
 
+A good name should be
 - descriptive and concise
 - prioritize reader's understanding over shortness or machine compatibility
 - follow a standard naming convention
 
 ## Naming conventions
 
-Two most commonly used conventions:
+Some commonly used conventions:
+
+base 
 
 :snake: snake_case
 
 :camel: camelCase
+
+``` r
+#| eval: false
+
+
+#:snake:
+add_value()
+reg_results
+
+#:camel:
+addValue()
+regResults
+```
+
 
 ## Examples for bad names
 
@@ -148,13 +178,14 @@ Two most commonly used conventions:
 The convention for functions in the tidyverse, a collection of related packages, is to start a function name with a verb:
 
 `do()`
-`do_thing()
+
+`do_thing()`
 
 ``` r
 #| eval: false
 
 #Good 
-add_value()`
+add_value()
 
 #Bad 
 value_add()
@@ -162,7 +193,7 @@ value()
 
 ```
 
-More [here](https://style.tidyverse.org/functions.html)
+More style guidelines [here](https://style.tidyverse.org/functions.html)
 
 # Styling code
 
@@ -170,6 +201,8 @@ More [here](https://style.tidyverse.org/functions.html)
 ## Styling code with `lintr`
 
 [lintr](https://lintr.r-lib.org/) conducts static code analysis on your R files.
+
+Basic usage:
 
 ``` r
 #| eval: false
@@ -182,30 +215,59 @@ lintr::lint_dir(path = "path/to/project")
 
 ## Styling code with `lintr`
 
+
+
+:::: {.columns}
+
+::: {.column width="30%"}
+`lintr` comes with defaults. 
+
+These can be deactivated,  or you can define your own set.
+
+You can also add your own linters. 
+:::
+
+::: {.column width="60%"}
 ```{webr-r}
 names(lintr::linters_with_defaults())
 ```
+:::
+
+::::
+
+
 
 ## Beyond `lintr`
 
-`lintr` gives recommendations but does not change code. These tools can style your code directly:
+`lintr` gives recommendations but does not change code. 
+
+These tools can style your code by changing the code when executed:
+
 
 - [Air](https://posit-dev.github.io/air/)
 - [styler](https://styler.r-lib.org/)
 
 ::: callout-warning
-Caution: these tools change your code without asking again
+Caution: these tools change your code without asking!
 :::
 
 # Writing comments
 
 ## Writing helpful comments
 
-A helpful comment explains the why, not the what or how.
+>A helpful comment explains the why, not the what or how.
 
 In 
 
-If you find yourself commenting a lot, there are
 
-More info [here](https://blog.r-hub.io/2023/01/26/code-comments-self-explaining-code/) and [here]()
+More info [here](https://blog.r-hub.io/2023/01/26/code-comments-self-explaining-code/) and [here](https://style.tidyverse.org/)  {.smaller}
 
+## Too many comments
+
+
+If you find yourself commenting a lot, there might be better alternatives. These are places where detailed comments on what and your code is doing for what reason are encouraged:
+
+- convert your script to a {{< fa-brands fa-markdown >}} document such as Rmarkdown or Quarto
+- incorporate your code into functions in a package and document them with roxygen2
+
+Both aspects will be covered in 
