@@ -13,7 +13,6 @@ format:
     incremental: true  
     from: markdown+emoji
     preview-links: auto
-    slide-number: true
 engine: knitr
 webr: 
   packages: ['ds4psy', 'dplyr', 'lintr']
