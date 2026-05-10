@@ -1,6 +1,6 @@
 ---
 title: "Clean Code, Reproducible Science: Advanced R-Programming and Workflows"
-subtitle: "Programming with {{< fa brands r-project >}}"
+subtitle: "Part 1"
 author: "Johannes Feldhege"
 format: 
   revealjs:
@@ -49,10 +49,15 @@ install.packages(c("tidyverse", "ds4psy"))
 
 ## About me
 
+::: nonincremental
 - M. Sc. in Psychology
 - I used to work for Forschungsstelle für Psychotherapie
 - I currently work as a Data Scientist at Asklepios Science & Research since 2022
+- I use R at work daily
 - I have published an R package on CRAN, [`openholidaysR`](https://cran.r-project.org/web/packages/openholidaysR/index.html) and I am currently working on a second one
+:::
+
+
 
 ## Results from the pre-workshop survey
 
@@ -66,6 +71,18 @@ install.packages(c("tidyverse", "ds4psy"))
 
 ![Comments](images/survey3.PNG)
 
+## Topics
+
+Today's workshop will cover these topics:
+
+- Making code easier to read
+- first steps toward reproducibility
+- Reproducible environments with [renv](https://cran.r-project.org/web/packages/renv/index.html)
+- literate programming using [Quarto](https://quarto.org/)
+- publish study analysis and data as an R package
+- outlook for further reproducibility
+
+
 ## A dataset for today's workshop
 
 ```{webr-r}
@@ -73,81 +90,6 @@ install.packages(c("tidyverse", "ds4psy"))
 
 pospsy <- ds4psy::posPsy_AHI_CESD
 ```
-
-<!-- - 24 items of the Authentic Happiness Inventory (AHI) -->
-
-<!-- - 20 items of the Center for Epidemiological Studies Depression (CES-D) scale -->
-
-<!-- - measured on 1 to 6 measurement occasions -->
-
-<!-- ## DRY: Don't repeat yourself -->
-
-<!-- ## Repeated application of the same function -->
-
-<!-- CES-D is usually measured on a scale of 0-3, in our dataset it has a scale of 1-4: -->
-
-<!-- ```{webr-r} -->
-
-<!-- range(pospsy$cesd01) -->
-
-<!-- ``` -->
-
-<!-- To recode it, I could do something like that: -->
-
-<!-- ```{webr-r} -->
-
-<!-- pospsy$cesd01r <- pospsy$cesd01 - 1  -->
-
-<!-- pospsy$cesd02r <- pospsy$cesd02 - 1  -->
-
-<!-- pospsy$cesd03r <- pospsy$cesd03 - 1  -->
-
-<!-- pospsy$cesd04r <- pospsy$cesd04 - 1  -->
-
-<!-- ``` -->
-
-<!-- However, this is repetitive and error prone. -->
-
-<!-- ## Writing Functions -->
-
-<!-- ```{webr-r} -->
-
-<!-- recode_cesd <- function(cesd_var) { -->
-
-<!--   cesd_var - 1 -->
-
-<!-- } -->
-
-<!-- pospsy$cesd01r <- recode_cesd(pospsy$cesd01) -->
-
-<!-- range(pospsy$cesd01r) -->
-
-<!-- ``` -->
-
-<!-- ## Exercise -->
-
-<!-- ## Loops -->
-
-<!-- If you have to repeat yourself, use a loop -->
-
-<!-- ## Excercise -->
-
-
-# Simulations
-
-## Synthetic data
-
-Open science 
-
-However, often it is not possible to share raw study datasets bcause they contain
-personally identifiable information or are highly sensitive.
-
-In this case, **synthetic datasets** can be generated and used in place of the real data.
-
-
-## The `simstudy` package
-
-
 
 
 # Making code easier to read
@@ -301,5 +243,251 @@ These are places where detailed comments on what and your code is doing for what
 :::
 
 Both aspects will be covered in the second part of the workshop.
+
+
+# Reproducibility
+
+## Why make it reproducible?
+
+- I have to rerun an analysis a few years down the line...
+
+- My colleague wants to build on my analysis in a new study...
+
+- I want to publish the code used in my study together with the manuscript so others can use it...
+
+## What is reproducibility?
+
+A study is reproducible if it can be
+
+- conducted again
+- years later
+- with the same results.
+
+## The replication crisis
+
+Reproducibility =/= Replication
+
+However, open methods and data are essential aspects for both.
+
+Openly shared methods and data become valuable when we are given the same tools to work with as the authors.
+
+## Measures for reproducibility
+
+We will look at these measures today:
+
+::: nonincremental
+- Reproducible environments with [renv](https://cran.r-project.org/web/packages/renv/index.html)
+- literate programming using [Quarto](https://quarto.org/)
+- publish study analysis and data as an R package
+:::
+
+
+Outlook for further functionalities: 
+
+::: nonincremental
+- version control using git, Github, Gitlab, etc. 
+- containerization with Docker, Nix, rix
+- Research compendia
+:::
+
+
+
+# First steps toward reproducibility
+
+## A fresh start
+
+Can I run my analysis tomorrow with the same results as today? Have I included all steps in my code?
+
+{{< fa circle-right >}} For a fresh start: make restarting R during script writing a habit!
+
+Session {{< fa circle-right >}} Restart {{< fa brands r-project >}} 
+
+or 
+
+Strg + Shift + F10
+
+
+## Never let Rstudio save anything!
+
+Do not rely on `.RData` to bail you out. Either save interim datasets to files or write your script in a way that lets you start from scratch every time.
+
+Two options:
+
+::::: columns
+::: {.column width="60%"}
+Change the RStudio options:
+![](images/rdata.PNG)
+:::
+
+::: {.column width="40%"}
+Use this function from the `usethis` package:
+
+```{r}
+#| eval: false
+usethis::use_blank_slate()
+```
+:::
+
+:::::
+
+
+# Freezing package versions
+
+## But it works on my machine!
+
+Sharing your code and data is one step in the right direction.
+
+To guarantee that others can apply them on their machine, you need to be able to share your **computational environment**.
+
+{{< fa circle-right >}} What is the computational environment:
+
+- Specific {{< fa brands r-project >}} packages and their version
+- {{< fa brands r-project >}} version
+- operating system ( {{< fa brands windows >}}, {{< fa brands apple >}}, {{< fa brands linux >}}) ]
+- system dependencies
+
+## The `renv` package
+
+`renv` controls in the computational environment:
+
+- Specific {{< fa brands r-project >}} packages and their version
+- [{{< fa brands r-project >}} version]{.fragment .strike}
+- [operating system ( {{< fa brands windows >}}, {{< fa brands apple >}}, {{< fa brands linux >}}) ]{.fragment .strike}
+- [system dependencies]{.fragment .strike}
+
+
+## The `renv` package
+
+It **freezes and records** the actively used packages and their version in your project in a project-specific library.
+
+This way, your project becomes **portable** and **reproducible** as you can use it on another computer or share it with a colleague.
+
+The project is not affected by **changing functionality** or **breaking changes** in packages across versions. 
+
+## Libraries in a regular setup
+
+A library is the place where packages are installed. To check where your library is located, run `.libPaths()`. 
+
+In a regular setup, all projects write to the same library. Therefore, packages can become out of sync with the projects that they have been used in.   
+
+```{dot}
+//| echo: false
+digraph G {
+
+    node [shape = folder];
+    
+    A [label = "Project 1"]
+    B [label = "Project 2"]
+    C [label = "Project 3"]
+    D [label = "Package\nlibrary"]
+  A -> D;
+  B -> D;
+  C -> D;
+}
+```
+
+
+## Libraries with `renv`
+
+
+Using `renv`, each project has its own library. When a new package is installed,
+it is also written to a global package cache. The next time it is needed in a project, it is taken from there instead of downloading it again. 
+
+
+```{dot}
+//| echo: false
+digraph G {
+
+    node [shape = folder];
+    
+    A [label = "Project 1"]
+    B [label = "Project 2"]
+    C [label = "Project 3"]
+    D [label = "Project\n library 1"]
+    E [label = "Project\n library 2"]
+    F [label = "Project\n library 3"]
+    G [label = "Global\n package\n cache"]
+
+  A -> D;
+  B -> E;
+  C -> F;
+  D -> G;
+  E -> G;
+  F -> G;
+
+}
+```
+
+
+## Important `renv` functions
+
+| Task                  | function                 |
+|-----------------------|--------------------------|
+| Initialise `renv`    | `renv::init()`   |
+| `renv` status    | `renv::status`()`   |
+| Install new package            | `renv::install`()`      |
+| Update project library | `renv::snapshot`()`      |
+| Restore project library  | `renv::restore`()` |
+
+
+## Initialise `renv` with `renv::init()`
+
+ ![Console output after renv::init()](images/renv_init.PNG)
+
+## Project files created by `renv`
+
+The following project files are created by `renv::init()`
+```         
+.
+├── .Rprofile          # Project-specific profile, activates renv 
+│
+├── renv/
+│   ├── .gitignore     # Specify which files should be ignored by git
+│   ├── activate.R     # R script to launch renv
+│   ├── library/       # Project library
+│   └── settings.dcf   # renv settings
+│
+└── renv.lock          # the lockfile, containing package metadata
+```
+
+
+## Workflow with `renv`
+
+Reproducibility can be achieved with the functions `renv::snapshot()` & `renv::restore()`
+
+:::::: columns
+
+::: {.column width="45%"}
+**You**
+
+::: nonincremental
+- Initialize `renv` in the project with **`renv::init()`**
+- Install new packages with `renv::install()`
+- **Update the lockfile with `renv::snapshot()`**
+- Share project with others or across computers
+:::
+
+:::
+
+::: {.column width="10%"}
+:::
+
+::: {.column width="45%"}
+**Other person/computer**
+
+::: nonincremental
+- **Restore project library from a lockfile with `renv::restore()`**
+- Install new packages with `renv::install()`
+- **Update the lockfile with `renv::snapshot()`**
+:::
+
+:::
+
+::::::
+
+
+
+
+
 
 
