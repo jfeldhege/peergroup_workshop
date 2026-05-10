@@ -225,11 +225,23 @@ Johannes Feldhege
 <p>Reproducibility =/= Replication</p>
 <p>However, open methods and data are essential aspects for both.</p>
 <p>Openly shared methods and data become valuable when we are given the same tools to work with as the authors.</p>
-</section><section><section id="first-steps-toward-reproducibility" class="title-slide slide level1 center"><h1>First steps toward reproducibility</h1>
+</section><section id="measures-for-reproducibility" class="slide level2"><h2>Measures for reproducibility</h2>
+<ul>
+<li>Reproducible environments with <a href="https://cran.r-project.org/web/packages/renv/index.html">renv</a>
+</li>
+<li>literate programming using <a href="https://quarto.org/">Quarto</a>
+</li>
+<li>publish study analysis and data as an R package</li>
+</ul>
+<p>Outlook for further functionalities:</p>
+<ul>
+<li>version control using git, Github, Gitlab, etc.</li>
+<li>containerization with Docker or Nix</li>
+</ul></section><section><section id="first-steps-toward-reproducibility" class="title-slide slide level1 center"><h1>First steps toward reproducibility</h1>
 
 </section><section id="a-fresh-start" class="slide level2"><h2>A fresh start</h2>
-<p>Can I run my analysis tomorrow with the same results as today? Have I included all steps</p>
-<p><i class="fa-solid fa-circle-right" aria-label="circle-right"></i> For a fresh start: make restarting R during script writing a habit</p>
+<p>Can I run my analysis tomorrow with the same results as today? Have I included all steps in my code?</p>
+<p><i class="fa-solid fa-circle-right" aria-label="circle-right"></i> For a fresh start: make restarting R during script writing a habit!</p>
 <p>Session <i class="fa-solid fa-circle-right" aria-label="circle-right"></i> Restart <i class="fa-brands fa-r-project" aria-label="r-project"></i></p>
 <p>or</p>
 <p>Strg + Shift + F10</p>
@@ -238,11 +250,12 @@ Johannes Feldhege
 <p>Two options:</p>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p>Change it in the RStudio options: <img data-src="images/rdata.PNG"></p>
+<p>Change the RStudio options: <img data-src="images/rdata.PNG"></p>
 </div><div class="column" style="width:40%;">
-<p>Use a function from the <code>usethis</code> package:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#| eval: false</span></span>
-<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_blank_slate</span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Use this function from the <code>usethis</code> package:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_blank_slate</span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </div></div>
 <!-- ## How to achieve reproducibility? -->
 <!-- ::: {.incremental} -->
@@ -254,24 +267,44 @@ Johannes Feldhege
 </section><section id="but-it-works-on-my-machine" class="slide level2"><h2>But it works on my machine!</h2>
 <p>Sharing your code and data is one step in the right direction.</p>
 <p>To guarantee that others can apply them on their machine, you need to be able to share your <strong>computational environment</strong>.</p>
-<p><i class="fa-solid fa-circle-right" aria-label="circle-right"></i> What is meant by computational environment:</p>
+<p><i class="fa-solid fa-circle-right" aria-label="circle-right"></i> What is the computational environment:</p>
 <ul>
-<li class="fragment"><p>Specific <i class="fa-brands fa-r-project" aria-label="r-project"></i> packages and their version</p></li>
-<li class="fragment"><p><span class="fragment strike"><i class="fa-brands fa-r-project" aria-label="r-project"></i> version</span></p></li>
-<li class="fragment"><p><span class="fragment strike">operating system ( <i class="fa-brands fa-windows" aria-label="windows"></i>, <i class="fa-brands fa-apple" aria-label="apple"></i>, <i class="fa-brands fa-linux" aria-label="linux"></i>)</span></p></li>
-<li class="fragment"><p><span class="fragment strike">system dependencies</span></p></li>
+<li class="fragment">Specific <i class="fa-brands fa-r-project" aria-label="r-project"></i> packages and their version</li>
+<li class="fragment">
+<i class="fa-brands fa-r-project" aria-label="r-project"></i> version</li>
+<li class="fragment">operating system ( <i class="fa-brands fa-windows" aria-label="windows"></i>, <i class="fa-brands fa-apple" aria-label="apple"></i>, <i class="fa-brands fa-linux" aria-label="linux"></i>) ]</li>
+<li class="fragment">system dependencies</li>
 </ul></section><section id="the-renv-package" class="slide level2"><h2>The <code>renv</code> package</h2>
-<p><code>renv</code> is an R package that <strong>freezes and records</strong> the packages in your project in a project-specific library.</p>
+<p><code>renv</code> controls in the computational environment: - Specific <i class="fa-brands fa-r-project" aria-label="r-project"></i> packages and their version - <span class="fragment strike"><i class="fa-brands fa-r-project" aria-label="r-project"></i> version</span> - <span class="fragment strike">operating system ( <i class="fa-brands fa-windows" aria-label="windows"></i>, <i class="fa-brands fa-apple" aria-label="apple"></i>, <i class="fa-brands fa-linux" aria-label="linux"></i>)</span> - <span class="fragment strike">system dependencies</span></p>
+</section><section id="the-renv-package-1" class="slide level2"><h2>The <code>renv</code> package</h2>
+<p>It <strong>freezes and records</strong> the actively used packages and their version in your project in a project-specific library.</p>
 <p>This way, your project becomes <strong>portable</strong> and <strong>reproducible</strong> as you can use it on another computer or share it with a colleague.</p>
-<p>The project will not be affected by <strong>changing functionality</strong> or <strong>breaking changes</strong> in packages across versions.</p>
-</section><section id="libraries" class="slide level2"><h2>Libraries</h2>
-<p>A library is the place where packages are installed.</p>
-<div class="columns">
-<div class="column" style="width:30%;">
-<p>A library is the place where packages are installed. To check where your library is located, use <code><a href="https://rdrr.io/r/base/libPaths.html">.libPaths()</a></code>.</p>
+<p>The project is not affected by <strong>changing functionality</strong> or <strong>breaking changes</strong> in packages across versions.</p>
+</section><section id="libraries-in-a-regular-setup" class="slide level2"><h2>Libraries in a regular setup</h2>
+<p>A library is the place where packages are installed. To check where your library is located, run <code><a href="https://rdrr.io/r/base/libPaths.html">.libPaths()</a></code>.</p>
 <p>In a regular setup, all projects write to the same library. Therefore, packages can become out of sync with the projects that they have been used in.</p>
-</div><div class="column" style="width:60%;">
-<p>Using <code>renv</code></p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""></figure><p></p>
+<div>
+<svg width="960" height="480" viewbox="0.00 0.00 242.16 121.60" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 117.6)"><title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-117.6 238.16,-117.6 238.16,4 -4,4"></polygon><!-- A --><g id="node1" class="node"><title>A</title>
+<polygon fill="none" stroke="black" points="66.23,-113.6 63.23,-117.6 42.23,-117.6 39.23,-113.6 -0.08,-113.6 -0.08,-77.6 66.23,-77.6 66.23,-113.6"></polygon><text text-anchor="middle" x="33.08" y="-91.4" font-family="Times,serif" font-size="14.00">Project 1</text></g><!-- D --><g id="node4" class="node"><title>D</title>
+<polygon fill="none" stroke="black" points="148.22,-41.4 145.22,-45.4 124.22,-45.4 121.22,-41.4 85.94,-41.4 85.94,-0.2 148.22,-0.2 148.22,-41.4"></polygon><text text-anchor="middle" x="117.08" y="-25" font-family="Times,serif" font-size="14.00">Package</text><text text-anchor="middle" x="117.08" y="-8.2" font-family="Times,serif" font-size="14.00">library</text></g><!-- A&#45;&gt;D --><g id="edge1" class="edge"><title>A-&gt;D</title>
+<path fill="none" stroke="black" d="M52.98,-77.35C62.98,-68.69 75.31,-58 86.47,-48.33"></path><polygon fill="black" stroke="black" points="89.08,-50.69 94.35,-41.5 84.5,-45.41 89.08,-50.69"></polygon></g><!-- B --><g id="node2" class="node"><title>B</title>
+<polygon fill="none" stroke="black" points="150.23,-113.6 147.23,-117.6 126.23,-117.6 123.23,-113.6 83.92,-113.6 83.92,-77.6 150.23,-77.6 150.23,-113.6"></polygon><text text-anchor="middle" x="117.08" y="-91.4" font-family="Times,serif" font-size="14.00">Project 2</text></g><!-- B&#45;&gt;D --><g id="edge2" class="edge"><title>B-&gt;D</title>
+<path fill="none" stroke="black" d="M117.08,-77.35C117.08,-69.69 117.08,-60.46 117.08,-51.74"></path><polygon fill="black" stroke="black" points="120.58,-51.5 117.08,-41.5 113.58,-51.5 120.58,-51.5"></polygon></g><!-- C --><g id="node3" class="node"><title>C</title>
+<polygon fill="none" stroke="black" points="234.23,-113.6 231.23,-117.6 210.23,-117.6 207.23,-113.6 167.92,-113.6 167.92,-77.6 234.23,-77.6 234.23,-113.6"></polygon><text text-anchor="middle" x="201.08" y="-91.4" font-family="Times,serif" font-size="14.00">Project 3</text></g><!-- C&#45;&gt;D --><g id="edge3" class="edge"><title>C-&gt;D</title>
+<path fill="none" stroke="black" d="M181.17,-77.35C171.18,-68.69 158.85,-58 147.68,-48.33"></path><polygon fill="black" stroke="black" points="149.66,-45.41 139.81,-41.5 145.07,-50.69 149.66,-45.41"></polygon></g></g></svg>
+</div>
+<p></p>
+</div>
+</div>
+</div>
+</section><section id="libraries-with-renv" class="slide level2"><h2>Libraries with <code>renv</code>
+</h2>
+<p>Using <code>renv</code>, each project has its own library. When a new package is installed, it is also written to a global package cache. The next time it is needed in a project, it is taken from there.</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -297,8 +330,8 @@ Johannes Feldhege
 </div>
 </div>
 </div>
-</div></div>
-</section><section id="initialise-renv-in-an-existing-project" class="slide level2"><h2>Initialise <code>renv</code> in an existing project</h2>
+</section><section id="initialise-renv-with-renvinit" class="slide level2"><h2>Initialise <code>renv</code> with <code>renv::init()</code>
+</h2>
 
 <img data-src="images/renv_init.PNG" class="r-stretch quarto-figure-center"><p class="caption">Console output after renv::init()</p></section><section id="project-files-created-by-renv" class="slide level2"><h2>Project files created by <code>renv</code>
 </h2>
@@ -322,9 +355,10 @@ Johannes Feldhege
 <ul>
 <li>Initialize <code>renv</code> in the project with <strong><code>renv::init()</code></strong>
 </li>
-<li>Install new packages with <code>renv::install()</code>**</li>
+<li>Install new packages with <code>renv::install()</code>
+</li>
 <li><strong>Update the lockfile with <code>renv::snapshot()</code></strong></li>
-<li>Share project with others, across computers</li>
+<li>Share project with others or across computers</li>
 </ul>
 </div><div class="column" style="width:10%;">
 
@@ -332,25 +366,12 @@ Johannes Feldhege
 <p><strong>Other person/computer</strong></p>
 <ul>
 <li><strong>Restore project library from a lockfile with <code>renv::restore()</code></strong></li>
-<li>Install new packages with <strong><code>renv::install()</code></strong>
+<li>Install new packages with <code>renv::install()</code>
 </li>
-<li>Update the lockfile with <strong><code>renv::snapshot()</code></strong>
-</li>
+<li><strong>Update the lockfile with <code>renv::snapshot()</code></strong></li>
 </ul>
 </div></div>
-</section><section id="measures-for-reproducibility" class="slide level2"><h2>Measures for reproducibility</h2>
-<ul>
-<li>Reproducible environments with <a href="https://cran.r-project.org/web/packages/renv/index.html">renv</a>
-</li>
-<li>literate programming using <a href="https://quarto.org/">Quarto</a>
-</li>
-<li>publish study analysis and data as an R package</li>
-</ul>
-<p>Outlook for further functionalities:</p>
-<ul>
-<li>version control using git, Github, Gitlab, etc.</li>
-<li>containerization with Docker or Nix</li>
-</ul></section></section><section><section id="literate-programming-using-quarto" class="title-slide slide level1 center"><h1>Literate programming using Quarto</h1>
+</section></section><section><section id="literate-programming-using-quarto" class="title-slide slide level1 center"><h1>Literate programming using Quarto</h1>
 
 </section><section id="literate-programming" class="slide level2"><h2>Literate programming</h2>
 <blockquote>
@@ -360,40 +381,182 @@ Johannes Feldhege
 <p>RMarkdown is a combination of the programming language <i class="fa-brands fa-r-project" aria-label="r-project"></i> and the documentation language <i class="fa-brands fa-markdown" aria-label="markdown"></i>. It allows users to combine R code with markdown-formatted text.</p>
 <p>Rmarkdown documents are fully reproducible as the R code contained within is executed when the document is rendered.</p>
 </section><section id="literate-programming-using-quarto-1" class="slide level2"><h2>Literate programming using Quarto</h2>
-<p>Quarto is the successor of Rmarkdown which allows users to include code from multiple programming languages and rendering to more output formats.</p>
-<p>Quarto is included in recent versions of RStudio. To check whether it is installed and works, you can run <code>quarto check</code> in a Terminal window.</p>
+<p>Quarto is the successor of Rmarkdown which allows users to include code from multiple programming languages and to render to more output formats.</p>
+<p>Quarto is included in recent versions of RStudio. To check whether it is installed and works, you can run in the terminal:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> check</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section><section id="creating-a-quarto-document" class="slide level2"><h2>Creating a Quarto document</h2>
 <p>File <i class="fa-solid fa-circle-right" aria-label="circle-right"></i> New file <i class="fa-solid fa-circle-right" aria-label="circle-right"></i> Quarto Document…</p>
 
-<img data-src="imaquarto_doc.PNG" class="r-stretch"></section><section id="rendering-a-document" class="slide level2"><h2>Rendering a document</h2>
-<p>To turn a Quarto document into its output, it needs to be rendered.</p>
-<p>This can be down using RStudio buttons:</p>
-
-<img data-src="imaquarto_doc.PNG" class="r-stretch"><p>or in the terminal:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render my_quarto_file.qmd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>or with the <code>quarto</code> <code>R</code> package:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a><span class="ex">quarto::render</span><span class="er">(</span><span class="st">"my_quarto_file.qmd"</span><span class="kw">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section><section id="exercise" class="slide level2"><h2>Exercise</h2>
-<p>I have created an example Quarto document <a href="https://github.com/jfeldhege/peergroup_workshop/blob/main/examples/quarto_example.qmd">here</a></p>
+<img data-src="images/quarto_render.PNG" class="r-stretch"></section><section id="anatomy-of-a-quarto-document" class="slide level2"><h2>Anatomy of a Quarto document</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p>A Quarto document consists of:</p>
+<ul>
+<li><p>a YAML header</p></li>
+<li><p>Markdown text</p></li>
+<li><p>Code chunks</p></li>
+</ul>
+</div><div class="column" style="width:70%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" data-code-line-numbers="|1-4|6-17|17-25|"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a></a><span class="ex">---</span></span>
+<span id="cb4-2"><a></a><span class="ex">title:</span> <span class="st">"Quarto Example Document"</span></span>
+<span id="cb4-3"><a></a><span class="ex">format:</span> html</span>
+<span id="cb4-4"><a></a><span class="ex">---</span></span>
+<span id="cb4-5"><a></a></span>
+<span id="cb4-6"><a></a><span class="co">## Markdown formatting</span></span>
+<span id="cb4-7"><a></a></span>
+<span id="cb4-8"><a></a><span class="ex">This</span> is markdown formatted text. </span>
+<span id="cb4-9"><a></a></span>
+<span id="cb4-10"><a></a><span class="ex">It</span> can contain markdown specific format instructions such as <span class="pp">**</span> </span>
+<span id="cb4-11"><a></a><span class="cf">for</span> bold <span class="ex">text.</span> </span>
+<span id="cb4-12"><a></a></span>
+<span id="cb4-13"><a></a><span class="co">## Code chunks</span></span>
+<span id="cb4-14"><a></a></span>
+<span id="cb4-15"><a></a><span class="kw">````</span>{r}</span>
+<span id="cb4-16"><a></a><span class="co">#| label: plot</span></span>
+<span id="cb4-17"><a></a><span class="co">#| fig-cap: CESD total across measurement occasions </span></span>
+<span id="cb4-18"><a></a><span class="co">#| echo: true</span></span>
+<span id="cb4-19"><a></a></span>
+<span id="cb4-20"><a></a><span class="ex">boxplot</span><span class="er">(</span><span class="ex">popsy</span><span class="va">$cesdTotal</span> ~ popsy<span class="va">$occasion</span>, horizontal = TRUE<span class="kw">)</span></span>
+<span id="cb4-21"><a></a><span class="kw">````</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div></div>
+</section><section id="the-yaml-header" class="slide level2"><h2>The YAML header</h2>
+<p>The text at the top between — is called the YAML header. It gives instructions, such as the output format, to Quarto when rendering the document.</p>
+<p>A simple example:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a><span class="ex">---</span></span>
+<span id="cb5-2"><a aria-hidden="true" tabindex="-1"></a><span class="ex">title:</span> <span class="st">"Quarto Example Document"</span></span>
+<span id="cb5-3"><a aria-hidden="true" tabindex="-1"></a><span class="ex">format:</span> html</span>
+<span id="cb5-4"><a aria-hidden="true" tabindex="-1"></a><span class="ex">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section><section id="the-yaml-header-1" class="slide level2"><h2>The YAML header</h2>
+<p>A more elaborate version that is used to create this presentation.</p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>Typical features are:</p>
+<ul>
+<li class="fragment"><p>a title</p></li>
+<li class="fragment"><p>an author</p></li>
+<li class="fragment"><p>format specific options</p></li>
+</ul>
+</div><div class="column" style="width:45%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" data-code-line-numbers="|2|4|5-14|"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a></a><span class="ex">---</span></span>
+<span id="cb6-2"><a></a><span class="ex">title:</span> <span class="st">"Clean Code, Reproducible Science: Advanced R-Programming and Workflows"</span></span>
+<span id="cb6-3"><a></a><span class="ex">subtitle:</span> <span class="st">"Part 2"</span></span>
+<span id="cb6-4"><a></a><span class="ex">author:</span> <span class="st">"Johannes Feldhege"</span></span>
+<span id="cb6-5"><a></a><span class="ex">format:</span> </span>
+<span id="cb6-6"><a></a>  <span class="ex">revealjs:</span></span>
+<span id="cb6-7"><a></a>    <span class="ex">theme:</span> <span class="pp">[</span><span class="ss">simple</span><span class="pp">]</span></span>
+<span id="cb6-8"><a></a>    <span class="ex">footer:</span> <span class="op">&lt;</span>PPF Methods Peer Group<span class="op">&gt;</span></span>
+<span id="cb6-9"><a></a>    <span class="ex">slide-number:</span> true</span>
+<span id="cb6-10"><a></a>    <span class="ex">chalkboard:</span> true</span>
+<span id="cb6-11"><a></a>    <span class="ex">code-link:</span> true</span>
+<span id="cb6-12"><a></a>    <span class="ex">code-line-numbers:</span> false</span>
+<span id="cb6-13"><a></a>    <span class="ex">incremental:</span> true  </span>
+<span id="cb6-14"><a></a>    <span class="ex">from:</span> markdown+emoji</span>
+<span id="cb6-15"><a></a><span class="ex">engine:</span> knitr</span>
+<span id="cb6-16"><a></a><span class="ex">webr:</span> </span>
+<span id="cb6-17"><a></a>  <span class="ex">packages:</span> [<span class="st">'ds4psy'</span>, <span class="st">'dplyr'</span>]</span>
+<span id="cb6-18"><a></a><span class="ex">filters:</span></span>
+<span id="cb6-19"><a></a>  <span class="ex">-</span> webr</span>
+<span id="cb6-20"><a></a><span class="ex">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div></div>
+</section><section id="markdown-formatting" class="slide level2"><h2>Markdown formatting</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><code>#</code> are used to create headers. The number of <code>#</code> determines the header level.</p>
+<ul>
+<li class="fragment"><p>Bullet list item 1</p></li>
+<li class="fragment"><p>Bullest list item 2</p></li>
+</ul>
+<p><strong>bold text</strong>, <em>italic text</em></p>
+<p><code>text formatted as code</code></p>
+</div><div class="column" style="width:45%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Header 1</span></span>
+<span id="cb7-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a aria-hidden="true" tabindex="-1"></a><span class="co">## Header 2</span></span>
+<span id="cb7-4"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> Bullet list item 1</span>
+<span id="cb7-6"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> Bullest list item 2</span>
+<span id="cb7-8"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a aria-hidden="true" tabindex="-1"></a><span class="ex">**bold</span> text<span class="pp">**</span>, <span class="pp">*</span>italic text<span class="pp">*</span></span>
+<span id="cb7-10"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a aria-hidden="true" tabindex="-1"></a> <span class="kw">`</span><span class="ex">text</span> formatted as code<span class="kw">`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div></div>
+</section><section id="code-chunks" class="slide level2"><h2>Code chunks</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" data-code-line-numbers="|2|3|4|5|7-9|"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a></a><span class="kw">````</span>{r}</span>
+<span id="cb8-2"><a></a><span class="co">#| echo: true</span></span>
+<span id="cb8-3"><a></a><span class="co">#| label: plot1</span></span>
+<span id="cb8-4"><a></a><span class="co">#| fig-cap: CESD total across measurement occasions </span></span>
+<span id="cb8-5"><a></a><span class="co">#| fig-width: 5</span></span>
+<span id="cb8-6"><a></a></span>
+<span id="cb8-7"><a></a><span class="ex">library</span><span class="er">(</span><span class="ex">ds4psy</span><span class="kw">)</span></span>
+<span id="cb8-8"><a></a></span>
+<span id="cb8-9"><a></a><span class="ex">pospy</span> <span class="op">&lt;</span>- ds4psy::posPsy_long</span>
+<span id="cb8-10"><a></a></span>
+<span id="cb8-11"><a></a><span class="ex">boxplot</span><span class="er">(</span><span class="ex">popsy</span><span class="va">$cesdTotal</span> ~ popsy<span class="va">$occasion</span>, horizontal = TRUE<span class="kw">)</span></span>
+<span id="cb8-12"><a></a><span class="kw">````</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section><section id="code-execution" class="slide level2"><h2>Code execution</h2>
+<blockquote>
+<p>Rmarkdown documents are fully reproducible as the R code contained within is executed when the document is rendered.</p>
+</blockquote>
+<p><i class="fa-solid fa-triangle-exclamation" aria-label="triangle-exclamation"></i> Quarto documents are rendered in a process that is separate to your RStudio environment, therefore they cannot access currently loaded packages or your carefully created datasets.</p>
+<p><i class="fa-solid fa-circle-right" aria-label="circle-right"></i> That means that you need to load them inside a Quarto code chunk!</p>
+</section><section id="rendering-a-document" class="slide level2"><h2>Rendering a document</h2>
+<p>To turn a Quarto document into the desired output format, it needs to be rendered.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>This can be done using RStudio buttons:</p>
+<p><img data-src="images/quarto_doc.PNG"></p>
+</div><div class="column" style="width:50%;">
+<p>or in the terminal:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render my_quarto_file.qmd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>or in R with the <code>quarto</code> <i class="fa-brands fa-r-project" aria-label="r-project"></i> package:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a aria-hidden="true" tabindex="-1"></a><span class="ex">quarto::render</span><span class="er">(</span><span class="st">"my_quarto_file.qmd"</span><span class="kw">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div></div>
+</section><section id="output-formats" class="slide level2"><h2>Output formats</h2>
+<p>Quarto documents can be rendered to dozens of different output formats:</p>
+<ul>
+<li class="fragment"><p><i class="fa-solid fa-file-code" aria-label="file-code"></i> HTML pages</p></li>
+<li class="fragment"><p><i class="fa-solid fa-file-word" aria-label="file-word"></i> Word documents</p></li>
+<li class="fragment"><p><i class="fa-solid fa-file-pdf" aria-label="file-pdf"></i> PDFs</p></li>
+<li class="fragment"><p><i class="fa-solid fa-sitemap" aria-label="sitemap"></i> Websites</p></li>
+<li class="fragment"><p><i class="fa-solid fa-book" aria-label="book"></i> Books</p></li>
+<li class="fragment"><p>and more…</p></li>
+</ul></section><section id="exercise" class="slide level2"><h2>Exercise</h2>
+<p>I have created an example Quarto document that you can download <a href="https://github.com/jfeldhege/peergroup_workshop/blob/main/examples/quarto_example.qmd">here</a></p>
 <ul>
 <li>play around with markdown formatting</li>
-<li>change the computations</li>
+<li>change the code chunk for the plot and table</li>
 <li>create a new plot or table</li>
 <li>render the document</li>
-</ul></section><section id="publishing-quarto-documents" class="slide level2"><h2>Publishing Quarto documents</h2>
-<pre><code>Collaboration with other scientists (including future you!), who are interested in both your conclusions, and how you reached them (i.e. the code).
-
-As a modern-day lab notebook that contains </code></pre>
+</ul></section><section id="collaboration-with-quarto" class="slide level2"><h2>Collaboration with Quarto</h2>
+<p>Collaboration with others, who are interested in both your conclusions, and how you reached them (i.e.&nbsp;the code).</p>
+<p>As a modern-day lab notebook that contains</p>
 </section><section id="quarto-manuscripts" class="slide level2"><h2>Quarto manuscripts</h2>
 <p>Quarto 1.4 introduced an output format for scientific writing: <strong>Quarto manuscripts</strong>.</p>
-<p>It is published as a website that can link to other formats such as word or pdf.</p>
+<p>It is published as a website that can link to other formats such as <strong>word</strong> or <strong>pdf</strong>.</p>
 <p>In the background, multiple Quarto files can be used to write the manuscript and conduct the analysis.</p>
 <p>A live example can be seen <a href="https://quarto-ext.github.io/manuscript-template-jupyter/">here</a></p>
 </section></section><section><section id="writing-r-packages" class="title-slide slide level1 center"><h1>Writing R packages</h1>
 
 </section><section id="creating-an-r-package-with-the-usethis-package" class="slide level2"><h2>Creating an R Package with the {usethis} package</h2>
 <p>One easy step to get started:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#| eval: false</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#| eval: false</span></span>
 <span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">create_package</span><span class="op">(</span><span class="st">"/path/to/the/package"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section><section id="the-process-of-working-on-a-package" class="slide level2"><h2>The process of working on a package</h2>
 <div class="cell" data-layout-align="default">

@@ -21,46 +21,67 @@
     "text": "The replication crisis\nReproducibility =/= Replication\nHowever, open methods and data are essential aspects for both.\nOpenly shared methods and data become valuable when we are given the same tools to work with as the authors."
   },
   {
+    "objectID": "slides_02.html#measures-for-reproducibility",
+    "href": "slides_02.html#measures-for-reproducibility",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Measures for reproducibility",
+    "text": "Measures for reproducibility\n\nReproducible environments with renv\n\nliterate programming using Quarto\n\npublish study analysis and data as an R package\n\nOutlook for further functionalities:\n\nversion control using git, Github, Gitlab, etc.\ncontainerization with Docker or Nix"
+  },
+  {
     "objectID": "slides_02.html#a-fresh-start",
     "href": "slides_02.html#a-fresh-start",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "A fresh start",
-    "text": "A fresh start\nCan I run my analysis tomorrow with the same results as today? Have I included all steps\n For a fresh start: make restarting R during script writing a habit\nSession  Restart \nor\nStrg + Shift + F10"
+    "text": "A fresh start\nCan I run my analysis tomorrow with the same results as today? Have I included all steps in my code?\n For a fresh start: make restarting R during script writing a habit!\nSession  Restart \nor\nStrg + Shift + F10"
   },
   {
     "objectID": "slides_02.html#never-let-rstudio-save-anything",
     "href": "slides_02.html#never-let-rstudio-save-anything",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Never let Rstudio save anything!",
-    "text": "Never let Rstudio save anything!\nDo not rely on .RData to bail you out. Either save interim datasets to files or write your script in a way that lets you start from scratch every time.\nTwo options:\n\n\nChange it in the RStudio options: \n\nUse a function from the usethis package:\n#| eval: false\nusethis::use_blank_slate()"
+    "text": "Never let Rstudio save anything!\nDo not rely on .RData to bail you out. Either save interim datasets to files or write your script in a way that lets you start from scratch every time.\nTwo options:\n\n\nChange the RStudio options: \n\nUse this function from the usethis package:\n\nusethis::use_blank_slate()"
   },
   {
     "objectID": "slides_02.html#but-it-works-on-my-machine",
     "href": "slides_02.html#but-it-works-on-my-machine",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "But it works on my machine!",
-    "text": "But it works on my machine!\nSharing your code and data is one step in the right direction.\nTo guarantee that others can apply them on their machine, you need to be able to share your computational environment.\n What is meant by computational environment:\n\nSpecific  packages and their version\n version\noperating system ( , , )\nsystem dependencies"
+    "text": "But it works on my machine!\nSharing your code and data is one step in the right direction.\nTo guarantee that others can apply them on their machine, you need to be able to share your computational environment.\n What is the computational environment:\n\nSpecific  packages and their version\n\n version\noperating system ( , , ) ]\nsystem dependencies"
   },
   {
     "objectID": "slides_02.html#the-renv-package",
     "href": "slides_02.html#the-renv-package",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "The renv package",
-    "text": "The renv package\nrenv is an R package that freezes and records the packages in your project in a project-specific library.\nThis way, your project becomes portable and reproducible as you can use it on another computer or share it with a colleague.\nThe project will not be affected by changing functionality or breaking changes in packages across versions."
+    "text": "The renv package\nrenv controls in the computational environment: - Specific  packages and their version -  version - operating system ( , , ) - system dependencies"
   },
   {
-    "objectID": "slides_02.html#libraries",
-    "href": "slides_02.html#libraries",
+    "objectID": "slides_02.html#the-renv-package-1",
+    "href": "slides_02.html#the-renv-package-1",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
-    "section": "Libraries",
-    "text": "Libraries\nA library is the place where packages are installed.\n\n\nA library is the place where packages are installed. To check where your library is located, use .libPaths().\nIn a regular setup, all projects write to the same library. Therefore, packages can become out of sync with the projects that they have been used in.\n\nUsing renv\n\n\n\n\n\nG\nA\nProject 1D\nProject library 1A-&gt;D\nB\nProject 2E\nProject library 2B-&gt;E\nC\nProject 3F\nProject library 3C-&gt;F\nG\nGlobal package cacheD-&gt;G\nE-&gt;G\nF-&gt;G"
+    "section": "The renv package",
+    "text": "The renv package\nIt freezes and records the actively used packages and their version in your project in a project-specific library.\nThis way, your project becomes portable and reproducible as you can use it on another computer or share it with a colleague.\nThe project is not affected by changing functionality or breaking changes in packages across versions."
   },
   {
-    "objectID": "slides_02.html#initialise-renv-in-an-existing-project",
-    "href": "slides_02.html#initialise-renv-in-an-existing-project",
+    "objectID": "slides_02.html#libraries-in-a-regular-setup",
+    "href": "slides_02.html#libraries-in-a-regular-setup",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
-    "section": "Initialise renv in an existing project",
-    "text": "Initialise renv in an existing project\n\nConsole output after renv::init()"
+    "section": "Libraries in a regular setup",
+    "text": "Libraries in a regular setup\nA library is the place where packages are installed. To check where your library is located, run .libPaths().\nIn a regular setup, all projects write to the same library. Therefore, packages can become out of sync with the projects that they have been used in.\n\n\n\n\n\nG\nA\nProject 1D\nPackagelibraryA-&gt;D\nB\nProject 2B-&gt;D\nC\nProject 3C-&gt;D"
+  },
+  {
+    "objectID": "slides_02.html#libraries-with-renv",
+    "href": "slides_02.html#libraries-with-renv",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Libraries with renv\n",
+    "text": "Libraries with renv\n\nUsing renv, each project has its own library. When a new package is installed, it is also written to a global package cache. The next time it is needed in a project, it is taken from there.\n\n\n\n\n\nG\nA\nProject 1D\nProject library 1A-&gt;D\nB\nProject 2E\nProject library 2B-&gt;E\nC\nProject 3F\nProject library 3C-&gt;F\nG\nGlobal package cacheD-&gt;G\nE-&gt;G\nF-&gt;G"
+  },
+  {
+    "objectID": "slides_02.html#initialise-renv-with-renvinit",
+    "href": "slides_02.html#initialise-renv-with-renvinit",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Initialise renv with renv::init()\n",
+    "text": "Initialise renv with renv::init()\n\n\nConsole output after renv::init()"
   },
   {
     "objectID": "slides_02.html#project-files-created-by-renv",
@@ -74,14 +95,7 @@
     "href": "slides_02.html#workflow-with-renv",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Workflow with renv\n",
-    "text": "Workflow with renv\n\nReproducibility can be achieved with the functions renv::snapshot() & renv::restore()\n\n\nYou\n\nInitialize renv in the project with renv::init()\n\nInstall new packages with renv::install()**\nUpdate the lockfile with renv::snapshot()\nShare project with others, across computers\n\n\n\n\nOther person/computer\n\nRestore project library from a lockfile with renv::restore()\nInstall new packages with renv::install()\n\nUpdate the lockfile with renv::snapshot()"
-  },
-  {
-    "objectID": "slides_02.html#measures-for-reproducibility",
-    "href": "slides_02.html#measures-for-reproducibility",
-    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
-    "section": "Measures for reproducibility",
-    "text": "Measures for reproducibility\n\nReproducible environments with renv\n\nliterate programming using Quarto\n\npublish study analysis and data as an R package\n\nOutlook for further functionalities:\n\nversion control using git, Github, Gitlab, etc.\ncontainerization with Docker or Nix"
+    "text": "Workflow with renv\n\nReproducibility can be achieved with the functions renv::snapshot() & renv::restore()\n\n\nYou\n\nInitialize renv in the project with renv::init()\n\nInstall new packages with renv::install()\n\nUpdate the lockfile with renv::snapshot()\nShare project with others or across computers\n\n\n\n\nOther person/computer\n\nRestore project library from a lockfile with renv::restore()\nInstall new packages with renv::install()\n\nUpdate the lockfile with renv::snapshot()"
   },
   {
     "objectID": "slides_02.html#literate-programming",
@@ -95,7 +109,7 @@
     "href": "slides_02.html#literate-programming-using-quarto-1",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Literate programming using Quarto",
-    "text": "Literate programming using Quarto\nQuarto is the successor of Rmarkdown which allows users to include code from multiple programming languages and rendering to more output formats.\nQuarto is included in recent versions of RStudio. To check whether it is installed and works, you can run quarto check in a Terminal window."
+    "text": "Literate programming using Quarto\nQuarto is the successor of Rmarkdown which allows users to include code from multiple programming languages and to render to more output formats.\nQuarto is included in recent versions of RStudio. To check whether it is installed and works, you can run in the terminal:\n\nquarto check"
   },
   {
     "objectID": "slides_02.html#creating-a-quarto-document",
@@ -105,25 +119,74 @@
     "text": "Creating a Quarto document\nFile  New file  Quarto Document…"
   },
   {
+    "objectID": "slides_02.html#anatomy-of-a-quarto-document",
+    "href": "slides_02.html#anatomy-of-a-quarto-document",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Anatomy of a Quarto document",
+    "text": "Anatomy of a Quarto document\n\n\nA Quarto document consists of:\n\na YAML header\nMarkdown text\nCode chunks\n\n\n\n---\ntitle: \"Quarto Example Document\"\nformat: html\n---\n\n## Markdown formatting\n\nThis is markdown formatted text. \n\nIt can contain markdown specific format instructions such as ** \nfor bold text. \n\n## Code chunks\n\n````{r}\n#| label: plot\n#| fig-cap: CESD total across measurement occasions \n#| echo: true\n\nboxplot(popsy$cesdTotal ~ popsy$occasion, horizontal = TRUE)\n````"
+  },
+  {
+    "objectID": "slides_02.html#the-yaml-header",
+    "href": "slides_02.html#the-yaml-header",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "The YAML header",
+    "text": "The YAML header\nThe text at the top between — is called the YAML header. It gives instructions, such as the output format, to Quarto when rendering the document.\nA simple example:\n\n---\ntitle: \"Quarto Example Document\"\nformat: html\n---"
+  },
+  {
+    "objectID": "slides_02.html#the-yaml-header-1",
+    "href": "slides_02.html#the-yaml-header-1",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "The YAML header",
+    "text": "The YAML header\nA more elaborate version that is used to create this presentation.\n\n\nTypical features are:\n\na title\nan author\nformat specific options\n\n\n\n---\ntitle: \"Clean Code, Reproducible Science: Advanced R-Programming and Workflows\"\nsubtitle: \"Part 2\"\nauthor: \"Johannes Feldhege\"\nformat: \n  revealjs:\n    theme: [simple]\n    footer: &lt;PPF Methods Peer Group&gt;\n    slide-number: true\n    chalkboard: true\n    code-link: true\n    code-line-numbers: false\n    incremental: true  \n    from: markdown+emoji\nengine: knitr\nwebr: \n  packages: ['ds4psy', 'dplyr']\nfilters:\n  - webr\n---"
+  },
+  {
+    "objectID": "slides_02.html#markdown-formatting",
+    "href": "slides_02.html#markdown-formatting",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Markdown formatting",
+    "text": "Markdown formatting\n\n\n# are used to create headers. The number of # determines the header level.\n\nBullet list item 1\nBullest list item 2\n\nbold text, italic text\ntext formatted as code\n\n\n# Header 1\n\n## Header 2\n\n- Bullet list item 1\n\n- Bullest list item 2\n\n**bold text**, *italic text*\n\n `text formatted as code`"
+  },
+  {
+    "objectID": "slides_02.html#code-chunks",
+    "href": "slides_02.html#code-chunks",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Code chunks",
+    "text": "Code chunks\n\n````{r}\n#| echo: true\n#| label: plot1\n#| fig-cap: CESD total across measurement occasions \n#| fig-width: 5\n\nlibrary(ds4psy)\n\npospy &lt;- ds4psy::posPsy_long\n\nboxplot(popsy$cesdTotal ~ popsy$occasion, horizontal = TRUE)\n````"
+  },
+  {
+    "objectID": "slides_02.html#code-execution",
+    "href": "slides_02.html#code-execution",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Code execution",
+    "text": "Code execution\n\nRmarkdown documents are fully reproducible as the R code contained within is executed when the document is rendered.\n\n Quarto documents are rendered in a process that is separate to your RStudio environment, therefore they cannot access currently loaded packages or your carefully created datasets.\n That means that you need to load them inside a Quarto code chunk!"
+  },
+  {
     "objectID": "slides_02.html#rendering-a-document",
     "href": "slides_02.html#rendering-a-document",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Rendering a document",
-    "text": "Rendering a document\nTo turn a Quarto document into its output, it needs to be rendered.\nThis can be down using RStudio buttons:\n\nor in the terminal:\nquarto render my_quarto_file.qmd\nor with the quarto R package:\nquarto::render(\"my_quarto_file.qmd\")"
+    "text": "Rendering a document\nTo turn a Quarto document into the desired output format, it needs to be rendered.\n\n\nThis can be done using RStudio buttons:\n\n\nor in the terminal:\n\nquarto render my_quarto_file.qmd\n\nor in R with the quarto  package:\n\nquarto::render(\"my_quarto_file.qmd\")"
+  },
+  {
+    "objectID": "slides_02.html#output-formats",
+    "href": "slides_02.html#output-formats",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Output formats",
+    "text": "Output formats\nQuarto documents can be rendered to dozens of different output formats:\n\n HTML pages\n Word documents\n PDFs\n Websites\n Books\nand more…"
   },
   {
     "objectID": "slides_02.html#exercise",
     "href": "slides_02.html#exercise",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Exercise",
-    "text": "Exercise\nI have created an example Quarto document here\n\nplay around with markdown formatting\nchange the computations\ncreate a new plot or table\nrender the document"
+    "text": "Exercise\nI have created an example Quarto document that you can download here\n\nplay around with markdown formatting\nchange the code chunk for the plot and table\ncreate a new plot or table\nrender the document"
   },
   {
-    "objectID": "slides_02.html#publishing-quarto-documents",
-    "href": "slides_02.html#publishing-quarto-documents",
+    "objectID": "slides_02.html#collaboration-with-quarto",
+    "href": "slides_02.html#collaboration-with-quarto",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
-    "section": "Publishing Quarto documents",
-    "text": "Publishing Quarto documents\nCollaboration with other scientists (including future you!), who are interested in both your conclusions, and how you reached them (i.e. the code).\n\nAs a modern-day lab notebook that contains"
+    "section": "Collaboration with Quarto",
+    "text": "Collaboration with Quarto\nCollaboration with others, who are interested in both your conclusions, and how you reached them (i.e. the code).\nAs a modern-day lab notebook that contains"
   },
   {
     "objectID": "slides_02.html#quarto-manuscripts",

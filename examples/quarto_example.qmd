@@ -81,10 +81,10 @@ Plots and figures can be included in Quarto documents. By default, they will be 
 | `fig-height` | figure height               |
 
 
-The plot below shows the CESD total across measurement occasions:
+The plot @fig_cesd_occ shows the CESD total across measurement occasions:
 
 ```{r}
-#| label: plot
+#| label: fig_cesd_occ
 #| fig-cap: CESD total across measurement occasions 
 #| warning: false
 #| echo: true
