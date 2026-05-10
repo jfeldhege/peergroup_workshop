@@ -56,7 +56,8 @@ Outlook for further functionalities:
 
 ::: nonincremental
 - version control using git, Github, Gitlab, etc. 
-- containerization with Docker or Nix
+- containerization with Docker, Nix, rix
+- Research compendia
 :::
 
 
@@ -127,6 +128,7 @@ To guarantee that others can apply them on their machine, you need to be able to
 ## The `renv` package
 
 `renv` controls in the computational environment:
+
 - Specific {{< fa brands r-project >}} packages and their version
 - [{{< fa brands r-project >}} version]{.fragment .strike}
 - [operating system ( {{< fa brands windows >}}, {{< fa brands apple >}}, {{< fa brands linux >}}) ]{.fragment .strike}
@@ -168,7 +170,7 @@ digraph G {
 
 
 Using `renv`, each project has its own library. When a new package is installed,
-it is also written to a global package cache. The next time it is needed in a project, it is taken from there.
+it is also written to a global package cache. The next time it is needed in a project, it is taken from there instead of downloading it again. 
 
 
 ```{dot}
@@ -195,6 +197,16 @@ digraph G {
 }
 ```
 
+
+## Important `renv` functions
+
+| Task                  | function                 |
+|-----------------------|--------------------------|
+| Initialise `renv`    | `renv::init()`   |
+| `renv` status    | `renv::status`()`   |
+| Install new package            | `renv::install`()`      |
+| Update project library | `renv::snapshot`()`      |
+| Restore project library  | `renv::restore`()` |
 
 
 ## Initialise `renv` with `renv::init()`
@@ -591,7 +603,7 @@ E -> A ;
 
 ## Useful functions for package development
 
-| Col1                  | Col2                     |
+| Task                  | function                 |
 |-----------------------|--------------------------|
 | Document function     | `devtools::document()`   |
 | Load all functions    | `devtools::load_all()`   |
@@ -624,11 +636,128 @@ If the package is not intended for CRAN submission, superfluous information and 
 
 More info [here](https://milesmcbain.xyz/posts/an-okay-idea/)
 
+
+
+
 # Outlook
 
-## Version control using Git, Github, Gitlab, etc.
+# Version control
 
-Further reading: (Happy Git and GitHub for the useR)\[https://happygitwithr.com/\]
+## Sharing files with collaborators
+
+Two common scenarios:
+
+- Paper_260510_final_final.doc: files are sent via e-mail and multiple versions exist out there.
+
+- An online document (Google docs, Microsoft 365, etc.): anyone can edit, anyone can see and track changes. Changes can be reverted back.
+
+
+{{< fa circle-right >}} Version control is more like the second scenario. 
+
+
+
+## Version control using Git
+
+Git manages a repository, a collection of files, and their changes over time. In the {{< fa brands r-project >}} world this corresponds to a RStudio project or a folder with scripts and datasets.
+
+When you make a change, you *commit* it with a short message detailing your changes. 
+All these commits make up the *history* of the repository, through which you can trace back the evolution of your project. 
+
+
+
+
+## Git clients such as Github, Gitlab, etc.
+
+When your version controlled project is not contained to your computer, hosting services such as Github or Gitlab come into play. You can:
+
+- publish your project there
+- *push* your changes to the repository
+- accept changes from others made in *pull* requests
+
+
+## Hosting Quarto documents
+
+Github and Gitlab let you host webpages and websites created in a repository in their service for free. 
+
+This can be used to publish Quarto documents, books, websites. 
+
+I use this for my own website, for documentation for my R package, and for this workshop!
+
+
+
+
+## Further reading
+
+::: nonincremental
+- [Happy Git and GitHub for the useR](https://happygitwithr.com/)
+
+:::
+
+
+
+# Containerization
+
+## The purpose of containerization
+
+With containerization, you can control all of the aspects of the computational environment mentioned earlier:
+
+- Specific {{< fa brands r-project >}} packages and their version
+- {{< fa brands r-project >}} version
+- operating system ( {{< fa brands windows >}}, {{< fa brands apple >}}, {{< fa brands linux >}}) 
+- system dependencies
+
+## What is a container?
+
+A container is little bit like a virtual machine as it is a separate computer running on another computer. However, it usually does not have a graphical interface, but is run through a terminal.
+
+The container is the running instance of the computer. How this computer is set up is defined by the image. 
+
+
+## What is an image?
+
+The specifications for an image can be defined through a text file, e.g. a Docker file: 
+
+::: nonincremental
+- what operating system is needed
+- what software needs to be installed
+:::
+
+![](images/docker.PNG)
+
+
+## Collaboration 
+
+The image can be shared with collaborators so that they can reproduce the same conditions on a container on their computer. 
+
+There are a number of standard images for R created by the [Rocker Project](https://rocker-project.org/). These can be used as a base image which can then be further customised for a specific project.
+
+
+## Further reading
+
+Books:
+
+::: nonincremental
+- [An Introduction to Docker for R Users](https://colinfay.me/docker-r-reproducibility/)
+- [Building reproducible analytical pipelines with R](https://raps-with-r.dev/)
+:::
+
+Other implementations:
+
+::: nonincremental
+- [Binder](https://mybinder.org/)
+- [rix](https://docs.ropensci.org/rix/)
+:::
+
+
+
+
+## Research Compendia
+
+>A research compendium collects all digital parts of a research project, including data, code, and texts (protocols, reports, questionnaires, metadata). 
+
+https://epiverse-trace.github.io/research-compendium/instructor/compendium.html
+
+When published, a research compendium allows others to reconstruct your analysis and ideally execute it as well. 
 
 ## R packages as research compendia
 
@@ -639,7 +768,7 @@ The idea of a research compendium combines a number of the previously discussed 
 - version control
 - (optionally) the use of Docker and/or Binder
 
-## R packages for creating research compendia
+## Further reading
 
 There are a number of R packages that implement research compendia:
 
@@ -647,4 +776,11 @@ There are a number of R packages that implement research compendia:
 - rrtools: <https://github.com/benmarwick/rrtools>
 - SCIProj: <https://github.com/saskiaotto/SCIproj>
 - template: <https://github.com/Pakillo/template>
+:::
+
+Further information: 
+
+::: nonincremental
+- <https://research-compendium.science/>
+- <https://book.the-turing-way.org/reproducible-research/compendia/>
 :::
