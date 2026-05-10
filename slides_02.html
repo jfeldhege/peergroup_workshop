@@ -391,12 +391,58 @@ Johannes Feldhege
 <p>It is published as a website that can link to other formats such as <strong>word</strong> or <strong>pdf</strong>.</p>
 <p>In the background, multiple Quarto files can be used to write the manuscript and conduct the analysis.</p>
 <p>A live example can be seen <a href="https://quarto-ext.github.io/manuscript-template-jupyter/">here</a></p>
-</section></section><section><section id="writing-r-packages" class="title-slide slide level1 center"><h1>Writing R packages</h1>
+</section></section><section><section id="creating-r-packages" class="title-slide slide level1 center"><h1>Creating R packages</h1>
 
-</section><section id="creating-an-r-package-with-the-usethis-package" class="slide level2"><h2>Creating an R Package with the {usethis} package</h2>
+</section><section id="creating-an-r-package-with-the-usethis-package" class="slide level2"><h2>Creating an R Package with the <code>usethis</code> package</h2>
 <p>One easy step to get started:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#| eval: false</span></span>
-<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">create_package</span><span class="op">(</span><span class="st">"/path/to/the/package"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">create_package</span><span class="op">(</span><span class="st">"/path/to/the/package/name"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>A package name can only contain letters, numbers, and <code>.</code></p>
+</section><section id="the-package-directory-structure" class="slide level2"><h2>The package directory structure</h2>
+<pre><code>.
+├── (.gitignore)        # Files to ignore when using git
+│
+├── .Rbuildignore       # Files to ignore when building package
+│
+├── R/                  # Folder to store (only) R functions
+│   ├── myfun-1.R       # A first R function file
+│   └── myfun-2.R       # A second R function file
+│
+├── man/                # Folder to store R functions documentation
+│   ├── my_fun_1.Rd
+│   └── my_fun_2.Rd
+│
+├── DESCRIPTION         # Package metadata
+│
+└── NAMESPACE           # Automatically edited</code></pre>
+</section><section id="the-description" class="slide level2"><h2>The DESCRIPTION</h2>
+
+<img data-src="images/pkg_description.PNG" class="r-stretch"></section><section id="the-description-1" class="slide level2"><h2>The DESCRIPTION</h2>
+<p>The description can be edited by hand, but <code>usethis</code> also provides function to edit them:</p>
+<table class="caption-top">
+<thead><tr class="header">
+<th>Task</th>
+<th>function</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Declare dependencies</td>
+<td><code>usethis::use_package()</code></td>
+</tr>
+<tr class="even">
+<td>Adding authors</td>
+<td><code>usethis::use_author()</code></td>
+</tr>
+<tr class="odd">
+<td>Edit DESCRIPTION</td>
+<td><code>usethis::use_description()</code></td>
+</tr>
+</tbody>
+</table></section><section id="exercise-1" class="slide level2"><h2>Exercise</h2>
+<p>I have prepared a small script with these functions that you can download here <a href="&quot;https://www.johannesfeldhege.de/peergroup_workshop/script_package_01.R&quot;">script_package_01.R</a></p>
+<p>I want you to execute these functions to create a package and write metadata to its DESCRIPTION.</p>
+<p>Check out the directory structure and the different files that have been created.</p>
 </section><section id="the-process-of-working-on-a-package" class="slide level2"><h2>The process of working on a package</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -422,12 +468,20 @@ Johannes Feldhege
 </div>
 </section><section id="useful-functions-for-package-development" class="slide level2"><h2>Useful functions for package development</h2>
 <table class="caption-top">
-<caption>Table: Useful functions for packaged</caption>
+<caption>Table: Useful functions for package development</caption>
 <thead><tr class="header">
 <th>Task</th>
 <th>function</th>
 </tr></thead>
 <tbody>
+<tr class="odd">
+<td>Create R script</td>
+<td><code>usethis::use_r()</code></td>
+</tr>
+<tr class="even">
+<td>Add data</td>
+<td><code>usethis::use_data()</code></td>
+</tr>
 <tr class="odd">
 <td>Document function</td>
 <td><code>devtools::document()</code></td>
@@ -444,15 +498,63 @@ Johannes Feldhege
 <td>Build package locally</td>
 <td><code>devtools::build()</code></td>
 </tr>
-<tr class="odd">
-<td>Declare dependencies</td>
-<td><code>usethis::use_package()</code></td>
-</tr>
 </tbody>
-</table></section><section id="exercise-1" class="slide level2"><h2>Exercise</h2>
-<p>I have prepared a small script with these functions that you can download here <a href="&quot;https://www.johannesfeldhege.de/peergroup_workshop/script_package.R&quot;">script_package.R</a></p>
+</table></section><section id="documenting-functions-with-roxygen2" class="slide level2"><h2>Documenting functions with <code>roxygen2</code>
+</h2>
+<p>The idea behind <code>roxygen2</code> is to document functions with special comments next to their definition. <code>roxygen2</code> will process these comments and turn them into manual pages in the package.</p>
+<p>You can add a comment skeleton with control + alt + shift + R when your cursor is inside the function.</p>
+</section><section id="roxygen2-comments" class="slide level2"><h2>
+<code>roxygen2</code> comments</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" data-code-line-numbers="|1|3-6|8|9-10|12|13-16|"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a></a><span class="co">#' The length of a string</span></span>
+<span id="cb11-2"><a></a><span class="co">#'</span></span>
+<span id="cb11-3"><a></a><span class="co">#' Technically this returns the number of "code points", in a string. One</span></span>
+<span id="cb11-4"><a></a><span class="co">#' code point usually corresponds to one character, but not always. For example,</span></span>
+<span id="cb11-5"><a></a><span class="co">#' an u with a umlaut might be represented as a single character or as the</span></span>
+<span id="cb11-6"><a></a><span class="co">#' combination a u and an umlaut.</span></span>
+<span id="cb11-7"><a></a><span class="co">#'</span></span>
+<span id="cb11-8"><a></a><span class="co">#' @param string A text string</span></span>
+<span id="cb11-9"><a></a><span class="co">#' @return A numeric vector giving number of characters (code points) in each</span></span>
+<span id="cb11-10"><a></a><span class="co">#'    element of the character vector. Missing string have missing length.</span></span>
+<span id="cb11-11"><a></a><span class="co">#' @seealso [stringi::stri_length()] which this function wraps.</span></span>
+<span id="cb11-12"><a></a><span class="co">#' @export</span></span>
+<span id="cb11-13"><a></a><span class="co">#' @examples</span></span>
+<span id="cb11-14"><a></a><span class="co">#' str_length(letters)</span></span>
+<span id="cb11-15"><a></a><span class="co">#' str_length(NA)</span></span>
+<span id="cb11-16"><a></a><span class="co">#' str_length(factor("abc"))</span></span>
+<span id="cb11-17"><a></a><span class="ex">str_length</span> <span class="op">&lt;</span>- function<span class="er">(</span><span class="ex">string</span><span class="kw">)</span> <span class="kw">{</span></span>
+<span id="cb11-18"><a></a><span class="kw">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section><section id="r-cmd-check" class="slide level2"><h2>R CMD Check</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p>R CMD check runs checks intended for publication on CRAN.</p>
+<p>It is very strict.</p>
+<p>The three levels of feedback:</p>
+<ul>
+<li class="fragment"><p>errors need to be fixed</p></li>
+<li class="fragment"><p>warnings affect functionality</p></li>
+<li class="fragment"><p>notes can often be ignored if you do not intend to publish the package on CRAN</p></li>
+</ul>
+</div><div class="column" style="width:60%;">
+<p><img data-src="images/rcmd_check.PNG"></p>
+</div></div>
+</section><section id="exercise-2" class="slide level2"><h2>Exercise</h2>
+<p>I have prepared a small script with these functions that you can download here <a href="&quot;https://www.johannesfeldhege.de/peergroup_workshop/script_package_03.R&quot;">script_package_02.R</a></p>
 <p>I want you to</p>
-</section><section id="pros-of-study-as-an-r-package" class="slide level2"><h2>Pros of “study as an R package”</h2>
+<ul>
+<li class="fragment">create a function that a</li>
+<li class="fragment">add some documentation to the function using roxygen2</li>
+<li class="fragment">Load the package and test the function</li>
+<li class="fragment">Run CMD Check</li>
+<li class="fragment">Build the package locally</li>
+<li class="fragment">Install it</li>
+</ul>
+<p>Optional:</p>
+<ul>
+<li class="fragment">add the dataset from the function <code>ds4psy::posPsy_long()</code> to the package using <code>usethis::use_data()</code>
+</li>
+</ul></section><section id="pros-of-study-as-an-r-package" class="slide level2"><h2>Pros of “study as an R package”</h2>
 <ul>
 <li class="fragment">Combines functions for analysis and study data</li>
 <li class="fragment">documentation of custom functions, dependencies, contributors</li>
@@ -527,7 +629,9 @@ Johannes Feldhege
 <ul>
 <li><a href="https://mybinder.org/">Binder</a></li>
 <li><a href="https://docs.ropensci.org/rix/">rix</a></li>
-</ul></section><section id="research-compendia" class="slide level2"><h2>Research Compendia</h2>
+</ul></section></section><section><section id="research-compendia" class="title-slide slide level1 center"><h1>Research Compendia</h1>
+
+</section><section id="what-are-research-compendia" class="slide level2"><h2>What are research compendia?</h2>
 <blockquote>
 <p>A research compendium collects all digital parts of a research project, including data, code, and texts (protocols, reports, questionnaires, metadata).</p>
 </blockquote>

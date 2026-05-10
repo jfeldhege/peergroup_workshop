@@ -101,8 +101,36 @@
     "objectID": "slides_02.html#creating-an-r-package-with-the-usethis-package",
     "href": "slides_02.html#creating-an-r-package-with-the-usethis-package",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
-    "section": "Creating an R Package with the {usethis} package",
-    "text": "Creating an R Package with the {usethis} package\nOne easy step to get started:\n#| eval: false\nusethis::create_package(\"/path/to/the/package\")"
+    "section": "Creating an R Package with the usethis package",
+    "text": "Creating an R Package with the usethis package\nOne easy step to get started:\n\nusethis::create_package(\"/path/to/the/package/name\")\n\nA package name can only contain letters, numbers, and ."
+  },
+  {
+    "objectID": "slides_02.html#the-package-directory-structure",
+    "href": "slides_02.html#the-package-directory-structure",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "The package directory structure",
+    "text": "The package directory structure\n.\n├── (.gitignore)        # Files to ignore when using git\n│\n├── .Rbuildignore       # Files to ignore when building package\n│\n├── R/                  # Folder to store (only) R functions\n│   ├── myfun-1.R       # A first R function file\n│   └── myfun-2.R       # A second R function file\n│\n├── man/                # Folder to store R functions documentation\n│   ├── my_fun_1.Rd\n│   └── my_fun_2.Rd\n│\n├── DESCRIPTION         # Package metadata\n│\n└── NAMESPACE           # Automatically edited"
+  },
+  {
+    "objectID": "slides_02.html#the-description",
+    "href": "slides_02.html#the-description",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "The DESCRIPTION",
+    "text": "The DESCRIPTION"
+  },
+  {
+    "objectID": "slides_02.html#the-description-1",
+    "href": "slides_02.html#the-description-1",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "The DESCRIPTION",
+    "text": "The DESCRIPTION\nThe description can be edited by hand, but usethis also provides function to edit them:\n\n\nTask\nfunction\n\n\n\nDeclare dependencies\nusethis::use_package()\n\n\nAdding authors\nusethis::use_author()\n\n\nEdit DESCRIPTION\nusethis::use_description()"
+  },
+  {
+    "objectID": "slides_02.html#exercise-1",
+    "href": "slides_02.html#exercise-1",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Exercise",
+    "text": "Exercise\nI have prepared a small script with these functions that you can download here script_package_01.R\nI want you to execute these functions to create a package and write metadata to its DESCRIPTION.\nCheck out the directory structure and the different files that have been created."
   },
   {
     "objectID": "slides_02.html#the-process-of-working-on-a-package",
@@ -116,14 +144,35 @@
     "href": "slides_02.html#useful-functions-for-package-development",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Useful functions for package development",
-    "text": "Useful functions for package development\n\nTable: Useful functions for packaged\n\nTask\nfunction\n\n\n\nDocument function\ndevtools::document()\n\n\nLoad all functions\ndevtools::load_all()\n\n\nCMD Check\ndevtools::check()\n\n\nBuild package locally\ndevtools::build()\n\n\nDeclare dependencies\nusethis::use_package()"
+    "text": "Useful functions for package development\n\nTable: Useful functions for package development\n\nTask\nfunction\n\n\n\nCreate R script\nusethis::use_r()\n\n\nAdd data\nusethis::use_data()\n\n\nDocument function\ndevtools::document()\n\n\nLoad all functions\ndevtools::load_all()\n\n\nCMD Check\ndevtools::check()\n\n\nBuild package locally\ndevtools::build()"
   },
   {
-    "objectID": "slides_02.html#exercise-1",
-    "href": "slides_02.html#exercise-1",
+    "objectID": "slides_02.html#documenting-functions-with-roxygen2",
+    "href": "slides_02.html#documenting-functions-with-roxygen2",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Documenting functions with roxygen2\n",
+    "text": "Documenting functions with roxygen2\n\nThe idea behind roxygen2 is to document functions with special comments next to their definition. roxygen2 will process these comments and turn them into manual pages in the package.\nYou can add a comment skeleton with control + alt + shift + R when your cursor is inside the function."
+  },
+  {
+    "objectID": "slides_02.html#roxygen2-comments",
+    "href": "slides_02.html#roxygen2-comments",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "\nroxygen2 comments",
+    "text": "roxygen2 comments\n\n#' The length of a string\n#'\n#' Technically this returns the number of \"code points\", in a string. One\n#' code point usually corresponds to one character, but not always. For example,\n#' an u with a umlaut might be represented as a single character or as the\n#' combination a u and an umlaut.\n#'\n#' @param string A text string\n#' @return A numeric vector giving number of characters (code points) in each\n#'    element of the character vector. Missing string have missing length.\n#' @seealso [stringi::stri_length()] which this function wraps.\n#' @export\n#' @examples\n#' str_length(letters)\n#' str_length(NA)\n#' str_length(factor(\"abc\"))\nstr_length &lt;- function(string) {\n}"
+  },
+  {
+    "objectID": "slides_02.html#r-cmd-check",
+    "href": "slides_02.html#r-cmd-check",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "R CMD Check",
+    "text": "R CMD Check\n\n\nR CMD check runs checks intended for publication on CRAN.\nIt is very strict.\nThe three levels of feedback:\n\nerrors need to be fixed\nwarnings affect functionality\nnotes can often be ignored if you do not intend to publish the package on CRAN"
+  },
+  {
+    "objectID": "slides_02.html#exercise-2",
+    "href": "slides_02.html#exercise-2",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Exercise",
-    "text": "Exercise\nI have prepared a small script with these functions that you can download here script_package.R\nI want you to"
+    "text": "Exercise\nI have prepared a small script with these functions that you can download here script_package_02.R\nI want you to\n\ncreate a function that a\nadd some documentation to the function using roxygen2\nLoad the package and test the function\nRun CMD Check\nBuild the package locally\nInstall it\n\nOptional:\n\nadd the dataset from the function ds4psy::posPsy_long() to the package using usethis::use_data()"
   },
   {
     "objectID": "slides_02.html#pros-of-study-as-an-r-package",
@@ -210,11 +259,11 @@
     "text": "Further reading\nBooks:\n\nAn Introduction to Docker for R Users\nBuilding reproducible analytical pipelines with R\n\nOther implementations:\n\nBinder\nrix"
   },
   {
-    "objectID": "slides_02.html#research-compendia",
-    "href": "slides_02.html#research-compendia",
+    "objectID": "slides_02.html#what-are-research-compendia",
+    "href": "slides_02.html#what-are-research-compendia",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
-    "section": "Research Compendia",
-    "text": "Research Compendia\n\nA research compendium collects all digital parts of a research project, including data, code, and texts (protocols, reports, questionnaires, metadata).\n\nhttps://epiverse-trace.github.io/research-compendium/instructor/compendium.html\nWhen published, a research compendium allows others to reconstruct your analysis and ideally execute it as well."
+    "section": "What are research compendia?",
+    "text": "What are research compendia?\n\nA research compendium collects all digital parts of a research project, including data, code, and texts (protocols, reports, questionnaires, metadata).\n\nhttps://epiverse-trace.github.io/research-compendium/instructor/compendium.html\nWhen published, a research compendium allows others to reconstruct your analysis and ideally execute it as well."
   },
   {
     "objectID": "slides_02.html#r-packages-as-research-compendia",
