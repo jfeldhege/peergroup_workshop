@@ -36,11 +36,11 @@ To get the most out of this workshop, it is recommended:
 
 1.  Install recent versions of {{< fa brands r-project >}} and RStudio
 
-2.  Install the following packages: `ds4psy`, `dplyr`, `lintr.`They can be installed using the following code:
+2.  Install the following packages: `ds4psy`, `usethis`, `devtools`, `roxygen2`, `lintr`. They can be installed using the following code:
 
 ``` r
 #| eval: false
-install.packages(c("tidyverse", "ds4psy"))
+install.packages(c("ds4psy", "lintr", "usethis", "devtools","roxygen2"))
 ```
 
 3.  Create a new RStudio project for use in the workshop. 
@@ -421,13 +421,13 @@ digraph G {
 
 ## Important `renv` functions
 
-| Task                  | function                 |
-|-----------------------|--------------------------|
-| Initialise `renv`    | `renv::init()`   |
-| `renv` status    | `renv::status`()`   |
-| Install new package            | `renv::install`()`      |
-| Update project library | `renv::snapshot`()`      |
-| Restore project library  | `renv::restore`()` |
+| Task                     | function                 |
+|--------------------------|--------------------------|
+| Initialise `renv`        | `renv::init()`           |
+| `renv` status            | `renv::status()`        |
+| Install new package      | `renv::install()`       |
+| Update project library   | `renv::snapshot()`      |
+| Restore project library  | `renv::restore()`       |
 
 
 ## Initialise `renv` with `renv::init()`
