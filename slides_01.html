@@ -2047,10 +2047,10 @@ Johannes Feldhege
 <p>To get the most out of this workshop, it is recommended:</p>
 <ol type="1">
 <li class="fragment"><p>Install recent versions of <i class="fa-brands fa-r-project" aria-label="r-project"></i> and RStudio</p></li>
-<li class="fragment"><p>Install the following packages: <code>ds4psy</code>, <code>dplyr</code>, <code>lintr.</code>They can be installed using the following code:</p></li>
+<li class="fragment"><p>Install the following packages: <code>ds4psy</code>, <code>usethis</code>, <code>devtools</code>, <code>roxygen2</code>, <code>lintr</code>. They can be installed using the following code:</p></li>
 </ol>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#| eval: false</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"tidyverse"</span>, <span class="st">"ds4psy"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ds4psy"</span>, <span class="st">"lintr"</span>, <span class="st">"usethis"</span>, <span class="st">"devtools"</span>,<span class="st">"roxygen2"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="3" type="1">
 <li class="fragment">Create a new RStudio project for use in the workshop.</li>
 </ol></section><section id="timetable" class="slide level2"><h2>Timetable</h2>
@@ -2323,10 +2323,6 @@ Johannes Feldhege
 </div>
 </section><section id="important-renv-functions" class="slide level2"><h2>Important <code>renv</code> functions</h2>
 <table class="caption-top">
-<colgroup>
-<col style="width: 46%">
-<col style="width: 53%">
-</colgroup>
 <thead><tr class="header">
 <th>Task</th>
 <th>function</th>
@@ -2340,15 +2336,19 @@ Johannes Feldhege
 <tr class="even">
 <td>
 <code>renv</code> status</td>
-<td>
-<code>renv::status</code>()<code>| | Install new package            |</code>renv::install<code>()</code>
-</td>
+<td><code>renv::status()</code></td>
 </tr>
 <tr class="odd">
+<td>Install new package</td>
+<td><code>renv::install()</code></td>
+</tr>
+<tr class="even">
 <td>Update project library</td>
-<td>
-<code>renv::snapshot</code>()<code>| | Restore project library  |</code>renv::restore<code>()</code>
-</td>
+<td><code>renv::snapshot()</code></td>
+</tr>
+<tr class="odd">
+<td>Restore project library</td>
+<td><code>renv::restore()</code></td>
 </tr>
 </tbody>
 </table></section><section id="initialise-renv-with-renvinit" class="slide level2"><h2>Initialise <code>renv</code> with <code>renv::init()</code>

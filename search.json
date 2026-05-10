@@ -284,7 +284,7 @@
     "href": "slides_01.html#requirements",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Requirements",
-    "text": "Requirements\nTo get the most out of this workshop, it is recommended:\n\nInstall recent versions of  and RStudio\nInstall the following packages: ds4psy, dplyr, lintr.They can be installed using the following code:\n\n#| eval: false\ninstall.packages(c(\"tidyverse\", \"ds4psy\"))\n\nCreate a new RStudio project for use in the workshop."
+    "text": "Requirements\nTo get the most out of this workshop, it is recommended:\n\nInstall recent versions of  and RStudio\nInstall the following packages: ds4psy, usethis, devtools, roxygen2, lintr. They can be installed using the following code:\n\n#| eval: false\ninstall.packages(c(\"ds4psy\", \"lintr\", \"usethis\", \"devtools\",\"roxygen2\"))\n\nCreate a new RStudio project for use in the workshop."
   },
   {
     "objectID": "slides_01.html#timetable",
@@ -494,7 +494,7 @@
     "href": "slides_01.html#important-renv-functions",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Important renv functions",
-    "text": "Important renv functions\n\n\n\n\n\n\nTask\nfunction\n\n\n\nInitialise renv\n\nrenv::init()\n\n\n\nrenv status\n\nrenv::status()| | Install new package            |renv::install()\n\n\n\nUpdate project library\n\nrenv::snapshot()| | Restore project library  |renv::restore()"
+    "text": "Important renv functions\n\n\nTask\nfunction\n\n\n\nInitialise renv\n\nrenv::init()\n\n\n\nrenv status\nrenv::status()\n\n\nInstall new package\nrenv::install()\n\n\nUpdate project library\nrenv::snapshot()\n\n\nRestore project library\nrenv::restore()"
   },
   {
     "objectID": "slides_01.html#initialise-renv-with-renvinit",
