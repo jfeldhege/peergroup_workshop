@@ -236,7 +236,8 @@ Johannes Feldhege
 <p>Outlook for further functionalities:</p>
 <ul>
 <li>version control using git, Github, Gitlab, etc.</li>
-<li>containerization with Docker or Nix</li>
+<li>containerization with Docker, Nix, rix</li>
+<li>Research compendia</li>
 </ul></section><section><section id="first-steps-toward-reproducibility" class="title-slide slide level1 center"><h1>First steps toward reproducibility</h1>
 
 </section><section id="a-fresh-start" class="slide level2"><h2>A fresh start</h2>
@@ -275,8 +276,13 @@ Johannes Feldhege
 <li class="fragment">operating system ( <i class="fa-brands fa-windows" aria-label="windows"></i>, <i class="fa-brands fa-apple" aria-label="apple"></i>, <i class="fa-brands fa-linux" aria-label="linux"></i>) ]</li>
 <li class="fragment">system dependencies</li>
 </ul></section><section id="the-renv-package" class="slide level2"><h2>The <code>renv</code> package</h2>
-<p><code>renv</code> controls in the computational environment: - Specific <i class="fa-brands fa-r-project" aria-label="r-project"></i> packages and their version - <span class="fragment strike"><i class="fa-brands fa-r-project" aria-label="r-project"></i> version</span> - <span class="fragment strike">operating system ( <i class="fa-brands fa-windows" aria-label="windows"></i>, <i class="fa-brands fa-apple" aria-label="apple"></i>, <i class="fa-brands fa-linux" aria-label="linux"></i>)</span> - <span class="fragment strike">system dependencies</span></p>
-</section><section id="the-renv-package-1" class="slide level2"><h2>The <code>renv</code> package</h2>
+<p><code>renv</code> controls in the computational environment:</p>
+<ul>
+<li class="fragment">Specific <i class="fa-brands fa-r-project" aria-label="r-project"></i> packages and their version</li>
+<li class="fragment"><span class="fragment strike"><i class="fa-brands fa-r-project" aria-label="r-project"></i> version</span></li>
+<li class="fragment"><span class="fragment strike">operating system ( <i class="fa-brands fa-windows" aria-label="windows"></i>, <i class="fa-brands fa-apple" aria-label="apple"></i>, <i class="fa-brands fa-linux" aria-label="linux"></i>)</span></li>
+<li class="fragment"><span class="fragment strike">system dependencies</span></li>
+</ul></section><section id="the-renv-package-1" class="slide level2"><h2>The <code>renv</code> package</h2>
 <p>It <strong>freezes and records</strong> the actively used packages and their version in your project in a project-specific library.</p>
 <p>This way, your project becomes <strong>portable</strong> and <strong>reproducible</strong> as you can use it on another computer or share it with a colleague.</p>
 <p>The project is not affected by <strong>changing functionality</strong> or <strong>breaking changes</strong> in packages across versions.</p>
@@ -304,7 +310,7 @@ Johannes Feldhege
 </div>
 </section><section id="libraries-with-renv" class="slide level2"><h2>Libraries with <code>renv</code>
 </h2>
-<p>Using <code>renv</code>, each project has its own library. When a new package is installed, it is also written to a global package cache. The next time it is needed in a project, it is taken from there.</p>
+<p>Using <code>renv</code>, each project has its own library. When a new package is installed, it is also written to a global package cache. The next time it is needed in a project, it is taken from there instead of downloading it again.</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -330,7 +336,37 @@ Johannes Feldhege
 </div>
 </div>
 </div>
-</section><section id="initialise-renv-with-renvinit" class="slide level2"><h2>Initialise <code>renv</code> with <code>renv::init()</code>
+</section><section id="important-renv-functions" class="slide level2"><h2>Important <code>renv</code> functions</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 46%">
+<col style="width: 53%">
+</colgroup>
+<thead><tr class="header">
+<th>Task</th>
+<th>function</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Initialise <code>renv</code>
+</td>
+<td><code>renv::init()</code></td>
+</tr>
+<tr class="even">
+<td>
+<code>renv</code> status</td>
+<td>
+<code>renv::status</code>()<code>| | Install new package            |</code>renv::install<code>()</code>
+</td>
+</tr>
+<tr class="odd">
+<td>Update project library</td>
+<td>
+<code>renv::snapshot</code>()<code>| | Restore project library  |</code>renv::restore<code>()</code>
+</td>
+</tr>
+</tbody>
+</table></section><section id="initialise-renv-with-renvinit" class="slide level2"><h2>Initialise <code>renv</code> with <code>renv::init()</code>
 </h2>
 
 <img data-src="images/renv_init.PNG" class="r-stretch quarto-figure-center"><p class="caption">Console output after renv::init()</p></section><section id="project-files-created-by-renv" class="slide level2"><h2>Project files created by <code>renv</code>
@@ -585,8 +621,8 @@ Johannes Feldhege
 <table class="caption-top">
 <caption>Table: Useful functions for packaged</caption>
 <thead><tr class="header">
-<th>Col1</th>
-<th>Col2</th>
+<th>Task</th>
+<th>function</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
@@ -627,10 +663,73 @@ Johannes Feldhege
 <li class="fragment">compliance with CMD check requirements</li>
 </ul>
 <p>More info <a href="https://milesmcbain.xyz/posts/an-okay-idea/">here</a></p>
-</section></section><section><section id="outlook" class="title-slide slide level1 center"><h1>Outlook</h1>
+</section></section><section id="outlook" class="title-slide slide level1 center"><h1>Outlook</h1>
 
-</section><section id="version-control-using-git-github-gitlab-etc." class="slide level2"><h2>Version control using Git, Github, Gitlab, etc.</h2>
-<p>Further reading: (Happy Git and GitHub for the useR)[https://happygitwithr.com/]</p>
+</section><section><section id="version-control" class="title-slide slide level1 center"><h1>Version control</h1>
+
+</section><section id="sharing-files-with-collaborators" class="slide level2"><h2>Sharing files with collaborators</h2>
+<p>Two common scenarios:</p>
+<ul>
+<li class="fragment"><p>Paper_260510_final_final.doc: files are sent via e-mail and multiple versions exist out there.</p></li>
+<li class="fragment"><p>An online document (Google docs, Microsoft 365, etc.): anyone can edit, anyone can see and track changes. Changes can be reverted back.</p></li>
+</ul>
+<p><i class="fa-solid fa-circle-right" aria-label="circle-right"></i> Version control is more like the second scenario.</p>
+</section><section id="version-control-using-git" class="slide level2"><h2>Version control using Git</h2>
+<p>Git manages a repository, a collection of files, and their changes over time. In the <i class="fa-brands fa-r-project" aria-label="r-project"></i> world this corresponds to a RStudio project or a folder with scripts and datasets.</p>
+<p>When you make a change, you <em>commit</em> it with a short message detailing your changes. All these commits make up the <em>history</em> of the repository, through which you can trace back the evolution of your project.</p>
+</section><section id="git-clients-such-as-github-gitlab-etc." class="slide level2"><h2>Git clients such as Github, Gitlab, etc.</h2>
+<p>When your version controlled project is not contained to your computer, hosting services such as Github or Gitlab come into play. You can:</p>
+<ul>
+<li class="fragment">publish your project there</li>
+<li class="fragment">
+<em>push</em> your changes to the repository</li>
+<li class="fragment">accept changes from others made in <em>pull</em> requests</li>
+</ul></section><section id="hosting-quarto-documents" class="slide level2"><h2>Hosting Quarto documents</h2>
+<p>Github and Gitlab let you host webpages and websites created in a repository in their service for free.</p>
+<p>This can be used to publish Quarto documents, books, websites.</p>
+<p>I use this for my own website, for documentation for my R package, and for this workshop!</p>
+</section><section id="further-reading" class="slide level2"><h2>Further reading</h2>
+<ul>
+<li><a href="https://happygitwithr.com/">Happy Git and GitHub for the useR</a></li>
+</ul></section></section><section><section id="containerization" class="title-slide slide level1 center"><h1>Containerization</h1>
+
+</section><section id="the-purpose-of-containerization" class="slide level2"><h2>The purpose of containerization</h2>
+<p>With containerization, you can control all of the aspects of the computational environment mentioned earlier:</p>
+<ul>
+<li class="fragment">Specific <i class="fa-brands fa-r-project" aria-label="r-project"></i> packages and their version</li>
+<li class="fragment">
+<i class="fa-brands fa-r-project" aria-label="r-project"></i> version</li>
+<li class="fragment">operating system ( <i class="fa-brands fa-windows" aria-label="windows"></i>, <i class="fa-brands fa-apple" aria-label="apple"></i>, <i class="fa-brands fa-linux" aria-label="linux"></i>)</li>
+<li class="fragment">system dependencies</li>
+</ul></section><section id="what-is-a-container" class="slide level2"><h2>What is a container?</h2>
+<p>A container is little bit like a virtual machine as it is a separate computer running on another computer. However, it usually does not have a graphical interface, but is run through a terminal.</p>
+<p>The container is the running instance of the computer. How this computer is set up is defined by the image.</p>
+</section><section id="what-is-an-image" class="slide level2"><h2>What is an image?</h2>
+<p>The specifications for an image can be defined through a text file, e.g.&nbsp;a Docker file:</p>
+<ul>
+<li>what operating system is needed</li>
+<li>what software needs to be installed</li>
+</ul>
+
+<img data-src="images/docker.PNG" class="r-stretch"></section><section id="collaboration" class="slide level2"><h2>Collaboration</h2>
+<p>The image can be shared with collaborators so that they can reproduce the same conditions on a container on their computer.</p>
+<p>There are a number of standard images for R created by the <a href="https://rocker-project.org/">Rocker Project</a>. These can be used as a base image which can then be further customised for a specific project.</p>
+</section><section id="further-reading-1" class="slide level2"><h2>Further reading</h2>
+<p>Books:</p>
+<ul>
+<li><a href="https://colinfay.me/docker-r-reproducibility/">An Introduction to Docker for R Users</a></li>
+<li><a href="https://raps-with-r.dev/">Building reproducible analytical pipelines with R</a></li>
+</ul>
+<p>Other implementations:</p>
+<ul>
+<li><a href="https://mybinder.org/">Binder</a></li>
+<li><a href="https://docs.ropensci.org/rix/">rix</a></li>
+</ul></section><section id="research-compendia" class="slide level2"><h2>Research Compendia</h2>
+<blockquote>
+<p>A research compendium collects all digital parts of a research project, including data, code, and texts (protocols, reports, questionnaires, metadata).</p>
+</blockquote>
+<p>https://epiverse-trace.github.io/research-compendium/instructor/compendium.html</p>
+<p>When published, a research compendium allows others to reconstruct your analysis and ideally execute it as well.</p>
 </section><section id="r-packages-as-research-compendia" class="slide level2"><h2>R packages as research compendia</h2>
 <p>The idea of a research compendium combines a number of the previously discussed features:</p>
 <ul>
@@ -638,7 +737,7 @@ Johannes Feldhege
 <li class="fragment">literate programming with Quarto or Rmarkdown</li>
 <li class="fragment">version control</li>
 <li class="fragment">(optionally) the use of Docker and/or Binder</li>
-</ul></section><section id="r-packages-for-creating-research-compendia" class="slide level2"><h2>R packages for creating research compendia</h2>
+</ul></section><section id="further-reading-2" class="slide level2"><h2>Further reading</h2>
 <p>There are a number of R packages that implement research compendia:</p>
 <ul>
 <li>rrtools: <a href="https://github.com/benmarwick/rrtools" class="uri">https://github.com/benmarwick/rrtools</a>
@@ -647,6 +746,11 @@ Johannes Feldhege
 </li>
 <li>template: <a href="https://github.com/Pakillo/template" class="uri">https://github.com/Pakillo/template</a>
 </li>
+</ul>
+<p>Further information:</p>
+<ul>
+<li><a href="https://research-compendium.science/" class="uri">https://research-compendium.science/</a></li>
+<li><a href="https://book.the-turing-way.org/reproducible-research/compendia/" class="uri">https://book.the-turing-way.org/reproducible-research/compendia/</a></li>
 </ul>
 
 

@@ -25,7 +25,7 @@
     "href": "slides_02.html#measures-for-reproducibility",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Measures for reproducibility",
-    "text": "Measures for reproducibility\n\nReproducible environments with renv\n\nliterate programming using Quarto\n\npublish study analysis and data as an R package\n\nOutlook for further functionalities:\n\nversion control using git, Github, Gitlab, etc.\ncontainerization with Docker or Nix"
+    "text": "Measures for reproducibility\n\nReproducible environments with renv\n\nliterate programming using Quarto\n\npublish study analysis and data as an R package\n\nOutlook for further functionalities:\n\nversion control using git, Github, Gitlab, etc.\ncontainerization with Docker, Nix, rix\nResearch compendia"
   },
   {
     "objectID": "slides_02.html#a-fresh-start",
@@ -53,7 +53,7 @@
     "href": "slides_02.html#the-renv-package",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "The renv package",
-    "text": "The renv package\nrenv controls in the computational environment: - Specific  packages and their version -  version - operating system ( , , ) - system dependencies"
+    "text": "The renv package\nrenv controls in the computational environment:\n\nSpecific  packages and their version\n version\noperating system ( , , )\nsystem dependencies"
   },
   {
     "objectID": "slides_02.html#the-renv-package-1",
@@ -74,7 +74,14 @@
     "href": "slides_02.html#libraries-with-renv",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Libraries with renv\n",
-    "text": "Libraries with renv\n\nUsing renv, each project has its own library. When a new package is installed, it is also written to a global package cache. The next time it is needed in a project, it is taken from there.\n\n\n\n\n\nG\nA\nProject 1D\nProject library 1A-&gt;D\nB\nProject 2E\nProject library 2B-&gt;E\nC\nProject 3F\nProject library 3C-&gt;F\nG\nGlobal package cacheD-&gt;G\nE-&gt;G\nF-&gt;G"
+    "text": "Libraries with renv\n\nUsing renv, each project has its own library. When a new package is installed, it is also written to a global package cache. The next time it is needed in a project, it is taken from there instead of downloading it again.\n\n\n\n\n\nG\nA\nProject 1D\nProject library 1A-&gt;D\nB\nProject 2E\nProject library 2B-&gt;E\nC\nProject 3F\nProject library 3C-&gt;F\nG\nGlobal package cacheD-&gt;G\nE-&gt;G\nF-&gt;G"
+  },
+  {
+    "objectID": "slides_02.html#important-renv-functions",
+    "href": "slides_02.html#important-renv-functions",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Important renv functions",
+    "text": "Important renv functions\n\n\n\n\n\n\nTask\nfunction\n\n\n\nInitialise renv\n\nrenv::init()\n\n\n\nrenv status\n\nrenv::status()| | Install new package            |renv::install()\n\n\n\nUpdate project library\n\nrenv::snapshot()| | Restore project library  |renv::restore()"
   },
   {
     "objectID": "slides_02.html#initialise-renv-with-renvinit",
@@ -214,7 +221,7 @@
     "href": "slides_02.html#useful-functions-for-package-development",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Useful functions for package development",
-    "text": "Useful functions for package development\n\nTable: Useful functions for packaged\n\nCol1\nCol2\n\n\n\nDocument function\ndevtools::document()\n\n\nLoad all functions\ndevtools::load_all()\n\n\nCMD Check\ndevtools::check()\n\n\nBuild package locally\ndevtools::build()\n\n\nDeclare dependencies\nusethis::use_package()"
+    "text": "Useful functions for package development\n\nTable: Useful functions for packaged\n\nTask\nfunction\n\n\n\nDocument function\ndevtools::document()\n\n\nLoad all functions\ndevtools::load_all()\n\n\nCMD Check\ndevtools::check()\n\n\nBuild package locally\ndevtools::build()\n\n\nDeclare dependencies\nusethis::use_package()"
   },
   {
     "objectID": "slides_02.html#exercise-1",
@@ -238,11 +245,81 @@
     "text": "Cons of “study as an R package”\nIf the package is not intended for CRAN submission, superfluous information and files are created:\n\nmetadata exists in different places (github, DESCRIPTION)\nCRAN submission artifacts\ncompliance with CMD check requirements\n\nMore info here"
   },
   {
-    "objectID": "slides_02.html#version-control-using-git-github-gitlab-etc.",
-    "href": "slides_02.html#version-control-using-git-github-gitlab-etc.",
+    "objectID": "slides_02.html#sharing-files-with-collaborators",
+    "href": "slides_02.html#sharing-files-with-collaborators",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
-    "section": "Version control using Git, Github, Gitlab, etc.",
-    "text": "Version control using Git, Github, Gitlab, etc.\nFurther reading: (Happy Git and GitHub for the useR)[https://happygitwithr.com/]"
+    "section": "Sharing files with collaborators",
+    "text": "Sharing files with collaborators\nTwo common scenarios:\n\nPaper_260510_final_final.doc: files are sent via e-mail and multiple versions exist out there.\nAn online document (Google docs, Microsoft 365, etc.): anyone can edit, anyone can see and track changes. Changes can be reverted back.\n\n Version control is more like the second scenario."
+  },
+  {
+    "objectID": "slides_02.html#version-control-using-git",
+    "href": "slides_02.html#version-control-using-git",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Version control using Git",
+    "text": "Version control using Git\nGit manages a repository, a collection of files, and their changes over time. In the  world this corresponds to a RStudio project or a folder with scripts and datasets.\nWhen you make a change, you commit it with a short message detailing your changes. All these commits make up the history of the repository, through which you can trace back the evolution of your project."
+  },
+  {
+    "objectID": "slides_02.html#git-clients-such-as-github-gitlab-etc.",
+    "href": "slides_02.html#git-clients-such-as-github-gitlab-etc.",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Git clients such as Github, Gitlab, etc.",
+    "text": "Git clients such as Github, Gitlab, etc.\nWhen your version controlled project is not contained to your computer, hosting services such as Github or Gitlab come into play. You can:\n\npublish your project there\n\npush your changes to the repository\naccept changes from others made in pull requests"
+  },
+  {
+    "objectID": "slides_02.html#hosting-quarto-documents",
+    "href": "slides_02.html#hosting-quarto-documents",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Hosting Quarto documents",
+    "text": "Hosting Quarto documents\nGithub and Gitlab let you host webpages and websites created in a repository in their service for free.\nThis can be used to publish Quarto documents, books, websites.\nI use this for my own website, for documentation for my R package, and for this workshop!"
+  },
+  {
+    "objectID": "slides_02.html#further-reading",
+    "href": "slides_02.html#further-reading",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Further reading",
+    "text": "Further reading\n\nHappy Git and GitHub for the useR"
+  },
+  {
+    "objectID": "slides_02.html#the-purpose-of-containerization",
+    "href": "slides_02.html#the-purpose-of-containerization",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "The purpose of containerization",
+    "text": "The purpose of containerization\nWith containerization, you can control all of the aspects of the computational environment mentioned earlier:\n\nSpecific  packages and their version\n\n version\noperating system ( , , )\nsystem dependencies"
+  },
+  {
+    "objectID": "slides_02.html#what-is-a-container",
+    "href": "slides_02.html#what-is-a-container",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "What is a container?",
+    "text": "What is a container?\nA container is little bit like a virtual machine as it is a separate computer running on another computer. However, it usually does not have a graphical interface, but is run through a terminal.\nThe container is the running instance of the computer. How this computer is set up is defined by the image."
+  },
+  {
+    "objectID": "slides_02.html#what-is-an-image",
+    "href": "slides_02.html#what-is-an-image",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "What is an image?",
+    "text": "What is an image?\nThe specifications for an image can be defined through a text file, e.g. a Docker file:\n\nwhat operating system is needed\nwhat software needs to be installed"
+  },
+  {
+    "objectID": "slides_02.html#collaboration",
+    "href": "slides_02.html#collaboration",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Collaboration",
+    "text": "Collaboration\nThe image can be shared with collaborators so that they can reproduce the same conditions on a container on their computer.\nThere are a number of standard images for R created by the Rocker Project. These can be used as a base image which can then be further customised for a specific project."
+  },
+  {
+    "objectID": "slides_02.html#further-reading-1",
+    "href": "slides_02.html#further-reading-1",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Further reading",
+    "text": "Further reading\nBooks:\n\nAn Introduction to Docker for R Users\nBuilding reproducible analytical pipelines with R\n\nOther implementations:\n\nBinder\nrix"
+  },
+  {
+    "objectID": "slides_02.html#research-compendia",
+    "href": "slides_02.html#research-compendia",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Research Compendia",
+    "text": "Research Compendia\n\nA research compendium collects all digital parts of a research project, including data, code, and texts (protocols, reports, questionnaires, metadata).\n\nhttps://epiverse-trace.github.io/research-compendium/instructor/compendium.html\nWhen published, a research compendium allows others to reconstruct your analysis and ideally execute it as well."
   },
   {
     "objectID": "slides_02.html#r-packages-as-research-compendia",
@@ -252,11 +329,11 @@
     "text": "R packages as research compendia\nThe idea of a research compendium combines a number of the previously discussed features:\n\nthe R package structure\nliterate programming with Quarto or Rmarkdown\nversion control\n(optionally) the use of Docker and/or Binder"
   },
   {
-    "objectID": "slides_02.html#r-packages-for-creating-research-compendia",
-    "href": "slides_02.html#r-packages-for-creating-research-compendia",
+    "objectID": "slides_02.html#further-reading-2",
+    "href": "slides_02.html#further-reading-2",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
-    "section": "R packages for creating research compendia",
-    "text": "R packages for creating research compendia\nThere are a number of R packages that implement research compendia:\n\nrrtools: https://github.com/benmarwick/rrtools\n\nSCIProj: https://github.com/saskiaotto/SCIproj\n\ntemplate: https://github.com/Pakillo/template"
+    "section": "Further reading",
+    "text": "Further reading\nThere are a number of R packages that implement research compendia:\n\nrrtools: https://github.com/benmarwick/rrtools\n\nSCIProj: https://github.com/saskiaotto/SCIproj\n\ntemplate: https://github.com/Pakillo/template\n\n\nFurther information:\n\nhttps://research-compendium.science/\nhttps://book.the-turing-way.org/reproducible-research/compendia/"
   },
   {
     "objectID": "literatur.html",
