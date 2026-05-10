@@ -2027,7 +2027,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center"><h1 class="title">Clean Code, Reproducible Science: Advanced R-Programming and Workflows</h1>
-  <p class="subtitle">Programming with <i class="fa-brands fa-r-project" aria-label="r-project"></i></p>
+  <p class="subtitle">Part 1</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -2056,55 +2056,31 @@ Johannes Feldhege
 </ol></section><section id="timetable" class="slide level2"><h2>Timetable</h2>
 </section><section id="about-me" class="slide level2"><h2>About me</h2>
 <ul>
-<li class="fragment">M. Sc. in Psychology</li>
-<li class="fragment">I used to work for Forschungsstelle für Psychotherapie</li>
-<li class="fragment">I currently work as a Data Scientist at Asklepios Science &amp; Research since 2022</li>
-<li class="fragment">I have published an R package on CRAN, <a href="https://cran.r-project.org/web/packages/openholidaysR/index.html"><code>openholidaysR</code></a> and I am currently working on a second one</li>
+<li>M. Sc. in Psychology</li>
+<li>I used to work for Forschungsstelle für Psychotherapie</li>
+<li>I currently work as a Data Scientist at Asklepios Science &amp; Research since 2022</li>
+<li>I use R at work daily</li>
+<li>I have published an R package on CRAN, <a href="https://cran.r-project.org/web/packages/openholidaysR/index.html"><code>openholidaysR</code></a> and I am currently working on a second one</li>
 </ul></section><section id="results-from-the-pre-workshop-survey" class="slide level2"><h2>Results from the pre-workshop survey</h2>
 
 <img data-src="images/survey1.PNG" class="r-stretch quarto-figure-center"><p class="caption">Experience with R</p></section><section id="results-from-the-pre-workshop-survey-1" class="slide level2"><h2>Results from the pre-workshop survey</h2>
 
 <img data-src="images/survey2.PNG" class="r-stretch quarto-figure-center"><p class="caption">Experience with reproducibility tools</p></section><section id="results-from-the-pre-workshop-survey-2" class="slide level2"><h2>Results from the pre-workshop survey</h2>
 
-<img data-src="images/survey3.PNG" class="r-stretch quarto-figure-center"><p class="caption">Comments</p></section><section id="a-dataset-for-todays-workshop" class="slide level2"><h2>A dataset for today’s workshop</h2>
+<img data-src="images/survey3.PNG" class="r-stretch quarto-figure-center"><p class="caption">Comments</p></section><section id="topics" class="slide level2"><h2>Topics</h2>
+<p>Today’s workshop will cover these topics:</p>
+<ul>
+<li class="fragment">Making code easier to read</li>
+<li class="fragment">first steps toward reproducibility</li>
+<li class="fragment">Reproducible environments with <a href="https://cran.r-project.org/web/packages/renv/index.html">renv</a>
+</li>
+<li class="fragment">literate programming using <a href="https://quarto.org/">Quarto</a>
+</li>
+<li class="fragment">publish study analysis and data as an R package</li>
+<li class="fragment">outlook for further reproducibility</li>
+</ul></section><section id="a-dataset-for-todays-workshop" class="slide level2"><h2>A dataset for today’s workshop</h2>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<!-- - 24 items of the Authentic Happiness Inventory (AHI) -->
-<!-- - 20 items of the Center for Epidemiological Studies Depression (CES-D) scale -->
-<!-- - measured on 1 to 6 measurement occasions -->
-<!-- ## DRY: Don't repeat yourself -->
-<!-- ## Repeated application of the same function -->
-<!-- CES-D is usually measured on a scale of 0-3, in our dataset it has a scale of 1-4: -->
-<!-- ```{webr-r} -->
-<!-- range(pospsy$cesd01) -->
-<!-- ``` -->
-<!-- To recode it, I could do something like that: -->
-<!-- ```{webr-r} -->
-<!-- pospsy$cesd01r <- pospsy$cesd01 - 1  -->
-<!-- pospsy$cesd02r <- pospsy$cesd02 - 1  -->
-<!-- pospsy$cesd03r <- pospsy$cesd03 - 1  -->
-<!-- pospsy$cesd04r <- pospsy$cesd04 - 1  -->
-<!-- ``` -->
-<!-- However, this is repetitive and error prone. -->
-<!-- ## Writing Functions -->
-<!-- ```{webr-r} -->
-<!-- recode_cesd <- function(cesd_var) { -->
-<!--   cesd_var - 1 -->
-<!-- } -->
-<!-- pospsy$cesd01r <- recode_cesd(pospsy$cesd01) -->
-<!-- range(pospsy$cesd01r) -->
-<!-- ``` -->
-<!-- ## Exercise -->
-<!-- ## Loops -->
-<!-- If you have to repeat yourself, use a loop -->
-<!-- ## Excercise -->
-</section></section><section><section id="simulations" class="title-slide slide level1 center"><h1>Simulations</h1>
-
-</section><section id="synthetic-data" class="slide level2"><h2>Synthetic data</h2>
-<p>Open science</p>
-<p>However, often it is not possible to share raw study datasets bcause they contain personally identifiable information or are highly sensitive.</p>
-<p>In this case, <strong>synthetic datasets</strong> can be generated and used in place of the real data.</p>
-</section><section id="the-simstudy-package" class="slide level2"><h2>The <code>simstudy</code> package</h2>
 </section></section><section><section id="making-code-easier-to-read" class="title-slide slide level1 center"><h1>Making code easier to read</h1>
 
 </section><section id="making-code-easier-to-read-1" class="slide level2"><h2>Making code easier to read</h2>
@@ -2221,6 +2197,201 @@ Johannes Feldhege
 <li>incorporate your code into functions in a package and document them with roxygen2</li>
 </ul>
 <p>Both aspects will be covered in the second part of the workshop.</p>
+</section></section><section><section id="reproducibility" class="title-slide slide level1 center"><h1>Reproducibility</h1>
+
+</section><section id="why-make-it-reproducible" class="slide level2"><h2>Why make it reproducible?</h2>
+<ul>
+<li class="fragment"><p>I have to rerun an analysis a few years down the line…</p></li>
+<li class="fragment"><p>My colleague wants to build on my analysis in a new study…</p></li>
+<li class="fragment"><p>I want to publish the code used in my study together with the manuscript so others can use it…</p></li>
+</ul></section><section id="what-is-reproducibility" class="slide level2"><h2>What is reproducibility?</h2>
+<p>A study is reproducible if it can be</p>
+<ul>
+<li class="fragment">conducted again</li>
+<li class="fragment">years later</li>
+<li class="fragment">with the same results.</li>
+</ul></section><section id="the-replication-crisis" class="slide level2"><h2>The replication crisis</h2>
+<p>Reproducibility =/= Replication</p>
+<p>However, open methods and data are essential aspects for both.</p>
+<p>Openly shared methods and data become valuable when we are given the same tools to work with as the authors.</p>
+</section><section id="measures-for-reproducibility" class="slide level2"><h2>Measures for reproducibility</h2>
+<p>We will look at these measures today:</p>
+<ul>
+<li>Reproducible environments with <a href="https://cran.r-project.org/web/packages/renv/index.html">renv</a>
+</li>
+<li>literate programming using <a href="https://quarto.org/">Quarto</a>
+</li>
+<li>publish study analysis and data as an R package</li>
+</ul>
+<p>Outlook for further functionalities:</p>
+<ul>
+<li>version control using git, Github, Gitlab, etc.</li>
+<li>containerization with Docker, Nix, rix</li>
+<li>Research compendia</li>
+</ul></section></section><section><section id="first-steps-toward-reproducibility" class="title-slide slide level1 center"><h1>First steps toward reproducibility</h1>
+
+</section><section id="a-fresh-start" class="slide level2"><h2>A fresh start</h2>
+<p>Can I run my analysis tomorrow with the same results as today? Have I included all steps in my code?</p>
+<p><i class="fa-solid fa-circle-right" aria-label="circle-right"></i> For a fresh start: make restarting R during script writing a habit!</p>
+<p>Session <i class="fa-solid fa-circle-right" aria-label="circle-right"></i> Restart <i class="fa-brands fa-r-project" aria-label="r-project"></i></p>
+<p>or</p>
+<p>Strg + Shift + F10</p>
+</section><section id="never-let-rstudio-save-anything" class="slide level2"><h2>Never let Rstudio save anything!</h2>
+<p>Do not rely on <code>.RData</code> to bail you out. Either save interim datasets to files or write your script in a way that lets you start from scratch every time.</p>
+<p>Two options:</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>Change the RStudio options: <img data-src="images/rdata.PNG"></p>
+</div><div class="column" style="width:40%;">
+<p>Use this function from the <code>usethis</code> package:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_blank_slate</span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div></div>
+</section></section><section><section id="freezing-package-versions" class="title-slide slide level1 center"><h1>Freezing package versions</h1>
+
+</section><section id="but-it-works-on-my-machine" class="slide level2"><h2>But it works on my machine!</h2>
+<p>Sharing your code and data is one step in the right direction.</p>
+<p>To guarantee that others can apply them on their machine, you need to be able to share your <strong>computational environment</strong>.</p>
+<p><i class="fa-solid fa-circle-right" aria-label="circle-right"></i> What is the computational environment:</p>
+<ul>
+<li class="fragment">Specific <i class="fa-brands fa-r-project" aria-label="r-project"></i> packages and their version</li>
+<li class="fragment">
+<i class="fa-brands fa-r-project" aria-label="r-project"></i> version</li>
+<li class="fragment">operating system ( <i class="fa-brands fa-windows" aria-label="windows"></i>, <i class="fa-brands fa-apple" aria-label="apple"></i>, <i class="fa-brands fa-linux" aria-label="linux"></i>) ]</li>
+<li class="fragment">system dependencies</li>
+</ul></section><section id="the-renv-package" class="slide level2"><h2>The <code>renv</code> package</h2>
+<p><code>renv</code> controls in the computational environment:</p>
+<ul>
+<li class="fragment">Specific <i class="fa-brands fa-r-project" aria-label="r-project"></i> packages and their version</li>
+<li class="fragment"><span class="fragment strike"><i class="fa-brands fa-r-project" aria-label="r-project"></i> version</span></li>
+<li class="fragment"><span class="fragment strike">operating system ( <i class="fa-brands fa-windows" aria-label="windows"></i>, <i class="fa-brands fa-apple" aria-label="apple"></i>, <i class="fa-brands fa-linux" aria-label="linux"></i>)</span></li>
+<li class="fragment"><span class="fragment strike">system dependencies</span></li>
+</ul></section><section id="the-renv-package-1" class="slide level2"><h2>The <code>renv</code> package</h2>
+<p>It <strong>freezes and records</strong> the actively used packages and their version in your project in a project-specific library.</p>
+<p>This way, your project becomes <strong>portable</strong> and <strong>reproducible</strong> as you can use it on another computer or share it with a colleague.</p>
+<p>The project is not affected by <strong>changing functionality</strong> or <strong>breaking changes</strong> in packages across versions.</p>
+</section><section id="libraries-in-a-regular-setup" class="slide level2"><h2>Libraries in a regular setup</h2>
+<p>A library is the place where packages are installed. To check where your library is located, run <code><a href="https://rdrr.io/r/base/libPaths.html">.libPaths()</a></code>.</p>
+<p>In a regular setup, all projects write to the same library. Therefore, packages can become out of sync with the projects that they have been used in.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""></figure><p></p>
+<div>
+<svg width="960" height="480" viewbox="0.00 0.00 242.16 121.60" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 117.6)"><title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-117.6 238.16,-117.6 238.16,4 -4,4"></polygon><!-- A --><g id="node1" class="node"><title>A</title>
+<polygon fill="none" stroke="black" points="66.23,-113.6 63.23,-117.6 42.23,-117.6 39.23,-113.6 -0.08,-113.6 -0.08,-77.6 66.23,-77.6 66.23,-113.6"></polygon><text text-anchor="middle" x="33.08" y="-91.4" font-family="Times,serif" font-size="14.00">Project 1</text></g><!-- D --><g id="node4" class="node"><title>D</title>
+<polygon fill="none" stroke="black" points="148.22,-41.4 145.22,-45.4 124.22,-45.4 121.22,-41.4 85.94,-41.4 85.94,-0.2 148.22,-0.2 148.22,-41.4"></polygon><text text-anchor="middle" x="117.08" y="-25" font-family="Times,serif" font-size="14.00">Package</text><text text-anchor="middle" x="117.08" y="-8.2" font-family="Times,serif" font-size="14.00">library</text></g><!-- A&#45;&gt;D --><g id="edge1" class="edge"><title>A-&gt;D</title>
+<path fill="none" stroke="black" d="M52.98,-77.35C62.98,-68.69 75.31,-58 86.47,-48.33"></path><polygon fill="black" stroke="black" points="89.08,-50.69 94.35,-41.5 84.5,-45.41 89.08,-50.69"></polygon></g><!-- B --><g id="node2" class="node"><title>B</title>
+<polygon fill="none" stroke="black" points="150.23,-113.6 147.23,-117.6 126.23,-117.6 123.23,-113.6 83.92,-113.6 83.92,-77.6 150.23,-77.6 150.23,-113.6"></polygon><text text-anchor="middle" x="117.08" y="-91.4" font-family="Times,serif" font-size="14.00">Project 2</text></g><!-- B&#45;&gt;D --><g id="edge2" class="edge"><title>B-&gt;D</title>
+<path fill="none" stroke="black" d="M117.08,-77.35C117.08,-69.69 117.08,-60.46 117.08,-51.74"></path><polygon fill="black" stroke="black" points="120.58,-51.5 117.08,-41.5 113.58,-51.5 120.58,-51.5"></polygon></g><!-- C --><g id="node3" class="node"><title>C</title>
+<polygon fill="none" stroke="black" points="234.23,-113.6 231.23,-117.6 210.23,-117.6 207.23,-113.6 167.92,-113.6 167.92,-77.6 234.23,-77.6 234.23,-113.6"></polygon><text text-anchor="middle" x="201.08" y="-91.4" font-family="Times,serif" font-size="14.00">Project 3</text></g><!-- C&#45;&gt;D --><g id="edge3" class="edge"><title>C-&gt;D</title>
+<path fill="none" stroke="black" d="M181.17,-77.35C171.18,-68.69 158.85,-58 147.68,-48.33"></path><polygon fill="black" stroke="black" points="149.66,-45.41 139.81,-41.5 145.07,-50.69 149.66,-45.41"></polygon></g></g></svg>
+</div>
+<p></p>
+</div>
+</div>
+</div>
+</section><section id="libraries-with-renv" class="slide level2"><h2>Libraries with <code>renv</code>
+</h2>
+<p>Using <code>renv</code>, each project has its own library. When a new package is installed, it is also written to a global package cache. The next time it is needed in a project, it is taken from there instead of downloading it again.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""></figure><p></p>
+<div>
+<svg width="960" height="480" viewbox="0.00 0.00 245.32 216.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 212)"><title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-212 241.32,-212 241.32,4 -4,4"></polygon><!-- A --><g id="node1" class="node"><title>A</title>
+<polygon fill="none" stroke="black" points="66.81,-208 63.81,-212 42.81,-212 39.81,-208 0.5,-208 0.5,-172 66.81,-172 66.81,-208"></polygon><text text-anchor="middle" x="33.66" y="-185.8" font-family="Times,serif" font-size="14.00">Project 1</text></g><!-- D --><g id="node4" class="node"><title>D</title>
+<polygon fill="none" stroke="black" points="67.48,-135.8 64.48,-139.8 43.48,-139.8 40.48,-135.8 -0.16,-135.8 -0.16,-94.6 67.48,-94.6 67.48,-135.8"></polygon><text text-anchor="middle" x="33.66" y="-119.4" font-family="Times,serif" font-size="14.00">Project</text><text text-anchor="middle" x="33.66" y="-102.6" font-family="Times,serif" font-size="14.00"> library 1</text></g><!-- A&#45;&gt;D --><g id="edge1" class="edge"><title>A-&gt;D</title>
+<path fill="none" stroke="black" d="M33.66,-171.75C33.66,-164.09 33.66,-154.86 33.66,-146.14"></path><polygon fill="black" stroke="black" points="37.16,-145.9 33.66,-135.9 30.16,-145.9 37.16,-145.9"></polygon></g><!-- B --><g id="node2" class="node"><title>B</title>
+<polygon fill="none" stroke="black" points="151.81,-208 148.81,-212 127.81,-212 124.81,-208 85.5,-208 85.5,-172 151.81,-172 151.81,-208"></polygon><text text-anchor="middle" x="118.66" y="-185.8" font-family="Times,serif" font-size="14.00">Project 2</text></g><!-- E --><g id="node5" class="node"><title>E</title>
+<polygon fill="none" stroke="black" points="152.48,-135.8 149.48,-139.8 128.48,-139.8 125.48,-135.8 84.84,-135.8 84.84,-94.6 152.48,-94.6 152.48,-135.8"></polygon><text text-anchor="middle" x="118.66" y="-119.4" font-family="Times,serif" font-size="14.00">Project</text><text text-anchor="middle" x="118.66" y="-102.6" font-family="Times,serif" font-size="14.00"> library 2</text></g><!-- B&#45;&gt;E --><g id="edge2" class="edge"><title>B-&gt;E</title>
+<path fill="none" stroke="black" d="M118.66,-171.75C118.66,-164.09 118.66,-154.86 118.66,-146.14"></path><polygon fill="black" stroke="black" points="122.16,-145.9 118.66,-135.9 115.16,-145.9 122.16,-145.9"></polygon></g><!-- C --><g id="node3" class="node"><title>C</title>
+<polygon fill="none" stroke="black" points="236.81,-208 233.81,-212 212.81,-212 209.81,-208 170.5,-208 170.5,-172 236.81,-172 236.81,-208"></polygon><text text-anchor="middle" x="203.66" y="-185.8" font-family="Times,serif" font-size="14.00">Project 3</text></g><!-- F --><g id="node6" class="node"><title>F</title>
+<polygon fill="none" stroke="black" points="237.48,-135.8 234.48,-139.8 213.48,-139.8 210.48,-135.8 169.84,-135.8 169.84,-94.6 237.48,-94.6 237.48,-135.8"></polygon><text text-anchor="middle" x="203.66" y="-119.4" font-family="Times,serif" font-size="14.00">Project</text><text text-anchor="middle" x="203.66" y="-102.6" font-family="Times,serif" font-size="14.00"> library 3</text></g><!-- C&#45;&gt;F --><g id="edge3" class="edge"><title>C-&gt;F</title>
+<path fill="none" stroke="black" d="M203.66,-171.75C203.66,-164.09 203.66,-154.86 203.66,-146.14"></path><polygon fill="black" stroke="black" points="207.16,-145.9 203.66,-135.9 200.16,-145.9 207.16,-145.9"></polygon></g><!-- G --><g id="node7" class="node"><title>G</title>
+<polygon fill="none" stroke="black" points="151.52,-58.6 148.52,-62.6 127.52,-62.6 124.52,-58.6 85.8,-58.6 85.8,0.2 151.52,0.2 151.52,-58.6"></polygon><text text-anchor="middle" x="118.66" y="-41.8" font-family="Times,serif" font-size="14.00">Global</text><text text-anchor="middle" x="118.66" y="-25" font-family="Times,serif" font-size="14.00"> package</text><text text-anchor="middle" x="118.66" y="-8.2" font-family="Times,serif" font-size="14.00"> cache</text></g><!-- D&#45;&gt;G --><g id="edge4" class="edge"><title>D-&gt;G</title>
+<path fill="none" stroke="black" d="M53.8,-94.29C62.41,-85.79 72.73,-75.59 82.57,-65.86"></path><polygon fill="black" stroke="black" points="85.32,-68.07 89.97,-58.55 80.4,-63.09 85.32,-68.07"></polygon></g><!-- E&#45;&gt;G --><g id="edge5" class="edge"><title>E-&gt;G</title>
+<path fill="none" stroke="black" d="M118.66,-94.29C118.66,-86.62 118.66,-77.58 118.66,-68.74"></path><polygon fill="black" stroke="black" points="122.16,-68.55 118.66,-58.55 115.16,-68.55 122.16,-68.55"></polygon></g><!-- F&#45;&gt;G --><g id="edge6" class="edge"><title>F-&gt;G</title>
+<path fill="none" stroke="black" d="M183.51,-94.29C174.91,-85.79 164.59,-75.59 154.75,-65.86"></path><polygon fill="black" stroke="black" points="156.92,-63.09 147.34,-58.55 152,-68.07 156.92,-63.09"></polygon></g></g></svg>
+</div>
+<p></p>
+</div>
+</div>
+</div>
+</section><section id="important-renv-functions" class="slide level2"><h2>Important <code>renv</code> functions</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 46%">
+<col style="width: 53%">
+</colgroup>
+<thead><tr class="header">
+<th>Task</th>
+<th>function</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Initialise <code>renv</code>
+</td>
+<td><code>renv::init()</code></td>
+</tr>
+<tr class="even">
+<td>
+<code>renv</code> status</td>
+<td>
+<code>renv::status</code>()<code>| | Install new package            |</code>renv::install<code>()</code>
+</td>
+</tr>
+<tr class="odd">
+<td>Update project library</td>
+<td>
+<code>renv::snapshot</code>()<code>| | Restore project library  |</code>renv::restore<code>()</code>
+</td>
+</tr>
+</tbody>
+</table></section><section id="initialise-renv-with-renvinit" class="slide level2"><h2>Initialise <code>renv</code> with <code>renv::init()</code>
+</h2>
+
+<img data-src="images/renv_init.PNG" class="r-stretch quarto-figure-center"><p class="caption">Console output after renv::init()</p></section><section id="project-files-created-by-renv" class="slide level2"><h2>Project files created by <code>renv</code>
+</h2>
+<p>The following project files are created by <code>renv::init()</code></p>
+<pre><code>.
+├── .Rprofile          # Project-specific profile, activates renv 
+│
+├── renv/
+│   ├── .gitignore     # Specify which files should be ignored by git
+│   ├── activate.R     # R script to launch renv
+│   ├── library/       # Project library
+│   └── settings.dcf   # renv settings
+│
+└── renv.lock          # the lockfile, containing package metadata</code></pre>
+</section><section id="workflow-with-renv" class="slide level2"><h2>Workflow with <code>renv</code>
+</h2>
+<p>Reproducibility can be achieved with the functions <code>renv::snapshot()</code> &amp; <code>renv::restore()</code></p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><strong>You</strong></p>
+<ul>
+<li>Initialize <code>renv</code> in the project with <strong><code>renv::init()</code></strong>
+</li>
+<li>Install new packages with <code>renv::install()</code>
+</li>
+<li><strong>Update the lockfile with <code>renv::snapshot()</code></strong></li>
+<li>Share project with others or across computers</li>
+</ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<p><strong>Other person/computer</strong></p>
+<ul>
+<li><strong>Restore project library from a lockfile with <code>renv::restore()</code></strong></li>
+<li>Install new packages with <code>renv::install()</code>
+</li>
+<li><strong>Update the lockfile with <code>renv::snapshot()</code></strong></li>
+</ul>
+</div></div>
 
 
 </section></section>
