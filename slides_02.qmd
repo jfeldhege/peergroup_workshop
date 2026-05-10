@@ -19,8 +19,6 @@ filters:
   - webr
 ---
 
-
-
 # Literate programming using Quarto
 
 ## Literate programming
@@ -323,16 +321,66 @@ A live example can be seen [here](https://quarto-ext.github.io/manuscript-templa
 
 
 
-# Writing R packages
+# Creating R packages
 
-## Creating an R Package with the {usethis} package
+## Creating an R Package with the `usethis` package
 
 One easy step to get started:
 
-``` r
+```{r}
 #| eval: false
-usethis::create_package("/path/to/the/package")
+usethis::create_package("/path/to/the/package/name")
 ```
+
+A package name can only contain letters, numbers, and `.`
+
+## The package directory structure
+
+```
+.
+├── (.gitignore)        # Files to ignore when using git
+│
+├── .Rbuildignore       # Files to ignore when building package
+│
+├── R/                  # Folder to store (only) R functions
+│   ├── myfun-1.R       # A first R function file
+│   └── myfun-2.R       # A second R function file
+│
+├── man/                # Folder to store R functions documentation
+│   ├── my_fun_1.Rd
+│   └── my_fun_2.Rd
+│
+├── DESCRIPTION         # Package metadata
+│
+└── NAMESPACE           # Automatically edited
+```
+
+
+## The DESCRIPTION
+
+![](images/pkg_description.PNG)
+
+## The DESCRIPTION
+
+The description can be edited by hand, but `usethis` also provides function to edit them:
+
+| Task                  | function                     |
+|-----------------------|------------------------------|
+| Declare dependencies  | `usethis::use_package()`     |
+| Adding authors        | `usethis::use_author()`      |
+| Edit DESCRIPTION      | `usethis::use_description()` |
+
+
+
+## Exercise
+
+I have prepared a small script with these functions that you can download here [script_package_01.R](%22https://www.johannesfeldhege.de/peergroup_workshop/script_package_01.R%22)
+
+I want you to execute these functions to create a package and write metadata to its DESCRIPTION.
+
+Check out the directory structure and the different files that have been created.
+
+
 
 ## The process of working on a package
 
@@ -356,23 +404,100 @@ E -> A ;
 }
 ```
 
+
 ## Useful functions for package development
 
 | Task                  | function                 |
 |-----------------------|--------------------------|
+| Create R script       | `usethis::use_r()`       |
+| Add data              | `usethis::use_data()`    |
 | Document function     | `devtools::document()`   |
 | Load all functions    | `devtools::load_all()`   |
 | CMD Check             | `devtools::check()`      |
 | Build package locally | `devtools::build()`      |
-| Declare dependencies  | `usethis::use_package()` |
 
-: Table: Useful functions for packaged
+: Table: Useful functions for package development
+
+
+## Documenting functions with `roxygen2`
+
+The idea behind `roxygen2` is to document functions with special comments next to their definition. `roxygen2` will process these comments and turn them into manual pages in the package. 
+
+You can add a comment skeleton with control + alt + shift + R when your cursor is inside the function. 
+
+
+## `roxygen2` comments
+
+```{bash}
+#| eval: false
+#| code-line-numbers: "|1|3-6|8|9-10|12|13-16|"
+
+#' The length of a string
+#'
+#' Technically this returns the number of "code points", in a string. One
+#' code point usually corresponds to one character, but not always. For example,
+#' an u with a umlaut might be represented as a single character or as the
+#' combination a u and an umlaut.
+#'
+#' @param string A text string
+#' @return A numeric vector giving number of characters (code points) in each
+#'    element of the character vector. Missing string have missing length.
+#' @seealso [stringi::stri_length()] which this function wraps.
+#' @export
+#' @examples
+#' str_length(letters)
+#' str_length(NA)
+#' str_length(factor("abc"))
+str_length <- function(string) {
+}
+```
+
+## R CMD Check
+:::: {.columns}
+
+::: {.column width="30%"}
+R CMD check runs checks intended for publication on CRAN. 
+
+It is very strict.
+
+The three levels of feedback:
+
+- errors need to be fixed
+
+- warnings affect functionality
+
+- notes can often be ignored if you do not intend to publish the package on CRAN
+
+
+:::
+
+::: {.column width="60%"}
+![](images/rcmd_check.PNG)
+:::
+
+::::
+
+
+
 
 ## Exercise
 
-I have prepared a small script with these functions that you can download here [script_package.R](%22https://www.johannesfeldhege.de/peergroup_workshop/script_package.R%22)
+I have prepared a small script with these functions that you can download here [script_package_02.R](%22https://www.johannesfeldhege.de/peergroup_workshop/script_package_03.R%22)
 
-I want you to
+I want you to 
+
+- create a function that a
+- add some documentation to the function using roxygen2
+- Load the package and test the function
+- Run CMD Check
+- Build the package locally
+- Install it
+
+Optional:
+
+- add the dataset from the function `ds4psy::posPsy_long()` to the package using `usethis::use_data()`
+
+
 
 ## Pros of "study as an R package"
 
@@ -504,9 +629,9 @@ Other implementations:
 :::
 
 
+# Research Compendia
 
-
-## Research Compendia
+## What are research compendia?
 
 >A research compendium collects all digital parts of a research project, including data, code, and texts (protocols, reports, questionnaires, metadata). 
 
