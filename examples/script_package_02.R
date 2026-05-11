@@ -1,6 +1,10 @@
 # Create file for function ------------------------------------------------
 
-usethis::use_r("first_function")
+usethis::use_r("calc_cesd")
+
+calc_cesd <- function(x) {
+  x - 1
+}
 
 
 # Document functions -----------------------------------------------------
@@ -12,6 +16,9 @@ devtools::document()
 
 devtools::load_all()
 
+popsy <- ds4psy::posPsy_long
+
+calc_cesd(popsy$cesd01)
 
 # Check -------------------------------------------------------------------
 
