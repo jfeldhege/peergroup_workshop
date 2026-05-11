@@ -10,19 +10,23 @@ TBD
 
 ## Timetable
 
-| Time      | Content                      |
-|:--------------|:----------------------------|
-| 13:00 - 14:30 | Programming and workflows |
-| 14:30 - 15:00 | *Break*                     |
-| 15:00 - 17:00 | Reproducibility          |
+| Time          | Content                                         |
+|:--------------|:------------------------------------------------|
+| 13:00 - 14:30 | Part 1: Reproducibile environments, Code style  |
+| 14:30 - 14:45 | *Break*                                         |
+| 14:45 - 17:00 | Part2: Literate programming, package development|
 
 ## Requirements
 
--   Current versions of R and RStudio 
--   The following R packager are required: TBD
+To get the most out of this workshop, it is recommended:
 
-The packages can be installed using the following code:
+1.  Install recent versions of {{< fa brands r-project >}} and RStudio
+
+2.  Install the following packages: `ds4psy`, `usethis`, `devtools`, `roxygen2`, `lintr`. They can be installed using the following code:
 
 ``` r
-install.packages(c("tidyverse"))
+install.packages(c("ds4psy", "lintr", "usethis", "devtools","roxygen2"))
 ```
+
+
+3.  Create a new RStudio project for use in the workshop. 
