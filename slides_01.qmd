@@ -28,43 +28,44 @@ All materials for the workshop (slides, scripts, references) can be found on thi
 
 <http://www.johannesfeldhege.de/peergroup_workshop/>
 
+![](images/website.png)
+
 It is hosted on Github and has a permissive license so you can use them however you want.
 
 ## Requirements
 
 To get the most out of this workshop, it is recommended to:
 
+::: nonincremental
 1.  Install recent versions of {{< fa brands r-project >}} and RStudio
 
 2.  Install the following packages: `ds4psy`, `usethis`, `devtools`, `roxygen2`, `lintr`. They can be installed using the following code:
 
-``` r
+```{bash}
 #| eval: false
 install.packages(c("ds4psy", "lintr", "usethis", "devtools","roxygen2"))
 ```
 
-3.  Create a new RStudio project for use in the workshop. 
+3.  Create a new RStudio project for use in the workshop.
+:::
 
 ## Timetable
 
-| Time          | Content                                         |
-|:--------------|:------------------------------------------------|
-| 13:00 - 14:30 | Part 1: Reproducibile environments, Code style  |
-| 14:30 - 14:45 | *Break*                                         |
-| 14:45 - 17:00 | Part2: Literate programming, package development|
-
+| Time          | Content                                          |
+|:--------------|:-------------------------------------------------|
+| 13:00 - 14:30 | Part 1: Reproducibile environments, Code style   |
+| 14:30 - 14:45 | *Break*                                          |
+| 14:45 - 17:00 | Part2: Literate programming, package development |
 
 ## About me
 
 ::: nonincremental
 - M. Sc. in Psychology
 - I used to work for Forschungsstelle für Psychotherapie
-- I currently work as a Data Scientist at Asklepios Science & Research since 2022
+- I have been working as a Data Scientist at Asklepios Science & Research since 2022
 - I use R at work daily
 - I have published an R package on CRAN, [`openholidaysR`](https://cran.r-project.org/web/packages/openholidaysR/index.html) and I am currently working on a second one
 :::
-
-
 
 ## Results from the pre-workshop survey
 
@@ -89,7 +90,6 @@ Today's workshop will cover these topics:
 - publish study analysis and data as an R package
 - outlook for further reproducibility
 
-
 ## A dataset for today's workshop
 
 ```{webr-r}
@@ -98,12 +98,12 @@ Today's workshop will cover these topics:
 pospsy <- ds4psy::posPsy_AHI_CESD
 ```
 
-
 # Making code easier to read
 
 ## Making code easier to read
 
-> Code is written once but read many times.
+>Code is written once but read many times.
+
 
 Therefore, we should try to improve readibility of our code.
 
@@ -122,8 +122,6 @@ Naming things is hard - so hard that books are written about it:
 ![](images/naming_things_book.PNG)
 
 ## How to pick good names?
-
-
 
 A good name should be
 
@@ -167,7 +165,7 @@ regResults
 
 ## Names for functions
 
-The convention for functions in the tidyverse, a collection of related packages, is to start a function name with a verb, so `do()` or `do_thing()`. 
+The convention for functions in the tidyverse, a collection of related packages, is to start a function name with a verb, so `do()` or `do_thing()`.
 
 Examples:
 
@@ -251,7 +249,6 @@ These are places where detailed comments on what and your code is doing for what
 
 Both aspects will be covered in the second part of the workshop.
 
-
 # Reproducibility
 
 ## Why make it reproducible?
@@ -288,16 +285,13 @@ We will look at these measures today:
 - publish study analysis and data as an R package
 :::
 
-
-Outlook for further functionalities: 
+Outlook for further functionalities:
 
 ::: nonincremental
-- version control using git, Github, Gitlab, etc. 
+- version control using git, Github, Gitlab, etc.
 - containerization with Docker, Nix, rix
 - Research compendia
 :::
-
-
 
 # First steps toward reproducibility
 
@@ -307,12 +301,11 @@ Can I run my analysis tomorrow with the same results as today? Have I included a
 
 {{< fa circle-right >}} For a fresh start: make restarting R during script writing a habit!
 
-Session {{< fa circle-right >}} Restart {{< fa brands r-project >}} 
+Session {{< fa circle-right >}} Restart {{< fa brands r-project >}}
 
-or 
+or
 
 Strg + Shift + F10
-
 
 ## Never let Rstudio save anything!
 
@@ -322,8 +315,7 @@ Two options:
 
 ::::: columns
 ::: {.column width="60%"}
-Change the RStudio options:
-![](images/rdata.PNG)
+Change the RStudio options: ![](images/rdata.PNG)
 :::
 
 ::: {.column width="40%"}
@@ -334,9 +326,7 @@ Use this function from the `usethis` package:
 usethis::use_blank_slate()
 ```
 :::
-
 :::::
-
 
 # Freezing package versions
 
@@ -350,7 +340,7 @@ To guarantee that others can apply them on their machine, you need to be able to
 
 - Specific {{< fa brands r-project >}} packages and their version
 - {{< fa brands r-project >}} version
-- operating system ( {{< fa brands windows >}}, {{< fa brands apple >}}, {{< fa brands linux >}}) ]
+- operating system ( {{< fa brands windows >}}, {{< fa brands apple >}}, {{< fa brands linux >}}) \]
 - system dependencies
 
 ## The `renv` package
@@ -359,9 +349,8 @@ To guarantee that others can apply them on their machine, you need to be able to
 
 - Specific {{< fa brands r-project >}} packages and their version
 - [{{< fa brands r-project >}} version]{.fragment .strike}
-- [operating system ( {{< fa brands windows >}}, {{< fa brands apple >}}, {{< fa brands linux >}}) ]{.fragment .strike}
+- [operating system ( {{< fa brands windows >}}, {{< fa brands apple >}}, {{< fa brands linux >}})]{.fragment .strike}
 - [system dependencies]{.fragment .strike}
-
 
 ## The `renv` package
 
@@ -369,13 +358,13 @@ It **freezes and records** the actively used packages and their version in your 
 
 This way, your project becomes **portable** and **reproducible** as you can use it on another computer or share it with a colleague.
 
-The project is not affected by **changing functionality** or **breaking changes** in packages across versions. 
+The project is not affected by **changing functionality** or **breaking changes** in packages across versions.
 
 ## Libraries in a regular setup
 
-A library is the place where packages are installed. To check where your library is located, run `.libPaths()`. 
+A library is the place where packages are installed. To check where your library is located, run `.libPaths()`.
 
-In a regular setup, all projects write to the same library. Therefore, packages can become out of sync with the projects that they have been used in.   
+In a regular setup, all projects write to the same library. Therefore, packages can become out of sync with the projects that they have been used in.
 
 ```{dot}
 //| echo: false
@@ -393,13 +382,9 @@ digraph G {
 }
 ```
 
-
 ## Libraries with `renv`
 
-
-Using `renv`, each project has its own library. When a new package is installed,
-it is also written to a global package cache. The next time it is needed in a project, it is taken from there instead of downloading it again. 
-
+Using `renv`, each project has its own library. When a new package is installed, it is also written to a global package cache. The next time it is needed in a project, it is taken from there instead of downloading it again.
 
 ```{dot}
 //| echo: false
@@ -425,25 +410,24 @@ digraph G {
 }
 ```
 
-
 ## Important `renv` functions
 
-| Task                     | function                 |
-|--------------------------|--------------------------|
-| Initialise `renv`        | `renv::init()`           |
-| `renv` status            | `renv::status()`        |
-| Install new package      | `renv::install()`       |
-| Update project library   | `renv::snapshot()`      |
-| Restore project library  | `renv::restore()`       |
-
+| Task                    | function           |
+|-------------------------|--------------------|
+| Initialise `renv`       | `renv::init()`     |
+| `renv` status           | `renv::status()`   |
+| Install new package     | `renv::install()`  |
+| Update project library  | `renv::snapshot()` |
+| Restore project library | `renv::restore()`  |
 
 ## Initialise `renv` with `renv::init()`
 
- ![Console output after renv::init()](images/renv_init.PNG)
+![Console output after renv::init()](images/renv_init.PNG)
 
 ## Project files created by `renv`
 
 The following project files are created by `renv::init()`
+
 ```         
 .
 ├── .Rprofile          # Project-specific profile, activates renv 
@@ -457,14 +441,12 @@ The following project files are created by `renv::init()`
 └── renv.lock          # the lockfile, containing package metadata
 ```
 
-
 ## Workflow with `renv`
 
 Reproducibility can be achieved with the functions `renv::snapshot()` & `renv::restore()`
 
-:::::: columns
-
-::: {.column width="45%"}
+:::::::: columns
+:::: {.column width="45%"}
 **You**
 
 ::: nonincremental
@@ -473,13 +455,12 @@ Reproducibility can be achieved with the functions `renv::snapshot()` & `renv::r
 - **Update the lockfile with `renv::snapshot()`**
 - Share project with others or across computers
 :::
-
-:::
+::::
 
 ::: {.column width="10%"}
 :::
 
-::: {.column width="45%"}
+:::: {.column width="45%"}
 **Other person/computer**
 
 ::: nonincremental
@@ -487,14 +468,5 @@ Reproducibility can be achieved with the functions `renv::snapshot()` & `renv::r
 - Install new packages with `renv::install()`
 - **Update the lockfile with `renv::snapshot()`**
 :::
-
-:::
-
-::::::
-
-
-
-
-
-
-
+::::
+::::::::
