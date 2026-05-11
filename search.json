@@ -326,14 +326,14 @@
     "href": "slides_01.html#housekeeping",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Housekeeping",
-    "text": "Housekeeping\nAll materials for the workshop (slides, scripts, references) can be found on this website:\nhttp://www.johannesfeldhege.de/peergroup_workshop/\nIt is hosted on Github and has a permissive license so you can use them however you want."
+    "text": "Housekeeping\nAll materials for the workshop (slides, scripts, references) can be found on this website:\nhttp://www.johannesfeldhege.de/peergroup_workshop/\n\nIt is hosted on Github and has a permissive license so you can use them however you want."
   },
   {
     "objectID": "slides_01.html#requirements",
     "href": "slides_01.html#requirements",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Requirements",
-    "text": "Requirements\nTo get the most out of this workshop, it is recommended to:\n\nInstall recent versions of  and RStudio\nInstall the following packages: ds4psy, usethis, devtools, roxygen2, lintr. They can be installed using the following code:\n\n#| eval: false\ninstall.packages(c(\"ds4psy\", \"lintr\", \"usethis\", \"devtools\",\"roxygen2\"))\n\nCreate a new RStudio project for use in the workshop."
+    "text": "Requirements\nTo get the most out of this workshop, it is recommended to:\n\nInstall recent versions of  and RStudio\nInstall the following packages: ds4psy, usethis, devtools, roxygen2, lintr. They can be installed using the following code:\n\n\ninstall.packages(c(\"ds4psy\", \"lintr\", \"usethis\", \"devtools\",\"roxygen2\"))\n\n\nCreate a new RStudio project for use in the workshop."
   },
   {
     "objectID": "slides_01.html#timetable",
@@ -347,7 +347,7 @@
     "href": "slides_01.html#about-me",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "About me",
-    "text": "About me\n\nM. Sc. in Psychology\nI used to work for Forschungsstelle für Psychotherapie\nI currently work as a Data Scientist at Asklepios Science & Research since 2022\nI use R at work daily\nI have published an R package on CRAN, openholidaysR and I am currently working on a second one"
+    "text": "About me\n\nM. Sc. in Psychology\nI used to work for Forschungsstelle für Psychotherapie\nI have been working as a Data Scientist at Asklepios Science & Research since 2022\nI use R at work daily\nI have published an R package on CRAN, openholidaysR and I am currently working on a second one"
   },
   {
     "objectID": "slides_01.html#results-from-the-pre-workshop-survey",
