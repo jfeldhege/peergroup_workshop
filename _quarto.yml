@@ -19,15 +19,14 @@ website:
         menu:
         - text: "Part 1"
           href: slides_01.qmd
-        - text: "---"
         - text: "Part 2"
           href: slides_02.qmd
       - text: Scripts
         menu:
-        - text: Examples
-          href: "/examples/script_examples.R"
-        - text: Example Script package development
-          href: "/examples/script_package.R"
+        - text: Script 01 for packages
+          href: "/examples/script_package_01.R"
+        - text: Script 02 for packages
+          href: "/examples/script_package_02.R"
         - text: Quarto Example
           href: "examples/quarto_example.qmd"
 
