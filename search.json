@@ -319,7 +319,7 @@
     "href": "index.html#requirements",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Requirements",
-    "text": "Requirements\nTo get the most out of this workshop, it is recommended to:\n\nInstall recent versions of  and RStudio\nInstall the following packages: ds4psy, usethis, devtools, roxygen2, lintr. They can be installed using the following code:\n\n``` r #| eval: false install.packages(c(“ds4psy”, “lintr”, “usethis”, “devtools”,“roxygen2”))\n\nCreate a new RStudio project for use in the workshop."
+    "text": "Requirements\nTo get the most out of this workshop, it is recommended to:\n\nInstall recent versions of  and RStudio\nInstall the following packages: ds4psy, usethis, devtools, roxygen2, lintr. They can be installed using the following code:\n\n#| eval: false\ninstall.packages(c(\"ds4psy\", \"lintr\", \"usethis\", \"devtools\",\"roxygen2\"))\n\nCreate a new RStudio project for use in the workshop."
   },
   {
     "objectID": "slides_01.html#housekeeping",
