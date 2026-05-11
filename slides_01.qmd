@@ -4,7 +4,7 @@ subtitle: "Part 1"
 author: "Johannes Feldhege"
 format: 
   revealjs:
-    theme: [simple]
+    theme: [simple, styles.scss]
     footer: <PPF Methods Peer Group>
     slide-number: true
     chalkboard: true
@@ -28,9 +28,9 @@ All materials for the workshop (slides, scripts, references) can be found on thi
 
 <http://www.johannesfeldhege.de/peergroup_workshop/>
 
-![](images/website.png)
+![](images/website.PNG)
 
-It is hosted on Github and has a permissive license so you can use them however you want.
+It is hosted on Github with a permissive license so you can use them however you want.
 
 ## Requirements
 
@@ -51,11 +51,11 @@ install.packages(c("ds4psy", "lintr", "usethis", "devtools","roxygen2"))
 
 ## Timetable
 
-| Time          | Content                                          |
-|:--------------|:-------------------------------------------------|
-| 13:00 - 14:30 | Part 1: Reproducibile environments, Code style   |
+| Time                | Content             |
+|:--------------------|:--------------------|
+| 13:00 - 14:30 | Part 1: Reproducible environments, code styling   |
 | 14:30 - 14:45 | *Break*                                          |
-| 14:45 - 17:00 | Part2: Literate programming, package development |
+| 14:45 - 17:00 | Part 2: Literate programming, package development |
 
 ## About me
 
@@ -105,7 +105,7 @@ pospsy <- ds4psy::posPsy_AHI_CESD
 >Code is written once but read many times.
 
 
-Therefore, we should try to improve readibility of our code.
+Therefore, we should strive to improve the readibility of our code.
 
 Three measures you can take towards this goal:
 
@@ -121,7 +121,7 @@ Naming things is hard - so hard that books are written about it:
 
 ![](images/naming_things_book.PNG)
 
-## How to pick good names?
+## How to pick a good name?
 
 A good name should be
 
@@ -133,13 +133,23 @@ A good name should be
 
 Some commonly used conventions:
 
+
+:::: {.columns}
+
+::: {.column width="30%"}
 base {{< fa brands r-project >}}
+
+<br />
 
 :snake: snake_case
 
-:camel: camelCase
+<br />
 
-``` r
+:camel: camelCase
+:::
+
+::: {.column width="60%"}
+```{bash}
 #| eval: false
 
 # base R
@@ -154,6 +164,11 @@ reg_results
 addValue()
 regResults
 ```
+:::
+
+::::
+
+
 
 ## Examples for bad names
 
@@ -232,20 +247,25 @@ Caution: these tools change your code without asking!
 
 > A helpful comment explains the why, not the what or how.
 
-In
+If you find yourself commenting what the code is doing, the code might need to be re-written so that it speaks for itself. 
+
+Comments should be used sparingly, acting as an alert for the reader. 
+
 
 More info [here](https://blog.r-hub.io/2023/01/26/code-comments-self-explaining-code/) and [here](https://style.tidyverse.org/)
 
 ## Too many comments
 
-If you find yourself commenting a lot, there might be better alternatives.
+Too many comments will be ignored by the reader. 
 
-These are places where detailed comments on what and your code is doing for what reason are encouraged:
+If you find yourself commenting a lot, there might be better alternatives:
 
 ::: nonincremental
 - convert your script to a {{< fa brands markdown >}} document such as Rmarkdown or Quarto
-- incorporate your code into functions in a package and document them with roxygen2
+- incorporate your code into functions in a package and document them with `roxygen2`
 :::
+
+There, detailed comments on what your code is doing for what reason are encouraged. 
 
 Both aspects will be covered in the second part of the workshop.
 
@@ -253,11 +273,11 @@ Both aspects will be covered in the second part of the workshop.
 
 ## Why make it reproducible?
 
-- I have to rerun an analysis a few years down the line...
+- I have to re-run an analysis a few years down the line...
 
 - My colleague wants to build on my analysis in a new study...
 
-- I want to publish the code used in my study together with the manuscript so others can use it...
+- I want to publish the code used in my study together with the manuscript so others can review or test it...
 
 ## What is reproducibility?
 
@@ -266,6 +286,27 @@ A study is reproducible if it can be
 - conducted again
 - years later
 - with the same results.
+
+## Reproducible research
+
+```{dot}
+//| echo: false
+digraph G {
+    rankdir="LR"
+    
+    A [label = "Data", shape = folder]
+    C [label = "Documentation", shape = folder]
+    B [label = "Code", shape = folder]
+
+    D [label = "Public sharing", shape = cylinder]
+    E [label = "Reproducible Research", shape = rectangle]
+  A -> D;
+  B -> D;
+  C -> D;
+  D -> E;
+}
+```
+
 
 ## The replication crisis
 
@@ -277,7 +318,7 @@ Openly shared methods and data become valuable when we are given the same tools 
 
 ## Measures for reproducibility
 
-We will look at these measures today:
+We will look at these reproducibility measures today:
 
 ::: nonincremental
 - Reproducible environments with [renv](https://cran.r-project.org/web/packages/renv/index.html)
@@ -285,7 +326,7 @@ We will look at these measures today:
 - publish study analysis and data as an R package
 :::
 
-Outlook for further functionalities:
+Outlook for advanced functionalities:
 
 ::: nonincremental
 - version control using git, Github, Gitlab, etc.
@@ -299,26 +340,37 @@ Outlook for further functionalities:
 
 Can I run my analysis tomorrow with the same results as today? Have I included all steps in my code?
 
-{{< fa circle-right >}} For a fresh start: make restarting R during script writing a habit!
+{{< fa regular hand-point-right >}} for a fresh start: 
 
+::: {.center}
 Session {{< fa circle-right >}} Restart {{< fa brands r-project >}}
 
 or
 
-Strg + Shift + F10
+Control + Shift + F10
+:::
+
+
+<br /> 
+
+Make restarting R peroidically a habit!
+
 
 ## Never let Rstudio save anything!
 
+::: {.small}
 Do not rely on `.RData` to bail you out. Either save interim datasets to files or write your script in a way that lets you start from scratch every time.
 
-Two options:
+
+Two alternatives:
+:::
 
 ::::: columns
-::: {.column width="60%"}
+::: {.column width="60%" .small}
 Change the RStudio options: ![](images/rdata.PNG)
 :::
 
-::: {.column width="40%"}
+::: {.column width="40%" .small}
 Use this function from the `usethis` package:
 
 ```{r}
@@ -328,7 +380,7 @@ usethis::use_blank_slate()
 :::
 :::::
 
-# Freezing package versions
+# Reproducible {{< fa brands r-project >}} environments
 
 ## But it works on my machine!
 
@@ -336,11 +388,11 @@ Sharing your code and data is one step in the right direction.
 
 To guarantee that others can apply them on their machine, you need to be able to share your **computational environment**.
 
-{{< fa circle-right >}} What is the computational environment:
+{{< fa regular hand-point-right >}} What is the computational environment:
 
 - Specific {{< fa brands r-project >}} packages and their version
 - {{< fa brands r-project >}} version
-- operating system ( {{< fa brands windows >}}, {{< fa brands apple >}}, {{< fa brands linux >}}) \]
+- operating system ( {{< fa brands windows >}}, {{< fa brands apple >}}, {{< fa brands linux >}})
 - system dependencies
 
 ## The `renv` package
@@ -354,19 +406,22 @@ To guarantee that others can apply them on their machine, you need to be able to
 
 ## The `renv` package
 
-It **freezes and records** the actively used packages and their version in your project in a project-specific library.
+It **records** the actively used packages and **freezes** their version in your project in a project-specific library.
 
-This way, your project becomes **portable** and **reproducible** as you can use it on another computer or share it with a colleague.
+This way, your project becomes **portable** as you can use it on another computer and **reproducible** as you can share it with a colleague.
 
-The project is not affected by **changing functionality** or **breaking changes** in packages across versions.
+{{< fa regular hand-point-right >}} bonus: the project is not affected by **changing functionality** or **breaking changes** in packages across versions.
 
 ## Libraries in a regular setup
 
+::: {.small}
 A library is the place where packages are installed. To check where your library is located, run `.libPaths()`.
 
-In a regular setup, all projects write to the same library. Therefore, packages can become out of sync with the projects that they have been used in.
+In a regular setup, **all projects write to the same library**. Therefore, packages can become out of sync with the projects that they have been used in.
+:::
 
 ```{dot}
+//| fig-height: 3.5
 //| echo: false
 digraph G {
 
@@ -384,10 +439,13 @@ digraph G {
 
 ## Libraries with `renv`
 
-Using `renv`, each project has its own library. When a new package is installed, it is also written to a global package cache. The next time it is needed in a project, it is taken from there instead of downloading it again.
+::: {.small}
+Using `renv`, each project has **its own library**. When a new package is installed, it is also written to a **global package cache**. The next time it is needed in a project, it is taken from there instead of downloading it again.
+:::
 
 ```{dot}
 //| echo: false
+//| fig-height: 4.5
 digraph G {
 
     node [shape = folder];
@@ -415,7 +473,7 @@ digraph G {
 | Task                    | function           |
 |-------------------------|--------------------|
 | Initialise `renv`       | `renv::init()`     |
-| `renv` status           | `renv::status()`   |
+| Get `renv` status       | `renv::status()`   |
 | Install new package     | `renv::install()`  |
 | Update project library  | `renv::snapshot()` |
 | Restore project library | `renv::restore()`  |
@@ -435,38 +493,46 @@ The following project files are created by `renv::init()`
 ├── renv/
 │   ├── .gitignore     # Specify which files should be ignored by git
 │   ├── activate.R     # R script to launch renv
-│   ├── library/       # Project library
-│   └── settings.dcf   # renv settings
+│   ├── staging/       # Temporary library when building packages
+│   └── settings.json  # renv settings
 │
 └── renv.lock          # the lockfile, containing package metadata
 ```
 
 ## Workflow with `renv`
 
+::: {.small}
 Reproducibility can be achieved with the functions `renv::snapshot()` & `renv::restore()`
+:::
 
 :::::::: columns
-:::: {.column width="45%"}
-**You**
+:::: {.column width="50%" .small}
+{{< fa solid person >}}
 
-::: nonincremental
+
 - Initialize `renv` in the project with **`renv::init()`**
 - Install new packages with `renv::install()`
 - **Update the lockfile with `renv::snapshot()`**
 - Share project with others or across computers
-:::
+
 ::::
 
-::: {.column width="10%"}
-:::
 
-:::: {.column width="45%"}
-**Other person/computer**
+:::: {.column width="50%" .small}
+{{< fa solid people-group >}}
 
-::: nonincremental
 - **Restore project library from a lockfile with `renv::restore()`**
 - Install new packages with `renv::install()`
 - **Update the lockfile with `renv::snapshot()`**
-:::
+
 ::::
 ::::::::
+
+## Exercise
+
+- Initialise `renv` in a RStudio projec with `renv::init()`
+- Check `renv::status`
+- Inspect the directory structure
+- Install a new package with `renv::install()`
+- Update the project library with `renv::snapshot()`
+
