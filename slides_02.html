@@ -100,7 +100,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-<link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-0427d8d92a431aa6a6430e53ec02a470.css">
+<link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-d2dea8ad2eff165b0426e201ec6a58bf.css">
 <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
 <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
 <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -213,22 +213,31 @@ Johannes Feldhege
 </section><section><section id="literate-programming-using-quarto" class="title-slide slide level1 center"><h1>Literate programming using Quarto</h1>
 
 </section><section id="literate-programming" class="slide level2"><h2>Literate programming</h2>
+<div class="small">
 <blockquote>
 <p>Literate programming is a methodology that combines a programming language with a documentation language, thereby making programs more robust, more portable, more easily maintained, and arguably more fun to write than programs that are written only in a high-level language. The main idea is to treat a program as a piece of literature, addressed to human beings rather than to a computer.</p>
 </blockquote>
 <p>Donald E. Knuth, <a href="https://www-cs-faculty.stanford.edu/~knuth/lp.html" class="uri">https://www-cs-faculty.stanford.edu/~knuth/lp.html</a></p>
-<p>RMarkdown is a combination of the programming language <i class="fa-brands fa-r-project" aria-label="r-project"></i> and the documentation language <i class="fa-brands fa-markdown" aria-label="markdown"></i>. It allows users to combine R code with markdown-formatted text.</p>
-<p>Rmarkdown documents are fully reproducible as the R code contained within is executed when the document is rendered.</p>
+<p>RMarkdown is a combination of the programming language <i class="fa-brands fa-r-project" aria-label="r-project"></i> and the documentation language <i class="fa-brands fa-markdown" aria-label="markdown"></i>. It allows users to <strong>combine R code with markdown-formatted text</strong>.</p>
+<p>Rmarkdown documents are <strong>fully reproducible</strong> as the R code contained within is executed when the document is rendered.</p>
+</div>
 </section><section id="literate-programming-using-quarto-1" class="slide level2"><h2>Literate programming using Quarto</h2>
-<p>Quarto is the successor of Rmarkdown which allows users to include code from multiple programming languages and to render to more output formats.</p>
-<p>Quarto is included in recent versions of RStudio. To check whether it is installed and works, you can run in the terminal:</p>
+<p>Quarto is the successor to Rmarkdown, adding new features such as the option to include code from multiple programming languages or a wider set of output formats.</p>
+<p>Quarto is included in recent versions of RStudio. To check whether it is installed and working on your machine, you can run in the terminal:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> check</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section><section id="creating-a-quarto-document" class="slide level2"><h2>Creating a Quarto document</h2>
-<p>File <i class="fa-solid fa-circle-right" aria-label="circle-right"></i> New file <i class="fa-solid fa-circle-right" aria-label="circle-right"></i> Quarto Document…</p>
-
-<img data-src="images/quarto_render.PNG" class="r-stretch"></section><section id="anatomy-of-a-quarto-document" class="slide level2"><h2>Anatomy of a Quarto document</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>In the RStudio menu:</p>
+<p>File</p>
+<p><i class="fa-solid fa-circle-right" aria-label="circle-right"></i> New file</p>
+<p><i class="fa-solid fa-circle-right" aria-label="circle-right"></i> Quarto Document…</p>
+</div><div class="column" style="width:60%;">
+<p><img data-src="images/quarto_doc.PNG"></p>
+</div></div>
+</section><section id="anatomy-of-a-quarto-document" class="slide level2"><h2>Anatomy of a Quarto document</h2>
 <div class="columns">
 <div class="column" style="width:30%;">
 <p>A Quarto document consists of:</p>
@@ -239,7 +248,7 @@ Johannes Feldhege
 </ul>
 </div><div class="column" style="width:70%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" data-code-line-numbers="|1-4|6-17|17-25|"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a></a><span class="ex">---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" data-code-line-numbers="|1-4|6-13|14-20|"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a></a><span class="ex">---</span></span>
 <span id="cb2-2"><a></a><span class="ex">title:</span> <span class="st">"Quarto Example Document"</span></span>
 <span id="cb2-3"><a></a><span class="ex">format:</span> html</span>
 <span id="cb2-4"><a></a><span class="ex">---</span></span>
@@ -248,22 +257,22 @@ Johannes Feldhege
 <span id="cb2-7"><a></a></span>
 <span id="cb2-8"><a></a><span class="ex">This</span> is markdown formatted text. </span>
 <span id="cb2-9"><a></a></span>
-<span id="cb2-10"><a></a><span class="ex">It</span> can contain markdown specific format instructions such as <span class="pp">**</span> </span>
-<span id="cb2-11"><a></a><span class="cf">for</span> bold <span class="ex">text.</span> </span>
-<span id="cb2-12"><a></a></span>
-<span id="cb2-13"><a></a><span class="co">## Code chunks</span></span>
-<span id="cb2-14"><a></a></span>
-<span id="cb2-15"><a></a><span class="kw">````</span>{r}</span>
-<span id="cb2-16"><a></a><span class="co">#| label: plot</span></span>
-<span id="cb2-17"><a></a><span class="co">#| fig-cap: CESD total across measurement occasions </span></span>
-<span id="cb2-18"><a></a><span class="co">#| echo: true</span></span>
-<span id="cb2-19"><a></a></span>
-<span id="cb2-20"><a></a><span class="ex">boxplot</span><span class="er">(</span><span class="ex">popsy</span><span class="va">$cesdTotal</span> ~ popsy<span class="va">$occasion</span>, horizontal = TRUE<span class="kw">)</span></span>
-<span id="cb2-21"><a></a><span class="kw">````</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-10"><a></a><span class="ex">It</span> can contain markdown specific format instructions such as <span class="pp">**</span> for bold text. </span>
+<span id="cb2-11"><a></a></span>
+<span id="cb2-12"><a></a><span class="co">## Code chunks</span></span>
+<span id="cb2-13"><a></a></span>
+<span id="cb2-14"><a></a><span class="kw">````</span>{r}</span>
+<span id="cb2-15"><a></a><span class="co">#| label: plot</span></span>
+<span id="cb2-16"><a></a><span class="co">#| fig-cap: CESD total across measurement occasions </span></span>
+<span id="cb2-17"><a></a><span class="co">#| echo: true</span></span>
+<span id="cb2-18"><a></a></span>
+<span id="cb2-19"><a></a><span class="ex">boxplot</span><span class="er">(</span><span class="ex">popsy</span><span class="va">$cesdTotal</span> ~ popsy<span class="va">$occasion</span>, horizontal = TRUE<span class="kw">)</span></span>
+<span id="cb2-20"><a></a><span class="kw">````</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 </section><section id="the-yaml-header" class="slide level2"><h2>The YAML header</h2>
-<p>The text at the top between — is called the YAML header. It gives instructions, such as the output format, to Quarto when rendering the document.</p>
+<p>The text at the top between — is called the YAML header. It supplies <strong>instructions</strong>, such as the output format, for <strong>rendering the document</strong>.</p>
+<p>The instructions are specified as <strong>key: value</strong> pairs.</p>
 <p>A simple example:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a><span class="ex">---</span></span>
@@ -272,16 +281,16 @@ Johannes Feldhege
 <span id="cb3-4"><a aria-hidden="true" tabindex="-1"></a><span class="ex">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section><section id="the-yaml-header-1" class="slide level2"><h2>The YAML header</h2>
-<p>A more elaborate version that is used to create this presentation.</p>
+<p>A more elaborate version used to create this presentation:</p>
 <div class="columns">
-<div class="column" style="width:45%;">
+<div class="column" style="width:30%;">
 <p>Typical features are:</p>
 <ul>
 <li class="fragment"><p>a title</p></li>
 <li class="fragment"><p>an author</p></li>
 <li class="fragment"><p>format specific options</p></li>
 </ul>
-</div><div class="column" style="width:45%;">
+</div><div class="column" style="width:70%;">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" data-code-line-numbers="|2|4|5-14|"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a></a><span class="ex">---</span></span>
 <span id="cb4-2"><a></a><span class="ex">title:</span> <span class="st">"Clean Code, Reproducible Science: Advanced R-Programming and Workflows"</span></span>
@@ -307,32 +316,60 @@ Johannes Feldhege
 </div></div>
 </section><section id="markdown-formatting" class="slide level2"><h2>Markdown formatting</h2>
 <div class="columns">
-<div class="column" style="width:45%;">
+<div class="column small" style="width:50%;">
 <p><code>#</code> are used to create headers. The number of <code>#</code> determines the header level.</p>
 <ul>
-<li class="fragment"><p>Bullet list item 1</p></li>
-<li class="fragment"><p>Bullest list item 2</p></li>
+<li><p>Bullet list item 1</p></li>
+<li><p>Bullest list item 2</p></li>
 </ul>
 <p><strong>bold text</strong>, <em>italic text</em></p>
 <p><code>text formatted as code</code></p>
-</div><div class="column" style="width:45%;">
+</div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Header 1</span></span>
-<span id="cb5-2"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a aria-hidden="true" tabindex="-1"></a><span class="co">## Header 2</span></span>
-<span id="cb5-4"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> Bullet list item 1</span>
-<span id="cb5-6"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> Bullest list item 2</span>
-<span id="cb5-8"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a aria-hidden="true" tabindex="-1"></a><span class="ex">**bold</span> text<span class="pp">**</span>, <span class="pp">*</span>italic text<span class="pp">*</span></span>
-<span id="cb5-10"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-11"><a aria-hidden="true" tabindex="-1"></a> <span class="kw">`</span><span class="ex">text</span> formatted as code<span class="kw">`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" data-code-line-numbers="|1-3|5-7|9-11|"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a></a><span class="co"># Header 1</span></span>
+<span id="cb5-2"><a></a></span>
+<span id="cb5-3"><a></a><span class="co">## Header 2</span></span>
+<span id="cb5-4"><a></a></span>
+<span id="cb5-5"><a></a><span class="ex">-</span> Bullet list item 1</span>
+<span id="cb5-6"><a></a></span>
+<span id="cb5-7"><a></a><span class="ex">-</span> Bullest list item 2</span>
+<span id="cb5-8"><a></a></span>
+<span id="cb5-9"><a></a><span class="ex">**bold</span> text<span class="pp">**</span>, <span class="pp">*</span>italic text<span class="pp">*</span></span>
+<span id="cb5-10"><a></a></span>
+<span id="cb5-11"><a></a> <span class="kw">`</span><span class="ex">text</span> formatted as code<span class="kw">`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
+</section><section id="source-vs-visual-editor" class="slide level2"><h2>Source vs Visual Editor</h2>
+<p>You can switch between source and a visual editor when writing your Quarto document.</p>
+
+<img data-src="images/source_visual.PNG" class="r-stretch"><p>In visual editor mode, you get a preview of your document. It is a more beginner-friendly mode as you get a more immediate feedback on your inputs.</p>
+<p><i class="fa-solid fa-triangle-exclamation" aria-label="triangle-exclamation"></i> Switching between both modes can sometimes introduce unintended changes in the document!</p>
+</section><section id="visual-editor-mode" class="slide level2"><h2>Visual Editor mode</h2>
+<div class="small">
+<p>In Visual Editor mode, you can select and insert formatting or special inputs using the dropdown menus:</p>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="images/format.PNG"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/insert.PNG"></p>
+</div></div>
 </section><section id="code-chunks" class="slide level2"><h2>Code chunks</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby">
+<li><a data-tabby-default="" href="#tabset-1-1">Explanation</a></li>
+<li><a href="#tabset-1-2">Code</a></li>
+</ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<p>Code chunks contain programming code as well as instructions on how to execute the code and place it and its results in the Quarto document.</p>
+<p>The first line must specify the <strong>programming language</strong>.</p>
+<p><strong>Instructions</strong> are placed in comments with <code>#</code>|.</p>
+<p>The actual code can be written as you would in a regular script.</p>
+</div>
+<div id="tabset-1-2">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" data-code-line-numbers="|2|3|4|5|7-9|"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a></a><span class="kw">````</span>{r}</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" data-code-line-numbers="|1|2|3|4|5|7-9|"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a></a><span class="kw">````</span>{r}</span>
 <span id="cb6-2"><a></a><span class="co">#| echo: true</span></span>
 <span id="cb6-3"><a></a><span class="co">#| label: plot1</span></span>
 <span id="cb6-4"><a></a><span class="co">#| fig-cap: CESD total across measurement occasions </span></span>
@@ -345,18 +382,23 @@ Johannes Feldhege
 <span id="cb6-11"><a></a><span class="ex">boxplot</span><span class="er">(</span><span class="ex">popsy</span><span class="va">$cesdTotal</span> ~ popsy<span class="va">$occasion</span>, horizontal = TRUE<span class="kw">)</span></span>
 <span id="cb6-12"><a></a><span class="kw">````</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section><section id="code-execution" class="slide level2"><h2>Code execution</h2>
+</div>
+</div>
+</div>
+</section><section id="a-note-on-code-execution" class="slide level2"><h2>A note on code execution</h2>
+<div class="small">
 <blockquote>
 <p>Rmarkdown documents are fully reproducible as the R code contained within is executed when the document is rendered.</p>
 </blockquote>
+</div>
 <p><i class="fa-solid fa-triangle-exclamation" aria-label="triangle-exclamation"></i> Quarto documents are rendered in a process that is separate to your RStudio environment, therefore they cannot access currently loaded packages or your carefully created datasets.</p>
-<p><i class="fa-solid fa-circle-right" aria-label="circle-right"></i> That means that you need to load them inside a Quarto code chunk!</p>
+<p><i class="fa-regular fa-hand-point-right" aria-label="hand-point-right"></i> You need to load packages and data inside a code chunk in order to use them!</p>
 </section><section id="rendering-a-document" class="slide level2"><h2>Rendering a document</h2>
 <p>To turn a Quarto document into the desired output format, it needs to be rendered.</p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>This can be done using RStudio buttons:</p>
-<p><img data-src="images/quarto_doc.PNG"></p>
+<p><img data-src="images/quarto_render.PNG"></p>
 </div><div class="column" style="width:50%;">
 <p>or in the terminal:</p>
 <div class="cell">
@@ -376,29 +418,48 @@ Johannes Feldhege
 <li class="fragment"><p><i class="fa-solid fa-sitemap" aria-label="sitemap"></i> Websites</p></li>
 <li class="fragment"><p><i class="fa-solid fa-book" aria-label="book"></i> Books</p></li>
 <li class="fragment"><p>and more…</p></li>
-</ul></section><section id="exercise" class="slide level2"><h2>Exercise</h2>
-<p>I have created an example Quarto document that you can download <a href="https://github.com/jfeldhege/peergroup_workshop/blob/main/examples/quarto_example.qmd">here</a></p>
-<ul>
-<li>play around with markdown formatting</li>
-<li>change the code chunk for the plot and table</li>
-<li>create a new plot or table</li>
-<li>render the document</li>
-</ul></section><section id="collaboration-with-quarto" class="slide level2"><h2>Collaboration with Quarto</h2>
-<p>Collaboration with others, who are interested in both your conclusions, and how you reached them (i.e.&nbsp;the code).</p>
-<p>As a modern-day lab notebook that contains</p>
-</section><section id="quarto-manuscripts" class="slide level2"><h2>Quarto manuscripts</h2>
+</ul></section><section id="quarto-manuscripts" class="slide level2"><h2>Quarto manuscripts</h2>
 <p>Quarto 1.4 introduced an output format for scientific writing: <strong>Quarto manuscripts</strong>.</p>
 <p>It is published as a website that can link to other formats such as <strong>word</strong> or <strong>pdf</strong>.</p>
 <p>In the background, multiple Quarto files can be used to write the manuscript and conduct the analysis.</p>
 <p>A live example can be seen <a href="https://quarto-ext.github.io/manuscript-template-jupyter/">here</a></p>
-</section></section><section><section id="creating-r-packages" class="title-slide slide level1 center"><h1>Creating R packages</h1>
+</section><section id="exercise" class="slide level2"><h2>Exercise</h2>
+<p>I have created an example Quarto document that you can download <a href="https://github.com/jfeldhege/peergroup_workshop/blob/main/examples/quarto_example.qmd">here</a></p>
+<ul>
+<li>play around with the markdown formatting</li>
+<li>change the code chunk for the plot and table</li>
+<li>create a new plot or table</li>
+<li>render the document</li>
+</ul></section></section><section><section id="creating-r-packages" class="title-slide slide level1 center"><h1>Creating R packages</h1>
 
+</section><section id="r-packages-in-a-reproducibility-context" class="slide level2"><h2>R packages in a reproducibility context</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p><img data-src="images/r_packages_2e.PNG"></p>
+</div><div class="column" style="width:70%;">
+<blockquote>
+<p>Packages are the fundamental units of reproducible R code. They include reusable R functions, the documentation that describes how to use them, and sample data.</p>
+</blockquote>
+<div class="right">
+<p>- Wickham and Bryan, 2023</p>
+</div>
+</div></div>
+</section><section id="two-essential-packages" class="slide level2"><h2>Two essential packages</h2>
+<div class="columns">
+<div class="column" style="width:20%;">
+<p><img data-src="images/devtools_logo.PNG" height="150"></p>
+<p><img data-src="images/usethis_logo.PNG" height="150"></p>
+</div><div class="column" style="width:80%;">
+<p><code>devtools</code>: Essential functions for documenting code and building the package.</p>
+<p><br></p>
+<p><code>usethis</code>: Convenience function to automate the workflow of creating a package.</p>
+</div></div>
 </section><section id="creating-an-r-package-with-the-usethis-package" class="slide level2"><h2>Creating an R Package with the <code>usethis</code> package</h2>
 <p>One easy step to get started:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">create_package</span><span class="op">(</span><span class="st">"/path/to/the/package/name"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>A package name can only contain letters, numbers, and <code>.</code></p>
+<p><i class="fa-solid fa-triangle-exclamation" aria-label="triangle-exclamation"></i> A package name may only contain letters, numbers, and .</p>
 </section><section id="the-package-directory-structure" class="slide level2"><h2>The package directory structure</h2>
 <pre><code>.
 ├── (.gitignore)        # Files to ignore when using git
@@ -406,12 +467,10 @@ Johannes Feldhege
 ├── .Rbuildignore       # Files to ignore when building package
 │
 ├── R/                  # Folder to store (only) R functions
-│   ├── myfun-1.R       # A first R function file
-│   └── myfun-2.R       # A second R function file
+│   └── myfun-1.R       # A first R function file
 │
 ├── man/                # Folder to store R functions documentation
-│   ├── my_fun_1.Rd
-│   └── my_fun_2.Rd
+│   └── my_fun_1.Rd     # Documentation for the first function
 │
 ├── DESCRIPTION         # Package metadata
 │
@@ -419,10 +478,10 @@ Johannes Feldhege
 </section><section id="the-description" class="slide level2"><h2>The DESCRIPTION</h2>
 
 <img data-src="images/pkg_description.PNG" class="r-stretch"></section><section id="the-description-1" class="slide level2"><h2>The DESCRIPTION</h2>
-<p>The description can be edited by hand, but <code>usethis</code> also provides function to edit them:</p>
+<p>The DESCRIPTION file can be edited by hand, but <code>usethis</code> also provides functions to programmatically edit its:</p>
 <table class="caption-top">
 <thead><tr class="header">
-<th>Task</th>
+<th>task</th>
 <th>function</th>
 </tr></thead>
 <tbody>
@@ -440,7 +499,7 @@ Johannes Feldhege
 </tr>
 </tbody>
 </table></section><section id="exercise-1" class="slide level2"><h2>Exercise</h2>
-<p>I have prepared a small script with these functions that you can download here <a href="&quot;https://www.johannesfeldhege.de/peergroup_workshop/script_package_01.R&quot;">script_package_01.R</a></p>
+<p>I have prepared a small script with these functions that you can download: <a href="&quot;https://www.johannesfeldhege.de/peergroup_workshop/script_package_01.R&quot;">script_package_01.R</a></p>
 <p>I want you to execute these functions to create a package and write metadata to its DESCRIPTION.</p>
 <p>Check out the directory structure and the different files that have been created.</p>
 </section><section id="the-process-of-working-on-a-package" class="slide level2"><h2>The process of working on a package</h2>
@@ -449,18 +508,21 @@ Johannes Feldhege
 <div>
 <p></p><figure class=""></figure><p></p>
 <div>
-<svg width="960" height="480" viewbox="0.00 0.00 384.98 341.39" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 337.39)"><title>g1</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-337.39 380.98,-337.39 380.98,4 -4,4"></polygon><!-- A --><g id="node1" class="node"><title>A</title>
-<polygon fill="none" stroke="black" points="265.85,-36 181.78,-36 181.78,0 265.85,0 265.85,-36"></polygon><text text-anchor="middle" x="223.81" y="-13.8" font-family="Times,serif" font-size="14.00">CMD check</text></g><!-- B --><g id="node2" class="node"><title>B</title>
-<polygon fill="none" stroke="black" points="97.49,-92.8 0.54,-92.8 0.54,-56.8 97.49,-56.8 97.49,-92.8"></polygon><text text-anchor="middle" x="49.01" y="-70.6" font-family="Times,serif" font-size="14.00">Build package</text></g><!-- A&#45;&gt;B --><g id="edge1" class="edge"><title>A-&gt;B</title>
-<path fill="none" stroke="black" d="M181.5,-31.75C159.21,-38.99 131.53,-47.98 107.25,-55.88"></path><polygon fill="black" stroke="black" points="105.85,-52.65 97.43,-59.07 108.02,-59.3 105.85,-52.65"></polygon></g><!-- C --><g id="node3" class="node"><title>C</title>
-<polygon fill="none" stroke="black" points="98.04,-276.59 -0.01,-276.59 -0.01,-240.59 98.04,-240.59 98.04,-276.59"></polygon><text text-anchor="middle" x="49.01" y="-254.39" font-family="Times,serif" font-size="14.00">Write function</text></g><!-- B&#45;&gt;C --><g id="edge2" class="edge"><title>B-&gt;C</title>
-<path fill="none" stroke="black" d="M49.01,-93.09C49.01,-125.16 49.01,-191.72 49.01,-229.94"></path><polygon fill="black" stroke="black" points="45.51,-230.37 49.01,-240.37 52.51,-230.37 45.51,-230.37"></polygon></g><!-- D --><g id="node4" class="node"><title>D</title>
-<polygon fill="none" stroke="black" points="286.29,-333.39 161.34,-333.39 161.34,-297.39 286.29,-297.39 286.29,-333.39"></polygon><text text-anchor="middle" x="223.81" y="-311.19" font-family="Times,serif" font-size="14.00">Document function</text></g><!-- C&#45;&gt;D --><g id="edge3" class="edge"><title>C-&gt;D</title>
-<path fill="none" stroke="black" d="M98.17,-274.57C116.91,-280.66 138.58,-287.7 158.59,-294.2"></path><polygon fill="black" stroke="black" points="157.67,-297.58 168.26,-297.34 159.83,-290.92 157.67,-297.58"></polygon></g><!-- E --><g id="node5" class="node"><title>E</title>
-<polygon fill="none" stroke="black" points="377.11,-184.7 286.59,-184.7 286.59,-148.7 377.11,-148.7 377.11,-184.7"></polygon><text text-anchor="middle" x="331.85" y="-162.5" font-family="Times,serif" font-size="14.00">Test function</text></g><!-- D&#45;&gt;E --><g id="edge4" class="edge"><title>D-&gt;E</title>
-<path fill="none" stroke="black" d="M237.06,-297.16C255.93,-271.18 290.68,-223.36 312.45,-193.39"></path><polygon fill="black" stroke="black" points="315.45,-195.23 318.49,-185.08 309.78,-191.11 315.45,-195.23"></polygon></g><!-- E&#45;&gt;A --><g id="edge5" class="edge"><title>E-&gt;A</title>
-<path fill="none" stroke="black" d="M318.6,-148.46C299.73,-122.49 264.99,-74.67 243.21,-44.7"></path><polygon fill="black" stroke="black" points="245.88,-42.42 237.17,-36.38 240.22,-46.53 245.88,-42.42"></polygon></g></g></svg>
+<svg width="960" height="480" viewbox="0.00 0.00 275.47 404.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 400)"><title>g1</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-400 271.47,-400 271.47,4 -4,4"></polygon><!-- D --><g id="node1" class="node"><title>D</title>
+<ellipse fill="none" stroke="black" cx="199.86" cy="-378" rx="67.73" ry="18"></ellipse><text text-anchor="middle" x="199.86" y="-373.8" font-family="Times,serif" font-size="14.00">Write function</text></g><!-- E --><g id="node2" class="node"><title>E</title>
+<ellipse fill="none" stroke="black" cx="85.86" cy="-306" rx="85.72" ry="18"></ellipse><text text-anchor="middle" x="85.86" y="-301.8" font-family="Times,serif" font-size="14.00">Document function</text></g><!-- D&#45;&gt;E --><g id="edge1" class="edge"><title>D-&gt;E</title>
+<path fill="none" stroke="black" d="M174.28,-361.29C158.51,-351.61 138.08,-339.07 120.84,-328.48"></path><polygon fill="black" stroke="black" points="122.5,-325.39 112.15,-323.14 118.84,-331.36 122.5,-325.39"></polygon></g><!-- F --><g id="node3" class="node"><title>F</title>
+<ellipse fill="none" stroke="black" cx="147.86" cy="-234" rx="62.02" ry="18"></ellipse><text text-anchor="middle" x="147.86" y="-229.8" font-family="Times,serif" font-size="14.00">Test function</text></g><!-- E&#45;&gt;F --><g id="edge2" class="edge"><title>E-&gt;F</title>
+<path fill="none" stroke="black" d="M100.87,-288.05C108.48,-279.46 117.87,-268.86 126.25,-259.4"></path><polygon fill="black" stroke="black" points="128.98,-261.6 132.99,-251.79 123.74,-256.95 128.98,-261.6"></polygon></g><!-- F&#45;&gt;D --><g id="edge3" class="edge"><title>F-&gt;D</title>
+<path fill="none" stroke="black" d="M160.46,-251.85C167.42,-261.88 175.67,-275.13 180.86,-288 188.88,-307.87 193.73,-331.67 196.53,-349.65"></path><polygon fill="black" stroke="black" points="193.09,-350.35 197.97,-359.75 200.02,-349.36 193.09,-350.35"></polygon></g><!-- A --><g id="node4" class="node"><title>A</title>
+<ellipse fill="none" stroke="black" cx="192.86" cy="-162" rx="57.94" ry="18"></ellipse><text text-anchor="middle" x="192.86" y="-157.8" font-family="Times,serif" font-size="14.00">CMD check</text></g><!-- F&#45;&gt;A --><g id="edge4" class="edge"><title>F-&gt;A</title>
+<path fill="none" stroke="black" d="M158.75,-216.05C164.11,-207.71 170.69,-197.49 176.63,-188.25"></path><polygon fill="black" stroke="black" points="179.6,-190.09 182.07,-179.79 173.71,-186.31 179.6,-190.09"></polygon></g><!-- A&#45;&gt;D --><g id="edge5" class="edge"><title>A-&gt;D</title>
+<path fill="none" stroke="black" d="M203.63,-179.92C209.39,-189.97 215.89,-203.22 218.86,-216 229.65,-262.51 217.8,-318.08 208.57,-350.27"></path><polygon fill="black" stroke="black" points="205.22,-349.28 205.7,-359.87 211.92,-351.29 205.22,-349.28"></polygon></g><!-- B --><g id="node5" class="node"><title>B</title>
+<ellipse fill="none" stroke="black" cx="192.86" cy="-90" rx="66.59" ry="18"></ellipse><text text-anchor="middle" x="192.86" y="-85.8" font-family="Times,serif" font-size="14.00">Build package</text></g><!-- A&#45;&gt;B --><g id="edge6" class="edge"><title>A-&gt;B</title>
+<path fill="none" stroke="black" d="M192.86,-143.7C192.86,-135.98 192.86,-126.71 192.86,-118.11"></path><polygon fill="black" stroke="black" points="196.36,-118.1 192.86,-108.1 189.36,-118.1 196.36,-118.1"></polygon></g><!-- C --><g id="node6" class="node"><title>C</title>
+<ellipse fill="none" stroke="black" cx="192.86" cy="-18" rx="69.44" ry="18"></ellipse><text text-anchor="middle" x="192.86" y="-13.8" font-family="Times,serif" font-size="14.00">Install package</text></g><!-- B&#45;&gt;C --><g id="edge7" class="edge"><title>B-&gt;C</title>
+<path fill="none" stroke="black" d="M192.86,-71.7C192.86,-63.98 192.86,-54.71 192.86,-46.11"></path><polygon fill="black" stroke="black" points="196.36,-46.1 192.86,-36.1 189.36,-46.1 196.36,-46.1"></polygon></g></g></svg>
 </div>
 <p></p>
 </div>
@@ -468,9 +530,8 @@ Johannes Feldhege
 </div>
 </section><section id="useful-functions-for-package-development" class="slide level2"><h2>Useful functions for package development</h2>
 <table class="caption-top">
-<caption>Table: Useful functions for package development</caption>
 <thead><tr class="header">
-<th>Task</th>
+<th>task</th>
 <th>function</th>
 </tr></thead>
 <tbody>
@@ -501,8 +562,13 @@ Johannes Feldhege
 </tbody>
 </table></section><section id="documenting-functions-with-roxygen2" class="slide level2"><h2>Documenting functions with <code>roxygen2</code>
 </h2>
-<p>The idea behind <code>roxygen2</code> is to document functions with special comments next to their definition. <code>roxygen2</code> will process these comments and turn them into manual pages in the package.</p>
-<p>You can add a comment skeleton with control + alt + shift + R when your cursor is inside the function.</p>
+<div class="columns">
+<div class="column" style="width:20%;">
+<p><img data-src="images/roxygen2_logo.png"></p>
+</div><div class="column" style="width:80%;">
+<p>The idea behind <code>roxygen2</code> is to document functions with special comments next to their definition. <code>roxygen2</code> will process these comments and turn them into <strong>manual pages</strong> in the package.</p>
+<p>You can add a comment skeleton with <strong>control + alt + shift + R</strong> when your cursor is inside the function.</p>
+</div></div>
 </section><section id="roxygen2-comments" class="slide level2"><h2>
 <code>roxygen2</code> comments</h2>
 <div class="cell">
@@ -526,35 +592,46 @@ Johannes Feldhege
 <span id="cb11-18"><a></a><span class="kw">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section><section id="r-cmd-check" class="slide level2"><h2>R CMD Check</h2>
-<div class="columns">
-<div class="column" style="width:30%;">
-<p>R CMD check runs checks intended for publication on CRAN.</p>
-<p>It is very strict.</p>
-<p>The three levels of feedback:</p>
-<ul>
-<li class="fragment"><p>errors need to be fixed</p></li>
-<li class="fragment"><p>warnings affect functionality</p></li>
-<li class="fragment"><p>notes can often be ignored if you do not intend to publish the package on CRAN</p></li>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby">
+<li><a data-tabby-default="" href="#tabset-2-1">Three levels of feedback</a></li>
+<li><a href="#tabset-2-2">An example output</a></li>
 </ul>
-</div><div class="column" style="width:60%;">
+<div class="tab-content">
+<div id="tabset-2-1">
+<div class="small">
+<p>R CMD check runs checks intended for publication on CRAN. Its output gives <strong>strict feedback</strong>:</p>
+<ul>
+<li class="fragment"><p><i class="fa-solid fa-bug" aria-label="bug"></i> errors need to be fixed</p></li>
+<li class="fragment"><p><i class="fa-solid fa-triangle-exclamation" aria-label="triangle-exclamation"></i> warnings affect functionality</p></li>
+<li class="fragment"><p><i class="fa-solid fa-comment-dots" aria-label="comment-dots"></i> notes can often be ignored if you do not intend to publish the package on CRAN</p></li>
+</ul>
+</div>
+</div>
+<div id="tabset-2-2">
 <p><img data-src="images/rcmd_check.PNG"></p>
-</div></div>
+</div>
+</div>
+</div>
 </section><section id="exercise-2" class="slide level2"><h2>Exercise</h2>
-<p>I have prepared a small script with these functions that you can download here <a href="&quot;https://www.johannesfeldhege.de/peergroup_workshop/script_package_03.R&quot;">script_package_02.R</a></p>
+<div class="small">
+<p>I have prepared a small script with functions that you can download: <a href="&quot;https://www.johannesfeldhege.de/peergroup_workshop/script_package_03.R&quot;">script_package_02.R</a></p>
 <p>I want you to</p>
 <ul>
-<li class="fragment">create a function that a</li>
-<li class="fragment">add some documentation to the function using roxygen2</li>
+<li class="fragment">create a function that changes the values of the CESD to be in the range [0, 3]</li>
+<li class="fragment">add some documentation to the function using <code>roxygen2</code>
+</li>
 <li class="fragment">Load the package and test the function</li>
 <li class="fragment">Run CMD Check</li>
-<li class="fragment">Build the package locally</li>
-<li class="fragment">Install it</li>
+<li class="fragment">Build the package and install it</li>
 </ul>
 <p>Optional:</p>
 <ul>
 <li class="fragment">add the dataset from the function <code>ds4psy::posPsy_long()</code> to the package using <code>usethis::use_data()</code>
 </li>
-</ul></section><section id="pros-of-study-as-an-r-package" class="slide level2"><h2>Pros of “study as an R package”</h2>
+</ul>
+</div>
+</section><section id="pros-of-study-as-an-r-package" class="slide level2"><h2>Pros of “study as an R package”</h2>
 <ul>
 <li class="fragment">Combines functions for analysis and study data</li>
 <li class="fragment">documentation of custom functions, dependencies, contributors</li>
@@ -575,31 +652,31 @@ Johannes Feldhege
 </section><section id="sharing-files-with-collaborators" class="slide level2"><h2>Sharing files with collaborators</h2>
 <p>Two common scenarios:</p>
 <ul>
-<li class="fragment"><p>Paper_260510_final_final.doc: files are sent via e-mail and multiple versions exist out there.</p></li>
-<li class="fragment"><p>An online document (Google docs, Microsoft 365, etc.): anyone can edit, anyone can see and track changes. Changes can be reverted back.</p></li>
+<li class="fragment"><p>Paper_260510_final_final.doc: files are sent via e-mail and <strong>multiple versions</strong> exist out there.</p></li>
+<li class="fragment"><p>An online document (Google docs, Microsoft 365, etc.): anyone can edit, anyone can see and track changes. <strong>Changes can be reverted back</strong>.</p></li>
 </ul>
-<p><i class="fa-solid fa-circle-right" aria-label="circle-right"></i> Version control is more like the second scenario.</p>
+<p><i class="fa-regular fa-hand-point-right" aria-label="hand-point-right"></i> Version control is more like the second scenario.</p>
 </section><section id="version-control-using-git" class="slide level2"><h2>Version control using Git</h2>
-<p>Git manages a repository, a collection of files, and their changes over time. In the <i class="fa-brands fa-r-project" aria-label="r-project"></i> world this corresponds to a RStudio project or a folder with scripts and datasets.</p>
+<p><i class="fa-brands fa-square-git" aria-label="square-git"></i> manages a <strong>repository</strong>, a collection of files, and their changes over time. In the <i class="fa-brands fa-r-project" aria-label="r-project"></i> world, this corresponds to a RStudio project or a folder with scripts and datasets.</p>
 <p>When you make a change, you <em>commit</em> it with a short message detailing your changes. All these commits make up the <em>history</em> of the repository, through which you can trace back the evolution of your project.</p>
 </section><section id="git-clients-such-as-github-gitlab-etc." class="slide level2"><h2>Git clients such as Github, Gitlab, etc.</h2>
-<p>When your version controlled project is not contained to your computer, hosting services such as Github or Gitlab come into play. You can:</p>
+<p>When your version controlled repository is not confined to your machine, <strong>hosting services</strong> such as Github <i class="fa-brands fa-square-github" aria-label="square-github"></i>, Gitlab <i class="fa-brands fa-square-gitlab" aria-label="square-gitlab"></i> or others come into play. You can:</p>
 <ul>
 <li class="fragment">publish your project there</li>
 <li class="fragment">
 <em>push</em> your changes to the repository</li>
 <li class="fragment">accept changes from others made in <em>pull</em> requests</li>
 </ul></section><section id="hosting-quarto-documents" class="slide level2"><h2>Hosting Quarto documents</h2>
-<p>Github and Gitlab let you host webpages and websites created in a repository in their service for free.</p>
+<p>Github and Gitlab let you host webpages and websites created in a repository on their service for free.</p>
 <p>This can be used to publish Quarto documents, books, websites.</p>
-<p>I use this for my own website, for documentation for my R package, and for this workshop!</p>
+<p>I have put this to use for my own website, for documentation for my R package, and for this workshop!</p>
 </section><section id="further-reading" class="slide level2"><h2>Further reading</h2>
 <ul>
 <li><a href="https://happygitwithr.com/">Happy Git and GitHub for the useR</a></li>
 </ul></section></section><section><section id="containerization" class="title-slide slide level1 center"><h1>Containerization</h1>
 
 </section><section id="the-purpose-of-containerization" class="slide level2"><h2>The purpose of containerization</h2>
-<p>With containerization, you can control all of the aspects of the computational environment mentioned earlier:</p>
+<p>With <strong>containerization</strong>, you can control all of the aspects of the computational environment mentioned earlier:</p>
 <ul>
 <li class="fragment">Specific <i class="fa-brands fa-r-project" aria-label="r-project"></i> packages and their version</li>
 <li class="fragment">
@@ -608,9 +685,10 @@ Johannes Feldhege
 <li class="fragment">system dependencies</li>
 </ul></section><section id="what-is-a-container" class="slide level2"><h2>What is a container?</h2>
 <p>A container is little bit like a virtual machine as it is a separate computer running on another computer. However, it usually does not have a graphical interface, but is run through a terminal.</p>
-<p>The container is the running instance of the computer. How this computer is set up is defined by the image.</p>
+<p>The container is the running instance of the computer. How this computer is set up is defined by the <strong>image</strong>.</p>
 </section><section id="what-is-an-image" class="slide level2"><h2>What is an image?</h2>
-<p>The specifications for an image can be defined through a text file, e.g.&nbsp;a Docker file:</p>
+<p>An image is a package that contains all necessary instructions to create a container.</p>
+<p>The specifications for an image is defined in a text file, e.g.&nbsp;a Docker file:</p>
 <ul>
 <li>what operating system is needed</li>
 <li>what software needs to be installed</li>
@@ -635,8 +713,10 @@ Johannes Feldhege
 <blockquote>
 <p>A research compendium collects all digital parts of a research project, including data, code, and texts (protocols, reports, questionnaires, metadata).</p>
 </blockquote>
+<div class="right small">
 <p>https://epiverse-trace.github.io/research-compendium/instructor/compendium.html</p>
-<p>When published, a research compendium allows others to reconstruct your analysis and ideally execute it as well.</p>
+</div>
+<p>When published, a research compendium allows others to inspect, reconstruct and ideally execute your analysis. .</p>
 </section><section id="r-packages-as-research-compendia" class="slide level2"><h2>R packages as research compendia</h2>
 <p>The idea of a research compendium combines a number of the previously discussed features:</p>
 <ul>
@@ -658,10 +738,10 @@ Johannes Feldhege
 <ul>
 <li><a href="https://research-compendium.science/" class="uri">https://research-compendium.science/</a></li>
 <li><a href="https://book.the-turing-way.org/reproducible-research/compendia/" class="uri">https://book.the-turing-way.org/reproducible-research/compendia/</a></li>
-</ul>
+</ul></section></section><section id="thank-you-for-attention" class="title-slide slide level1 center"><h1>Thank you for attention!</h1>
 
 
-</section></section>
+</section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

@@ -4,42 +4,42 @@
     "href": "slides_02.html#literate-programming",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Literate programming",
-    "text": "Literate programming\n\nLiterate programming is a methodology that combines a programming language with a documentation language, thereby making programs more robust, more portable, more easily maintained, and arguably more fun to write than programs that are written only in a high-level language. The main idea is to treat a program as a piece of literature, addressed to human beings rather than to a computer.\n\nDonald E. Knuth, https://www-cs-faculty.stanford.edu/~knuth/lp.html\nRMarkdown is a combination of the programming language  and the documentation language . It allows users to combine R code with markdown-formatted text.\nRmarkdown documents are fully reproducible as the R code contained within is executed when the document is rendered."
+    "text": "Literate programming\n\n\nLiterate programming is a methodology that combines a programming language with a documentation language, thereby making programs more robust, more portable, more easily maintained, and arguably more fun to write than programs that are written only in a high-level language. The main idea is to treat a program as a piece of literature, addressed to human beings rather than to a computer.\n\nDonald E. Knuth, https://www-cs-faculty.stanford.edu/~knuth/lp.html\nRMarkdown is a combination of the programming language  and the documentation language . It allows users to combine R code with markdown-formatted text.\nRmarkdown documents are fully reproducible as the R code contained within is executed when the document is rendered."
   },
   {
     "objectID": "slides_02.html#literate-programming-using-quarto-1",
     "href": "slides_02.html#literate-programming-using-quarto-1",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Literate programming using Quarto",
-    "text": "Literate programming using Quarto\nQuarto is the successor of Rmarkdown which allows users to include code from multiple programming languages and to render to more output formats.\nQuarto is included in recent versions of RStudio. To check whether it is installed and works, you can run in the terminal:\n\nquarto check"
+    "text": "Literate programming using Quarto\nQuarto is the successor to Rmarkdown, adding new features such as the option to include code from multiple programming languages or a wider set of output formats.\nQuarto is included in recent versions of RStudio. To check whether it is installed and working on your machine, you can run in the terminal:\n\nquarto check"
   },
   {
     "objectID": "slides_02.html#creating-a-quarto-document",
     "href": "slides_02.html#creating-a-quarto-document",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Creating a Quarto document",
-    "text": "Creating a Quarto document\nFile  New file  Quarto Document…"
+    "text": "Creating a Quarto document\n\n\nIn the RStudio menu:\nFile\n New file\n Quarto Document…"
   },
   {
     "objectID": "slides_02.html#anatomy-of-a-quarto-document",
     "href": "slides_02.html#anatomy-of-a-quarto-document",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Anatomy of a Quarto document",
-    "text": "Anatomy of a Quarto document\n\n\nA Quarto document consists of:\n\na YAML header\nMarkdown text\nCode chunks\n\n\n\n---\ntitle: \"Quarto Example Document\"\nformat: html\n---\n\n## Markdown formatting\n\nThis is markdown formatted text. \n\nIt can contain markdown specific format instructions such as ** \nfor bold text. \n\n## Code chunks\n\n````{r}\n#| label: plot\n#| fig-cap: CESD total across measurement occasions \n#| echo: true\n\nboxplot(popsy$cesdTotal ~ popsy$occasion, horizontal = TRUE)\n````"
+    "text": "Anatomy of a Quarto document\n\n\nA Quarto document consists of:\n\na YAML header\nMarkdown text\nCode chunks\n\n\n\n---\ntitle: \"Quarto Example Document\"\nformat: html\n---\n\n## Markdown formatting\n\nThis is markdown formatted text. \n\nIt can contain markdown specific format instructions such as ** for bold text. \n\n## Code chunks\n\n````{r}\n#| label: plot\n#| fig-cap: CESD total across measurement occasions \n#| echo: true\n\nboxplot(popsy$cesdTotal ~ popsy$occasion, horizontal = TRUE)\n````"
   },
   {
     "objectID": "slides_02.html#the-yaml-header",
     "href": "slides_02.html#the-yaml-header",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "The YAML header",
-    "text": "The YAML header\nThe text at the top between — is called the YAML header. It gives instructions, such as the output format, to Quarto when rendering the document.\nA simple example:\n\n---\ntitle: \"Quarto Example Document\"\nformat: html\n---"
+    "text": "The YAML header\nThe text at the top between — is called the YAML header. It supplies instructions, such as the output format, for rendering the document.\nThe instructions are specified as key: value pairs.\nA simple example:\n\n---\ntitle: \"Quarto Example Document\"\nformat: html\n---"
   },
   {
     "objectID": "slides_02.html#the-yaml-header-1",
     "href": "slides_02.html#the-yaml-header-1",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "The YAML header",
-    "text": "The YAML header\nA more elaborate version that is used to create this presentation.\n\n\nTypical features are:\n\na title\nan author\nformat specific options\n\n\n\n---\ntitle: \"Clean Code, Reproducible Science: Advanced R-Programming and Workflows\"\nsubtitle: \"Part 2\"\nauthor: \"Johannes Feldhege\"\nformat: \n  revealjs:\n    theme: [simple]\n    footer: &lt;PPF Methods Peer Group&gt;\n    slide-number: true\n    chalkboard: true\n    code-link: true\n    code-line-numbers: false\n    incremental: true  \n    from: markdown+emoji\nengine: knitr\nwebr: \n  packages: ['ds4psy', 'dplyr']\nfilters:\n  - webr\n---"
+    "text": "The YAML header\nA more elaborate version used to create this presentation:\n\n\nTypical features are:\n\na title\nan author\nformat specific options\n\n\n\n---\ntitle: \"Clean Code, Reproducible Science: Advanced R-Programming and Workflows\"\nsubtitle: \"Part 2\"\nauthor: \"Johannes Feldhege\"\nformat: \n  revealjs:\n    theme: [simple]\n    footer: &lt;PPF Methods Peer Group&gt;\n    slide-number: true\n    chalkboard: true\n    code-link: true\n    code-line-numbers: false\n    incremental: true  \n    from: markdown+emoji\nengine: knitr\nwebr: \n  packages: ['ds4psy', 'dplyr']\nfilters:\n  - webr\n---"
   },
   {
     "objectID": "slides_02.html#markdown-formatting",
@@ -49,18 +49,32 @@
     "text": "Markdown formatting\n\n\n# are used to create headers. The number of # determines the header level.\n\nBullet list item 1\nBullest list item 2\n\nbold text, italic text\ntext formatted as code\n\n\n# Header 1\n\n## Header 2\n\n- Bullet list item 1\n\n- Bullest list item 2\n\n**bold text**, *italic text*\n\n `text formatted as code`"
   },
   {
+    "objectID": "slides_02.html#source-vs-visual-editor",
+    "href": "slides_02.html#source-vs-visual-editor",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Source vs Visual Editor",
+    "text": "Source vs Visual Editor\nYou can switch between source and a visual editor when writing your Quarto document.\n\nIn visual editor mode, you get a preview of your document. It is a more beginner-friendly mode as you get a more immediate feedback on your inputs.\n Switching between both modes can sometimes introduce unintended changes in the document!"
+  },
+  {
+    "objectID": "slides_02.html#visual-editor-mode",
+    "href": "slides_02.html#visual-editor-mode",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Visual Editor mode",
+    "text": "Visual Editor mode\n\nIn Visual Editor mode, you can select and insert formatting or special inputs using the dropdown menus:"
+  },
+  {
     "objectID": "slides_02.html#code-chunks",
     "href": "slides_02.html#code-chunks",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Code chunks",
-    "text": "Code chunks\n\n````{r}\n#| echo: true\n#| label: plot1\n#| fig-cap: CESD total across measurement occasions \n#| fig-width: 5\n\nlibrary(ds4psy)\n\npospy &lt;- ds4psy::posPsy_long\n\nboxplot(popsy$cesdTotal ~ popsy$occasion, horizontal = TRUE)\n````"
+    "text": "Code chunks\n\n\nExplanation\nCode\n\n\n\nCode chunks contain programming code as well as instructions on how to execute the code and place it and its results in the Quarto document.\nThe first line must specify the programming language.\nInstructions are placed in comments with #|.\nThe actual code can be written as you would in a regular script.\n\n\n\n````{r}\n#| echo: true\n#| label: plot1\n#| fig-cap: CESD total across measurement occasions \n#| fig-width: 5\n\nlibrary(ds4psy)\n\npospy &lt;- ds4psy::posPsy_long\n\nboxplot(popsy$cesdTotal ~ popsy$occasion, horizontal = TRUE)\n````"
   },
   {
-    "objectID": "slides_02.html#code-execution",
-    "href": "slides_02.html#code-execution",
+    "objectID": "slides_02.html#a-note-on-code-execution",
+    "href": "slides_02.html#a-note-on-code-execution",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
-    "section": "Code execution",
-    "text": "Code execution\n\nRmarkdown documents are fully reproducible as the R code contained within is executed when the document is rendered.\n\n Quarto documents are rendered in a process that is separate to your RStudio environment, therefore they cannot access currently loaded packages or your carefully created datasets.\n That means that you need to load them inside a Quarto code chunk!"
+    "section": "A note on code execution",
+    "text": "A note on code execution\n\n\nRmarkdown documents are fully reproducible as the R code contained within is executed when the document is rendered.\n\n\n Quarto documents are rendered in a process that is separate to your RStudio environment, therefore they cannot access currently loaded packages or your carefully created datasets.\n You need to load packages and data inside a code chunk in order to use them!"
   },
   {
     "objectID": "slides_02.html#rendering-a-document",
@@ -77,20 +91,6 @@
     "text": "Output formats\nQuarto documents can be rendered to dozens of different output formats:\n\n HTML pages\n Word documents\n PDFs\n Websites\n Books\nand more…"
   },
   {
-    "objectID": "slides_02.html#exercise",
-    "href": "slides_02.html#exercise",
-    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
-    "section": "Exercise",
-    "text": "Exercise\nI have created an example Quarto document that you can download here\n\nplay around with markdown formatting\nchange the code chunk for the plot and table\ncreate a new plot or table\nrender the document"
-  },
-  {
-    "objectID": "slides_02.html#collaboration-with-quarto",
-    "href": "slides_02.html#collaboration-with-quarto",
-    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
-    "section": "Collaboration with Quarto",
-    "text": "Collaboration with Quarto\nCollaboration with others, who are interested in both your conclusions, and how you reached them (i.e. the code).\nAs a modern-day lab notebook that contains"
-  },
-  {
     "objectID": "slides_02.html#quarto-manuscripts",
     "href": "slides_02.html#quarto-manuscripts",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
@@ -98,18 +98,39 @@
     "text": "Quarto manuscripts\nQuarto 1.4 introduced an output format for scientific writing: Quarto manuscripts.\nIt is published as a website that can link to other formats such as word or pdf.\nIn the background, multiple Quarto files can be used to write the manuscript and conduct the analysis.\nA live example can be seen here"
   },
   {
+    "objectID": "slides_02.html#exercise",
+    "href": "slides_02.html#exercise",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Exercise",
+    "text": "Exercise\nI have created an example Quarto document that you can download here\n\nplay around with the markdown formatting\nchange the code chunk for the plot and table\ncreate a new plot or table\nrender the document"
+  },
+  {
+    "objectID": "slides_02.html#r-packages-in-a-reproducibility-context",
+    "href": "slides_02.html#r-packages-in-a-reproducibility-context",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "R packages in a reproducibility context",
+    "text": "R packages in a reproducibility context\n\n\n\n\n\nPackages are the fundamental units of reproducible R code. They include reusable R functions, the documentation that describes how to use them, and sample data.\n\n\n- Wickham and Bryan, 2023"
+  },
+  {
+    "objectID": "slides_02.html#two-essential-packages",
+    "href": "slides_02.html#two-essential-packages",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Two essential packages",
+    "text": "Two essential packages\n\n\n\n\n\ndevtools: Essential functions for documenting code and building the package.\n\nusethis: Convenience function to automate the workflow of creating a package."
+  },
+  {
     "objectID": "slides_02.html#creating-an-r-package-with-the-usethis-package",
     "href": "slides_02.html#creating-an-r-package-with-the-usethis-package",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Creating an R Package with the usethis package",
-    "text": "Creating an R Package with the usethis package\nOne easy step to get started:\n\nusethis::create_package(\"/path/to/the/package/name\")\n\nA package name can only contain letters, numbers, and ."
+    "text": "Creating an R Package with the usethis package\nOne easy step to get started:\n\nusethis::create_package(\"/path/to/the/package/name\")\n\n A package name may only contain letters, numbers, and ."
   },
   {
     "objectID": "slides_02.html#the-package-directory-structure",
     "href": "slides_02.html#the-package-directory-structure",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "The package directory structure",
-    "text": "The package directory structure\n.\n├── (.gitignore)        # Files to ignore when using git\n│\n├── .Rbuildignore       # Files to ignore when building package\n│\n├── R/                  # Folder to store (only) R functions\n│   ├── myfun-1.R       # A first R function file\n│   └── myfun-2.R       # A second R function file\n│\n├── man/                # Folder to store R functions documentation\n│   ├── my_fun_1.Rd\n│   └── my_fun_2.Rd\n│\n├── DESCRIPTION         # Package metadata\n│\n└── NAMESPACE           # Automatically edited"
+    "text": "The package directory structure\n.\n├── (.gitignore)        # Files to ignore when using git\n│\n├── .Rbuildignore       # Files to ignore when building package\n│\n├── R/                  # Folder to store (only) R functions\n│   └── myfun-1.R       # A first R function file\n│\n├── man/                # Folder to store R functions documentation\n│   └── my_fun_1.Rd     # Documentation for the first function\n│\n├── DESCRIPTION         # Package metadata\n│\n└── NAMESPACE           # Automatically edited"
   },
   {
     "objectID": "slides_02.html#the-description",
@@ -123,35 +144,35 @@
     "href": "slides_02.html#the-description-1",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "The DESCRIPTION",
-    "text": "The DESCRIPTION\nThe description can be edited by hand, but usethis also provides function to edit them:\n\n\nTask\nfunction\n\n\n\nDeclare dependencies\nusethis::use_package()\n\n\nAdding authors\nusethis::use_author()\n\n\nEdit DESCRIPTION\nusethis::use_description()"
+    "text": "The DESCRIPTION\nThe DESCRIPTION file can be edited by hand, but usethis also provides functions to programmatically edit its:\n\n\ntask\nfunction\n\n\n\nDeclare dependencies\nusethis::use_package()\n\n\nAdding authors\nusethis::use_author()\n\n\nEdit DESCRIPTION\nusethis::use_description()"
   },
   {
     "objectID": "slides_02.html#exercise-1",
     "href": "slides_02.html#exercise-1",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Exercise",
-    "text": "Exercise\nI have prepared a small script with these functions that you can download here script_package_01.R\nI want you to execute these functions to create a package and write metadata to its DESCRIPTION.\nCheck out the directory structure and the different files that have been created."
+    "text": "Exercise\nI have prepared a small script with these functions that you can download: script_package_01.R\nI want you to execute these functions to create a package and write metadata to its DESCRIPTION.\nCheck out the directory structure and the different files that have been created."
   },
   {
     "objectID": "slides_02.html#the-process-of-working-on-a-package",
     "href": "slides_02.html#the-process-of-working-on-a-package",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "The process of working on a package",
-    "text": "The process of working on a package\n\n\n\n\n\ng1\nA\nCMD checkB\nBuild packageA-&gt;B\nC\nWrite functionB-&gt;C\nD\nDocument functionC-&gt;D\nE\nTest functionD-&gt;E\nE-&gt;A"
+    "text": "The process of working on a package\n\n\n\n\n\ng1\nD\nWrite functionE\nDocument functionD-&gt;E\nF\nTest functionE-&gt;F\nF-&gt;D\nA\nCMD checkF-&gt;A\nA-&gt;D\nB\nBuild packageA-&gt;B\nC\nInstall packageB-&gt;C"
   },
   {
     "objectID": "slides_02.html#useful-functions-for-package-development",
     "href": "slides_02.html#useful-functions-for-package-development",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Useful functions for package development",
-    "text": "Useful functions for package development\n\nTable: Useful functions for package development\n\nTask\nfunction\n\n\n\nCreate R script\nusethis::use_r()\n\n\nAdd data\nusethis::use_data()\n\n\nDocument function\ndevtools::document()\n\n\nLoad all functions\ndevtools::load_all()\n\n\nCMD Check\ndevtools::check()\n\n\nBuild package locally\ndevtools::build()"
+    "text": "Useful functions for package development\n\n\ntask\nfunction\n\n\n\nCreate R script\nusethis::use_r()\n\n\nAdd data\nusethis::use_data()\n\n\nDocument function\ndevtools::document()\n\n\nLoad all functions\ndevtools::load_all()\n\n\nCMD Check\ndevtools::check()\n\n\nBuild package locally\ndevtools::build()"
   },
   {
     "objectID": "slides_02.html#documenting-functions-with-roxygen2",
     "href": "slides_02.html#documenting-functions-with-roxygen2",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Documenting functions with roxygen2\n",
-    "text": "Documenting functions with roxygen2\n\nThe idea behind roxygen2 is to document functions with special comments next to their definition. roxygen2 will process these comments and turn them into manual pages in the package.\nYou can add a comment skeleton with control + alt + shift + R when your cursor is inside the function."
+    "text": "Documenting functions with roxygen2\n\n\n\n\n\nThe idea behind roxygen2 is to document functions with special comments next to their definition. roxygen2 will process these comments and turn them into manual pages in the package.\nYou can add a comment skeleton with control + alt + shift + R when your cursor is inside the function."
   },
   {
     "objectID": "slides_02.html#roxygen2-comments",
@@ -165,14 +186,14 @@
     "href": "slides_02.html#r-cmd-check",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "R CMD Check",
-    "text": "R CMD Check\n\n\nR CMD check runs checks intended for publication on CRAN.\nIt is very strict.\nThe three levels of feedback:\n\nerrors need to be fixed\nwarnings affect functionality\nnotes can often be ignored if you do not intend to publish the package on CRAN"
+    "text": "R CMD Check\n\n\nThree levels of feedback\nAn example output\n\n\n\n\nR CMD check runs checks intended for publication on CRAN. Its output gives strict feedback:\n\n errors need to be fixed\n warnings affect functionality\n notes can often be ignored if you do not intend to publish the package on CRAN"
   },
   {
     "objectID": "slides_02.html#exercise-2",
     "href": "slides_02.html#exercise-2",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Exercise",
-    "text": "Exercise\nI have prepared a small script with these functions that you can download here script_package_02.R\nI want you to\n\ncreate a function that a\nadd some documentation to the function using roxygen2\nLoad the package and test the function\nRun CMD Check\nBuild the package locally\nInstall it\n\nOptional:\n\nadd the dataset from the function ds4psy::posPsy_long() to the package using usethis::use_data()"
+    "text": "Exercise\n\nI have prepared a small script with functions that you can download: script_package_02.R\nI want you to\n\ncreate a function that changes the values of the CESD to be in the range [0, 3]\nadd some documentation to the function using roxygen2\n\nLoad the package and test the function\nRun CMD Check\nBuild the package and install it\n\nOptional:\n\nadd the dataset from the function ds4psy::posPsy_long() to the package using usethis::use_data()"
   },
   {
     "objectID": "slides_02.html#pros-of-study-as-an-r-package",
@@ -200,21 +221,21 @@
     "href": "slides_02.html#version-control-using-git",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Version control using Git",
-    "text": "Version control using Git\nGit manages a repository, a collection of files, and their changes over time. In the  world this corresponds to a RStudio project or a folder with scripts and datasets.\nWhen you make a change, you commit it with a short message detailing your changes. All these commits make up the history of the repository, through which you can trace back the evolution of your project."
+    "text": "Version control using Git\n manages a repository, a collection of files, and their changes over time. In the  world, this corresponds to a RStudio project or a folder with scripts and datasets.\nWhen you make a change, you commit it with a short message detailing your changes. All these commits make up the history of the repository, through which you can trace back the evolution of your project."
   },
   {
     "objectID": "slides_02.html#git-clients-such-as-github-gitlab-etc.",
     "href": "slides_02.html#git-clients-such-as-github-gitlab-etc.",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Git clients such as Github, Gitlab, etc.",
-    "text": "Git clients such as Github, Gitlab, etc.\nWhen your version controlled project is not contained to your computer, hosting services such as Github or Gitlab come into play. You can:\n\npublish your project there\n\npush your changes to the repository\naccept changes from others made in pull requests"
+    "text": "Git clients such as Github, Gitlab, etc.\nWhen your version controlled repository is not confined to your machine, hosting services such as Github , Gitlab  or others come into play. You can:\n\npublish your project there\n\npush your changes to the repository\naccept changes from others made in pull requests"
   },
   {
     "objectID": "slides_02.html#hosting-quarto-documents",
     "href": "slides_02.html#hosting-quarto-documents",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Hosting Quarto documents",
-    "text": "Hosting Quarto documents\nGithub and Gitlab let you host webpages and websites created in a repository in their service for free.\nThis can be used to publish Quarto documents, books, websites.\nI use this for my own website, for documentation for my R package, and for this workshop!"
+    "text": "Hosting Quarto documents\nGithub and Gitlab let you host webpages and websites created in a repository on their service for free.\nThis can be used to publish Quarto documents, books, websites.\nI have put this to use for my own website, for documentation for my R package, and for this workshop!"
   },
   {
     "objectID": "slides_02.html#further-reading",
@@ -242,7 +263,7 @@
     "href": "slides_02.html#what-is-an-image",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "What is an image?",
-    "text": "What is an image?\nThe specifications for an image can be defined through a text file, e.g. a Docker file:\n\nwhat operating system is needed\nwhat software needs to be installed"
+    "text": "What is an image?\nAn image is a package that contains all necessary instructions to create a container.\nThe specifications for an image is defined in a text file, e.g. a Docker file:\n\nwhat operating system is needed\nwhat software needs to be installed"
   },
   {
     "objectID": "slides_02.html#collaboration",
@@ -263,7 +284,7 @@
     "href": "slides_02.html#what-are-research-compendia",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "What are research compendia?",
-    "text": "What are research compendia?\n\nA research compendium collects all digital parts of a research project, including data, code, and texts (protocols, reports, questionnaires, metadata).\n\nhttps://epiverse-trace.github.io/research-compendium/instructor/compendium.html\nWhen published, a research compendium allows others to reconstruct your analysis and ideally execute it as well."
+    "text": "What are research compendia?\n\nA research compendium collects all digital parts of a research project, including data, code, and texts (protocols, reports, questionnaires, metadata).\n\n\nhttps://epiverse-trace.github.io/research-compendium/instructor/compendium.html\n\nWhen published, a research compendium allows others to inspect, reconstruct and ideally execute your analysis. ."
   },
   {
     "objectID": "slides_02.html#r-packages-as-research-compendia",
