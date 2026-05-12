@@ -522,7 +522,7 @@
     "href": "slides_01.html#the-renv-package",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "The renv package",
-    "text": "The renv package\nrenv controls in the computational environment:\n\nSpecific  packages and their version\n version\noperating system ( , , )\nsystem dependencies"
+    "text": "The renv package\n\n\n\n\nrenv controls in the computational environment:\n\nSpecific  packages and their version\n version\noperating system ( , , )\nsystem dependencies"
   },
   {
     "objectID": "slides_01.html#the-renv-package-1",
