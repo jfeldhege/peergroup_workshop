@@ -4,7 +4,7 @@ subtitle: "Part 2"
 author: "Johannes Feldhege"
 format: 
   revealjs:
-    theme: [simple]
+    theme: [simple, styles.scss]
     footer: <PPF Methods Peer Group>
     slide-number: true
     chalkboard: true
@@ -23,43 +23,49 @@ filters:
 
 ## Literate programming
 
-> Literate programming is a methodology that combines a programming language with a documentation language, thereby making programs more robust, more portable, more easily maintained, and arguably more fun to write than programs that are written only in a high-level language. The main idea is to treat a program as a piece of literature, addressed to human beings rather than to a computer. 
+::: small
+> Literate programming is a methodology that combines a programming language with a documentation language, thereby making programs more robust, more portable, more easily maintained, and arguably more fun to write than programs that are written only in a high-level language. The main idea is to treat a program as a piece of literature, addressed to human beings rather than to a computer.
 
 Donald E. Knuth, <https://www-cs-faculty.stanford.edu/~knuth/lp.html>
 
-RMarkdown is a combination of the programming language {{< fa brands r-project >}}  and the documentation language {{< fa brands markdown >}}. It allows users to combine R code with markdown-formatted text. 
+RMarkdown is a combination of the programming language {{< fa brands r-project >}} and the documentation language {{< fa brands markdown >}}. It allows users to **combine R code with markdown-formatted text**.
 
-Rmarkdown documents are fully reproducible as the R code contained within is executed when the document is rendered. 
-
-
+Rmarkdown documents are **fully reproducible** as the R code contained within is executed when the document is rendered.
+:::
 
 ## Literate programming using Quarto
 
-Quarto is the successor of Rmarkdown which allows users to include code from multiple programming languages and to render to more output formats.
+Quarto is the successor to Rmarkdown, adding new features such as the option to include code from multiple programming languages or a wider set of output formats.
 
-Quarto is included in recent versions of RStudio. To check whether it is installed and works, you can run in the terminal: 
+Quarto is included in recent versions of RStudio. To check whether it is installed and working on your machine, you can run in the terminal:
 
 ```{bash}
 #| eval: false
 quarto check
-``` 
-
-
+```
 
 ## Creating a Quarto document
 
-File {{< fa circle-right >}} New file {{< fa circle-right >}} Quarto Document...
+::::: columns
+::: {.column width="40%"}
+In the RStudio menu:
 
-![](images/quarto_render.PNG)
+File
 
+{{< fa circle-right >}} New file
 
+{{< fa circle-right >}} Quarto Document...
+:::
 
+::: {.column width="60%"}
+![](images/quarto_doc.PNG)
+:::
+:::::
 
 ## Anatomy of a Quarto document
 
-:::: {.columns}
-
-::: {.column width="30%"}
+:::::: columns
+:::: {.column width="30%"}
 A Quarto document consists of:
 
 ::: nonincremental
@@ -69,15 +75,12 @@ A Quarto document consists of:
 
 - Code chunks
 :::
-
-
-:::
+::::
 
 ::: {.column width="70%"}
-
 ```{bash}
 #| eval: false
-#| code-line-numbers: "|1-4|6-17|17-25|"
+#| code-line-numbers: "|1-4|6-13|14-20|"
 ---
 title: "Quarto Example Document"
 format: html
@@ -87,8 +90,7 @@ format: html
 
 This is markdown formatted text. 
 
-It can contain markdown specific format instructions such as ** 
-for bold text. 
+It can contain markdown specific format instructions such as ** for bold text. 
 
 ## Code chunks
 
@@ -99,17 +101,15 @@ for bold text.
 
 boxplot(popsy$cesdTotal ~ popsy$occasion, horizontal = TRUE)
 ````
-
 ```
-
 :::
-
-::::
-
+::::::
 
 ## The YAML header
 
-The text at the top between --- is called the YAML header. It gives instructions, such as the output format, to Quarto when rendering the document.
+The text at the top between --- is called the YAML header. It supplies **instructions**, such as the output format, for **rendering the document**.
+
+The instructions are specified as **key: value** pairs.
 
 A simple example:
 
@@ -121,14 +121,12 @@ format: html
 ---
 ```
 
-
 ## The YAML header
 
-A more elaborate version that is used to create this presentation. 
+A more elaborate version used to create this presentation:
 
-:::: {.columns}
-
-::: {.column width="45%"}
+::::: columns
+::: {.column width="30%"}
 Typical features are:
 
 - a title
@@ -136,10 +134,9 @@ Typical features are:
 - an author
 
 - format specific options
-
 :::
 
-::: {.column width="45%"}
+::: {.column width="70%"}
 ```{bash}
 #| eval: false
 #| code-line-numbers: "|2|4|5-14|"
@@ -164,36 +161,30 @@ filters:
   - webr
 ---
 ```
-
 :::
-
-::::
-
-
-
+:::::
 
 ## Markdown formatting
 
-:::: {.columns}
-
-::: {.column width="45%"}
-
+:::::: columns
+:::: {.column .small width="50%"}
 `#` are used to create headers. The number of `#` determines the header level.
 
+::: nonincremental
 - Bullet list item 1
 
 - Bullest list item 2
+:::
 
 **bold text**, *italic text*
 
- `text formatted as code`
+`text formatted as code`
+::::
 
-:::
-
-::: {.column width="45%"}
-
+::: {.column width="50%"}
 ```{bash}
 #| eval: false
+#| code-line-numbers: "|1-3|5-7|9-11|"
 
 # Header 1
 
@@ -208,14 +199,64 @@ filters:
  `text formatted as code`
 ```
 :::
+::::::
+
+
+
+## Source vs Visual Editor
+
+You can switch between source and a visual editor when writing your Quarto document. 
+
+![](images/source_visual.PNG)
+
+In visual editor mode, you get a preview of your document. It is a more beginner-friendly mode as you get a more immediate feedback on your inputs.  
+
+{{< fa solid triangle-exclamation >}} Switching between both modes can sometimes introduce unintended changes in the document!
+
+
+## Visual Editor mode
+
+::: {.small}
+In Visual Editor mode, you can select and insert formatting or special inputs using the dropdown menus: 
+:::
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![](images/format.PNG)
+
+:::
+
+::: {.column width="50%"}
+![](images/insert.PNG)
+:::
 
 ::::
 
+
+
+
+
 ## Code chunks
+
+::: panel-tabset
+## Explanation
+
+Code chunks contain programming code as well as instructions on how to execute the code and place it and its results in the Quarto document. 
+
+The first line must specify the **programming language**.
+
+**Instructions** are placed in comments with `#`|. 
+
+The actual code can be written as you would in a regular script. 
+
+## Code
+
 
 ```{bash}
 #| eval: false
-#| code-line-numbers: "|2|3|4|5|7-9|"
+#| code-line-numbers: "|1|2|3|4|5|7-9|"
 
 ````{r}
 #| echo: true
@@ -231,27 +272,29 @@ boxplot(popsy$cesdTotal ~ popsy$occasion, horizontal = TRUE)
 ````
 
 ```
+:::
 
 
-## Code execution
+## A note on code execution
 
-> Rmarkdown documents are fully reproducible as the R code contained within is executed when the document is rendered. 
+::: small
+> Rmarkdown documents are fully reproducible as the R code contained within is executed when the document is rendered.
+:::
 
 {{< fa solid triangle-exclamation >}} Quarto documents are rendered in a process that is separate to your RStudio environment, therefore they cannot access currently loaded packages or your carefully created datasets.
 
-{{< fa circle-right >}} That means that you need to load them inside a Quarto code chunk!
+{{< fa regular hand-point-right >}} You need to load packages and data inside a code chunk in order to use them!
 
 
 ## Rendering a document
 
 To turn a Quarto document into the desired output format, it needs to be rendered.
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="50%"}
 This can be done using RStudio buttons:
 
-![](images/quarto_doc.PNG)
+![](images/quarto_render.PNG)
 :::
 
 ::: {.column width="50%"}
@@ -269,14 +312,15 @@ or in R with the `quarto` {{< fa brands r-project >}} package:
 quarto::render("my_quarto_file.qmd")
 ```
 :::
+:::::
 
-::::
+
 
 ## Output formats
 
 Quarto documents can be rendered to dozens of different output formats:
 
-- {{< fa solid file-code >}} HTML pages 
+- {{< fa solid file-code >}} HTML pages
 
 - {{< fa solid file-word >}} Word documents
 
@@ -290,38 +334,75 @@ Quarto documents can be rendered to dozens of different output formats:
 
 
 
+## Quarto manuscripts
+
+Quarto 1.4 introduced an output format for scientific writing: **Quarto manuscripts**.
+
+It is published as a website that can link to other formats such as **word** or **pdf**.
+
+In the background, multiple Quarto files can be used to write the manuscript and conduct the analysis.
+
+A live example can be seen [here](https://quarto-ext.github.io/manuscript-template-jupyter/)
+
+
 ## Exercise
 
 I have created an example Quarto document that you can download [here](https://github.com/jfeldhege/peergroup_workshop/blob/main/examples/quarto_example.qmd)
 
 ::: nonincremental
-- play around with markdown formatting
+- play around with the markdown formatting
 - change the code chunk for the plot and table
 - create a new plot or table
 - render the document
 :::
 
 
-## Collaboration with Quarto
-
-Collaboration with others, who are interested in both your conclusions, and how you reached them (i.e. the code).
-
-As a modern-day lab notebook that contains  
-
-## Quarto manuscripts
-
-Quarto 1.4 introduced an output format for scientific writing: **Quarto manuscripts**.
-
-It is published as a website that can link to other formats such as **word** or **pdf**. 
-
-In the background, multiple Quarto files can be used to write the manuscript and conduct the analysis. 
-
-A live example can be seen [here](https://quarto-ext.github.io/manuscript-template-jupyter/)
-
-
-
 
 # Creating R packages
+
+## R packages in a reproducibility context 
+
+:::: {.columns}
+
+::: {.column width="30%"}
+![](images/r_packages_2e.PNG)
+:::
+
+::: {.column width="70%"}
+>Packages are the fundamental units of reproducible R code. They include reusable R functions, the documentation that describes how to use them, and sample data.
+
+::: {.right}
+\- Wickham and Bryan, 2023
+:::
+:::
+
+::::
+
+
+
+## Two essential packages
+
+:::: {.columns}
+
+::: {.column width="20%"}
+![](images/devtools_logo.PNG){height=150}
+
+![](images/usethis_logo.PNG){height=150}
+:::
+
+::: {.column width="80%"}
+`devtools`: Essential functions for documenting code and building the package.
+
+<br />
+
+`usethis`: Convenience function to automate the workflow of creating a package. 
+:::
+
+::::
+
+
+
+
 
 ## Creating an R Package with the `usethis` package
 
@@ -332,23 +413,24 @@ One easy step to get started:
 usethis::create_package("/path/to/the/package/name")
 ```
 
-A package name can only contain letters, numbers, and `.`
+
+{{< fa solid triangle-exclamation >}} A package name may only contain letters, numbers, and \.
+
+
 
 ## The package directory structure
 
-```
+```         
 .
 ├── (.gitignore)        # Files to ignore when using git
 │
 ├── .Rbuildignore       # Files to ignore when building package
 │
 ├── R/                  # Folder to store (only) R functions
-│   ├── myfun-1.R       # A first R function file
-│   └── myfun-2.R       # A second R function file
+│   └── myfun-1.R       # A first R function file
 │
 ├── man/                # Folder to store R functions documentation
-│   ├── my_fun_1.Rd
-│   └── my_fun_2.Rd
+│   └── my_fun_1.Rd     # Documentation for the first function
 │
 ├── DESCRIPTION         # Package metadata
 │
@@ -362,68 +444,85 @@ A package name can only contain letters, numbers, and `.`
 
 ## The DESCRIPTION
 
-The description can be edited by hand, but `usethis` also provides function to edit them:
+The DESCRIPTION file can be edited by hand, but `usethis` also provides functions to programmatically edit its:
 
-| Task                  | function                     |
-|-----------------------|------------------------------|
-| Declare dependencies  | `usethis::use_package()`     |
-| Adding authors        | `usethis::use_author()`      |
-| Edit DESCRIPTION      | `usethis::use_description()` |
-
+| task                 | function                     |
+|----------------------|------------------------------|
+| Declare dependencies | `usethis::use_package()`     |
+| Adding authors       | `usethis::use_author()`      |
+| Edit DESCRIPTION     | `usethis::use_description()` |
 
 
 ## Exercise
 
-I have prepared a small script with these functions that you can download here [script_package_01.R](%22https://www.johannesfeldhege.de/peergroup_workshop/script_package_01.R%22)
+I have prepared a small script with these functions that you can download: [script_package_01.R](%22https://www.johannesfeldhege.de/peergroup_workshop/script_package_01.R%22)
 
 I want you to execute these functions to create a package and write metadata to its DESCRIPTION.
 
 Check out the directory structure and the different files that have been created.
-
-
 
 ## The process of working on a package
 
 ```{dot}
 //| echo: false
 digraph g1 {
-layout="circo";
-node [shape = rectangle];
+layout = "dot";
+overlap = false
+node [shape = oval];
 
+D [label = "Write function"]  
+E [label = "Document function"]
+F [label = "Test function"]
 A [label = "CMD check"]
 B [label = "Build package"] 
-C [label = "Write function"]  
-D [label = "Document function"]
-E [label = "Test function"]
+C [label = "Install package"]
 
+
+D -> E ; 
+E -> F ;
+F -> D ;
+
+F -> A ;
+A -> D ;
 A -> B ;
 B -> C ;
-C -> D ;
-D -> E ;
-E -> A ;
+
 }
 ```
 
 
+
 ## Useful functions for package development
 
-| Task                  | function                 |
-|-----------------------|--------------------------|
-| Create R script       | `usethis::use_r()`       |
-| Add data              | `usethis::use_data()`    |
-| Document function     | `devtools::document()`   |
-| Load all functions    | `devtools::load_all()`   |
-| CMD Check             | `devtools::check()`      |
-| Build package locally | `devtools::build()`      |
+| task                  | function               |
+|-----------------------|------------------------|
+| Create R script       | `usethis::use_r()`     |
+| Add data              | `usethis::use_data()`  |
+| Document function     | `devtools::document()` |
+| Load all functions    | `devtools::load_all()` |
+| CMD Check             | `devtools::check()`    |
+| Build package locally | `devtools::build()`    |
 
-: Table: Useful functions for package development
 
 
 ## Documenting functions with `roxygen2`
 
-The idea behind `roxygen2` is to document functions with special comments next to their definition. `roxygen2` will process these comments and turn them into manual pages in the package. 
+:::: {.columns}
 
-You can add a comment skeleton with control + alt + shift + R when your cursor is inside the function. 
+::: {.column width="20%"}
+![](images/roxygen2_logo.png)
+:::
+
+::: {.column width="80%"}
+The idea behind `roxygen2` is to document functions with special comments next to their definition. `roxygen2` will process these comments and turn them into **manual pages** in the package.
+
+You can add a comment skeleton with **control + alt + shift + R** when your cursor is inside the function.
+:::
+
+::::
+
+
+
 
 
 ## `roxygen2` comments
@@ -452,50 +551,48 @@ str_length <- function(string) {
 }
 ```
 
+
 ## R CMD Check
-:::: {.columns}
 
-::: {.column width="30%"}
-R CMD check runs checks intended for publication on CRAN. 
+::: panel-tabset
+## Three levels of feedback
 
-It is very strict.
+::: {.small}
+R CMD check runs checks intended for publication on CRAN. Its output gives **strict feedback**:
 
-The three levels of feedback:
+- {{< fa solid bug >}} errors need to be fixed
 
-- errors need to be fixed
+- {{< fa solid triangle-exclamation >}} warnings affect functionality
 
-- warnings affect functionality
-
-- notes can often be ignored if you do not intend to publish the package on CRAN
-
+- {{< fa solid comment-dots >}} notes can often be ignored if you do not intend to publish the package on CRAN
 
 :::
 
-::: {.column width="60%"}
+## An example output 
+
 ![](images/rcmd_check.PNG)
 :::
-
-::::
-
 
 
 
 ## Exercise
 
-I have prepared a small script with these functions that you can download here [script_package_02.R](%22https://www.johannesfeldhege.de/peergroup_workshop/script_package_03.R%22)
+::: {.small}
+I have prepared a small script with functions that you can download: [script_package_02.R](%22https://www.johannesfeldhege.de/peergroup_workshop/script_package_03.R%22)
 
-I want you to 
+I want you to
 
-- create a function that a
-- add some documentation to the function using roxygen2
+- create a function that changes the values of the CESD to be in the range [0, 3]
+- add some documentation to the function using `roxygen2`
 - Load the package and test the function
 - Run CMD Check
-- Build the package locally
-- Install it
+- Build the package and install it
 
 Optional:
 
 - add the dataset from the function `ds4psy::posPsy_long()` to the package using `usethis::use_data()`
+:::
+
 
 
 
@@ -518,7 +615,6 @@ More info [here](https://milesmcbain.xyz/posts/an-okay-idea/)
 
 
 
-
 # Outlook
 
 # Version control
@@ -527,75 +623,65 @@ More info [here](https://milesmcbain.xyz/posts/an-okay-idea/)
 
 Two common scenarios:
 
-- Paper_260510_final_final.doc: files are sent via e-mail and multiple versions exist out there.
+- Paper_260510_final_final.doc: files are sent via e-mail and **multiple versions** exist out there.
 
-- An online document (Google docs, Microsoft 365, etc.): anyone can edit, anyone can see and track changes. Changes can be reverted back.
+- An online document (Google docs, Microsoft 365, etc.): anyone can edit, anyone can see and track changes. **Changes can be reverted back**.
 
+{{< fa regular hand-point-right >}} Version control is more like the second scenario.
 
-{{< fa circle-right >}} Version control is more like the second scenario. 
+## Version control using Git 
 
+{{< fa brands square-git >}} manages a **repository**, a collection of files, and their changes over time. In the {{< fa brands r-project >}} world, this corresponds to a RStudio project or a folder with scripts and datasets.
 
-
-## Version control using Git
-
-Git manages a repository, a collection of files, and their changes over time. In the {{< fa brands r-project >}} world this corresponds to a RStudio project or a folder with scripts and datasets.
-
-When you make a change, you *commit* it with a short message detailing your changes. 
-All these commits make up the *history* of the repository, through which you can trace back the evolution of your project. 
+When you make a change, you *commit* it with a short message detailing your changes. All these commits make up the *history* of the repository, through which you can trace back the evolution of your project.
 
 
 
 
 ## Git clients such as Github, Gitlab, etc.
 
-When your version controlled project is not contained to your computer, hosting services such as Github or Gitlab come into play. You can:
+When your version controlled repository is not confined to your machine, **hosting services** such as Github {{< fa brands square-github >}}, Gitlab {{< fa brands square-gitlab >}} or others come into play. You can:
 
 - publish your project there
 - *push* your changes to the repository
 - accept changes from others made in *pull* requests
 
-
 ## Hosting Quarto documents
 
-Github and Gitlab let you host webpages and websites created in a repository in their service for free. 
+Github and Gitlab let you host webpages and websites created in a repository on their service for free.
 
-This can be used to publish Quarto documents, books, websites. 
+This can be used to publish Quarto documents, books, websites.
 
-I use this for my own website, for documentation for my R package, and for this workshop!
-
-
-
+I have put this to use for my own website, for documentation for my R package, and for this workshop!
 
 ## Further reading
 
 ::: nonincremental
 - [Happy Git and GitHub for the useR](https://happygitwithr.com/)
-
 :::
-
-
 
 # Containerization
 
 ## The purpose of containerization
 
-With containerization, you can control all of the aspects of the computational environment mentioned earlier:
+With **containerization**, you can control all of the aspects of the computational environment mentioned earlier:
 
 - Specific {{< fa brands r-project >}} packages and their version
 - {{< fa brands r-project >}} version
-- operating system ( {{< fa brands windows >}}, {{< fa brands apple >}}, {{< fa brands linux >}}) 
+- operating system ( {{< fa brands windows >}}, {{< fa brands apple >}}, {{< fa brands linux >}})
 - system dependencies
 
 ## What is a container?
 
 A container is little bit like a virtual machine as it is a separate computer running on another computer. However, it usually does not have a graphical interface, but is run through a terminal.
 
-The container is the running instance of the computer. How this computer is set up is defined by the image. 
-
+The container is the running instance of the computer. How this computer is set up is defined by the **image**.
 
 ## What is an image?
 
-The specifications for an image can be defined through a text file, e.g. a Docker file: 
+An image is a package that contains all necessary instructions to create a container. 
+
+The specifications for an image is defined in a text file, e.g. a Docker file:
 
 ::: nonincremental
 - what operating system is needed
@@ -604,13 +690,11 @@ The specifications for an image can be defined through a text file, e.g. a Docke
 
 ![](images/docker.PNG)
 
+## Collaboration
 
-## Collaboration 
-
-The image can be shared with collaborators so that they can reproduce the same conditions on a container on their computer. 
+The image can be shared with collaborators so that they can reproduce the same conditions on a container on their computer.
 
 There are a number of standard images for R created by the [Rocker Project](https://rocker-project.org/). These can be used as a base image which can then be further customised for a specific project.
-
 
 ## Further reading
 
@@ -628,16 +712,17 @@ Other implementations:
 - [rix](https://docs.ropensci.org/rix/)
 :::
 
-
 # Research Compendia
 
 ## What are research compendia?
 
->A research compendium collects all digital parts of a research project, including data, code, and texts (protocols, reports, questionnaires, metadata). 
+> A research compendium collects all digital parts of a research project, including data, code, and texts (protocols, reports, questionnaires, metadata).
 
+::: {.right .small}
 https://epiverse-trace.github.io/research-compendium/instructor/compendium.html
+:::
 
-When published, a research compendium allows others to reconstruct your analysis and ideally execute it as well. 
+When published, a research compendium allows others to inspect, reconstruct and ideally execute your analysis. .
 
 ## R packages as research compendia
 
@@ -658,9 +743,12 @@ There are a number of R packages that implement research compendia:
 - template: <https://github.com/Pakillo/template>
 :::
 
-Further information: 
+Further information:
 
 ::: nonincremental
 - <https://research-compendium.science/>
 - <https://book.the-turing-way.org/reproducible-research/compendia/>
 :::
+
+
+# Thank you for attention!
