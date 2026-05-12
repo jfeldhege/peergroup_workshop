@@ -397,12 +397,25 @@ To guarantee that others can apply them on their machine, you need to be able to
 
 ## The `renv` package
 
+:::: {.columns}
+
+::: {.column width="20%"}
+![](images/renv_logo.svg)
+:::
+
+::: {.column width="80%"}
 `renv` controls in the computational environment:
 
 - Specific {{< fa brands r-project >}} packages and their version
 - [{{< fa brands r-project >}} version]{.fragment .strike}
 - [operating system ( {{< fa brands windows >}}, {{< fa brands apple >}}, {{< fa brands linux >}})]{.fragment .strike}
 - [system dependencies]{.fragment .strike}
+:::
+
+::::
+
+
+
 
 ## The `renv` package
 
