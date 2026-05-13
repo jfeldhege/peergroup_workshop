@@ -326,7 +326,7 @@
     "href": "index.html#description",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Description",
-    "text": "Description"
+    "text": "Description\nA workshop advocating for better code and reproducible projects in . The workshop’s topics are code readibility, reproducible environments, literate programming, and package development. Some of the packages and software taught are renv, Quarto, lintr, devtools, and usethis."
   },
   {
     "objectID": "index.html#timetable",
