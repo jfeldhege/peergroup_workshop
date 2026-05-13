@@ -2,6 +2,8 @@
 title: "Clean Code, Reproducible Science: Advanced R-Programming and Workflows"
 subtitle: "Part 1"
 author: "Johannes Feldhege"
+date: 2026-05-13
+date-format: "DD.MM.YYYY"
 format: 
   revealjs:
     theme: [simple, styles.scss]
@@ -105,7 +107,7 @@ pospsy <- ds4psy::posPsy_AHI_CESD
 >Code is written once but read many times.
 
 
-Therefore, we should strive to improve the readibility of our code.
+Therefore, we should strive to improve the **readibility** of our code.
 
 Three measures you can take towards this goal:
 
@@ -205,7 +207,12 @@ More style guidelines [here](https://style.tidyverse.org/functions.html)
 
 Basic usage:
 
-``` r
+:::: {.columns}
+
+::: {.column width="50%"}
+With code:
+
+```{bash}
 #| eval: false
 # Style one file
 lintr::lint(path = "path/to/file")
@@ -213,6 +220,18 @@ lintr::lint(path = "path/to/file")
 # A whole directory or R project
 lintr::lint_dir(path = "path/to/project")
 ```
+:::
+
+::: {.column width="50%"}
+Or with an RStudio addin:
+
+![](images/addings.PNG)
+:::
+
+::::
+
+
+
 
 ## Styling code with `lintr`
 

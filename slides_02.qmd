@@ -2,6 +2,8 @@
 title: "Clean Code, Reproducible Science: Advanced R-Programming and Workflows"
 subtitle: "Part 2"
 author: "Johannes Feldhege"
+date: 2026-05-13
+date-format: "DD.MM.YYYY"
 format: 
   revealjs:
     theme: [simple, styles.scss]

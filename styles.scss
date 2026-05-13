@@ -2,6 +2,25 @@
 
 /*-- scss:defaults --*/
 
+.title {
+  font-size: 80px !important;
+  text-align: left;
+}
+
+.subtitle {
+  font-size: 50px !important;
+  text-align: left;
+}
+
+.quarto-title-author-name {
+  font-size: 30px;
+  text-align: left;
+}
+
+.date {
+  font-size: 30px;
+}
+
 h2 {
   padding-top: 20px;
   padding-bottom: 20px;
