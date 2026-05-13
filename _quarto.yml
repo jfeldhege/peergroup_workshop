@@ -35,9 +35,8 @@ website:
 
 format:
   html:
-    theme: [cosmo, styles.scss]
+    theme: cosmo
     from: markdown+emoji
-    css: styles.css
     toc: true
 
 
