@@ -127,9 +127,9 @@ Naming things is hard - so hard that books are written about it:
 
 A good name should be
 
-- descriptive and concise
-- prioritize reader's understanding over shortness or machine compatibility
-- follow a standard naming convention
+- **descriptive** and concise
+- prioritize **reader's understanding** over shortness or machine compatibility
+- follow a standard **naming convention**
 
 ## Naming conventions
 
@@ -182,7 +182,7 @@ regResults
 
 ## Names for functions
 
-The convention for functions in the tidyverse, a collection of related packages, is to start a function name with a verb, so `do()` or `do_thing()`.
+The convention for functions in the tidyverse, a collection of related packages, is to start a function name with a **verb**, so `do()` or `do_thing()`.
 
 Examples:
 
@@ -197,7 +197,7 @@ value_add()
 value()
 ```
 
-More style guidelines [here](https://style.tidyverse.org/functions.html)
+More style guidelines can be found in the [tidyverse style guide](https://style.tidyverse.org/functions.html)
 
 # Styling code
 
@@ -231,8 +231,6 @@ Or with an RStudio addin:
 ::::
 
 
-
-
 ## Styling code with `lintr`
 
 `lintr` comes with defaults.
@@ -245,16 +243,40 @@ These can be modified, deactivated, or you can define your own set.
 
 You can also add your own linters.
 
+
+
 ## Beyond `lintr`
 
-`lintr` gives recommendations but does not change code.
+::: {.small}
+`lintr` gives recommendations but leaves it up to you to make changes in the code.
 
-These tools can style your code by changing the code when executed:
 
-::: nonincremental
-- [Air](https://posit-dev.github.io/air/)
-- [styler](https://styler.r-lib.org/)
+These tools can style your code by **changing the code** when executed:
 :::
+
+
+:::: {.columns}
+
+::: {.column width="50%" .center}
+![](images/air_logo.png){height=180}
+
+[Air](https://posit-dev.github.io/air/)
+
+:::
+
+::: {.column width="50%" .center}
+
+
+![](images/styler_logo.png){height=180}
+
+[styler](https://styler.r-lib.org/)
+
+:::
+
+::::
+
+
+
 
 ::: callout-warning
 Caution: these tools change your code without asking!
@@ -266,16 +288,19 @@ Caution: these tools change your code without asking!
 
 > A helpful comment explains the why, not the what or how.
 
-If you find yourself commenting what the code is doing, the code might need to be re-written so that it speaks for itself. 
+If you find yourself commenting what the code is doing, the code **might need to be re-written ** so that it speaks for itself. 
 
-Comments should be used sparingly, acting as an alert for the reader. 
+Comments should be used sparingly, acting as an **alert** for the reader. 
 
+<br />
 
 More info [here](https://blog.r-hub.io/2023/01/26/code-comments-self-explaining-code/) and [here](https://style.tidyverse.org/)
 
 ## Too many comments
 
-Too many comments will be ignored by the reader. 
+::: {.small}
+
+Too many comments will be **ignored** by the reader. 
 
 If you find yourself commenting a lot, there might be better alternatives:
 
@@ -287,6 +312,8 @@ If you find yourself commenting a lot, there might be better alternatives:
 There, detailed comments on what your code is doing for what reason are encouraged. 
 
 Both aspects will be covered in the second part of the workshop.
+
+:::
 
 # Reproducibility
 
@@ -305,6 +332,16 @@ A study is reproducible if it can be
 - conducted again
 - years later
 - with the same results.
+
+
+
+## The replication crisis
+
+Reproducibility =/= Replication
+
+However, open methods and data are essential aspects for both.
+
+Openly shared methods and data become valuable when we are given the same tools to work with as the authors.
 
 ## Reproducible research
 
@@ -327,14 +364,6 @@ digraph G {
 ```
 
 
-## The replication crisis
-
-Reproducibility =/= Replication
-
-However, open methods and data are essential aspects for both.
-
-Openly shared methods and data become valuable when we are given the same tools to work with as the authors.
-
 ## Measures for reproducibility
 
 We will look at these reproducibility measures today:
@@ -342,14 +371,14 @@ We will look at these reproducibility measures today:
 ::: nonincremental
 - Reproducible environments with [renv](https://cran.r-project.org/web/packages/renv/index.html)
 - literate programming using [Quarto](https://quarto.org/)
-- publish study analysis and data as an R package
+- study analysis and data as an R package
 :::
 
 Outlook for advanced functionalities:
 
 ::: nonincremental
 - version control using git, Github, Gitlab, etc.
-- containerization with Docker, Nix, rix
+- containerization with Docker, rix, Binder, etc.
 - Research compendia
 :::
 
@@ -372,7 +401,7 @@ Control + Shift + F10
 
 <br /> 
 
-Make restarting R peroidically a habit!
+Make restarting R periodically a habit!
 
 
 ## Never let Rstudio save anything!
