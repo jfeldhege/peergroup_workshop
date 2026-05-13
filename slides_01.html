@@ -2123,9 +2123,11 @@ Johannes Feldhege
 <img data-src="images/naming_things_book.PNG" class="r-stretch"></section><section id="how-to-pick-a-good-name" class="slide level2"><h2>How to pick a good name?</h2>
 <p>A good name should be</p>
 <ul>
-<li class="fragment">descriptive and concise</li>
-<li class="fragment">prioritize reader’s understanding over shortness or machine compatibility</li>
-<li class="fragment">follow a standard naming convention</li>
+<li class="fragment">
+<strong>descriptive</strong> and concise</li>
+<li class="fragment">prioritize <strong>reader’s understanding</strong> over shortness or machine compatibility</li>
+<li class="fragment">follow a standard <strong>naming convention</strong>
+</li>
 </ul></section><section id="naming-conventions" class="slide level2"><h2>Naming conventions</h2>
 <p>Some commonly used conventions:</p>
 <div class="columns">
@@ -2158,7 +2160,7 @@ Johannes Feldhege
 <li class="fragment"><code>lrmf</code></li>
 <li class="fragment"><code>logistic_regression_model_fit_result</code></li>
 </ul></section><section id="names-for-functions" class="slide level2"><h2>Names for functions</h2>
-<p>The convention for functions in the tidyverse, a collection of related packages, is to start a function name with a verb, so <code>do()</code> or <code>do_thing()</code>.</p>
+<p>The convention for functions in the tidyverse, a collection of related packages, is to start a function name with a <strong>verb</strong>, so <code>do()</code> or <code>do_thing()</code>.</p>
 <p>Examples:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#| eval: false</span></span>
 <span></span>
@@ -2168,7 +2170,7 @@ Johannes Feldhege
 <span><span class="co">#Bad </span></span>
 <span><span class="fu">value_add</span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu">value</span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>More style guidelines <a href="https://style.tidyverse.org/functions.html">here</a></p>
+<p>More style guidelines can be found in the <a href="https://style.tidyverse.org/functions.html">tidyverse style guide</a></p>
 </section></section><section><section id="styling-code" class="title-slide slide level1 center"><h1>Styling code</h1>
 
 </section><section id="styling-code-with-lintr" class="slide level2"><h2>Styling code with <code>lintr</code>
@@ -2198,12 +2200,18 @@ Johannes Feldhege
 <p>You can also add your own linters.</p>
 </section><section id="beyond-lintr" class="slide level2"><h2>Beyond <code>lintr</code>
 </h2>
-<p><code>lintr</code> gives recommendations but does not change code.</p>
-<p>These tools can style your code by changing the code when executed:</p>
-<ul>
-<li><a href="https://posit-dev.github.io/air/">Air</a></li>
-<li><a href="https://styler.r-lib.org/">styler</a></li>
-</ul>
+<div class="small">
+<p><code>lintr</code> gives recommendations but leaves it up to you to make changes in the code.</p>
+<p>These tools can style your code by <strong>changing the code</strong> when executed:</p>
+</div>
+<div class="columns">
+<div class="column center" style="width:50%;">
+<p><img data-src="images/air_logo.png" height="180"></p>
+<p><a href="https://posit-dev.github.io/air/">Air</a></p>
+</div><div class="column center" style="width:50%;">
+<p><img data-src="images/styler_logo.png" height="180"></p>
+<p><a href="https://styler.r-lib.org/">styler</a></p>
+</div></div>
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -2223,11 +2231,13 @@ Johannes Feldhege
 <blockquote>
 <p>A helpful comment explains the why, not the what or how.</p>
 </blockquote>
-<p>If you find yourself commenting what the code is doing, the code might need to be re-written so that it speaks for itself.</p>
-<p>Comments should be used sparingly, acting as an alert for the reader.</p>
+<p>If you find yourself commenting what the code is doing, the code <strong>might need to be re-written </strong> so that it speaks for itself.</p>
+<p>Comments should be used sparingly, acting as an <strong>alert</strong> for the reader.</p>
+<p><br></p>
 <p>More info <a href="https://blog.r-hub.io/2023/01/26/code-comments-self-explaining-code/">here</a> and <a href="https://style.tidyverse.org/">here</a></p>
 </section><section id="too-many-comments" class="slide level2"><h2>Too many comments</h2>
-<p>Too many comments will be ignored by the reader.</p>
+<div class="small">
+<p>Too many comments will be <strong>ignored</strong> by the reader.</p>
 <p>If you find yourself commenting a lot, there might be better alternatives:</p>
 <ul>
 <li>convert your script to a <i class="fa-brands fa-markdown" aria-label="markdown"></i> document such as Rmarkdown or Quarto</li>
@@ -2236,6 +2246,7 @@ Johannes Feldhege
 </ul>
 <p>There, detailed comments on what your code is doing for what reason are encouraged.</p>
 <p>Both aspects will be covered in the second part of the workshop.</p>
+</div>
 </section></section><section><section id="reproducibility" class="title-slide slide level1 center"><h1>Reproducibility</h1>
 
 </section><section id="why-make-it-reproducible" class="slide level2"><h2>Why make it reproducible?</h2>
@@ -2249,7 +2260,11 @@ Johannes Feldhege
 <li class="fragment">conducted again</li>
 <li class="fragment">years later</li>
 <li class="fragment">with the same results.</li>
-</ul></section><section id="reproducible-research" class="slide level2"><h2>Reproducible research</h2>
+</ul></section><section id="the-replication-crisis" class="slide level2"><h2>The replication crisis</h2>
+<p>Reproducibility =/= Replication</p>
+<p>However, open methods and data are essential aspects for both.</p>
+<p>Openly shared methods and data become valuable when we are given the same tools to work with as the authors.</p>
+</section><section id="reproducible-research" class="slide level2"><h2>Reproducible research</h2>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -2271,10 +2286,6 @@ Johannes Feldhege
 </div>
 </div>
 </div>
-</section><section id="the-replication-crisis" class="slide level2"><h2>The replication crisis</h2>
-<p>Reproducibility =/= Replication</p>
-<p>However, open methods and data are essential aspects for both.</p>
-<p>Openly shared methods and data become valuable when we are given the same tools to work with as the authors.</p>
 </section><section id="measures-for-reproducibility" class="slide level2"><h2>Measures for reproducibility</h2>
 <p>We will look at these reproducibility measures today:</p>
 <ul>
@@ -2282,12 +2293,12 @@ Johannes Feldhege
 </li>
 <li>literate programming using <a href="https://quarto.org/">Quarto</a>
 </li>
-<li>publish study analysis and data as an R package</li>
+<li>study analysis and data as an R package</li>
 </ul>
 <p>Outlook for advanced functionalities:</p>
 <ul>
 <li>version control using git, Github, Gitlab, etc.</li>
-<li>containerization with Docker, Nix, rix</li>
+<li>containerization with Docker, rix, Binder, etc.</li>
 <li>Research compendia</li>
 </ul></section></section><section><section id="first-steps-toward-reproducibility" class="title-slide slide level1 center"><h1>First steps toward reproducibility</h1>
 
@@ -2300,7 +2311,7 @@ Johannes Feldhege
 <p>Control + Shift + F10</p>
 </div>
 <p><br></p>
-<p>Make restarting R peroidically a habit!</p>
+<p>Make restarting R periodically a habit!</p>
 </section><section id="never-let-rstudio-save-anything" class="slide level2"><h2>Never let Rstudio save anything!</h2>
 <div class="small">
 <p>Do not rely on <code>.RData</code> to bail you out. Either save interim datasets to files or write your script in a way that lets you start from scratch every time.</p>

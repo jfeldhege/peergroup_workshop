@@ -424,7 +424,7 @@
     "href": "slides_01.html#how-to-pick-a-good-name",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "How to pick a good name?",
-    "text": "How to pick a good name?\nA good name should be\n\ndescriptive and concise\nprioritize reader’s understanding over shortness or machine compatibility\nfollow a standard naming convention"
+    "text": "How to pick a good name?\nA good name should be\n\n\ndescriptive and concise\nprioritize reader’s understanding over shortness or machine compatibility\nfollow a standard naming convention"
   },
   {
     "objectID": "slides_01.html#naming-conventions",
@@ -445,7 +445,7 @@
     "href": "slides_01.html#names-for-functions",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Names for functions",
-    "text": "Names for functions\nThe convention for functions in the tidyverse, a collection of related packages, is to start a function name with a verb, so do() or do_thing().\nExamples:\n#| eval: false\n\n#Good \nadd_value()\n\n#Bad \nvalue_add()\nvalue()\nMore style guidelines here"
+    "text": "Names for functions\nThe convention for functions in the tidyverse, a collection of related packages, is to start a function name with a verb, so do() or do_thing().\nExamples:\n#| eval: false\n\n#Good \nadd_value()\n\n#Bad \nvalue_add()\nvalue()\nMore style guidelines can be found in the tidyverse style guide"
   },
   {
     "objectID": "slides_01.html#styling-code-with-lintr",
@@ -466,21 +466,21 @@
     "href": "slides_01.html#beyond-lintr",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Beyond lintr\n",
-    "text": "Beyond lintr\n\nlintr gives recommendations but does not change code.\nThese tools can style your code by changing the code when executed:\n\nAir\nstyler\n\n\n\n\n\n\n\nWarning\n\n\nCaution: these tools change your code without asking!"
+    "text": "Beyond lintr\n\n\nlintr gives recommendations but leaves it up to you to make changes in the code.\nThese tools can style your code by changing the code when executed:\n\n\n\n\nAir\n\n\nstyler\n\n\n\n\n\n\n\nWarning\n\n\nCaution: these tools change your code without asking!"
   },
   {
     "objectID": "slides_01.html#writing-helpful-comments",
     "href": "slides_01.html#writing-helpful-comments",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Writing helpful comments",
-    "text": "Writing helpful comments\n\nA helpful comment explains the why, not the what or how.\n\nIf you find yourself commenting what the code is doing, the code might need to be re-written so that it speaks for itself.\nComments should be used sparingly, acting as an alert for the reader.\nMore info here and here"
+    "text": "Writing helpful comments\n\nA helpful comment explains the why, not the what or how.\n\nIf you find yourself commenting what the code is doing, the code might need to be re-written  so that it speaks for itself.\nComments should be used sparingly, acting as an alert for the reader.\n\nMore info here and here"
   },
   {
     "objectID": "slides_01.html#too-many-comments",
     "href": "slides_01.html#too-many-comments",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Too many comments",
-    "text": "Too many comments\nToo many comments will be ignored by the reader.\nIf you find yourself commenting a lot, there might be better alternatives:\n\nconvert your script to a  document such as Rmarkdown or Quarto\nincorporate your code into functions in a package and document them with roxygen2\n\n\nThere, detailed comments on what your code is doing for what reason are encouraged.\nBoth aspects will be covered in the second part of the workshop."
+    "text": "Too many comments\n\nToo many comments will be ignored by the reader.\nIf you find yourself commenting a lot, there might be better alternatives:\n\nconvert your script to a  document such as Rmarkdown or Quarto\nincorporate your code into functions in a package and document them with roxygen2\n\n\nThere, detailed comments on what your code is doing for what reason are encouraged.\nBoth aspects will be covered in the second part of the workshop."
   },
   {
     "objectID": "slides_01.html#why-make-it-reproducible",
@@ -497,13 +497,6 @@
     "text": "What is reproducibility?\nA study is reproducible if it can be\n\nconducted again\nyears later\nwith the same results."
   },
   {
-    "objectID": "slides_01.html#reproducible-research",
-    "href": "slides_01.html#reproducible-research",
-    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
-    "section": "Reproducible research",
-    "text": "Reproducible research\n\n\n\n\n\nG\nA\nDataD\nPublic sharingA-&gt;D\nC\nDocumentationC-&gt;D\nB\nCodeB-&gt;D\nE\nReproducible ResearchD-&gt;E"
-  },
-  {
     "objectID": "slides_01.html#the-replication-crisis",
     "href": "slides_01.html#the-replication-crisis",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
@@ -511,18 +504,25 @@
     "text": "The replication crisis\nReproducibility =/= Replication\nHowever, open methods and data are essential aspects for both.\nOpenly shared methods and data become valuable when we are given the same tools to work with as the authors."
   },
   {
+    "objectID": "slides_01.html#reproducible-research",
+    "href": "slides_01.html#reproducible-research",
+    "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
+    "section": "Reproducible research",
+    "text": "Reproducible research\n\n\n\n\n\nG\nA\nDataD\nPublic sharingA-&gt;D\nC\nDocumentationC-&gt;D\nB\nCodeB-&gt;D\nE\nReproducible ResearchD-&gt;E"
+  },
+  {
     "objectID": "slides_01.html#measures-for-reproducibility",
     "href": "slides_01.html#measures-for-reproducibility",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Measures for reproducibility",
-    "text": "Measures for reproducibility\nWe will look at these reproducibility measures today:\n\nReproducible environments with renv\n\nliterate programming using Quarto\n\npublish study analysis and data as an R package\n\nOutlook for advanced functionalities:\n\nversion control using git, Github, Gitlab, etc.\ncontainerization with Docker, Nix, rix\nResearch compendia"
+    "text": "Measures for reproducibility\nWe will look at these reproducibility measures today:\n\nReproducible environments with renv\n\nliterate programming using Quarto\n\nstudy analysis and data as an R package\n\nOutlook for advanced functionalities:\n\nversion control using git, Github, Gitlab, etc.\ncontainerization with Docker, rix, Binder, etc.\nResearch compendia"
   },
   {
     "objectID": "slides_01.html#a-fresh-start",
     "href": "slides_01.html#a-fresh-start",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "A fresh start",
-    "text": "A fresh start\nCan I run my analysis tomorrow with the same results as today? Have I included all steps in my code?\n for a fresh start:\n\nSession  Restart \nor\nControl + Shift + F10\n\n\nMake restarting R peroidically a habit!"
+    "text": "A fresh start\nCan I run my analysis tomorrow with the same results as today? Have I included all steps in my code?\n for a fresh start:\n\nSession  Restart \nor\nControl + Shift + F10\n\n\nMake restarting R periodically a habit!"
   },
   {
     "objectID": "slides_01.html#never-let-rstudio-save-anything",
