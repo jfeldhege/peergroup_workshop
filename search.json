@@ -452,7 +452,7 @@
     "href": "slides_01.html#styling-code-with-lintr",
     "title": "Clean Code, Reproducible Science: Advanced R-Programming and Workflows",
     "section": "Styling code with lintr\n",
-    "text": "Styling code with lintr\n\nlintr is a package for static code analysis on your R files.\nBasic usage:\n#| eval: false\n# Style one file\nlintr::lint(path = \"path/to/file\")\n\n# A whole directory or R project\nlintr::lint_dir(path = \"path/to/project\")"
+    "text": "Styling code with lintr\n\nlintr is a package for static code analysis on your R files.\nBasic usage:\n\n\nWith code:\n\n# Style one file\nlintr::lint(path = \"path/to/file\")\n\n# A whole directory or R project\nlintr::lint_dir(path = \"path/to/project\")\n\n\nOr with an RStudio addin:"
   },
   {
     "objectID": "slides_01.html#styling-code-with-lintr-1",

@@ -100,7 +100,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-<link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-d2dea8ad2eff165b0426e201ec6a58bf.css">
+<link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-d07b086cffcc9fd3c9e8eea8ac04a5b4.css">
 <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
 <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
 <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -2037,6 +2037,7 @@ Johannes Feldhege
 </div>
 </div>
 
+  <p class="date">13.05.2026</p>
 </section><section><section id="about-this-workshop" class="title-slide slide level1 center"><h1>About this workshop</h1>
 
 </section><section id="housekeeping" class="slide level2"><h2>Housekeeping</h2>
@@ -2108,7 +2109,7 @@ Johannes Feldhege
 <blockquote>
 <p>Code is written once but read many times.</p>
 </blockquote>
-<p>Therefore, we should strive to improve the readibility of our code.</p>
+<p>Therefore, we should strive to improve the <strong>readibility</strong> of our code.</p>
 <p>Three measures you can take towards this goal:</p>
 <ul>
 <li class="fragment">meaningful names</li>
@@ -2174,12 +2175,20 @@ Johannes Feldhege
 </h2>
 <p><a href="https://lintr.r-lib.org/">lintr</a> is a package for static code analysis on your R files.</p>
 <p>Basic usage:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#| eval: false</span></span>
-<span><span class="co"># Style one file</span></span>
-<span><span class="fu">lintr</span><span class="fu">::</span><span class="fu">lint</span><span class="op">(</span>path <span class="op">=</span> <span class="st">"path/to/file"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># A whole directory or R project</span></span>
-<span><span class="fu">lintr</span><span class="fu">::</span><span class="fu">lint_dir</span><span class="op">(</span>path <span class="op">=</span> <span class="st">"path/to/project"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>With code:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Style one file</span></span>
+<span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a><span class="ex">lintr::lint</span><span class="er">(</span><span class="ex">path</span> = <span class="st">"path/to/file"</span><span class="kw">)</span></span>
+<span id="cb4-3"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a aria-hidden="true" tabindex="-1"></a><span class="co"># A whole directory or R project</span></span>
+<span id="cb4-5"><a aria-hidden="true" tabindex="-1"></a><span class="ex">lintr::lint_dir</span><span class="er">(</span><span class="ex">path</span> = <span class="st">"path/to/project"</span><span class="kw">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:50%;">
+<p>Or with an RStudio addin:</p>
+<p><img data-src="images/addings.PNG"></p>
+</div></div>
 </section><section id="styling-code-with-lintr-1" class="slide level2"><h2>Styling code with <code>lintr</code>
 </h2>
 <p><code>lintr</code> comes with defaults.</p>
