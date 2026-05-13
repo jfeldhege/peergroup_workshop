@@ -6,7 +6,7 @@
 
 ## Description
 
-TBD
+A workshop advocating for better code and reproducible projects in  {{< fa brands r-project >}}. The workshop's topics are code readibility, reproducible environments, literate programming, and package development. Some of the packages and software taught are `renv`, Quarto,  `lintr`, `devtools`, and `usethis`.
 
 ## Timetable
 
